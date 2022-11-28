@@ -11,16 +11,10 @@
             </view>
             <view class="title">
               <view class="centerWrap">
-                <text class="name"> 这是nick </text>
-                <text class="identity"> "管理员"</text>
+                <text class="name"> nick </text>
+                <text class="identity">管理员</text>
               </view>
-              <view class="button-to-view">
-                <view class="pTip">
-                  <image
-                    src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KCILNFHP-1666325258875synchro.png" />
-                  修改微信头像昵称
-                </view>
-              </view>
+              
             </view>
             <view class="code">
               <view>
@@ -31,45 +25,22 @@
               </view>
             </view>
           </view>
-          <view class="moneyInfo">
-            <view class="moneyBox">
-              <view class="money2">99</view>
-              <check-login-button >
-                <view class="moneyTip">我的访客<image
-                    src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png">
-                  </image>
-                </view>
-              </check-login-button>
-            </view>
-            <view class="moneyBox">
-              <view class="money2">99</view>
-              <check-login-button >
-                <view class="moneyTip">
-                  可提现金额(元)
-                  <image
-                    src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png" />
-                </view>
-              </check-login-button>
-            </view>
-          </view>
+          
           <view class="rechargeInfo">
             <image src='https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/navBg.png'>
             </image>
             <view
-              :class="{ 'blackFont': true, 'textBox': true }">
+              :class="{'textBox': true }">
               <view class="display">
-               
-                <view class="font15">123</view>
-                <view class="font12">123</view>
-              </view>
-              <check-login-button style="margin-top:14rpx;" >
+              <view  class="font15">哈哈</view>
+              <view class="font12">嘻嘻</view>
+            </view>
                 <view class="btn fw">
-                 123
+                  嘿嘿
                   <image
                     src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NLFCKFJE-1666324258493heiyou.png">
                   </image>
                 </view>
-              </check-login-button>
             </view>
           </view>
         </view>
@@ -87,15 +58,13 @@
           <view class="centerWrap">
             <text class="name">邀请返现</text>
           </view>
-          <view class="pTip">邀请 <text>1人</text>使用，最高返<text>90元</text></view>
+          <view class="pTip">每邀请 <text>1人</text>使用，可返<text>0元</text></view>
         </view>
         <view class="code">
-          <check-login-button >
             <view class="btn">去邀请<image
                 src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png">
               </image>
             </view>
-          </check-login-button>
         </view>
       </view>
     </view>
