@@ -1,10 +1,8 @@
-/* eslint-disable no-console */
 /**
  * 封装好的阿里上传模块,未使用切片上传
  */
 import dayjs from 'dayjs';
 import { uuid } from './index';
-import { cdnHost } from './env';
 import isArray from 'lodash/isArray';
 import isString from 'lodash/isString';
 import Taro from '@tarojs/taro';
@@ -12,11 +10,10 @@ import Taro from '@tarojs/taro';
 // 获取文件后缀名
 function getExtName(filePath) {
   const matched = filePath.match(/.*\.(.*)/);
-
   return matched ? matched[1] : null;
 }
-
 const uploadFile = function(path, hasStatus, hash = '') {
+  const cdnHost = 'https://panshi-on.meipingmi.com.cn'
   // 自定义生成的文件名
   const name = uuid();
 

@@ -9,6 +9,7 @@ interface IEnvConfig {
 const allConfigs: { [k in BUILD_ENV] : IEnvConfig } = {
   test: {
     baseApi: 'http://60.191.116.75:23792', // 测试环境
+    // baseApi: 'http://192.168.18.132:23792',  // zgl本地
     webHost: 'http://192.168.4.173',
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
   },

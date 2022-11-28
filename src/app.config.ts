@@ -31,7 +31,7 @@ export default defineAppConfig({
       }, 
       {
         pagePath: 'pages/mine/index',
-        text: '个人中心',
+        text: '个人',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       },

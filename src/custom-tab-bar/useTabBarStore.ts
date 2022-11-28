@@ -32,7 +32,7 @@ export const tabList: Taro.TabBarItem[] = [
   }, 
   {
     pagePath: 'pages/mine/index', // 请确保 /pages/mine/index has definePageConfig.usingComponents
-    text: '个人中心',
+    text: '个人',
     iconPath: '../assets/images/tabbar/icon-tabbar-mine.png',
     selectedIconPath: '../assets/images/tabbar/icon-tabbar-mine-active.png',
   },

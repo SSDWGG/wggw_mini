@@ -1,8 +1,8 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "yunxiaoding-mini",
+  "projectname": "WGGW-mini",
   "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "appid": "wxf501c0d330388c22",
+  "appid": "wx824bf8a1f50fe5cf",
   "setting": {
     "urlCheck": false,
     "es6": false,

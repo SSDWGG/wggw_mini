@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./",
   "projectname": "taro-vue3",
-  "description": "云小叮小程序",
+  "description": "wgg的小空间",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,

@@ -9,13 +9,13 @@
 
 /* harmony import */ var _index_vue_vue_type_template_id_355cc69a_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=355cc69a&ts=true */ "./src/pages/mine/index.vue?vue&type=template&id=355cc69a&ts=true");
 /* harmony import */ var _index_vue_vue_type_script_lang_ts_setup_true__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=ts&setup=true */ "./src/pages/mine/index.vue?vue&type=script&lang=ts&setup=true");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_vue_vue_type_script_lang_ts_setup_true__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_355cc69a_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"src/pages/mine/index.vue"]])
+const __exports__ = /*#__PURE__*/(0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_index_vue_vue_type_script_lang_ts_setup_true__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_index_vue_vue_type_template_id_355cc69a_ts_true__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"src/pages/mine/index.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -32,9 +32,9 @@ if (false) {}
 
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mini_ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mini-ui */ "webpack/container/remote/mini-ui");
-/* harmony import */ var mini_ui__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(mini_ui__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.scss */ "./src/pages/mine/styles.scss");
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.scss */ "./src/pages/mine/styles.scss");
+/* harmony import */ var mini_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mini-ui */ "webpack/container/remote/mini-ui");
+/* harmony import */ var mini_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(mini_ui__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
@@ -43,17 +43,12 @@ if (false) {}
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    // 去邀请会员
-    var onGoInvite = function onGoInvite() {
-      console.log(1111);
-    };
     var __returned__ = {
-      onGoInvite: onGoInvite,
-      get Navbar() {
-        return mini_ui__WEBPACK_IMPORTED_MODULE_1__.Navbar;
-      },
       get styles() {
-        return _styles_scss__WEBPACK_IMPORTED_MODULE_2__["default"];
+        return _styles_scss__WEBPACK_IMPORTED_MODULE_1__["default"];
+      },
+      get Navbar() {
+        return mini_ui__WEBPACK_IMPORTED_MODULE_2__.Navbar;
       }
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -79,31 +74,113 @@ if (false) {}
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 
 var _hoisted_1 = {
-  class: "invite"
+  class: "bg"
 };
 var _hoisted_2 = {
+  class: "bgTop"
+};
+var _hoisted_3 = {
+  class: "topWrap"
+};
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<view class=\"topInfo\"><view class=\"head\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KCILNFHP-1666325258875synchro.png\"></image></view><view class=\"title\"><view class=\"centerWrap\"><text class=\"name\"> 这是nick </text><text class=\"identity\"> &quot;管理员&quot;</text></view><view class=\"button-to-view\"><view class=\"pTip\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KCILNFHP-1666325258875synchro.png\"></image> 修改微信头像昵称 </view></view></view><view class=\"code\"><view><text>管理</text><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png\"></image></view></view></view>", 1);
+var _hoisted_5 = {
+  class: "moneyInfo"
+};
+var _hoisted_6 = {
+  class: "moneyBox"
+};
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "money2"
+}, "99", -1 /* HOISTED */);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "moneyTip"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("我的访客"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("image", {
+  src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png"
+})], -1 /* HOISTED */);
+var _hoisted_9 = {
+  class: "moneyBox"
+};
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "money2"
+}, "99", -1 /* HOISTED */);
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "moneyTip"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 可提现金额(元) "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("image", {
+  src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png"
+})], -1 /* HOISTED */);
+var _hoisted_12 = {
+  class: "rechargeInfo"
+};
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("image", {
+  src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/navBg.png"
+}, null, -1 /* HOISTED */);
+var _hoisted_14 = {
+  class: /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+    'blackFont': true,
+    'textBox': true
+  })
+};
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "display"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "font15"
+}, "123"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "font12"
+}, "123")], -1 /* HOISTED */);
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+  class: "btn fw"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 123 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("image", {
+  src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NLFCKFJE-1666324258493heiyou.png"
+})], -1 /* HOISTED */);
+var _hoisted_17 = {
+  class: "invite"
+};
+var _hoisted_18 = {
   class: "topInfo"
 };
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<view class=\"head\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NNAELKCO-1666325258875redpack.png\"></image></view><view class=\"title\"><view class=\"centerWrap\"><text class=\"name\">邀请返现</text></view><view class=\"pTip\">邀请 <text>1人</text>使用，最高返<text>90元</text></view></view>", 2);
-var _hoisted_5 = {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<view class=\"head\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NNAELKCO-1666325258875redpack.png\"></image></view><view class=\"title\"><view class=\"centerWrap\"><text class=\"name\">邀请返现</text></view><view class=\"pTip\">邀请 <text>1人</text>使用，最高返<text>90元</text></view></view>", 2);
+var _hoisted_21 = {
   class: "code"
 };
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
   class: "btn"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("去邀请"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("image", {
   src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png"
 })], -1 /* HOISTED */);
-var _hoisted_7 = [_hoisted_6];
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<view class=\"contact\"><view class=\"left\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png\"></image><text>联系客服</text></view><view class=\"right\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png\"></image></view></view><view class=\"signOut\">退出登录</view>", 2);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_check_login_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("check-login-button");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("view", {
     class: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($setup.styles.myContainer)
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"], {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"], {
     hideBack: "",
     title: "我的",
     backgroundColor: "transparent"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", {
-    onTap: $setup.onGoInvite
-  }, _hoisted_7, 32 /* HYDRATE_EVENTS */)])])])], 2 /* CLASS */);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("  #endif "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_check_login_button, null, {
+    default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_8];
+    }),
+    _: 1 /* STABLE */
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_check_login_button, null, {
+    default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_11];
+    }),
+    _: 1 /* STABLE */
+  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_check_login_button, {
+    style: {
+      "margin-top": "14rpx"
+    }
+  }, {
+    default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_16];
+    }),
+    _: 1 /* STABLE */
+  })])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_check_login_button, null, {
+    default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_22];
+    }),
+    _: 1 /* STABLE */
+  })])])]), _hoisted_23], 2 /* CLASS */);
 }
 
 /***/ }),

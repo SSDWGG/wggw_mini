@@ -29,7 +29,7 @@ require("./runtime");
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Button; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component.js */ "./node_modules/@nutui/nutui-taro/dist/packages/_es/component.js");
@@ -52,7 +52,7 @@ var _createComponent = (0,_component_js__WEBPACK_IMPORTED_MODULE_1__.c)("button"
   componentName = _createComponent.componentName,
   create = _createComponent.create;
 var _sfc_main = create({
-  components: (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])({}, _Icon_js__WEBPACK_IMPORTED_MODULE_2__["default"].name, _Icon_js__WEBPACK_IMPORTED_MODULE_2__["default"]),
+  components: (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])({}, _Icon_js__WEBPACK_IMPORTED_MODULE_2__["default"].name, _Icon_js__WEBPACK_IMPORTED_MODULE_2__["default"]),
   props: {
     color: String,
     shape: {
@@ -117,7 +117,7 @@ var _sfc_main = create({
     var classes = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _ref2;
       var prefixCls = componentName;
-      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--").concat(type.value), type.value), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--").concat(size.value), size.value), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--").concat(shape.value), shape.value), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--plain"), plain.value), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--block"), block.value), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--disabled"), disabled.value), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--loading"), loading.value), _ref2;
+      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--").concat(type.value), type.value), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--").concat(size.value), size.value), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--").concat(shape.value), shape.value), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--plain"), plain.value), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--block"), block.value), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--disabled"), disabled.value), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_4__["default"])(_ref2, "".concat(prefixCls, "--loading"), loading.value), _ref2;
     });
     var getStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _a;
@@ -184,7 +184,7 @@ var Button = /* @__PURE__ */(0,_plugin_vue_export_helper_js__WEBPACK_IMPORTED_MO
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ index_taro; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component.js */ "./node_modules/@nutui/nutui-taro/dist/packages/_es/component.js");
@@ -322,7 +322,7 @@ var _sfc_main = create({
     var classes = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _ref2;
       var prefixCls = componentName;
-      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, "".concat(prefixCls, "--clickable"), props.isLink || props.to), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, "".concat(prefixCls, "--center"), props.center), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, "".concat(prefixCls, "--large"), props.size == "large"), _ref2;
+      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, "".concat(prefixCls, "--clickable"), props.isLink || props.to), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, "".concat(prefixCls, "--center"), props.center), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, "".concat(prefixCls, "--large"), props.size == "large"), _ref2;
     });
     var baseStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       return {
@@ -353,7 +353,7 @@ var index_taro = /* @__PURE__ */(0,_plugin_vue_export_helper_js__WEBPACK_IMPORTE
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ index; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component.js */ "./node_modules/@nutui/nutui-taro/dist/packages/_es/component.js");
@@ -386,7 +386,7 @@ var _sfc_main = create({
   setup: function setup() {
     var classes = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var prefixCls = componentName;
-      return (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])({}, prefixCls, true);
+      return (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])({}, prefixCls, true);
     });
     return {
       classes: classes
@@ -562,8 +562,8 @@ var _sfc_main = create({
 /* harmony export */   "default": function() { return /* binding */ overlay; },
 /* harmony export */   "overlayProps": function() { return /* binding */ overlayProps; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _component_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component.js */ "./node_modules/@nutui/nutui-taro/dist/packages/_es/component.js");
@@ -620,10 +620,10 @@ var _sfc_main = create({
     var classes = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _ref2;
       var prefixCls = componentName;
-      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, props.overlayClass, true), _ref2;
+      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, props.overlayClass, true), _ref2;
     });
     var style = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      return (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_4__["default"])({
+      return (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_4__["default"])({
         animationDuration: "".concat(props.duration, "s"),
         zIndex: props.zIndex
       }, props.overlayStyle);
@@ -672,9 +672,9 @@ var overlay = /* @__PURE__ */(0,_plugin_vue_export_helper_js__WEBPACK_IMPORTED_M
 /* harmony export */   "default": function() { return /* binding */ Popup; }
 /* harmony export */ });
 /* unused harmony export popupProps */
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/defineProperty.js */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/objectSpread2.js */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _use_lock_scroll_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./use-lock-scroll.js */ "./node_modules/@nutui/nutui-taro/dist/packages/_es/use-lock-scroll.js");
@@ -705,7 +705,7 @@ var _createComponent = (0,_component_js__WEBPACK_IMPORTED_MODULE_4__.c)("popup")
   componentName = _createComponent.componentName,
   create = _createComponent.create;
 var _zIndex = 2e3;
-var popupProps = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({}, _OverLay_js__WEBPACK_IMPORTED_MODULE_2__.overlayProps), {}, {
+var popupProps = (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({}, _OverLay_js__WEBPACK_IMPORTED_MODULE_2__.overlayProps), {}, {
   position: {
     type: String,
     default: "center"
@@ -756,8 +756,8 @@ var popupProps = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel
 });
 var _sfc_main = create({
   children: [_OverLay_js__WEBPACK_IMPORTED_MODULE_2__["default"]],
-  components: (_components = {}, (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_components, _OverLay_js__WEBPACK_IMPORTED_MODULE_2__["default"].name, _OverLay_js__WEBPACK_IMPORTED_MODULE_2__["default"]), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_components, _Icon_js__WEBPACK_IMPORTED_MODULE_3__["default"].name, _Icon_js__WEBPACK_IMPORTED_MODULE_3__["default"]), _components),
-  props: (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({}, popupProps),
+  components: (_components = {}, (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_components, _OverLay_js__WEBPACK_IMPORTED_MODULE_2__["default"].name, _OverLay_js__WEBPACK_IMPORTED_MODULE_2__["default"]), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_components, _Icon_js__WEBPACK_IMPORTED_MODULE_3__["default"].name, _Icon_js__WEBPACK_IMPORTED_MODULE_3__["default"]), _components),
+  props: (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({}, popupProps),
   emits: ["click", "click-close-icon", "open", "close", "opend", "closed", "update:visible", "click-overlay"],
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
@@ -772,16 +772,16 @@ var _sfc_main = create({
     var _useLockScroll = (0,_use_lock_scroll_js__WEBPACK_IMPORTED_MODULE_1__.u)(function () {
         return props.lockScroll;
       }),
-      _useLockScroll2 = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_8__["default"])(_useLockScroll, 2),
+      _useLockScroll2 = (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_8__["default"])(_useLockScroll, 2),
       lockScroll = _useLockScroll2[0],
       unlockScroll = _useLockScroll2[1];
     var classes = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       var _ref2;
       var prefixCls = componentName;
-      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, "round", props.round), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, "popup-".concat(props.position), true), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, "popup-".concat(props.position, "--safebottom"), props.position === "bottom" && props.safeAreaInsetBottom), (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, props.popClass, true), _ref2;
+      return _ref2 = {}, (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, prefixCls, true), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, "round", props.round), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, "popup-".concat(props.position), true), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, "popup-".concat(props.position, "--safebottom"), props.position === "bottom" && props.safeAreaInsetBottom), (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_7__["default"])(_ref2, props.popClass, true), _ref2;
     });
     var popStyle = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      return (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({
+      return (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({
         zIndex: state.zIndex,
         animationDuration: props.duration ? "".concat(props.duration, "s") : "initial"
       }, props.style);
@@ -872,7 +872,7 @@ var _sfc_main = create({
     }, function (value) {
       state.closed = value;
     });
-    return (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({}, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toRefs)(state)), {}, {
+    return (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_objectSpread2_js__WEBPACK_IMPORTED_MODULE_6__["default"])({}, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toRefs)(state)), {}, {
       popStyle: popStyle,
       classes: classes,
       onClick: onClick,
@@ -944,7 +944,7 @@ var Popup = /* @__PURE__ */(0,_plugin_vue_export_helper_js__WEBPACK_IMPORTED_MOD
 /* harmony export */   "c": function() { return /* binding */ createComponent; }
 /* harmony export */ });
 /* unused harmony exports T, a, f, g, i, m */
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/typeof.js */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/typeof.js */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _locale_lang__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../locale/lang */ "./node_modules/@nutui/nutui-taro/dist/packages/locale/lang/index.js");
@@ -960,7 +960,7 @@ var TypeOfFun = function TypeOfFun(value) {
   if (null === value) {
     return "null";
   }
-  var type = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_2__["default"])(value);
+  var type = (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_2__["default"])(value);
   if ("undefined" === type || "string" === type) {
     return type;
   }
@@ -996,7 +996,7 @@ var isFunction = function isFunction(val) {
   return typeof val === "function";
 };
 var isObject = function isObject(val) {
-  return val !== null && (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_2__["default"])(val) === "object";
+  return val !== null && (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_2__["default"])(val) === "object";
 };
 var isPromise = function isPromise(val) {
   return isObject(val) && isFunction(val.then) && isFunction(val.catch);
@@ -1079,8 +1079,8 @@ function createComponent(name) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "_": function() { return /* binding */ _export_sfc; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js */ "./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js");
 
 
 /*!
@@ -1090,11 +1090,11 @@ function createComponent(name) {
 */
 var _export_sfc = function _export_sfc(sfc, props) {
   var target = sfc.__vccOpts || sfc;
-  var _iterator = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(props),
+  var _iterator = (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createForOfIteratorHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(props),
     _step;
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var _step$value = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_step.value, 2),
+      var _step$value = (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_slicedToArray_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_step.value, 2),
         key = _step$value[0],
         val = _step$value[1];
       target[key] = val;
@@ -1176,8 +1176,8 @@ var useLockScroll = function useLockScroll(isLock) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "B": function() { return /* binding */ BaseLang; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 
 
 /*!
@@ -1185,8 +1185,8 @@ var useLockScroll = function useLockScroll(isLock) {
 * (c) 2022 @jdf2e.
 * Released under the MIT License.
 */
-var BaseLang = /*#__PURE__*/(0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function BaseLang() {
-  (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__["default"])(this, BaseLang);
+var BaseLang = /*#__PURE__*/(0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function BaseLang() {
+  (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_1__["default"])(this, BaseLang);
 });
 
 
@@ -1201,10 +1201,10 @@ var BaseLang = /*#__PURE__*/(0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_mo
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Lang; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits.js */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper.js */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits.js */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper.js */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
 /* harmony import */ var _baseLang_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./baseLang.js */ "./node_modules/@nutui/nutui-taro/dist/packages/locale/lang/baseLang.js");
 
 
@@ -1217,11 +1217,11 @@ var BaseLang = /*#__PURE__*/(0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_mo
 */
 
 var Lang = /*#__PURE__*/function (_BaseLang) {
-  (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Lang, _BaseLang);
-  var _super = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Lang);
+  (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Lang, _BaseLang);
+  var _super = (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Lang);
   function Lang() {
     var _this;
-    (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Lang);
+    (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Lang);
     _this = _super.apply(this, arguments);
     _this.save = "Save";
     _this.confirm = "Confirm";
@@ -1331,7 +1331,7 @@ var Lang = /*#__PURE__*/function (_BaseLang) {
     };
     return _this;
   }
-  return (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Lang);
+  return (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Lang);
 }(_baseLang_js__WEBPACK_IMPORTED_MODULE_4__.B);
 
 
@@ -1347,9 +1347,9 @@ var Lang = /*#__PURE__*/function (_BaseLang) {
 /* harmony export */   "default": function() { return /* binding */ Locale; }
 /* harmony export */ });
 /* unused harmony export Locale */
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/typeof.js */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/typeof.js */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _zh_CN_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./zh-CN.js */ "./node_modules/@nutui/nutui-taro/dist/packages/locale/lang/zh-CN.js");
@@ -1367,7 +1367,7 @@ var Lang = /*#__PURE__*/function (_BaseLang) {
 
 
 var isObject = function isObject(val) {
-  return val !== null && (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_1__["default"])(val) === "object";
+  return val !== null && (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_typeof_js__WEBPACK_IMPORTED_MODULE_1__["default"])(val) === "object";
 };
 var deepMerge = function deepMerge(target, newObj) {
   Object.keys(newObj).forEach(function (key) {
@@ -1387,9 +1387,9 @@ var langs = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
 });
 var Locale = /*#__PURE__*/function () {
   function Locale() {
-    (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Locale);
+    (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_4__["default"])(this, Locale);
   }
-  (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Locale, null, [{
+  (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Locale, null, [{
     key: "languages",
     value: function languages() {
       return langs[this.currentLang.value];
@@ -1430,10 +1430,10 @@ Locale.currentLang = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)("zh-CN");
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Lang; }
 /* harmony export */ });
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits.js */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper.js */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createClass.js */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/inherits.js */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/createSuper.js */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
 /* harmony import */ var _baseLang_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./baseLang.js */ "./node_modules/@nutui/nutui-taro/dist/packages/locale/lang/baseLang.js");
 
 
@@ -1446,11 +1446,11 @@ Locale.currentLang = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)("zh-CN");
 */
 
 var Lang = /*#__PURE__*/function (_BaseLang) {
-  (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Lang, _BaseLang);
-  var _super = (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Lang);
+  (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_inherits_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Lang, _BaseLang);
+  var _super = (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createSuper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Lang);
   function Lang() {
     var _this;
-    (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Lang);
+    (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_classCallCheck_js__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Lang);
     _this = _super.apply(this, arguments);
     _this.save = "\u4FDD\u5B58";
     _this.confirm = "\u786E\u8BA4";
@@ -1560,7 +1560,7 @@ var Lang = /*#__PURE__*/function (_BaseLang) {
     };
     return _this;
   }
-  return (0,_Users_renshuaiweidemac_Desktop_WGGW_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Lang);
+  return (0,_Users_renshuaiweidemac_Desktop_wggw_mini_node_modules_babel_runtime_helpers_esm_createClass_js__WEBPACK_IMPORTED_MODULE_3__["default"])(Lang);
 }(_baseLang_js__WEBPACK_IMPORTED_MODULE_4__.B);
 
 
@@ -1667,7 +1667,7 @@ App.use((0,pinia__WEBPACK_IMPORTED_MODULE_10__.createPinia)());
 
 
 
-var config = {"entryPagePath":"pages/index/index","pages":["pages/index/index","pages/mine/index","pages/album/index"],"subpackages":[],"window":{"navigationBarTextStyle":"black","navigationBarTitleText":"WGGW","navigationStyle":"custom","navigationBarBackgroundColor":"#ffffff"},"tabBar":{"custom":true,"color":"#747474","selectedColor":"#7468F2","backgroundColor":"#FFFFFF","borderStyle":"white","list":[{"pagePath":"pages/album/index","text":"相册","iconPath":"./assets/images/tabbar/icon-tabbar-album.png","selectedIconPath":"./assets/images/tabbar/icon-tabbar-album-active.png"},{"pagePath":"pages/mine/index","text":"个人中心","iconPath":"./assets/images/tabbar/icon-tabbar-mine.png","selectedIconPath":"./assets/images/tabbar/icon-tabbar-mine-active.png"}]}};
+var config = {"entryPagePath":"pages/index/index","pages":["pages/index/index","pages/mine/index","pages/album/index"],"subpackages":[],"window":{"navigationBarTextStyle":"black","navigationBarTitleText":"WGGW","navigationStyle":"custom","navigationBarBackgroundColor":"#ffffff"},"tabBar":{"custom":true,"color":"#747474","selectedColor":"#7468F2","backgroundColor":"#FFFFFF","borderStyle":"white","list":[{"pagePath":"pages/album/index","text":"相册","iconPath":"./assets/images/tabbar/icon-tabbar-album.png","selectedIconPath":"./assets/images/tabbar/icon-tabbar-album-active.png"},{"pagePath":"pages/mine/index","text":"个人","iconPath":"./assets/images/tabbar/icon-tabbar-mine.png","selectedIconPath":"./assets/images/tabbar/icon-tabbar-mine-active.png"}]}};
 _tarojs_runtime__WEBPACK_IMPORTED_MODULE_2__.window.__taroAppConfig = config
 var inst = App((0,_tarojs_plugin_framework_vue3_dist_runtime__WEBPACK_IMPORTED_MODULE_3__.createVue3App)(_node_modules_babel_loader_lib_index_js_clonedRuleSet_16_use_0_app_ts__WEBPACK_IMPORTED_MODULE_5__["default"], vue__WEBPACK_IMPORTED_MODULE_6__.h, config))
 

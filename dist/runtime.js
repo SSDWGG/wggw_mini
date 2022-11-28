@@ -139,7 +139,7 @@
 /******/ 	/* webpack/runtime/load script */
 /******/ 	!function() {
 /******/ 		var inProgress = {};
-/******/ 		var dataWebpackPrefix = "WGGW-mini:";
+/******/ 		var dataWebpackPrefix = "wggw-mini:";
 /******/ 		// loadScript function to load a script via script tag
 /******/ 		__webpack_require__.l = function(url, done, key, chunkId) {
 /******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
