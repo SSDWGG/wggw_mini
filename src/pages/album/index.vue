@@ -1,5 +1,10 @@
 <template>
   <view :class="styles.myContainer">
+<!--     
+      你可以在这个封闭的私密空间内写下和记录你所想记录的内容，
+      本站不对信息做任何存储，本站承诺这是一个信息安全的纯前端的小程序，您的数据信息除了微信和您的账号外无法访问
+      如果您将本小程序删除，将会自动清除程序内的的所有的记录数据，请妥善保管您的记录数据数据
+     -->
     <view class="progress">
       <!-- year progress -->
       <nut-circle-progress :progress="progressYear" radius="80" strokeWidth="3" :color="data.gradientColor">

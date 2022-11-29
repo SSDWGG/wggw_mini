@@ -25,13 +25,13 @@ export default defineAppConfig({
     list: [
       {
         pagePath: 'pages/album/index',
-        text: '相册',
+        text: 'ww',
         iconPath: './assets/images/tabbar/icon-tabbar-album.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-album-active.png',
       }, 
       {
         pagePath: 'pages/mine/index',
-        text: '个人',
+        text: 'gg',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       },
