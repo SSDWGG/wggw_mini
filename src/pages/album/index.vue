@@ -7,7 +7,8 @@
       :background="`#F1EFFD`"
       :color="`#8074FE`"
       >
-      本站承诺这是一个信息安全的纯前端的小程序,本程序不对信息做任何存储，您的数据信息除了微信和您的账号外将无法访问，
+      本站承诺这是一个信息安全的纯前端的小程序,本程序不对信息做任何存储，
+      您的数据信息存储在您的设备硬件上，他人无法访问，
       你可以在这个封闭的私密空间内写下和记录你所想记录的内容，
       如果您将本小程序删除，将会清除程序内的所有的记录数据，
       请妥善保存您的数据
@@ -51,10 +52,6 @@
 </template>
 <script lang="ts" setup>
 import styles from './styles.scss';
-definePageConfig({
-  enableShareAppMessage: true,
-  enableShareTimeline: true,
-});
 import {
   NoticeBar as NutNoticeBar,
   CircleProgress as NutCircleProgress,
@@ -64,7 +61,10 @@ import { computed, reactive } from 'vue';
 import { useAccountStore } from '@/stores/account';
 import { useDidShow } from '@tarojs/taro';
 
-
+definePageConfig({
+  enableShareAppMessage: true,
+  enableShareTimeline: true,
+});
 
 
 const account = useAccountStore();
