@@ -548,6 +548,8 @@ page {
 }
 .styles__myContainer___vmOtL .nut-circleprogress {
   position: relative;
+  width: 60vw !important;
+  height: 60vw !important;
 }
 .styles__myContainer___vmOtL .nut-circleprogress-text {
   width: 100%;

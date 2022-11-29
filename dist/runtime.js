@@ -20,7 +20,7 @@
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -204,7 +204,8 @@
 /******/ 			"common": [
 /******/ 				"webpack/container/remote/@tarojs/runtime",
 /******/ 				"webpack/container/remote/@tarojs/taro",
-/******/ 				"webpack/container/remote/vue"
+/******/ 				"webpack/container/remote/vue",
+/******/ 				"webpack/container/remote/dayjs"
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
@@ -236,6 +237,11 @@
 /******/ 			"webpack/container/remote/vue": [
 /******/ 				"default",
 /******/ 				"./vue",
+/******/ 				null
+/******/ 			],
+/******/ 			"webpack/container/remote/dayjs": [
+/******/ 				"default",
+/******/ 				"./dayjs",
 /******/ 				null
 /******/ 			]
 /******/ 		};

@@ -12,6 +12,8 @@ page {
   :global {
     .nut-circleprogress{
     position: relative;
+    width: 60vw !important;
+    height: 60vw !important;
     }
     .nut-circleprogress-text{
       width: 100%;

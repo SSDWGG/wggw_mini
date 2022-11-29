@@ -2,7 +2,7 @@
   <view :class="styles.myContainer">
     <view class="progress">
       <!-- year progress -->
-      <nut-circle-progress :progress="progressYear" radius="80" strokeWidth="3" :color="data.gradientColor">
+      <nut-circle-progress :progress="progressYear" radius="80" strokeWidth="3" :color="data.gradientColor" stroke-linecap="square butt">
         <view class="progressDiv">
           <view class="title">
             {{data.nowTime.year()}}-progress
@@ -63,9 +63,8 @@ setInterval(() => {
 const progressYear = computed(() => ((data.nowTime - data.startYear) * 100 / 31536000000).toFixed(6))
 const passTimeInYear = computed(() => (data.nowTime.diff(dayjs(data.startYear), 'day',true)).toFixed(6))
 
-
-
 const progressDay = computed(() => (100-(data.endDay.diff(dayjs(data.nowTime), 'millisecond',true)) * 100 / 86400000).toFixed(6))
+
 
 
 </script>
