@@ -4672,3 +4672,5 @@
   animation-timing-function: ease-in-out;
   animation-delay: var(--animate-delay);
 }
+
+@import "./common.wxss";

@@ -30,25 +30,57 @@ if (false) {}
   \**************************************************************************************************************************************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.scss */ "./src/pages/mine/styles.scss");
-/* harmony import */ var mini_ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! mini-ui */ "webpack/container/remote/mini-ui");
-/* harmony import */ var mini_ui__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(mini_ui__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nutui_nutui_taro_dist_packages_es_CircleProgress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nutui/nutui-taro/dist/packages/_es/CircleProgress */ "./node_modules/@nutui/nutui-taro/dist/packages/_es/CircleProgress.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "webpack/container/remote/vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.scss */ "./src/pages/mine/styles.scss");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_1__.defineComponent)({
   __name: 'index',
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var __returned__ = {
-      get styles() {
-        return _styles_scss__WEBPACK_IMPORTED_MODULE_1__["default"];
+    var data = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
+      gradientColor: {
+        '0%': '#FF5E5E',
+        '100%': '#FFA062'
       },
-      get Navbar() {
-        return mini_ui__WEBPACK_IMPORTED_MODULE_2__.Navbar;
+      startYear: dayjs__WEBPACK_IMPORTED_MODULE_3___default()("".concat(dayjs__WEBPACK_IMPORTED_MODULE_3___default()().year() - 1, "-12-31 23:59:59.999")),
+      endDay: dayjs__WEBPACK_IMPORTED_MODULE_3___default()("".concat(dayjs__WEBPACK_IMPORTED_MODULE_3___default()().format('YYYY-MM-DD'), " 23:59:59.999")),
+      nowTime: dayjs__WEBPACK_IMPORTED_MODULE_3___default()()
+    });
+    setInterval(function () {
+      data.nowTime = dayjs__WEBPACK_IMPORTED_MODULE_3___default()();
+    }, 25);
+    var progressYear = (0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return ((data.nowTime - data.startYear) * 100 / 31536000000).toFixed(6);
+    });
+    var passTimeInYear = (0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return data.nowTime.diff(dayjs__WEBPACK_IMPORTED_MODULE_3___default()(data.startYear), 'day', true).toFixed(6);
+    });
+    var progressDay = (0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return (100 - data.endDay.diff(dayjs__WEBPACK_IMPORTED_MODULE_3___default()(data.nowTime), 'millisecond', true) * 100 / 86400000).toFixed(6);
+    });
+    var __returned__ = {
+      data: data,
+      progressYear: progressYear,
+      passTimeInYear: passTimeInYear,
+      progressDay: progressDay,
+      get styles() {
+        return _styles_scss__WEBPACK_IMPORTED_MODULE_2__["default"];
+      },
+      get NutCircleProgress() {
+        return _nutui_nutui_taro_dist_packages_es_CircleProgress__WEBPACK_IMPORTED_MODULE_0__["default"];
+      },
+      get dayjs() {
+        return (dayjs__WEBPACK_IMPORTED_MODULE_3___default());
       }
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -74,18 +106,65 @@ if (false) {}
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 
 var _hoisted_1 = {
-  class: "bg"
+  class: "progress"
 };
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<view class=\"bgTop\"><!--  #endif --><view class=\"topWrap\"><view class=\"topInfo\"><view class=\"head\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KCILNFHP-1666325258875synchro.png\"></image></view><view class=\"title\"><view class=\"centerWrap\"><text class=\"name\"> nick </text><text class=\"identity\">管理员</text></view></view><view class=\"code\"><view><text>管理</text><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png\"></image></view></view></view><view class=\"rechargeInfo\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/navBg.png\"></image><view class=\"textBox\"><view class=\"display\"><view class=\"font15\">哈哈</view><view class=\"font12\">嘻嘻</view></view><view class=\"btn fw\"> 嘿嘿 <image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NLFCKFJE-1666324258493heiyou.png\"></image></view></view></view></view></view>", 1);
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<view class=\"invite\"><view class=\"topInfo\"><view class=\"head\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NNAELKCO-1666325258875redpack.png\"></image></view><view class=\"title\"><view class=\"centerWrap\"><text class=\"name\">邀请返现</text></view><view class=\"pTip\">每邀请 <text>1人</text>使用，可返<text>0元</text></view></view><view class=\"code\"><view class=\"btn\">去邀请<image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png\"></image></view></view></view></view><view class=\"contact\"><view class=\"left\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png\"></image><text>联系客服</text></view><view class=\"right\"><image src=\"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png\"></image></view></view><view class=\"signOut\">退出登录</view>", 3);
+var _hoisted_2 = {
+  class: "progressDiv"
+};
+var _hoisted_3 = {
+  class: "title"
+};
+var _hoisted_4 = {
+  class: "progressNum"
+};
+var _hoisted_5 = {
+  class: "progressNum"
+};
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("image", {
+  class: "bgImg",
+  src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg"
+}, null, -1 /* HOISTED */);
+var _hoisted_7 = {
+  class: "progressDiv"
+};
+var _hoisted_8 = {
+  class: "title"
+};
+var _hoisted_9 = {
+  class: "progressNum"
+};
+var _hoisted_10 = {
+  class: "progressNum"
+};
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("image", {
+  class: "bgImg",
+  src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg"
+}, null, -1 /* HOISTED */);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("view", {
     class: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($setup.styles.myContainer)
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Navbar"], {
-    hideBack: "",
-    title: "我的",
-    backgroundColor: "transparent"
-  }), _hoisted_2]), _hoisted_3], 2 /* CLASS */);
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" year progress "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NutCircleProgress"], {
+    progress: $setup.progressYear,
+    radius: "80",
+    strokeWidth: "3",
+    color: $setup.data.gradientColor
+  }, {
+    default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.data.nowTime.year()) + "-progress ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.progressYear) + "% ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.passTimeInYear) + "Day ", 1 /* TEXT */)]), _hoisted_6];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["progress", "color"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" day progress "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NutCircleProgress"], {
+    progress: $setup.progressDay,
+    radius: "80",
+    strokeWidth: "3",
+    color: $setup.data.gradientColor
+  }, {
+    default: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.data.nowTime.format('M.D')) + "-progress ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.dayjs().format('MM-DD hh:mm')), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("view", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.progressDay) + "% ", 1 /* TEXT */)]), _hoisted_11];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["progress", "color"])])], 2 /* CLASS */);
 }
 
 /***/ }),
@@ -112,7 +191,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 /* harmony import */ var _node_modules_tarojs_taro_loader_lib_raw_js_index_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/@tarojs/taro-loader/lib/raw.js!./index.vue */ "./node_modules/@tarojs/taro-loader/lib/raw.js!./src/pages/mine/index.vue");
 
 
-var config = {"backgroundColor":"#f3f3fe"};
+var config = {};
 
 
 var inst = Page((0,_tarojs_runtime__WEBPACK_IMPORTED_MODULE_0__.createPageConfig)(_node_modules_tarojs_taro_loader_lib_raw_js_index_vue__WEBPACK_IMPORTED_MODULE_1__["default"], 'pages/mine/index', {root:{cn:[]}}, config || {}))

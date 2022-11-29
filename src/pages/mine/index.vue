@@ -1,96 +1,71 @@
 <template>
   <view :class="styles.myContainer">
-    <view class="bg">
-      <navbar hideBack title="我的" backgroundColor="transparent" />
-      <view class="bgTop">
-        <!--  #endif -->
-        <view class="topWrap">
-          <view class="topInfo" >
-            <view class="head">
-              <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KCILNFHP-1666325258875synchro.png"></image>
-            </view>
-            <view class="title">
-              <view class="centerWrap">
-                <text class="name"> nick </text>
-                <text class="identity">管理员</text>
-              </view>
-              
-            </view>
-            <view class="code">
-              <view>
-                <text>管理</text>
-                <image
-                  src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png">
-                </image>
-              </view>
-            </view>
+    <view class="progress">
+      <!-- year progress -->
+      <nut-circle-progress :progress="progressYear" radius="80" strokeWidth="3" :color="data.gradientColor">
+        <view class="progressDiv">
+          <view class="title">
+            {{data.nowTime.year()}}-progress
           </view>
-          
-          <view class="rechargeInfo">
-            <image src='https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/navBg.png'>
-            </image>
-            <view
-              :class="{'textBox': true }">
-              <view class="display">
-              <view  class="font15">哈哈</view>
-              <view class="font12">嘻嘻</view>
-            </view>
-                <view class="btn fw">
-                  嘿嘿
-                  <image
-                    src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NLFCKFJE-1666324258493heiyou.png">
-                  </image>
-                </view>
-            </view>
+          <view class="progressNum">
+            {{ progressYear }}%
+          </view>
+          <view class="progressNum">
+           {{ passTimeInYear }}Day
           </view>
         </view>
-      </view>
+        <image class="bgImg" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg"></image>
+      </nut-circle-progress>
+      
+      <!-- day progress -->
+   <nut-circle-progress :progress="progressDay" radius="80" strokeWidth="3" :color="data.gradientColor">
+        <view class="progressDiv">
+          <view class="title">
+            {{data.nowTime.format('M.D')}}-progress
+          </view>
+          <view class="progressNum">
+           {{dayjs().format('MM-DD hh:mm')}}
+          </view>
+          <view class="progressNum">
+            {{ progressDay }}%
+          </view>
+        </view>
+        <image class="bgImg" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg"></image>
+      </nut-circle-progress>
     </view>
 
-    <view class="invite">
-      <view class="topInfo">
-        <view class="head">
-          <image
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NNAELKCO-1666325258875redpack.png">
-          </image>
-        </view>
-        <view class="title">
-          <view class="centerWrap">
-            <text class="name">邀请返现</text>
-          </view>
-          <view class="pTip">每邀请 <text>1人</text>使用，可返<text>0元</text></view>
-        </view>
-        <view class="code">
-            <view class="btn">去邀请<image
-                src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png">
-              </image>
-            </view>
-        </view>
-      </view>
-    </view>
-    <view class="contact" >
-      <view class="left">
-        <image
-          src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
-        </image>
-        <text>联系客服</text>
-      </view>
-      <view class="right">
-        <image
-          src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png">
-        </image>
-      </view>
-    </view>
-    <view class="signOut">退出登录</view>
   </view>
 
 </template>
 <script lang="ts" setup>
 import styles from './styles.scss';
-import { Navbar } from 'mini-ui';
+import {
+  CircleProgress as NutCircleProgress,
+} from '@nutui/nutui-taro';
+import dayjs from 'dayjs';
+import { computed, reactive } from 'vue';
+
+const data = reactive({
+  gradientColor: {
+    '0%': '#FF5E5E',
+    '100%': '#FFA062'
+  },
+  startYear: dayjs(`${dayjs().year()-1}-12-31 23:59:59.999`),
+  endDay: dayjs(`${dayjs().format('YYYY-MM-DD')} 23:59:59.999`),
+  nowTime: dayjs(),
+})
 
 
-definePageConfig({ backgroundColor: '#f3f3fe' });
+setInterval(() => {
+  data.nowTime = dayjs();
+}, 25)
+
+const progressYear = computed(() => ((data.nowTime - data.startYear) * 100 / 31536000000).toFixed(6))
+const passTimeInYear = computed(() => (data.nowTime.diff(dayjs(data.startYear), 'day',true)).toFixed(6))
+
+
+
+const progressDay = computed(() => (100-(data.endDay.diff(dayjs(data.nowTime), 'millisecond',true)) * 100 / 86400000).toFixed(6))
 
 
 </script>
