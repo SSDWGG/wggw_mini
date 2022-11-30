@@ -1,0 +1,92 @@
+<template>
+  <view :class="styles.myContainer">
+     <nut-notice-bar
+      right-icon="circle-close"
+      :background="`#F1EFFD`"
+      color="#8074FE"
+      :speed="35"
+      v-if="account.showfirstTimePageNoticeBar"
+      >
+      <!-- 您的账号数据信息存储在您的设备硬件上，他人以及其他设备无法访问，
+      您可以在这个封闭的私密空间记录您所想记录的内容，
+      如果您将本小程序删除，微信将会清空本程序内的所有的记录数据，
+      请妥善保存您的数据 -->
+      Do not go gentle into that good night,
+      Old age should burn and rave at close of day;
+      Rage, rage against the dying of the light.
+      
+      Though wise men at their end know dark is right,
+      Because their words had forked no lightning they
+      Do not go gentle into that good night.
+      </nut-notice-bar>
+    <view class="progress">
+      <!-- day progress -->
+   <nut-circle-progress :progress="progressDay" radius="100" strokeWidth="3" :color="data.gradientColor" @tap="switchTabs">
+        <view class="progressDiv">
+          <view class="title">
+            {{data.nowTime.format('M.D')}}-progress
+          </view>
+          <view class="progressNum">
+           {{dayjs().format('MM-DD hh:mm')}}
+          </view>
+          <view class="progressNum">
+            {{ progressDay }}%
+          </view>
+        </view>
+        <image class="bgImg" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg"></image>
+      </nut-circle-progress>
+    </view>
+  </view>
+
+</template>
+<script lang="ts" setup>
+import styles from './styles.scss';
+import {
+  NoticeBar as NutNoticeBar,
+  CircleProgress as NutCircleProgress,
+} from '@nutui/nutui-taro';
+import dayjs from 'dayjs';
+import { computed, reactive } from 'vue';
+import { useAccountStore } from '@/stores/account';
+import { useDidShow } from '@tarojs/taro';
+import { useTabBarStore } from '../../../../custom-tab-bar/useTabBarStore';
+
+
+definePageConfig({
+  enableShareAppMessage: true,
+  enableShareTimeline: true,
+});
+
+const tabbarstore = useTabBarStore();
+
+const account = useAccountStore();
+
+const data = reactive({
+  gradientColor: {
+    '0%': '#FF5E5E',
+    '100%': '#FFA062'
+  },
+  endDay: dayjs(`${dayjs().format('YYYY-MM-DD')} 23:59:59.999`),
+  nowTime: dayjs(),
+})
+
+const switchTabs = ()=>{
+  account.showTabs = !account.showTabs
+  tabbarstore.setVisible(account.showTabs);
+}
+
+
+setInterval(() => {
+  data.nowTime = dayjs();
+}, 50)
+
+const progressDay = computed(() => (100-(data.endDay.diff(dayjs(data.nowTime), 'millisecond',true)) * 100 / 86400000).toFixed(6))
+
+useDidShow(()=>{
+  account.test   = account.test+"哈hei"
+  console.log(1111,account.test);
+})
+
+
+
+</script>

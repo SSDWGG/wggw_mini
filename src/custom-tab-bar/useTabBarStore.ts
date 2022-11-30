@@ -26,13 +26,13 @@ export const useTabBarStore = defineStore('tabbar', {
 export const tabList: Taro.TabBarItem[] = [
   {
     pagePath: 'pages/album/index', // 请确保 /pages/album/index.vue has definePageConfig.usingComponents
-    text: 'w',
+    text: 'Main',
     iconPath: '../assets/images/tabbar/icon-tabbar-album.png',
     selectedIconPath: '../assets/images/tabbar/icon-tabbar-album-active.png',
   }, 
   {
     pagePath: 'pages/mine/index', // 请确保 /pages/mine/index has definePageConfig.usingComponents
-    text: 'g',
+    text: 'Time',
     iconPath: '../assets/images/tabbar/icon-tabbar-mine.png',
     selectedIconPath: '../assets/images/tabbar/icon-tabbar-mine-active.png',
   },

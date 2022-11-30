@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.myContainer">
-    <view class="progress">
+    <view class="progress" @tap="switchTabs">
       <!-- year progress -->
       <nut-circle-progress :progress='(progressYear>100||progressYear<0)?"100":progressYear' radius="80" strokeWidth="3" :color="data.gradientColor" stroke-linecap="square butt">
         <view class="progressDiv">
@@ -60,6 +60,11 @@ import {
 } from '@nutui/nutui-taro';
 import dayjs from 'dayjs';
 import { computed, reactive } from 'vue';
+import { useAccountStore } from '@/stores/account';
+import { useTabBarStore } from '../../custom-tab-bar/useTabBarStore';
+
+const tabbarstore = useTabBarStore();
+const account = useAccountStore();
 
 const data = reactive({
   gradientColor: {
@@ -102,12 +107,15 @@ function time(f, time) {
 
 time(()=>{data.nowTime = dayjs();}, 50)();
 
+const progressYear :any = computed(() => (data.nowTime.diff(dayjs(data.startYear), 'millisecond',true) * 100 / 31536000000).toFixed(6))
+const passTimeInYear :any = computed(() => (data.nowTime.diff(dayjs(data.startYear), 'day',true)).toFixed(6))
+const progressDay :any = computed(() => (100-(data.endDay.diff(dayjs(data.nowTime), 'millisecond',true)) * 100 / 86400000).toFixed(6))
+const progressWork :any = computed(() => (100-(data.endWork.diff(dayjs(data.nowTime), 'millisecond',true)) * 100 / 32400000).toFixed(6))
 
-
-const progressYear = computed(() => ((data.nowTime - data.startYear) * 100 / 31536000000).toFixed(6))
-const passTimeInYear = computed(() => (data.nowTime.diff(dayjs(data.startYear), 'day',true)).toFixed(6))
-const progressDay = computed(() => (100-(data.endDay.diff(dayjs(data.nowTime), 'millisecond',true)) * 100 / 86400000).toFixed(6))
-const progressWork = computed(() => (100-(data.endWork.diff(dayjs(data.nowTime), 'millisecond',true)) * 100 / 32400000).toFixed(6))
+const switchTabs = ()=>{
+  account.showTabs = !account.showTabs
+  tabbarstore.setVisible(account.showTabs);
+}
 
 
 
