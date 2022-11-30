@@ -113,9 +113,15 @@ const switchTabs = () => {
 }
 
 
-setInterval(() => {
-  data.nowTime = dayjs();
-}, 50)
+function timefun(f, time) {
+    let aeta = null as any
+     clearTimeout(aeta);
+         aeta =setTimeout(function () {
+            f();
+            timefun(()=>{data.nowTime = dayjs();}, 50);
+        }, time); 
+}
+timefun(()=>{data.nowTime = dayjs();}, 50);
 
 const progressDay = computed(() => (100 - (data.endDay.diff(dayjs(data.nowTime), 'millisecond', true)) * 100 / 86400000).toFixed(6))
 

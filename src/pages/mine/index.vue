@@ -77,35 +77,16 @@ const data = reactive({
   nowTime: dayjs(),
 })
 
-// setInterval 会造成内存不停的增加
-// setInterval(() => {
-//   // '2022-11-29 17:59:59.999'
-//   data.nowTime = dayjs();
-// }, 1)
 
-// const init  = ()=>{
-//   const interval =  setInterval(() => {
-//   // '2022-11-29 17:59:59.999'
-//   data.nowTime = dayjs();
-//   clearInterval(interval)
-//   init()
-// }, 1)
-// }
-// init()
-
-// 使用settime不会造成内存泄露
-function time(f, time) {
-    return function walk() {
-      let aeta = null as any
-     !!aeta&&clearTimeout(aeta);
+function timefun(f, time) {
+    let aeta = null as any
+     clearTimeout(aeta);
          aeta =setTimeout(function () {
             f();
-            walk(); 
-        }, time);
-    };
+            timefun(()=>{data.nowTime = dayjs();}, 50);
+        }, time); 
 }
-
-time(()=>{data.nowTime = dayjs();}, 50)();
+timefun(()=>{data.nowTime = dayjs();}, 50);
 
 const progressYear :any = computed(() => (data.nowTime.diff(dayjs(data.startYear), 'millisecond',true) * 100 / 31536000000).toFixed(6))
 const passTimeInYear :any = computed(() => (data.nowTime.diff(dayjs(data.startYear), 'day',true)).toFixed(6))

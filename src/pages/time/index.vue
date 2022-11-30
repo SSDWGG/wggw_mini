@@ -101,7 +101,8 @@ const data = reactive({
 function time(f, time) {
     return function walk() {
       let aeta = null as any
-     !!aeta&&clearTimeout(aeta);
+      // !!aeta&&
+     clearTimeout(aeta);
          aeta =setTimeout(function () {
             f();
             walk(); 
