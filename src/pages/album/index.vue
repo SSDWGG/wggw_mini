@@ -1,6 +1,7 @@
 <template>
   <view :class="styles.myContainer">
     <FirstTimePage/>
+    
   </view>
 
 </template>

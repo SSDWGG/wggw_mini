@@ -8,6 +8,9 @@ export default defineAppConfig({
     'pages/album/index'
   ],
   subpackages: [
+    { root: 'pages/memo', pages: ['index'] },
+    { root: 'pages/time', pages: ['index'] },
+
   ],
   window: {
     navigationBarTextStyle: 'black',
@@ -25,13 +28,13 @@ export default defineAppConfig({
     list: [
       {
         pagePath: 'pages/album/index',
-        text: 'Main',
-        iconPath: './assets/images/tabbar/icon-tabbar-album.png',
-        selectedIconPath: './assets/images/tabbar/icon-tabbar-album-active.png',
+        text: 'Menu',
+        iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
+        selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       }, 
       {
         pagePath: 'pages/mine/index',
-        text: 'Time',
+        text: 'Mine',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       },
