@@ -8,7 +8,7 @@ export default defineAppConfig({
     'pages/album/index'
   ],
   subpackages: [
-    { root: 'pages/memo', pages: ['index'] },
+    { root: 'pages/memo', pages: ['index','post/index'] },
     { root: 'pages/time', pages: ['index'] },
 
   ],

@@ -13,6 +13,8 @@ function getExtName(filePath) {
   return matched ? matched[1] : null;
 }
 const uploadFile = function(path, hasStatus, hash = '') {
+  console.log(path);
+  
   const cdnHost = 'https://panshi-on.meipingmi.com.cn'
   // 自定义生成的文件名
   const name = uuid();

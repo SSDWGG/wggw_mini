@@ -39,7 +39,6 @@ import {
 } from '@nutui/nutui-taro';
 import {  reactive } from 'vue';
 import { useAccountStore } from '@/stores/account';
-import { useDidShow } from '@tarojs/taro';
 import { useTabBarStore } from '../../../../custom-tab-bar/useTabBarStore';
 import Taro from '@tarojs/taro';
 import MyCircleProgress from '@/components/MyCircleProgress/index.vue';
@@ -76,12 +75,6 @@ const switchTabs = () => {
 const goto = (item) => {
   Taro.navigateTo({ url: item.router });
 }
-
-useDidShow(() => {
-  account.test = account.test + "哈hei"
-  console.log(1111, account.test);
-})
-
 
 
 

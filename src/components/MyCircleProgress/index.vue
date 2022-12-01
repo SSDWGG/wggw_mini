@@ -133,7 +133,6 @@ const data = reactive({
 (function timefun() {
   clearTimeout(data.aeta);
   data.aeta = setTimeout(function () {
-    console.log(1);
     data.nowTime = dayjs();
     timefun();
   }, 50);

@@ -29,12 +29,13 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, watch } from 'vue';
-import { useTabBarStore } from '../../../../custom-tab-bar/useTabBarStore';
+import { reactive } from 'vue';
 import styles from './styles.scss';
 import selectMedia, { IMediaType, IResult } from '../selectMedia';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
+import Taro from '@tarojs/taro';
+const accountStore = useAccountStore();
 
 interface IState {
   visible: boolean;
@@ -52,18 +53,18 @@ const handleClose = () => {
   state.visible = false;
 };
 
-const accountStore = useAccountStore();
-const tabbarstore = useTabBarStore();
 
-watch(() => state.visible, (val: boolean) => {
-  tabbarstore.setVisible(!val);
-});
+
 
 const handleChoose = async (type: IMediaType) => {
   handleClose();
   try {
     const list = await selectMedia(type);
     console.log('选择的资源',list);
+    accountStore.templeChoosePostList = list
+    Taro.navigateTo({
+      url: `/pages/memo/post/index?type=${type}`
+    });
     
   } catch (err) {
     console.log('上传抛出异常', err);
