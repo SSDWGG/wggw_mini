@@ -7,25 +7,8 @@
       {{account.NoticeBarText}}
       </nut-notice-bar>
       <!-- day progress -->
-      <nut-circle-progress :progress="progressDay" radius="100" strokeWidth="3" :color="data.gradientColor"
-        @tap="switchTabs">
-        <view class="progressDiv">
-          <view class="title">
-            {{ data.nowTime.format('M.D') }}-progress
-          </view>
-          <view class="progressNum">
-            {{ dayjs().format('MM-DD hh:mm') }}
-          </view>
-          <view class="progressNum">
-            {{ progressDay }}%
-          </view>
-        </view>
-        <image class="bgImg"
-          src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg">
-        </image>
-      </nut-circle-progress>
+     <MyCircleProgress  @tap="switchTabs" format="MM-DD hh:mm"/>
       <!-- begin button  -->
-      <!--         color="linear-gradient(to right, #FFA062, #FF5E5E)" -->
       <view class="pulldown">Pulldown</view>
     </view>
     <view class="menu">
@@ -44,23 +27,7 @@
        {{account.NoticeBarText}}
       </nut-notice-bar>
       <!-- day progress -->
-      <nut-circle-progress :progress="progressDay" radius="100" strokeWidth="3" :color="data.gradientColor"
-        @tap="switchTabs">
-        <view class="progressDiv">
-          <view class="title">
-            {{ data.nowTime.format('M.D') }}-progress
-          </view>
-          <view class="progressNum">
-            {{ dayjs().format('MM-DD hh:mm') }}
-          </view>
-          <view class="progressNum">
-            {{ progressDay }}%
-          </view>
-        </view>
-        <image class="bgImg"
-          src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg">
-        </image>
-      </nut-circle-progress>
+      <MyCircleProgress  @tap="switchTabs" format="MM-DD hh:mm"/>
     </view>
   </view>
 
@@ -69,14 +36,14 @@
 import styles from './styles.scss';
 import {
   NoticeBar as NutNoticeBar,
-  CircleProgress as NutCircleProgress,
 } from '@nutui/nutui-taro';
-import dayjs from 'dayjs';
-import { computed, reactive } from 'vue';
+import {  reactive } from 'vue';
 import { useAccountStore } from '@/stores/account';
 import { useDidShow } from '@tarojs/taro';
 import { useTabBarStore } from '../../../../custom-tab-bar/useTabBarStore';
 import Taro from '@tarojs/taro';
+import MyCircleProgress from '@/components/MyCircleProgress/index.vue';
+
 
 
 definePageConfig({
@@ -89,12 +56,6 @@ const tabbarstore = useTabBarStore();
 const account = useAccountStore();
 
 const data = reactive({
-  gradientColor: {
-    '0%': '#FF5E5E',
-    '100%': '#FFA062'
-  },
-  endDay: dayjs(`${dayjs().format('YYYY-MM-DD')} 23:59:59.999`),
-  nowTime: dayjs(),
   menuList: [
     {
       title: "MEMO",
@@ -112,18 +73,9 @@ const switchTabs = () => {
   tabbarstore.setVisible(account.showTabs);
 }
 
-
-function timefun(f, time) {
-    let aeta = null as any
-     clearTimeout(aeta);
-         aeta =setTimeout(function () {
-            f();
-            timefun(()=>{data.nowTime = dayjs();}, 50);
-        }, time); 
+const goto = (item) => {
+  Taro.navigateTo({ url: item.router });
 }
-timefun(()=>{data.nowTime = dayjs();}, 50);
-
-const progressDay = computed(() => (100 - (data.endDay.diff(dayjs(data.nowTime), 'millisecond', true)) * 100 / 86400000).toFixed(6))
 
 useDidShow(() => {
   account.test = account.test + "哈hei"
@@ -132,9 +84,7 @@ useDidShow(() => {
 
 
 
-const goto = (item) => {
-  Taro.navigateTo({ url: item.router });
-}
+
 
 
 </script>
