@@ -1,8 +1,10 @@
 <template>
   <navbar title="Memo" />
   <view :class="styles.myContainer">
+    <view>
+      {{account.memoDataList}}
+    </view>
     <side-bar />
-
   </view>
 
 </template>
@@ -10,7 +12,10 @@
 import styles from './styles.scss';
 import { Navbar } from 'mini-ui';
 import SideBar from './components/SideBar/index.vue';
+import { useAccountStore } from '@/stores/account';
 
+
+const account = useAccountStore();
 
 
 
