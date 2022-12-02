@@ -37,13 +37,22 @@
 import Taro from '@tarojs/taro';
 import { useTabBarStore, tabList } from './useTabBarStore';
 import styles from './styles.scss';
+import { useAccountStore } from '@/stores/account';
+
 
 const color = '#747474';
 const selectedColor = '#7468F2';
 const store = useTabBarStore();
+const account = useAccountStore();
+
 
 const switchTab = (index, url) => {
+  
+
   if (index === store.selected) return;
+
+account.getStorage(account.$state)
+
   store.setSelected(index);
   Taro.switchTab({ url: `/${url}` });
 };

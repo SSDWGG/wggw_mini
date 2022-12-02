@@ -17,21 +17,19 @@ interface IState {
 
 export const useAccountStore = defineStore("account", {
   state: (): IState => ({
-    username:'nametest',
-    waterMark:'rywtest',
+    username:'WGG',
+    waterMark:'WGG',
     uuid: "0",
     avatarurl:"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
     showTabs: true,
     showfirstTimePageNoticeBar: true,
     templeChoosePostList: [],
-    NoticeBarText: `|||                   
-    Do not go gentle into that good night,
+    NoticeBarText: `Do not go gentle into that good night,
     Old age should burn and rave at close of day;
     Rage, rage against the dying of the light.
     Though wise men at their end know dark is right,
     Because their words had forked no lightning they
-    Do not go gentle into that good night.
-                   |||`,
+    Do not go gentle into that good night.`,
     // 您的账号数据信息存储在您的设备硬件上，他人以及其他设备无法访问，
     // 您可以在这个封闭的私密空间记录您所想记录的内容，
     // 如果您将本小程序删除，微信将会清空本程序内的所有的记录数据，

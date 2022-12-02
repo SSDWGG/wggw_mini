@@ -1,5 +1,7 @@
 <template>
   <view :class="styles.myContainer" v-if="account.showTabs" :style="{ height: '200vh' }">
+    <nut-water-mark  :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1"
+      :content="account.waterMark" />
     <view class="pagehead">
       <!-- notice -->
       <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35"
@@ -36,6 +38,7 @@
 import styles from './styles.scss';
 import {
   NoticeBar as NutNoticeBar,
+  WaterMark as NutWaterMark 
 } from '@nutui/nutui-taro';
 import {  reactive } from 'vue';
 import { useAccountStore } from '@/stores/account';

@@ -3,92 +3,108 @@
   position: relative;
 
   :global {
-      width: 100%;
-      height: 100vh;
-      background: transparent;
-      .head {
-       width: 100%;
-       display: flex;
-       align-items: center;
-       justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
 
-        & > image {
-          width: 90px;
+    .head {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &>image {
+        width: 90px;
         height: 90px;
         border-radius: 50%;
-        }
-      }
-
-      .mark1 {
-        width: 100%;
-        top: 50px;
-      }
-      
-
-      .info {
-        font-size: 16px;
-        padding: 0 30px;
-
-        .infoItem {
-          display: flex;
-          margin: 12px 0;
-          color: #333333;
-
-          .lable {
-            color: #666666;
-            font-size: 16px;
-            width: 100px;
-            text-align: right;
-            font-weight: Regular;
-          }
-
-          .content {
-            flex: 1;
-            text-align: center;
-            font-weight: 500;
-            color: #7468F2;
-
-            .edit-NutInput {
-              padding: 0;
-              background-color: transparent;
-              .input-text {
-                font-size: 16px;
-
-                width: 100%;
-              }
-            }
-          }
-
-        }
-      }
-    
-    
-
-    .contact {
-      width: 100%;
-      height: 100rpx;
-      // padding: 0 10px;
-      box-sizing: border-box;
-      margin-bottom: 48rpx;
-      margin-top: 80px;
-      display: flex;
-      justify-content: space-around;
-      color: #666666;
-      .left {
-        image {
-          width: 38rpx;
-          height: 34rpx;
-          margin-left: 16rpx;
-        }
-      }
-      .right {
-        margin-top: 6rpx;
-        margin-right:15px;
-        & > image {
-          width: 32rpx;
-          height: 32rpx;
-        }
       }
     }
+
+    .mark1 {
+      width: 100%;
+      top: 50px;
+    }
+
+
+    .info {
+      font-size: 16px;
+      padding: 0 25px;
+
+      .infoItem {
+        display: flex;
+        margin: 20px 0;
+        color: #333333;
+
+        .lable {
+          color: #666666;
+          font-size: 16px;
+          width: 100px;
+          text-align: right;
+          font-weight: Regular;
+        }
+
+        .content {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          font-weight: 500;
+          color: #7468F2;
+          margin-right: 30px;
+          margin-left: 8px;
+
+          .edit-NutInput {
+            padding: 0;
+            background-color: transparent;
+
+            .input-text {
+              font-size: 16px;
+
+              width: 100%;
+            }
+          }
+        }
+
+      }
+
+      .contactImg {
+        width: 38rpx;
+        height: 34rpx;
+        margin-right: 4px;
+      }
+
+      .phoneImg {
+        flex: 0 0 auto;
+        margin-left: 8px;
+        width: 16px;
+        height: 16px;
+      }
+
+
+      .popoverImg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .popoverTextDiv {
+        width: 130px;
+        font-size: 10px;
+        font-weight: Regular;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 18px;
+
+      }
+
+      .nut-popover-taro .popover-content--bottom .popover-arrow {
+        margin-top: -9rpx;
+      }
+
+      .popover-menu {
+        border-radius: 18px;
+      }
+    }
+
   }
 }

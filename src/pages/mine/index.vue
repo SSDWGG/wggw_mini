@@ -12,39 +12,64 @@
       <view class="infoItem">
         <view class="lable">用户名 :</view>
         <view class="content">
-          <NutInput v-model="data.info.username" placeholder="max len 10" class="edit-NutInput" type="text"
-              input-align="right" :border="false" :formatter="(str) => formatterLen(str, 10)"
-              format-trigger="onChange" /></view>
+          <NutInput @blur="hanldeBlur" v-model="data.info.username" placeholder="max len 10" class="edit-NutInput"
+            type="text" input-align="right" :border="false" :formatter="(str) => formatterLen(str, 10)"
+            format-trigger="onChange" />
+        </view>
       </view>
       <view class="infoItem">
         <view class="lable">uuid :</view>
         <view class="content">{{ data.info.uuid }}</view>
       </view>
-      <!-- <view class="infoItem">
-            <view class="lable">notice :</view>
-            <view class="content">{{data.info.NoticeBarText}}</view>
-        </view> -->
       <view class="infoItem">
-        <view class="lable">水印内容 :</view>
-        <view class="content"><NutInput v-model="data.info.waterMark" placeholder="max len 30" class="edit-NutInput" type="text"
-              input-align="right" :border="false" :formatter="(str) => formatterLen(str, 30)"
-              format-trigger="onChange" /></view>
+        <view class="lable">notice :</view>
+        <view class="content">
+          <NutInput @blur="hanldeBlur" v-model="data.info.NoticeBarText" placeholder="max len 30" class="edit-NutInput"
+            type="text" input-align="right" :border="false" />
+        </view>
       </view>
+
+      <view class="infoItem">
+        <view class="lable">
+          水印内容 
+          <nut-popover v-model:visible="data.popover" theme="dark" custom-class="popoverDiv" :offset="[-5, 0]">
+            <template #reference>
+              <image class="popoverImg"
+                src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/LKMBHLFI-1668844736756tishi@2x.png" />
+            </template>
+            <template #content>
+              <view class="popoverTextDiv">
+              配置修改后下次启动时生效
+              </view>
+            </template>
+          </nut-popover>
+          :
+        </view>
+        <view class="content">
+          <NutInput @blur="hanldeBlur" v-model="data.info.waterMark" placeholder="max len 30" class="edit-NutInput"
+            type="text" input-align="right" :border="false" :formatter="(str) => formatterLen(str, 20)"
+            format-trigger="onChange" />
+        </view>
+      </view>
+      <view class="infoItem">
+      <view class="lable">
+        <image
+        class="contactImg"
+          src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
+        </image>
+        <text>contact</text>
+      </view>
+      <view class="content">
+          {{data.wggWX}}
+          <image class="phoneImg"
+                src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/BMNLGHAP-1668669017857复制@2x.png"
+                @tap="copyStr(data.wggWX)" />
+        </view>
+    </view>
+     
     </view>
 
-    <view class="contact">
-        <view class="left">
-          <image
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
-          </image>
-          <text>联系客服</text>
-        </view>
-        <view class="right">
-          <image
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLINDNIN-1666324258492baiyou.png">
-          </image>
-        </view>
-      </view>
+   
   </view>
 
 </template>
@@ -52,9 +77,14 @@
 import { useAccountStore } from '@/stores/account';
 import { Navbar } from 'mini-ui';
 import styles from './styles.scss';
-import { WaterMark as NutWaterMark , Input as NutInput } from '@nutui/nutui-taro';
+import {
+  WaterMark as NutWaterMark, Input as NutInput,
+  Popover as NutPopover
+} from '@nutui/nutui-taro';
 import { reactive } from 'vue';
-import {  formatterLen } from '@/utils/index';
+import { formatterLen } from '@/utils/index';
+import { useDidShow } from '@tarojs/taro';
+import { copyStr } from '@/utils/index';
 
 
 
@@ -62,19 +92,36 @@ definePageConfig({ backgroundColor: '#f3f3fe' });
 
 const data = reactive({
   waterMarkFlag: true,
-  info:{
-    avatarurl:'',
-    username:'',
-    uuid:'',
-    waterMark:''
+  popover: false,
+  wggWX:'13616549486',
+  info: {
+    avatarurl: '',
+    username: '',
+    uuid: '',
+    waterMark: '',
+    NoticeBarText: ''
   }
 })
 
 const account = useAccountStore();
 
 // 初始化页面数据
-for(let key in data.info){  
- data.info[key]  = account[key]
+const initData = () => {
+  for (let key in data.info) {
+    data.info[key] = account[key]
+  }
+}
+initData()
+
+useDidShow(() => {
+  initData()
+})
+
+const hanldeBlur = () => {
+  for (let key in data.info) {
+    account[key] = data.info[key]
+    account.setStorage(account.$state)
+  }
 }
 
 
