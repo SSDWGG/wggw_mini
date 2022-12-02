@@ -24,10 +24,10 @@ import styles from './styles.scss';
 import aliossUpload from '@/utils/alioss-upload';
 import Prelist from './prelist/index.vue';
 import { debounce } from 'lodash';
-import { IResult } from '../components/selectMedia';
 import { getOSSVideoImg, uuid } from '@/utils/index';
 import { IMemo, IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
+import { IResult } from '@/components/selectMedia';
 
 
 definePageConfig({
@@ -115,7 +115,12 @@ listParam = {
   memoId: uuid(),
   list: targetList, // 相册详情
 }
+
+// 更新store
 account.memoDataList.unshift(listParam)
+// 更新storage
+account.setStorage(account.$state)
+
 };
 
 const postHttp = debounce(async () => {

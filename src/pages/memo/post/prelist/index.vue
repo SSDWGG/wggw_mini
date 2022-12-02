@@ -53,17 +53,17 @@ import ICON_CLOSE from '@/assets/images/album/post/icon-close.png';
 import ICON_VEDIO_STATE from '@/assets/images/album/post/vedio-state.png';
 import ICON_UPLOAD_MORE from '@/assets/images/album/post/upload-more.png';
 import styles from './styles.scss';
-import { IResult } from '../../components/selectMedia';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import { useSystemInfoStore } from '@/stores/systemInfo';
+import { IResult } from '@/components/selectMedia';
 
 type IListItem = IResult & {
   originIndex: number;
   fixed?: boolean;
 }
 
-const accountStore = useAccountStore();
+const account = useAccountStore();
 const systemInfo = useSystemInfoStore();
 const maxChooseCount = 9;
 const plusItem: IListItem = { originIndex: -1, fixed: true, type: 'plus', path: ICON_UPLOAD_MORE };
@@ -78,7 +78,7 @@ const listData = computed(() => [...data.picList, plusItem]);
 const router = useRouter();
 const isPostImage = router.params.type === 'image';
 // 小程序偶现url参数无法传递（可能是参数过长）
-const list: IListItem[] = accountStore.templeChoosePostList.map((i, originIndex) => ({ ...i, originIndex, fixed: false }));
+const list: IListItem[] = account.templeChoosePostList.map((i, originIndex) => ({ ...i, originIndex, fixed: false }));
 data.picList = list;
 data.sortedList = list;
 // 30 => wrap margin: 0 15px

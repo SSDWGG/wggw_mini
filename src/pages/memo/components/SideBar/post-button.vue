@@ -31,11 +31,11 @@
 <script lang="ts" setup>
 import { reactive } from 'vue';
 import styles from './styles.scss';
-import selectMedia, { IMediaType, IResult } from '../selectMedia';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
-const accountStore = useAccountStore();
+import selectMedia, { IMediaType } from '@/components/selectMedia';
+const account = useAccountStore();
 
 interface IState {
   visible: boolean;
@@ -61,7 +61,7 @@ const handleChoose = async (type: IMediaType) => {
   try {
     const list = await selectMedia(type);
     console.log('选择的资源',list);
-    accountStore.templeChoosePostList = list
+    account.templeChoosePostList = list
     Taro.navigateTo({
       url: `/pages/memo/post/index?type=${type}`
     });
