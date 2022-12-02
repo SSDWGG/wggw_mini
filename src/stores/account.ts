@@ -3,7 +3,10 @@ import Taro from "@tarojs/taro";
 import { defineStore } from "pinia";
 
 interface IState {
+  username:string,
+  waterMark:string,
   uuid: string; //账号唯一id
+  avatarurl:string, //用户头像
   showTabs: boolean; //是否展示底部tabs
   showfirstTimePageNoticeBar: boolean; //是否展示头部公告栏tabs
   templeChoosePostList: IResult[]; //上传选择的临时资源
@@ -14,7 +17,10 @@ interface IState {
 
 export const useAccountStore = defineStore("account", {
   state: (): IState => ({
+    username:'nametest',
+    waterMark:'rywtest',
     uuid: "0",
+    avatarurl:"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
     showTabs: true,
     showfirstTimePageNoticeBar: true,
     templeChoosePostList: [],
