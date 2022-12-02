@@ -3,5 +3,24 @@ page {
 }
 
 .myContainer {
- 
+  :global {
+  .defaultBox{
+    margin-top: 100rpx;
+    .img{
+      width: 160rpx;
+      height: 160rpx;
+      margin: 0 auto;
+      & > image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .tips{
+      text-align: center;
+      color: #666666;
+      font-size: 24rpx;
+      margin-top: 32rpx;
+    }
+  }
+}
 }

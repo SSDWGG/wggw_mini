@@ -1,6 +1,7 @@
 <template>
   <view :class="styles.myContainer">
     <navbar title="TIME" class="navbar" v-show="data.showNav" />
+
     <view class="progress">
       <!-- year progress -->
       <MyCircleProgress :content-title-text="`${dayjs().year()}-progress`" :end="startYear" :computedNum="31536000000"
@@ -25,6 +26,8 @@
         </template>
 
       </MyCircleProgress>
+      <view class="pulldown" v-show="data.showNav">create you progress now ~</view>
+
     </view>
   </view>
 </template>

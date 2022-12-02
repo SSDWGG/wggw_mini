@@ -8,27 +8,27 @@ page {
   justify-content: center;
   align-items: center;
   :global {
-      .nut-circleprogress {
-        position: relative;
-        width: 85% !important;
-        height: 85% !important;
+    .nut-circleprogress{
+      position: relative;
+      width: 50vw !important;
+      height: 50vw !important;
       }
-      .nut-circleprogress-text {
+      .nut-circleprogress-text{
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #8074fe;
-        font-size: 30px;
+        color: #8074FE;
+        font-size: 17px;
       }
-      .bgImg {
+      .bgImg{
         position: absolute;
         width: 92%;
         height: 92%;
         top: 5px;
         z-index: -1;
-        opacity: 0.2;
+        opacity: .2;
       }
   }
 }
