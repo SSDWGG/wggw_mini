@@ -14,9 +14,7 @@ export const useTabBarStore = defineStore('tabbar', {
       if (this.selected === index) return;
       this.selected = index;
     },
-    setVisible(visible: boolean) {
-      console.log('设置tab显隐',visible);
-      
+    setVisible(visible: boolean) {      
       this.visible = visible;
     }
   }

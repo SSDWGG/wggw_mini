@@ -1457,14 +1457,6 @@
     "@babel/runtime" "^7.14.5"
     "@tarojs/runtime" "3.5.7"
 
-"@tarojs/api@3.5.8":
-  version "3.5.8"
-  resolved "https://registry.npmmirror.com/@tarojs/api/-/api-3.5.8.tgz#3927c7b8dca0b14a1efcbb65134afc2542236a73"
-  integrity sha512-13r/C8pZ3ryrdGEsFIDAJnsNED3SGj9l8wBvPuOM4SZ20lpQhW92y/+QnN0bKqrPXq7Y9E5xEX3UkwvEnILmkQ==
-  dependencies:
-    "@babel/runtime" "^7.14.5"
-    "@tarojs/runtime" "3.5.8"
-
 "@tarojs/cli@3.5.7":
   version "3.5.7"
   resolved "https://registry.npmmirror.com/@tarojs/cli/-/cli-3.5.7.tgz#9edc41c41eff6eba8552397c8aa9554b31ddc91f"
@@ -1695,14 +1687,6 @@
     "@tarojs/shared" "3.5.7"
     lodash-es "4.17.21"
 
-"@tarojs/runtime@3.5.8":
-  version "3.5.8"
-  resolved "https://registry.npmmirror.com/@tarojs/runtime/-/runtime-3.5.8.tgz#691ecaf695fc638fbe2a507161cb4e1352aea6f7"
-  integrity sha512-/BHS7dl8eQjHw2SjQiTrCfGvo77qwmjTe+FiU2hHB4/RO8SdXD4GmQR9M9c1uLvij8ocQVIKhCic73tYWkdswg==
-  dependencies:
-    "@tarojs/shared" "3.5.8"
-    lodash-es "4.17.21"
-
 "@tarojs/service@3.5.7":
   version "3.5.7"
   resolved "https://registry.npmmirror.com/@tarojs/service/-/service-3.5.7.tgz#72d1fbeafef9c363d37ab8f98545954957d252c4"
@@ -1727,11 +1711,6 @@
   version "3.5.7"
   resolved "https://registry.npmmirror.com/@tarojs/shared/-/shared-3.5.7.tgz#b4b5aa7e7e4dbc75671a661ab677ce7d44e6bd31"
   integrity sha512-AkYvkydXWlQ52YCyFDSyFv7SebvSOZxDNtod+LG7hpxFEl3Xh5OmMBZGRU1IE6hABRmIUbcfZZhExqYNyEBSCw==
-
-"@tarojs/shared@3.5.8":
-  version "3.5.8"
-  resolved "https://registry.npmmirror.com/@tarojs/shared/-/shared-3.5.8.tgz#ec728f22993e589e121bdee06e76ad8c9497514f"
-  integrity sha512-37SzGoZZhOBod9/Va13h8d1qIvU10t4kbKRf0TGZQ6tmGxLljSgP4zZFcuHoF5l/yId4IGgf7rN9asJ3K7z4Rg==
 
 "@tarojs/taro-h5@3.5.7":
   version "3.5.7"
@@ -1770,14 +1749,6 @@
   dependencies:
     "@tarojs/api" "3.5.7"
     "@tarojs/runtime" "3.5.7"
-
-"@tarojs/taro@^3.5.7":
-  version "3.5.8"
-  resolved "https://registry.npmmirror.com/@tarojs/taro/-/taro-3.5.8.tgz#768228ca821e909310431c1f4ac80c9c71d7efea"
-  integrity sha512-qrtVz+r+mzXrTY778MQu3MimOBW2lduxG6zbRiZIQBkS9Dm87txRkdO78DoQI4kvi6yrwDG3hCPpTzHqQgf6rA==
-  dependencies:
-    "@tarojs/api" "3.5.8"
-    "@tarojs/runtime" "3.5.8"
 
 "@tarojs/taroize@3.5.7":
   version "3.5.7"
@@ -4579,10 +4550,10 @@ decamelize@^1.1.2, decamelize@^1.2.0:
   resolved "https://registry.npmmirror.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==
 
-decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npmmirror.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha512-hjf+xovcEn31w/EUYdTXQh/8smFL/dzYjohQGEIgjyNavaJfBY2p5F527Bo1VPATxv0VYTUC2bOcXvqFwk78Og==
+decode-uri-component@^0.2.0, decode-uri-component@^0.2.1:
+  version "0.2.2"
+  resolved "https://registry.npmmirror.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 decompress-response@^3.3.0:
   version "3.3.0"
@@ -9848,11 +9819,11 @@ query-string@^5.0.1:
     strict-uri-encode "^1.0.0"
 
 query-string@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.npmmirror.com/query-string/-/query-string-7.1.1.tgz#754620669db978625a90f635f12617c271a088e1"
-  integrity sha512-MplouLRDHBZSG9z7fpuAAcI7aAYjDLhtsiVZsevsfaHWDS2IDdORKbSd1kWUA+V4zyva/HZoSfpwnYMMQDhb0w==
+  version "7.1.2"
+  resolved "https://registry.npmmirror.com/query-string/-/query-string-7.1.2.tgz#5a3bf43013e102773c2f80bb5d8517997fe98267"
+  integrity sha512-KPbFzz/8pmtYOMH6zlYZgqTYJKQ18FxwfW3RLHIBwHWQ0iQG18X16XtIOk68ddfaM6j3grjYSnMPMrqQEjwR4w==
   dependencies:
-    decode-uri-component "^0.2.0"
+    decode-uri-component "^0.2.1"
     filter-obj "^1.1.0"
     split-on-first "^1.0.0"
     strict-uri-encode "^2.0.0"
@@ -11353,12 +11324,6 @@ taro-plugin-pinia@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/taro-plugin-pinia/-/taro-plugin-pinia-1.0.0.tgz#7dee620cc84303a4b4c2df50e649bae72c3b6ac0"
   integrity sha512-Ip2LTRh7NGsFyEzkZWvU115xDqV3D8cRRbqqw0JKTvzHFBzpwycmrUVQQxV61AMg0r2RJm3mcEbQ997j7xNjtg==
-
-"taro-request@git+ssh://git@gitlab.meipingmi.com.cn:fe-lib/taro-request.git":
-  version "1.0.0"
-  resolved "git+ssh://git@gitlab.meipingmi.com.cn:fe-lib/taro-request.git#4481455760e6f19f6f41fa47ce936db459d3ad97"
-  dependencies:
-    "@tarojs/taro" "^3.5.7"
 
 term-size@^1.2.0:
   version "1.2.0"
