@@ -107,7 +107,9 @@ const account = useAccountStore();
 
 // 初始化页面数据
 const initData = () => {
+  
   for (let key in data.info) {
+    
     data.info[key] = account[key]
   }
 }
@@ -120,8 +122,9 @@ useDidShow(() => {
 const hanldeBlur = () => {
   for (let key in data.info) {
     account[key] = data.info[key]
-    account.setStorage(account.$state)
   }
+  account.setStorage(account.$state)
+
 }
 
 

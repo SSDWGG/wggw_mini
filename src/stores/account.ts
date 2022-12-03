@@ -1,3 +1,5 @@
+import { IMemo } from "@/apis/memo/model";
+import { IProgress } from "@/apis/progress/model";
 import { IResult } from "@/components/selectMedia";
 import Taro from "@tarojs/taro";
 import { defineStore } from "pinia";
@@ -11,8 +13,10 @@ interface IState {
   showfirstTimePageNoticeBar: boolean; //是否展示头部公告栏tabs
   templeChoosePostList: IResult[]; //上传选择的临时资源
   NoticeBarText: string; //头部公告栏自定义内容
-  memoDataList: any; //备忘录的数据
-  test:string
+  memoDataList: IMemo[]; //备忘录的数据
+  selfProgress:IProgress; //用户设置的个性化时间进度
+
+  test:string,
 }
 
 export const useAccountStore = defineStore("account", {
@@ -34,7 +38,20 @@ export const useAccountStore = defineStore("account", {
     // 您可以在这个封闭的私密空间记录您所想记录的内容，
     // 如果您将本小程序删除，微信将会清空本程序内的所有的记录数据，
     // 请妥善保存您的数据
-    memoDataList: [],
+    memoDataList: [], 
+    selfProgress:{
+      progressId:'',          //唯一id
+      computedNum:0,        //计算的单位
+      contentBgImg:'',        //背景图片
+      onAfterText:'',        //结束后的回调事件展示的内容文案  
+      gradientColorStart:'',  //进度条渐变颜色start
+      gradientColorEnd:'',  //进度条渐变颜色end
+      strokeWidth:0,      //进度条粗细
+      format:'',           //时间展示形式
+      contentOverText: '', //内容区域结束后的文案
+      contentTitleText: '',  //title文案
+    },
+
     test:'0'
   }),
   actions: {

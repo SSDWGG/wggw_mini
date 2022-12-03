@@ -51,7 +51,7 @@ const switchTab = (index, url) => {
 
   if (index === store.selected) return;
 
-account.getStorage(account.$state)
+  account.getStorage(account.$state)
 
   store.setSelected(index);
   Taro.switchTab({ url: `/${url}` });
