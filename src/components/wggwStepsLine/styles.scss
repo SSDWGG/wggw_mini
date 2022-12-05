@@ -1,0 +1,41 @@
+.mpmStepsLine {
+  display: flex;
+
+  :global {
+    .aside {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 40px;
+
+      .point {
+        width: 12px;
+        height: 12px;
+        border: 3rpx solid #7468F2;
+        border-radius: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+      }
+      .point::after{
+        content: '';
+        background-color: #7468F2;
+        border-radius: 50%;
+        position: absolute;
+        width: 60%;
+        height: 60%;
+      }
+    }
+    .aside::after{
+      content: '';
+        flex: 1;
+        border-left: 1px dashed #7468F2;
+        opacity: .7;
+    }
+    .mpmStepsLine-content{
+      flex: 1;
+    }
+  }
+}

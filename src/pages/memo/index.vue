@@ -1,13 +1,49 @@
 <template>
   <navbar title="Memo" />
   <view :class="styles.myContainer">
-    <view v-if="account.memoDataList.length>0" class="memoDataList">
-      {{account.memoDataList}}
-    </view>
+    <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList">
+
+      <view v-for="(item, index) in data.memoList" :key="index" class="memoDataList">
+        <view class="item">
+          <view class="aside" v-if="!!item.TimeLineList">
+            <view class="day">
+              {{ item.TimeLineList[0] }}
+            </view>
+            <view class="mouse">
+              {{ item.TimeLineList[1] }}
+            </view>
+          </view>
+          <view class="main">
+            <view class="content">{{ item.content }}</view>
+            <view class="resourceList">
+              <view v-for="(resItem, resItemIndex) in item.list" :key="resItemIndex" class="resourceListItem">
+                <!-- 判断是图片还是视屏，展示封面图 -->
+                <myImage :src="resItem.memoItemType === 1 ? resItem.videoPicUrl : resItem.picUrl" class="pic" :lazyLoad = true />
+                <!-- <image :src="resItem.picUrl" class="pic" /> -->
+                <image v-if="(resItem.memoItemType === 1)" mode="aspectFill" class="vedioFlag" :lazyLoad = true
+                  src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" />
+              </view>
+            </view>
+
+            <view class="time">
+              {{ timeFormat(item.gmtModified) }}
+            </view>
+          </view>
+
+
+        </view>
+
+      </view>
+
+    </scroll-view>
     <view v-else class="defaultBox">
-      <view class="img"><image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/default1.png"></image></view>
+      <view class="img">
+        <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/default1.png"></image>
+      </view>
       <view class="img tips">No Memo</view>
-    </view> 
+    </view>
+
+    <view class="safeBottom"></view>
   </view>
   <side-bar />
 
@@ -17,15 +53,46 @@ import styles from './styles.scss';
 import { Navbar } from 'mini-ui';
 import SideBar from './components/SideBar/index.vue';
 import { useAccountStore } from '@/stores/account';
-// import { useDidShow } from '@tarojs/taro';
+import { reactive } from 'vue';
+import { useDidShow } from '@tarojs/taro';
+import { IMemo } from '@/apis/memo/model';
+import { timelineFormat, timeFormat } from '@/utils/date';
+import myImage from '@/components/image';
 
 
 const account = useAccountStore();
+const data = reactive({
+  memoList: [] as IMemo[]
+})
 
-// useDidShow(()=>{
+const initData = () => {
+  data.memoList = account.memoDataList
 
-//   account.getStorage(account.$state)
-  
-// })
+  data.memoList.forEach((item,index,arr) => {
+
+    const beforeItemTime =  !!arr[index-1]?timelineFormat( arr[index-1].gmtCreate):[]
+    const nowItemTime =  timelineFormat( item.gmtCreate)
+
+    if(beforeItemTime[0]===nowItemTime[0]&&beforeItemTime[1]===nowItemTime[1])return ''
+    else{
+      item.TimeLineList = timelineFormat(item.gmtCreate)
+    }
+    // 和前一个比较，如果相同则不保留，不同则保留 
+  })
+  console.log(data.memoList);
+
+
+  // data.test = timelineFormat(data.memoList)
+
+}
+initData()
+
+
+
+
+useDidShow(() => {
+
+  initData()
+})
 
 </script>
