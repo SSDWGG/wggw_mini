@@ -46,14 +46,14 @@ const data = reactive({
 const prelistRef = ref();
 
 const PasslintContent = () => {
-  if (prelistRef.value.data.sortedList.length === 0) {
-    Taro.showToast({
-      title: '请选择素材',
-      icon: 'error',
-      duration: 2000
-    });
-    return false;
-  }
+  // if (prelistRef.value.data.sortedList.length === 0) {
+  //   Taro.showToast({
+  //     title: '请选择素材',
+  //     icon: 'error',
+  //     duration: 2000
+  //   });
+  //   return false;
+  // }
   return true;
 };
 
