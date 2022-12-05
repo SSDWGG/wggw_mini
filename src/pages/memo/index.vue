@@ -26,7 +26,7 @@
             </view>
 
             <view class="time">
-              {{ timeFormat(item.gmtModified) }}
+              {{ timeFormat(Number(item.gmtModified)) }}
             </view>
           </view>
 
@@ -70,19 +70,19 @@ const initData = () => {
 
   data.memoList.forEach((item,index,arr) => {
 
-    const beforeItemTime =  !!arr[index-1]?timelineFormat( arr[index-1].gmtCreate):[]
-    const nowItemTime =  timelineFormat( item.gmtCreate)
-
-    if(beforeItemTime[0]===nowItemTime[0]&&beforeItemTime[1]===nowItemTime[1])return ''
+    const beforeItemTime =  !!arr[index-1]?timelineFormat( Number(arr[index-1].gmtCreate)):[]
+    const nowItemTime =  timelineFormat(Number( item.gmtCreate))    
+    if(beforeItemTime[0]===nowItemTime[0]&&beforeItemTime[1]===nowItemTime[1]){
+      console.log('和上一个相同');
+      item.TimeLineList = []
+    }
     else{
-      item.TimeLineList = timelineFormat(item.gmtCreate)
+      item.TimeLineList = nowItemTime
     }
     // 和前一个比较，如果相同则不保留，不同则保留 
   })
   console.log(data.memoList);
-
-
-  // data.test = timelineFormat(data.memoList)
+  
 
 }
 initData()

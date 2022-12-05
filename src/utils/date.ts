@@ -15,14 +15,21 @@ export const isSameDay = (date1: IDate, date2: IDate): boolean => dayjs(date1).i
 */
 export const timelineFormat = (date?: IDate): string[]|string => {
   const day = dayjs(date);
+  console.log(11111,day);
+  
   const today = dayjs();
   if (day.isSame(today, 'day')) {
     return '今天';
   }
+
+
   if (day.isSame(today.add(-1, 'day'), 'day')) {
     return '昨天';
   }
-  const splitDay = day.format('M-DD').split('-');
+
+  console.log(22222, day.format('MM-DD'));
+  
+  const splitDay = day.format('MM-DD').split('-');
   return [splitDay[1], `${splitDay[0]}月`];
   // return dayjs(new Date()).format('M-DD').split('-')
 };
@@ -34,6 +41,7 @@ export const timelineFormat = (date?: IDate): string[]|string => {
  * YYYY年M月D日
 */
 export const timeFormat = (date?: IDate): string[]|string => {
+  
   const day = dayjs(date);
   const diff = dayjs().diff(day, 'hour');
   if (diff === 0) {

@@ -33,7 +33,7 @@
 import styles from "./styles.scss";
 import { CircleProgress as NutCircleProgress } from "@nutui/nutui-taro";
 import dayjs from "dayjs";
-import { onMounted, reactive, watch } from "vue";
+import { onMounted, onUnmounted, reactive, watch } from "vue";
 
 const props = defineProps({
   // 最大进度
@@ -159,8 +159,7 @@ watch(
   { immediate: true }
 );
 
-onMounted(()=>{
-
+onUnmounted(()=>{
   console.log("组件卸载",data.aeta);
   clearTimeout(data.aeta)
   
