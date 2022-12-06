@@ -22,7 +22,7 @@ interface IState {
 export const useAccountStore = defineStore("account", {
   state: (): IState => ({
     username:'WGG',
-    waterMark:'WGG',
+    waterMark:'WGGW',
     uuid: "0",
     avatarurl:"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
     showTabs: true,

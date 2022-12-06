@@ -5,8 +5,8 @@
     <nut-water-mark v-if="data.waterMarkFlag" :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1"
       :content="data.info.waterMark" />
 
-    <view class="head">
-      <image :src="data.info.avatarurl"></image>
+    <view class="head" @tap="handleChangeAvatarurl">
+      <image :src="data.info.avatarurl" />
     </view>
     <view class="info">
       <view class="infoItem">
@@ -39,14 +39,14 @@
             </template>
             <template #content>
               <view class="popoverTextDiv">
-              配置修改后下次启动时生效
+              水印配置修改，重启后生效
               </view>
             </template>
           </nut-popover>
           :
         </view>
         <view class="content">
-          <NutInput @blur="hanldeBlur" v-model="data.info.waterMark" placeholder="max len 30" class="edit-NutInput"
+          <NutInput @blur="hanldeSetStoreAndStorage" v-model="data.info.waterMark" placeholder="max len 30" class="edit-NutInput"
             type="text" input-align="right" :border="false" :formatter="(str) => formatterLen(str, 20)"
             format-trigger="onChange" />
         </view>
@@ -85,6 +85,8 @@ import { reactive } from 'vue';
 import { formatterLen } from '@/utils/index';
 import { useDidShow } from '@tarojs/taro';
 import { copyStr } from '@/utils/index';
+import selectMedia from '@/components/selectMedia';
+import aliossUpload from '@/utils/alioss-upload';
 
 
 
@@ -107,9 +109,7 @@ const account = useAccountStore();
 
 // 初始化页面数据
 const initData = () => {
-  
   for (let key in data.info) {
-    
     data.info[key] = account[key]
   }
 }
@@ -119,12 +119,26 @@ useDidShow(() => {
   initData()
 })
 
-const hanldeBlur = () => {
+const hanldeSetStoreAndStorage= () => {
   for (let key in data.info) {
     account[key] = data.info[key]
   }
   account.setStorage(account.$state)
+}
 
+const handleChangeAvatarurl = async()=>{
+
+  const chooseList = await selectMedia('image',1);
+    const uploadResList: {
+    status: number;
+    name: string;
+    path: string;
+    fullpath: string;
+    hash: string;
+  }[] = await aliossUpload(chooseList[0].path);
+  data.info.avatarurl = uploadResList[0].fullpath
+  hanldeSetStoreAndStorage()
+  
 }
 
 

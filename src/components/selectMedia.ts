@@ -29,11 +29,9 @@ const toast = (title: string) =>
     duration: 2000
   });
 
-export const selectMedia = (mediaType: IMediaType): Promise<IResult[] | IFailResult> => {
-  const maxCount = 9; // 最多可以选择的文件个数
+export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult[] | IFailResult> => {
+  // const maxCount = 9; // 最多可以选择的文件个数
   return new Promise((resolve, reject) => {
-    // 判断选择x个资源，通过 count 限制； 无需额外处理
-
     // 视频只能选1个
     const mediaCallback = ({
       tempFiles,
