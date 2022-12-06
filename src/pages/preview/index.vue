@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/prefer-true-attribute-shorthand -->
 <template>
   <view :class="styles.preview">
     <view class="goback" @tap="Taro.navigateBack()">
@@ -11,9 +10,9 @@
       />
     </view>
     <preview-swiper
-      :List="account.memoDataList"
+      :List="
+      data.swiperListData"
       @load-more="loadMore"
-
     />
   </view>
 </template>
@@ -25,7 +24,8 @@ import PreviewSwiper from './components/PreviewSwiper/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import { getSizeToPx  } from '@/utils/index';
 import { useAccountStore } from '@/stores/account';
-import { reactive } from 'vue';
+import { reactive,computed} from 'vue';
+import { IMemo, IMemoItem } from '@/apis/memo/model';
 
 
 const systemInfo = useSystemInfoStore();
@@ -35,9 +35,12 @@ const top = getSizeToPx((systemInfo.statusBarHeight as number) + 16);
 
 const data = reactive({
 // 需要扁平化处理一下相册数据，然后传入轮播器组件
-
+  swiperListData:[] as  (IMemo & IMemoItem)[]
 })
 
+const flat = (arr: IMemo[]) => arr.map(i => i.list.map(v => ({...i, ...v}))).flat();
+ data.swiperListData = computed(() => flat(account.memoDataList));
+ 
 const loadMore = () =>console.log('扩增数据');
 
 definePageConfig({

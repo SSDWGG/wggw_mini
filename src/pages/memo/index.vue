@@ -15,7 +15,7 @@
           <view class="main">
             <view class="content">{{ item.content }}</view>
             <view class="resourceList">
-              <view v-for="(resItem, resItemIndex) in item.list" :key="resItemIndex" class="resourceListItem">
+              <view v-for="(resItem, resItemIndex) in item.list" :key="resItemIndex" class="resourceListItem" @tap="toPreview(resItem.memoResId)">
                 <!-- 判断是图片还是视屏，展示封面图 -->
                 <myImage :src="resItem.memoItemType === 1 ? resItem.videoPicUrl : resItem.picUrl" class="pic" :lazyLoad = true />
                 <!-- <image :src="resItem.picUrl" class="pic" /> -->
@@ -52,6 +52,7 @@ import { useDidShow } from '@tarojs/taro';
 import { IMemo } from '@/apis/memo/model';
 import { timelineFormat, timeFormat } from '@/utils/date';
 import myImage from '@/components/image';
+import Taro from '@tarojs/taro';
 
 
 const account = useAccountStore();
@@ -73,6 +74,10 @@ const initData = () => {
   })
 }
 initData()
+
+const toPreview = (detailId:string)=>{
+  Taro.navigateTo({ url: `/pages/preview/index?detailId=${detailId}` });
+}
 useDidShow(() => {
   initData()
 })

@@ -9,6 +9,7 @@ export default defineAppConfig({
   ],
   subpackages: [
     { root: 'pages/memo', pages: ['index','post/index'] },
+    { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/time', pages: ['index'] },
 
   ],
