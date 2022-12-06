@@ -2,33 +2,30 @@
   <view :class="styles.bottom">
     <view class="userInfo">
       <view>
-        <image :src="itemInfo.avatarurl" class="avatar" @tap="toUserMain" />
+        <image :src="account.avatarurl" class="avatar" />
       </view>
-      <view class="nick" @tap="toUserMain">{{ itemInfo.nick }}</view>
+      <view class="nick" >{{ account.username }}</view>
     </view>
-    <view class="content">{{ showContent }}</view>
+    <view class="content">{{ changeLongStr(props.itemInfo.content) }}</view>
   </view>
 </template>
 <script lang="ts" setup>
 import { changeLongStr } from '@/utils/index';
 import styles from './styles.scss';
 import { useAttrs } from 'vue';
-import Taro from '@tarojs/taro';
+import { IMemo, IMemoItem } from '@/apis/memo/model';
+import { useAccountStore } from '@/stores/account';
 
 
 const props = defineProps({
   itemInfo: {
-    type: Object,
-    default: {}
+    default: {} as (IMemo & IMemoItem)
   }
 });
 
-const info = useAttrs();
-const toUserMain = () => {
-  // 分享的跳转到该人主页，不是则返回上一页
-  info.isShare ? Taro.navigateTo({ url: `/pages/album/friend/index?id=${props.itemInfo.creatorId}` })
-    : Taro.navigateBack();
-};
+const account = useAccountStore();
 
-const showContent = changeLongStr(props.itemInfo.content);
+
+const info = useAttrs();
+
 </script>

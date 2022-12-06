@@ -6,12 +6,11 @@
   </view>
 </template>
 <script lang="ts" setup>
-import { IAlbumListItem, IPictureInfo } from '@/apis/album/model';
-import { updateVisiterDowmloadCount } from '@/apis/visiter';
 import Taro from '@tarojs/taro';
 import {  useAttrs } from 'vue';
+import { IMemo, IMemoItem } from '@/apis/memo/model';
 
-const info = useAttrs().itemInfo as IAlbumListItem & IPictureInfo;
+const info = useAttrs().itemInfo as (IMemo & IMemoItem);
 
 const pow = () => {
   Taro.openSetting({
@@ -63,7 +62,6 @@ const handleSaveImage = e => {
                       title: '保存成功',
                       icon: 'none'
                     });
-                    updateVisiterDowmloadCount(info.id);
                     setTimeout(() => {
                       Taro.hideLoading();
                     }, 600);
@@ -87,7 +85,6 @@ const handleSaveImage = e => {
                       title: '保存成功',
                       icon: 'none'
                     });
-                    updateVisiterDowmloadCount(info.id);
                     setTimeout(() => {
                       Taro.hideLoading();
                     }, 600);

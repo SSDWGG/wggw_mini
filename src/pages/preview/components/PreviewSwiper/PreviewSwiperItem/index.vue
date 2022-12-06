@@ -22,25 +22,22 @@
         </view>
       </view>
       <!-- 侧边栏  -->
-      <!-- <side-bar
-        v-if="Object.keys(data.info).length !== 0"
+      <side-bar
         :itemInfo="data.info"
         v-bind="$attrs"
-        @ok-delete = 'handleOkDelete'
-      /> -->
+      />
       <!-- 底部 -->
-      <!-- <bottom
-        v-if="Object.keys(data.info).length !== 0"
+      <bottom
         :itemInfo="data.info"
         v-bind="$attrs"
-      /> -->
+      />
     </view>
   </swiper-item>
 </template>
 <script lang="ts" setup>
 import Taro from '@tarojs/taro';
-// import SideBar from '../../SideBar/index.vue';
-// import Bottom from '../../Bottom/index.vue';
+import SideBar from '../../SideBar/index.vue';
+import Bottom from '../../Bottom/index.vue';
 import { reactive, watch } from 'vue';
 import styles from './styles.scss';
 import { IMemo, IMemoItem } from '@/apis/memo/model';
@@ -96,8 +93,4 @@ const handleClickItem = (item: IMemo & IMemoItem) => {
   }
 };
 
-// 删除的回调
-const handleOkDelete = () => {
-  emit('okClose');
-};
 </script>

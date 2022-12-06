@@ -16,7 +16,6 @@ interface IState {
   memoDataList: IMemo[]; //备忘录的数据
   selfProgress:IProgress; //用户设置的个性化时间进度
 
-  test:string,
 }
 
 export const useAccountStore = defineStore("account", {
@@ -51,8 +50,6 @@ export const useAccountStore = defineStore("account", {
       contentOverText: '', //内容区域结束后的文案
       contentTitleText: '',  //title文案
     },
-
-    test:'0'
   }),
   actions: {
     // 同步strore数据到Storage
@@ -82,6 +79,25 @@ export const useAccountStore = defineStore("account", {
 
 
      
-    }
+    },
+
+    /**
+     * 移除一个 image / video
+     * @param {string} albumId 相册 id，外层
+     * @param {string} pictureId 照片或视频 id，详细id 内层
+    */
+     removeMemoItem(firstId: string, secondId: string) {
+      const memo  =  this.memoDataList.find(i => i.memoId === firstId)!;      
+      const index = memo.list.findIndex(i => i.memoResId === secondId);
+      memo.list.splice(index, 1);
+      // 如果删完后无内容，则进行删除相册
+      if(!memo.list.length){
+        const memoIndex = this.memoDataList.findIndex(i => i.memoId === memo.memoId);
+        if (memoIndex !== -1) this.memoDataList.splice(memoIndex, 1);
+      }
+      // 同步storage
+      this.setStorage(this.$state)
+
+    },
   },
 });

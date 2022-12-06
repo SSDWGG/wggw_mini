@@ -8,7 +8,7 @@
       <view class="head">
       <image :src="data.info.avatarurl"  @tap="previewImage" />
       <view class="headText" @tap="handleChangeAvatarurl">
-        updateImg
+        update avatar
       </view>
     </view>
     <view class="info">
