@@ -5,14 +5,17 @@
     <nut-water-mark v-if="data.waterMarkFlag" :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1"
       :content="data.info.waterMark" />
 
-    <view class="head" @tap="handleChangeAvatarurl">
-      <image :src="data.info.avatarurl" />
+      <view class="head">
+      <image :src="data.info.avatarurl"  @tap="previewImage" />
+      <view class="headText" @tap="handleChangeAvatarurl">
+        updateImg
+      </view>
     </view>
     <view class="info">
       <view class="infoItem">
         <view class="lable">用户名 :</view>
         <view class="content">
-          <NutInput @blur="hanldeBlur" v-model="data.info.username" placeholder="max len 10" class="edit-NutInput"
+          <NutInput @blur="hanldeSetStoreAndStorage" v-model="data.info.username" placeholder="max len 10" class="edit-NutInput"
             type="text" input-align="right" :border="false" :formatter="(str) => formatterLen(str, 10)"
             format-trigger="onChange" />
         </view>
@@ -24,7 +27,7 @@
       <view class="infoItem">
         <view class="lable">notice :</view>
         <view class="content">
-          <NutInput @blur="hanldeBlur" v-model="data.info.NoticeBarText" placeholder="max len 30" class="edit-NutInput"
+          <NutInput @blur="hanldeSetStoreAndStorage" v-model="data.info.NoticeBarText" placeholder="max len 30" class="edit-NutInput"
             type="text" input-align="right" :border="false" />
         </view>
       </view>
@@ -87,6 +90,7 @@ import { useDidShow } from '@tarojs/taro';
 import { copyStr } from '@/utils/index';
 import selectMedia from '@/components/selectMedia';
 import aliossUpload from '@/utils/alioss-upload';
+import Taro from '@tarojs/taro';
 
 
 
@@ -141,5 +145,10 @@ const handleChangeAvatarurl = async()=>{
   
 }
 
+const previewImage = ()=>{
+    Taro.previewImage({
+    urls: [data.info.avatarurl] // 需要预览的图片http链接列表
+  })
+}
 
 </script>
