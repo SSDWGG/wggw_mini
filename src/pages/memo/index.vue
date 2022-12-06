@@ -2,7 +2,6 @@
   <navbar title="Memo" />
   <view :class="styles.myContainer">
     <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList">
-
       <view v-for="(item, index) in data.memoList" :key="index" class="memoDataList">
         <view class="item">
           <view class="aside" v-if="!!item.TimeLineList">
@@ -29,12 +28,8 @@
               {{ timeFormat(Number(item.gmtModified)) }}
             </view>
           </view>
-
-
         </view>
-
       </view>
-
     </scroll-view>
     <view v-else class="defaultBox">
       <view class="img">
@@ -42,7 +37,6 @@
       </view>
       <view class="img tips">No Memo</view>
     </view>
-
     <view class="safeBottom"></view>
   </view>
   <side-bar />
@@ -67,31 +61,19 @@ const data = reactive({
 
 const initData = () => {
   data.memoList = account.memoDataList
-
   data.memoList.forEach((item,index,arr) => {
-
     const beforeItemTime =  !!arr[index-1]?timelineFormat( Number(arr[index-1].gmtCreate)):[]
     const nowItemTime =  timelineFormat(Number( item.gmtCreate))    
     if(beforeItemTime[0]===nowItemTime[0]&&beforeItemTime[1]===nowItemTime[1]){
-      console.log('和上一个相同');
       item.TimeLineList = []
     }
     else{
       item.TimeLineList = nowItemTime
     }
-    // 和前一个比较，如果相同则不保留，不同则保留 
   })
-  console.log(data.memoList);
-  
-
 }
 initData()
-
-
-
-
 useDidShow(() => {
-
   initData()
 })
 

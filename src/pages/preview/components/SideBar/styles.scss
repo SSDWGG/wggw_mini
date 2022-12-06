@@ -1,0 +1,30 @@
+.container {
+  position: absolute;
+  bottom: 165px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  :global {
+    
+   .bar-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: aliceblue;
+      font-weight: Regular;
+      font-size: 12px;
+      margin-bottom: 26px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      .icon {
+        width: 36px;
+        height: 36px;
+      }
+    }
+   
+  }
+}
