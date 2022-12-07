@@ -43,11 +43,11 @@
           <view> 9:00-18:00 </view>
         </template>
       </MyCircleProgress>
-      <view class="pulldown" v-show="data.showNav">{{
+      <!-- <view class="pulldown" v-show="data.showNav">{{
         !!data.selfProgress.progressId
           ? "show you progress ~"
           : "create you progress now ~"
-      }}</view>
+      }}</view> -->
     </view>
   </view>
 </template>
@@ -75,6 +75,6 @@
   };
   const normalHeight = computed(
     () =>
-      `calc( 100vh  - env(safe-area-inset-bottom))`
+      `calc( 100vh -88rpx  - env(safe-area-inset-bottom))`
   );
 </script>

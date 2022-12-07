@@ -37,14 +37,14 @@ export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult
       tempFiles,
       type
     }: Taro.chooseMedia.SuccessCallbackResult) => {
-      if (type === 'video' && tempFiles[0].duration > 30) {
-        reject({
-          title: '上传失败',
-          contentTips: '请上传30s内的视频',
-          duration: 3500
-        });
+      // if (type === 'video' && tempFiles[0].duration > 30) {
+      //   reject({
+      //     title: '上传失败',
+      //     contentTips: '请上传30s内的视频',
+      //     duration: 3500
+      //   });
 
-      }
+      // }
       resolve(tempFiles.map(i => ({ path: i.tempFilePath, type })));
     };
 
@@ -71,15 +71,15 @@ export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult
         return;
       }
       // 此处无法取到视频时长，需要在产品侧做额外逻辑判断
-      if (tempFiles[0].type === 'video' && tempFiles[0].size > 31457280) {
-        // eslint-disable-next-line prefer-promise-reject-errors
-        reject({
-          title: '上传失败',
-          contentTips: '请上传10M内的视频',
-          duration: 3500
-        });
+      // if (tempFiles[0].type === 'video' && tempFiles[0].size > 31457280) {
+      //   // eslint-disable-next-line prefer-promise-reject-errors
+      //   reject({
+      //     title: '上传失败',
+      //     contentTips: '请上传10M内的视频',
+      //     duration: 3500
+      //   });
 
-      }
+      // }
 
 
       resolve(tempFiles);
