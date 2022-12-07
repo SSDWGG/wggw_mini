@@ -12,14 +12,12 @@ function getExtName(filePath) {
   const matched = filePath.match(/.*\.(.*)/);
   return matched ? matched[1] : null;
 }
-const uploadFile = function(path, hasStatus, hash = '') {
-  console.log(path);
-  
+const uploadFile = function(path, hasStatus, hash = '') {  
   const cdnHost = 'https://panshi-on.meipingmi.com.cn'
   // 自定义生成的文件名
   const name = uuid();
 
-  const filePath = `yunxiaoding-mini/account/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
+  const filePath = `yunxiaoding-mini/wggw/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
 
   return Taro.uploadFile({
     url: `${cdnHost}/`,
