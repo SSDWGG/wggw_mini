@@ -86,17 +86,24 @@ export const useAccountStore = defineStore("account", {
     /**
      * 移除一个 image / video
      * @param {string} firstId 外层
-     * @param {string} secondId 详细id 内层
+     * @param {string} secondId 详细id 内层 (不传该参数则删除整条记录)
     */
-     removeMemoItem(firstId: string, secondId: string) {
-      const memo  =  this.memoDataList.find(i => i.memoId === firstId)!;      
-      const index = memo.list.findIndex(i => i.memoResId === secondId);
-      memo.list.splice(index, 1);
-      // 如果删完后无内容，则进行删除相册
-      if(!memo.list.length){
+     removeMemoItem(firstId: string, secondId='') {
+
+      const memo  =  this.memoDataList.find(i => i.memoId === firstId)!;  
+      if(!!secondId){
+        const index = memo.list.findIndex(i => i.memoResId === secondId);
+        memo.list.splice(index, 1);
+        // 如果删完后无内容，则进行删除相册
+        if(!memo.list.length){
+          const memoIndex = this.memoDataList.findIndex(i => i.memoId === memo.memoId);
+          if (memoIndex !== -1) this.memoDataList.splice(memoIndex, 1);
+        }
+      }else{
         const memoIndex = this.memoDataList.findIndex(i => i.memoId === memo.memoId);
         if (memoIndex !== -1) this.memoDataList.splice(memoIndex, 1);
       }
+      
       // 同步storage
       this.setStorage(this.$state)
 

@@ -47,12 +47,14 @@ page {
           .main{
             flex: 1;
             margin-top: 12px;
+            margin-left: -5px;
+            padding-right: 5px;
+
             .content{
               width: 100%;
               margin-bottom: 6px;
               font-size: 16px;
               font-weight: 500;
-              margin-left: -5px;
             }
             .resourceList{
               display: flex;
@@ -78,10 +80,30 @@ page {
               }
       
             }
-            .time{
+            .bottom{
               margin-top: 12px;
-              font-size: 12px;
-              color: #666666;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .time{
+                font-size: 12px;
+                color: #666666;
+              }
+              .op{
+                display: flex;
+                .opItem{
+                  margin-right: 20px;
+                  font-size: 14px;
+                }
+                .delete{
+                  color: #999;
+                }
+                .add{
+                  color: #8074fe;
+                }
+               
+              }
+              
             }
           }
         }

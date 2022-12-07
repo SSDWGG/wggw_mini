@@ -32,8 +32,14 @@
               </view>
             </view>
 
-            <view class="time">
-              {{ timeFormat(Number(item.gmtModified)) }}
+            <view class="bottom">
+              <view class="time">
+                {{ timeFormat(Number(item.gmtModified)) }}
+              </view>
+              <view class="op">
+                <!-- <view class="opItem add" @tap="add">编辑</view> -->
+                <view class="opItem delete" @tap="deleteMemo(item.memoId)">删除</view>
+              </view>
             </view>
           </view>
         </view>
@@ -65,10 +71,12 @@ import {
   NoticeBar as NutNoticeBar
 } from '@nutui/nutui-taro';
 
+
 const account = useAccountStore();
 const data = reactive({
   memoList: [] as IMemo[]
 })
+
 
 const initData = () => {
   data.memoList = account.memoDataList
@@ -87,6 +95,20 @@ initData()
 
 const toPreview = (detailId:string)=>{
   Taro.navigateTo({ url: `/pages/preview/index?detailId=${detailId}` });
+}
+
+const deleteMemo  = (memoId:string) =>{
+  Taro.showModal({
+    content: `确定删除该条记录？`,
+    cancelColor: '#999999',
+    confirmColor: '#7468F2 ',
+    confirmText: '删除',
+    success: async res => {
+      if (res.confirm) {
+        await  account.removeMemoItem(memoId);
+      }
+    }
+  });
 }
 useDidShow(() => {
   initData()
