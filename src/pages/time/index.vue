@@ -59,7 +59,6 @@
   import { computed, reactive } from "vue";
   import { useAccountStore } from "@/stores/account";
   import { IProgress } from "@/apis/progress/model";
-  import { useSystemInfoStore } from "@/stores/systemInfo";
 
   const account = useAccountStore();
 
@@ -74,9 +73,8 @@
   const handleAfter = (msg: string) => {
     console.log(msg);
   };
-  const systemInfo = useSystemInfoStore();
   const normalHeight = computed(
     () =>
-      `calc( 100vh - ${systemInfo.statusBarHeight}px  -88rpx  - env(safe-area-inset-bottom))`
+      `calc( 100vh  - env(safe-area-inset-bottom))`
   );
 </script>
