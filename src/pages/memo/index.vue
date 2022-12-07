@@ -71,12 +71,10 @@ import {
   NoticeBar as NutNoticeBar
 } from '@nutui/nutui-taro';
 
-
 const account = useAccountStore();
 const data = reactive({
   memoList: [] as IMemo[]
 })
-
 
 const initData = () => {
   data.memoList = account.memoDataList
