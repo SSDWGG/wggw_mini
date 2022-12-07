@@ -85,8 +85,8 @@ export const useAccountStore = defineStore("account", {
 
     /**
      * 移除一个 image / video
-     * @param {string} albumId 相册 id，外层
-     * @param {string} pictureId 照片或视频 id，详细id 内层
+     * @param {string} firstId 外层
+     * @param {string} secondId 详细id 内层
     */
      removeMemoItem(firstId: string, secondId: string) {
       const memo  =  this.memoDataList.find(i => i.memoId === firstId)!;      

@@ -1,5 +1,5 @@
 <template>
-    <image class="icon" src="@/assets/images/album/icon-album-add.png" @tap="state.visible = true"/>
+    <image class="icon" src="@/assets/images/menu/icon-menu-add.png" @tap="state.visible = true"/>
   <root-portal>
     <nut-popup
       v-model:visible="state.visible"

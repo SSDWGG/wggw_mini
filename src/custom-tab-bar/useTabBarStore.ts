@@ -23,7 +23,7 @@ export const useTabBarStore = defineStore('tabbar', {
 // 请同步 app.config.ts tabBar.list
 export const tabList: Taro.TabBarItem[] = [
   {
-    pagePath: 'pages/album/index', // 请确保 /pages/album/index.vue has definePageConfig.usingComponents
+    pagePath: 'pages/menu/index', // 请确保 /pages/menu/index.vue has definePageConfig.usingComponents
     text: 'Menu',
     iconPath: '../assets/images/tabbar/icon-tabbar-mine.png',
     selectedIconPath: '../assets/images/tabbar/icon-tabbar-mine-active.png',

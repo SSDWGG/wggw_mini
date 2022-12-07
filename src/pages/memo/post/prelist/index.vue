@@ -49,9 +49,9 @@
 import { computed, reactive } from 'vue';
 import { Drag } from 'mini-ui';
 import Taro, { useRouter } from '@tarojs/taro';
-import ICON_CLOSE from '@/assets/images/album/post/icon-close.png';
-import ICON_VEDIO_STATE from '@/assets/images/album/post/vedio-state.png';
-import ICON_UPLOAD_MORE from '@/assets/images/album/post/upload-more.png';
+import ICON_CLOSE from '@/assets/images/menu/post/icon-close.png';
+import ICON_VEDIO_STATE from '@/assets/images/menu/post/vedio-state.png';
+import ICON_UPLOAD_MORE from '@/assets/images/menu/post/upload-more.png';
 import styles from './styles.scss';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';

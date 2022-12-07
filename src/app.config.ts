@@ -5,7 +5,7 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/mine/index',
-    'pages/album/index'
+    'pages/menu/index'
   ],
   subpackages: [
     { root: 'pages/memo', pages: ['index','post/index'] },
@@ -28,7 +28,7 @@ export default defineAppConfig({
     borderStyle: 'white',
     list: [
       {
-        pagePath: 'pages/album/index',
+        pagePath: 'pages/menu/index',
         text: 'Menu',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',

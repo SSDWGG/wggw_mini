@@ -25,7 +25,7 @@ if(account.uuid==="0"){
 
 
 const router = useRouter();
-const homePage = router.params.tabbar || '/pages/album/index';
+const homePage = router.params.tabbar || '/pages/menu/index';
 
 // @ts-ignore
 useLoad((options: any) => {
