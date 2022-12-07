@@ -13,6 +13,7 @@ interface IState {
   showfirstTimePageNoticeBar: boolean; //是否展示头部公告栏tabs
   templeChoosePostList: IResult[]; //上传选择的临时资源
   NoticeBarText: string; //头部公告栏自定义内容
+  NoticeBarDataSaveText:string,//memo数据安全提示公告栏
   memoDataList: IMemo[]; //备忘录的数据
   selfProgress:IProgress; //用户设置的个性化时间进度
 
@@ -33,10 +34,11 @@ export const useAccountStore = defineStore("account", {
     Though wise men at their end know dark is right,
     Because their words had forked no lightning they
     Do not go gentle into that good night.`,
-    // 您的账号数据信息存储在您的设备硬件上，他人以及其他设备无法访问，
-    // 您可以在这个封闭的私密空间记录您所想记录的内容，
-    // 如果您将本小程序删除，微信将会清空本程序内的所有的记录数据，
-    // 请妥善保存您的数据
+    NoticeBarDataSaveText:`
+    wggw小程序一个数据高度封闭的私密空间，可以用来记录您所想记录的内容，
+    您的账号数据内容只存储在您的设备硬件上，他人以及其他设备无法访问，
+    如果您将本小程序删除，微信团队将会清空本程序内的所有的记录数据，
+    请妥善保存您的数据 （By———wggw小程序开发者）`,
     memoDataList: [], 
     selfProgress:{
       progressId:'',          //唯一id

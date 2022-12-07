@@ -1,6 +1,14 @@
 <template>
   <navbar title="Memo" />
+   
   <view :class="styles.myContainer">
+    <!-- notice -->
+   <nut-notice-bar
+   closeMode
+   right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="50"
+        v-if="account.showfirstTimePageNoticeBar">
+        {{account.NoticeBarDataSaveText}}
+      </nut-notice-bar>
     <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList">
       <view v-for="(item, index) in data.memoList" :key="index" class="memoDataList">
         <view class="item">
@@ -53,7 +61,9 @@ import { IMemo } from '@/apis/memo/model';
 import { timelineFormat, timeFormat } from '@/utils/date';
 import myImage from '@/components/image';
 import Taro from '@tarojs/taro';
-
+import {
+  NoticeBar as NutNoticeBar
+} from '@nutui/nutui-taro';
 
 const account = useAccountStore();
 const data = reactive({

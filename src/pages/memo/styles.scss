@@ -3,11 +3,24 @@ page {
 }
 
 .myContainer {
-  margin: 10px 5px;
+  margin: 0px 5px;
   display: flex;
   flex-direction: column;
   :global {
 
+    .nut-noticebar {
+      width: 100%;
+      margin-bottom: 10px;
+      .nut-noticebar-page {
+        padding: 0;
+      }
+      // .left-icon {
+      //   display: none;
+      // }
+      // .right-icon {
+      //   display: none;
+      // }
+    }
     .scrollList{
       flex: 1;
       .memoDataList{

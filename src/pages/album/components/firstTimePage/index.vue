@@ -6,7 +6,7 @@
       <!-- notice -->
       <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35"
         v-if="account.showfirstTimePageNoticeBar">
-      {{account.NoticeBarText}}
+        {{account.NoticeBarText}}
       </nut-notice-bar>
       <!-- day progress -->
      <MyCircleProgress  @tap="switchTabs" format="MM-DD hh:mm"/>
