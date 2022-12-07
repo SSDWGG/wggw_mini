@@ -11,18 +11,12 @@ page {
   height: 100vh;
   position: relative;
   :global {
-    .navbar{
-      position: absolute;
-      top: 0;
-    }
-   
     .progress{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       .pulldown {
-        margin-top: 10px;
         font-size: 14px;
         width: 200px;
         height: 30px;

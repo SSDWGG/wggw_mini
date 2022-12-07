@@ -33,7 +33,7 @@
 import styles from "./styles.scss";
 import { CircleProgress as NutCircleProgress } from "@nutui/nutui-taro";
 import dayjs from "dayjs";
-import { onMounted, onUnmounted, reactive, watch } from "vue";
+import {  onUnmounted, reactive, watch } from "vue";
 
 const props = defineProps({
   // 最大进度

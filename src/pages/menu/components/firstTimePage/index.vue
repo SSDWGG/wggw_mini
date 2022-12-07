@@ -1,35 +1,23 @@
 <template>
-  <view :class="styles.myContainer" v-if="account.showTabs" :style="{ height: '200vh' }">
+  <navbar title="Menu" hide-back />
+  <view :class="styles.myContainer" >
     <nut-water-mark  :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1"
       :content="account.waterMark" />
-    <view class="pagehead">
       <!-- notice -->
       <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35"
         v-if="account.showfirstTimePageNoticeBar">
         {{account.NoticeBarText}}
       </nut-notice-bar>
-      <!-- day progress -->
-     <MyCircleProgress  @tap="switchTabs" format="MM-DD hh:mm"/>
-      <!-- begin button  -->
-      <view class="pulldown">Pulldown</view>
-    </view>
-    <view class="menu">
+    <view class="menu"  :style="{ height }">
       <view class="menu-item" @tap="goto(item)" v-for="(item, index) in data.menuList" :key="index">
         <view class="title">
           {{ item.title }}
         </view>
+        <view class="title">
+          {{ item.Ctitle }}
+        </view>
+        <image class="bgImg" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg" />
       </view>
-    </view>
-  </view>
-  <view :class="styles.myContainer" v-else :style="{ height: '100vh' }">
-    <view class="pagehead">
-      <!-- notice -->
-      <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35"
-        v-if="account.showfirstTimePageNoticeBar">
-       {{account.NoticeBarText}}
-      </nut-notice-bar>
-      <!-- day progress -->
-      <MyCircleProgress  @tap="switchTabs" format="MM-DD hh:mm"/>
     </view>
   </view>
 
@@ -40,11 +28,12 @@ import {
   NoticeBar as NutNoticeBar,
   WaterMark as NutWaterMark 
 } from '@nutui/nutui-taro';
-import {  reactive } from 'vue';
+import {  computed, reactive } from 'vue';
 import { useAccountStore } from '@/stores/account';
-import { useTabBarStore } from '../../../../custom-tab-bar/useTabBarStore';
 import Taro from '@tarojs/taro';
-import MyCircleProgress from '@/components/MyCircleProgress/index.vue';
+import { Navbar } from 'mini-ui';
+import { useSystemInfoStore } from '@/stores/systemInfo';
+import { useTabBarStore } from '../../../../custom-tab-bar/useTabBarStore';
 
 
 
@@ -53,29 +42,49 @@ definePageConfig({
   enableShareTimeline: true,
 });
 
-const tabbarstore = useTabBarStore();
 
 const account = useAccountStore();
 
-
+const systemInfo = useSystemInfoStore();
+const tabbar = useTabBarStore();
 const data = reactive({
   menuList: [
     {
-      title: "MEMO",
+      title: "Media Memo",
+      Ctitle: "多媒体记录",
       router: '/pages/memo/index'
     },
     {
-      title: "TIME",
+      title: "Clock",
+      Ctitle: "钟表",
+      router: '/pages/time/index'
+    },
+    {
+      title: "Media Memo",
+      Ctitle: "多媒体记录",
+      router: '/pages/memo/index'
+    },
+    {
+      title: "Clock",
+      Ctitle: "钟表",
+      router: '/pages/time/index'
+    },
+    {
+      title: "Media Memo",
+      Ctitle: "多媒体记录",
+      router: '/pages/memo/index'
+    },
+    {
+      title: "Clock",
+      Ctitle: "钟表",
       router: '/pages/time/index'
     },
   ]
 })
 
-const switchTabs = () => {
-  account.showTabs = !account.showTabs
-  tabbarstore.setVisible(account.showTabs);
-}
-
+const height = computed(() =>
+  `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx - ${tabbar.height} - env(safe-area-inset-bottom))`
+);
 const goto = (item) => {
   Taro.navigateTo({ url: item.router });
 }
