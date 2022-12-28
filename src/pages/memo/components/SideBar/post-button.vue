@@ -10,15 +10,20 @@
     >
       <view :class="styles.post">
         <view class="share-content">
-          <button id="share-my-album" class="share-content-item button-to-view" @tap="handleChoose('image')">
+          <button id="share-my-album" class="share-content-item button-to-view" @tap="handleChooseText">
             <image class="icon"
               src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJGIHKKK-1665298354947post-i.png" />
-            <text>图片</text>
+            <text>文本</text>
           </button>
           <button class="share-content-item button-to-view video-text" @tap="handleChoose('video')">
             <image class="icon"
               src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GAAJFNKF-1665298354947post-v.png" />
             <text>视频</text>
+          </button>
+          <button id="share-my-album" class="share-content-item button-to-view" @tap="handleChoose('image')">
+            <image class="icon"
+              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJGIHKKK-1665298354947post-i.png" />
+            <text>图片</text>
           </button>
         </view>
       </view>
@@ -72,5 +77,13 @@ const handleChoose = async (type: IMediaType) => {
     state.toastVisible = true;
   }
 };
+
+const handleChooseText = ()=>{
+  handleClose();
+  account.templeChoosePostList = []
+    Taro.navigateTo({
+      url: `/pages/memo/post/index?type=${'image'}`
+    });
+}
 
 </script>
