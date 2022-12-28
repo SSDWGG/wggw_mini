@@ -1,6 +1,6 @@
 <template>
   <navbar title="TIME" class="navbar" v-show="data.showNav" />
-
+  <!-- 普通样式三个时间表 -->
   <view :class="styles.myContainer" :style="{ height:data.showNav?normalHeight:'100vh' }">
     <view class="progress">
       <!-- year progress -->
@@ -10,6 +10,7 @@
         :computedNum="31536000000"
         @tap="data.showNav = !data.showNav"
         :onAfterProgress="() => handleAfter('hahah')"
+        :outEngineTime="data.nowTime"
       >
         <template v-slot:ContentSlot3="data">
           <view>
@@ -29,6 +30,8 @@
         format="MM-DD hh:mm"
         @tap="data.showNav = !data.showNav"
         :onAfterProgress="() => handleAfter('hahah')"
+        :outEngineTime="data.nowTime"
+
       />
 
       <!-- work progress -->
@@ -38,18 +41,26 @@
         :computed-num="32400000"
         :end="endWork"
         :onAfterProgress="() => handleAfter('hahah')"
+        :outEngineTime="data.nowTime"
+
       >
         <template #ContentSlot1>
           <view> 9:00-18:00 </view>
         </template>
       </MyCircleProgress>
-      <!-- <view class="pulldown" v-show="data.showNav">{{
+      <!-- 
+        <view class="pulldown" v-show="data.showNav">
+        {{
         !!data.selfProgress.progressId
           ? "show you progress ~"
           : "create you progress now ~"
-      }}</view> -->
+        }}
+      </view>
+        -->
     </view>
   </view>
+
+  <!-- 特殊时间表 -->
 </template>
 <script lang="ts" setup>
   import styles from "./styles.scss";
@@ -62,12 +73,17 @@
 
   const account = useAccountStore();
 
-  const startYear = dayjs(`${dayjs().year()}-12-31 23:59:59.999`);
-  const endYear = dayjs(`${dayjs().year() - 1}-12-31 23:59:59.999`);
-  const endWork = dayjs(`${dayjs().format("YYYY-MM-DD")} 17:59:59.999`);
+
+  const dayInfo = dayjs()
+  const startYear = dayjs(`${dayInfo.year()}-12-31 23:59:59.999`);
+  const endYear = dayjs(`${dayInfo.year() - 1}-12-31 23:59:59.999`);
+  const endWork = dayjs(`${dayInfo.format("YYYY-MM-DD")} 17:59:59.999`);
+
   const data = reactive({
     showNav: true,
     selfProgress: account.selfProgress as IProgress,
+    nowTime: dayjs(),
+    aeta: null as any,
   });
 
   const handleAfter = (msg: string) => {
@@ -77,4 +93,18 @@
     () =>
       `calc( 100vh -88rpx  - env(safe-area-inset-bottom))`
   );
+  const timefun = () => {
+  // 清除上一个 setTimeout
+  clearTimeout(data.aeta);
+  // 设置新的 setTimeout
+  data.aeta = setTimeout(() => {
+    // 获取当前时间
+    data.nowTime = dayjs();
+    // 递归调用 timefun
+    timefun();
+  }, 50);
+};
+
+timefun();
+
 </script>

@@ -159,20 +159,16 @@ export const changeLongStr = (str: string, len = 15) =>
 export const getSystemImg = (imgAdress: string) =>
   `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/${imgAdress}`;
 
-export const  copyStr = (str:string) =>{
+ // 复制到剪贴板
+ export const copyStr = (str:string) => {
   Taro.setClipboardData({
     data: str,
-    success: (_setRes)=>{
-      Taro.getClipboardData({
-        success: (_getRes)=> {
-          Taro.showToast({
-            title: '复制成功'
-          });
-        }
+    success: () => {
+      Taro.showToast({
+        title: '复制成功'
       });
     }
   });
 };
-
 
 export const formatterLen = (str:string,len=6)=>str.length > len ? str.substring(0, len) : str;

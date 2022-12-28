@@ -29,18 +29,15 @@ export const useAccountStore = defineStore("account", {
     showfirstTimePageNoticeBar: true,
     templeChoosePostList: [],
     NoticeBarText: `
-    欢迎使用WGGW小程序，
-    wggw小程序一个数据高度封闭的私密空间，可以用来记录您所想记录的内容，
-    您的账号数据内容只存储在您的设备硬件上，他人以及其他设备无法访问，
-    如果您将本小程序删除，微信团队将会清空本程序内的所有的记录数据，
-    请妥善保存您的数据——wggw开发者 `,
-    NoticeBarDataSaveText:`
     Do not go gentle into that good night,
     Old age should burn and rave at close of day;
     Rage, rage against the dying of the light.
     Though wise men at their end know dark is right,
     Because their words had forked no lightning they
     Do not go gentle into that good night.`,
+    NoticeBarDataSaveText:`您的账号数据内容只存储在您的设备硬件上，他人以及其他设备无法访问，
+    如果您将本小程序删除，微信团队将会清空本程序内的所有的记录数据，
+    请妥善保存您的数据——wggw开发者 `,
     memoDataList: [], 
     selfProgress:{
       progressId:'',          //唯一id

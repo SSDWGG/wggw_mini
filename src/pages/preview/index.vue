@@ -34,11 +34,11 @@ const top = getSizeToPx((systemInfo.statusBarHeight as number) + 16);
 
 
 const data = reactive({
-// 需要扁平化处理一下相册数据，然后传入轮播器组件
   swiperListData:[] as  (IMemo & IMemoItem)[]
 })
 
-const flat = (arr: IMemo[]) => arr.map(i => i.list.map(v => ({...i, ...v}))).flat();
+// chatGpt 
+const flat = (arr: IMemo[]) => arr.flatMap(i => i.list.map(v => ({...i, ...v})));
  data.swiperListData = computed(() => flat(account.memoDataList));
  
 const loadMore = () =>console.log('扩增数据');
