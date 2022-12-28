@@ -6,7 +6,7 @@
    <nut-notice-bar
    closeMode
    right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="50"
-        v-if="account.showfirstTimePageNoticeBar">
+        v-if="account.memoDataList.length===0">
         {{account.NoticeBarDataSaveText}}
       </nut-notice-bar>
     <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList">
