@@ -60,14 +60,9 @@ const data = reactive({
       router: '/pages/time/index'
     },
     {
-      title: "Media Memo",
-      Ctitle: "多媒体记录",
-      router: '/pages/memo/index'
-    },
-    {
-      title: "Clock",
-      Ctitle: "钟表",
-      router: '/pages/time/index'
+      title: "CSS Loaders",
+      Ctitle: "动态样式合集",
+      router: '/pages/cssloaders/index'
     },
     {
       title: "Media Memo",
@@ -79,6 +74,12 @@ const data = reactive({
       Ctitle: "钟表",
       router: '/pages/time/index'
     },
+    {
+      title: "CSS Loaders",
+      Ctitle: "动态样式合集",
+      router: '/pages/cssloaders/index'
+    },
+  
   ]
 })
 
