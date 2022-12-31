@@ -66,9 +66,9 @@ const data = reactive({
       router: '/pages/cssloaders/index'
     },
     {
-      title: "Media Memo",
-      Ctitle: "多媒体记录",
-      router: '/pages/memo/index'
+      title: "WaterFall",
+      Ctitle: "瀑布流照片墙",
+      router: '/pages/waterfall/index'
     },
     {
       title: "Clock",

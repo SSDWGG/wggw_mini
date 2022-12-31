@@ -12,6 +12,7 @@ export default defineAppConfig({
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/time', pages: ['index'] },
     { root: 'pages/cssloaders', pages: ['index'] },
+    { root: 'pages/waterfall', pages: ['index'] },
 
   ],
   window: {
