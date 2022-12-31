@@ -11,9 +11,8 @@ export default defineAppConfig({
     { root: 'pages/memo', pages: ['index','post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/time', pages: ['index'] },
-    { root: 'pages/cssloaders', pages: ['index'] },
+    { root: 'pages/cssloaders', pages: ['index1/index','index2/index','index3/index'] },
     { root: 'pages/waterfall', pages: ['index'] },
-
   ],
   window: {
     navigationBarTextStyle: 'black',

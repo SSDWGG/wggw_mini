@@ -43,6 +43,5 @@ const imgList = [
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/PEPCHNMJ-167245685664328.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/ICEGOBKL-167245685664329.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/HMGGKJPP-167245685664330.jpeg',
-
 ]
 </script>

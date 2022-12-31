@@ -61,26 +61,25 @@ const data = reactive({
       router: '/pages/time/index'
     },
     {
-      title: "CSS Loaders",
-      Ctitle: "动态样式合集",
-      router: '/pages/cssloaders/index'
-    },
-    {
       title: "WaterFall",
       Ctitle: "瀑布流照片墙",
       router: '/pages/waterfall/index'
     },
     {
-      title: "Clock",
-      Ctitle: "钟表",
-      router: '/pages/time/index'
+      title: "CSS Loaders",
+      Ctitle: "动态样式合集①",
+      router: '/pages/cssloaders/index1/index'
     },
     {
       title: "CSS Loaders",
-      Ctitle: "动态样式合集",
-      router: '/pages/cssloaders/index'
+      Ctitle: "动态样式合集②",
+      router: '/pages/cssloaders/index2/index'
     },
-  
+    {
+      title: "CSS Loaders",
+      Ctitle: "动态样式合集③",
+      router: '/pages/cssloaders/index3/index'
+    },
   ]
 })
 
