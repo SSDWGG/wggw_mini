@@ -1,6 +1,7 @@
 <template>
-  <navbar title="Menu" hide-back />
   <view :class="styles.myContainer" >
+    <navbar title="Menu" hide-back   background-color="transparent" />
+
     <nut-water-mark  :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1"
       :content="account.waterMark" />
       <!-- notice -->

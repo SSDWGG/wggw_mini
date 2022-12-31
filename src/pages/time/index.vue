@@ -1,8 +1,20 @@
 <template>
-  <navbar title="TIME" class="navbar" v-show="data.showNav" />
   <!-- 普通样式三个时间表 -->
+  <navbar title="TIME" background-color="transparent" v-show="data.showNav"  />
+
   <view :class="styles.myContainer" :style="{ height:data.showNav?normalHeight:'100vh' }">
+
+
     <view class="progress">
+    
+      <!-- day progress -->
+      <MyCircleProgress
+        format="MM-DD hh:mm"
+        @tap="data.showNav = !data.showNav"
+        :onAfterProgress="() => handleAfter('hahah')"
+        :outEngineTime="data.nowTime"
+
+      />
       <!-- year progress -->
       <MyCircleProgress
         :content-title-text="`${dayjs().year()}-progress`"
@@ -24,15 +36,6 @@
           </view>
         </template>
       </MyCircleProgress>
-
-      <!-- day progress -->
-      <MyCircleProgress
-        format="MM-DD hh:mm"
-        @tap="data.showNav = !data.showNav"
-        :onAfterProgress="() => handleAfter('hahah')"
-        :outEngineTime="data.nowTime"
-
-      />
 
       <!-- work progress -->
       <MyCircleProgress

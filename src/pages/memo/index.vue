@@ -1,7 +1,8 @@
 <template>
-  <navbar title="Memo" />
    
   <view :class="styles.myContainer">
+  <navbar title="Memo" background-color="transparent" />
+
     <!-- notice -->
    <nut-notice-bar
    closeMode
