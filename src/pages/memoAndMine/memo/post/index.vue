@@ -19,7 +19,7 @@
 import { reactive, ref } from 'vue';
 import Taro from '@tarojs/taro';
 import { TextArea as NutTextarea } from '@nutui/nutui-taro';
-import { Navbar } from 'mini-ui';
+import { Navbar } from '@fishui/taro-vue';
 import styles from './styles.scss';
 import aliossUpload from '@/utils/alioss-upload';
 import Prelist from './prelist/index.vue';

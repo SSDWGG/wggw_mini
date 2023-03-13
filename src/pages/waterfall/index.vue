@@ -8,7 +8,7 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import { Navbar } from 'mini-ui';
+import { Navbar } from '@fishui/taro-vue';
 
 definePageConfig({ backgroundColor: "#f3f3fe" });
 

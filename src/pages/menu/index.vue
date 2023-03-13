@@ -31,7 +31,7 @@ import {
 import {  computed, reactive } from 'vue';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
-import { Navbar } from 'mini-ui';
+import { Navbar } from '@fishui/taro-vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 
 definePageConfig({

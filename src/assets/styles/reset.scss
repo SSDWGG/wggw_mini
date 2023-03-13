@@ -1,0 +1,22 @@
+/**
+* 因 @fishui/taro-vue style 以 750宽为基础
+* 所有 px size 需要 除以 2 覆盖
+***/
+
+.fish-navbar__goback {
+  padding-left: 16px;
+  padding-right: 32px;
+}
+
+.fish-navbar__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.fish-navbar__header-wrap {
+  max-width: 180px;
+  text {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}

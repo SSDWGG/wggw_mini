@@ -17,6 +17,15 @@ module.exports = {
         'camel2DashComponentName': false
       },
       'nutui3-taro'
+    ],[
+      'import',
+      {
+        'libraryName': '@fishui/taro-vue',
+        'libraryDirectory': 'lib/components',
+        'style': (name, file) => name + '/style.scss',
+        'camel2DashComponentName': false
+      },
+      '@fishui/taro-vue'
     ],
     [
       'import',

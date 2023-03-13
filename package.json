@@ -46,6 +46,8 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@nutui/nutui-taro": "^3.2.1",
+    "@fishui/taro-request": "^1.0.0",
+    "@fishui/taro-vue": "1.1.5",
     "@tarojs/components": "3.5.7",
     "@tarojs/helper": "3.5.7",
     "@tarojs/plugin-framework-vue3": "3.5.7",
@@ -66,7 +68,9 @@
     "mini-ui": "git+ssh://git@gitlab.meipingmi.com.cn:fe-lib/mini-ui.git",
     "pinia": "^2.0.6",
     "taro-plugin-pinia": "^1.0.0",
-    "vue": "^3.2.24"
+    "vue": "^3.2.24",
+    "@wangeditor/editor": "^5.1.1",
+    "@wangeditor/editor-for-vue": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -93,5 +97,12 @@
     "vue-eslint-parser": "^9.0.3",
     "vue-loader": "^16.0.0-beta.8",
     "webpack": "5.69.0"
-  }
+  },
+  "taro3-vue3-iconfont": [
+    {
+      "url": "//at.alicdn.com/t/c/font_3800888_0n82qma4vgz.js",
+      "output": "./src/components/iconfont",
+      "componentName": "Iconfont"
+    }
+  ]
 }

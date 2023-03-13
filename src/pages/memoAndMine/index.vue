@@ -15,7 +15,7 @@ import styles from './styles.scss';
 import tabbar from './custom-tab-bar/index.vue'
 import memo from './memo/index.vue'
 import mine from './mine/index.vue'
-import { Navbar } from 'mini-ui';
+import { Navbar } from '@fishui/taro-vue';
 import { useTabBarStore } from './custom-tab-bar/useTabBarStore';
 import { computed } from 'vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';

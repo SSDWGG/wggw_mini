@@ -522,8 +522,8 @@ $switch-inside-close-transform: translateX(30%);
 $toast-title-font-size: 16px;
 $toast-text-font-size: 14px;
 $toast-font-color: $white;
-$toast-inner-padding: 24px 30px;
-$toast-inner-bg-color: rgba(0, 0, 0, 0.8);
+$toast-inner-padding: 13px 20px;
+$toast-inner-bg-color: rgba(0, 0, 0, 0.7);
 $toast-inner-border-radius: 12px;
 $toast-cover-bg-color: rgba(0, 0, 0, 0);
 
@@ -673,9 +673,9 @@ $tag-plain-background-color: #fff;
 
 // Popover
 $popover-white-background-color: rgba(255, 255, 255, 1);
-$popover-dark-background-color: rgba(75, 76, 77, 1);
-$popover-border-bottom-color: rgba(229, 229, 229, 1);
-$popover-primary-text-color: rgba(51, 51, 51, 1);
+$popover-dark-background-color: rgba(0, 0, 0, 0.6);
+$popover-border-bottom-color: #EEEEEE;
+$popover-primary-text-color: #666666 ;
 $popover-disable-color: rgba(154, 155, 157, 1);
 
 // Collapse

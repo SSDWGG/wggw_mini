@@ -1,6 +1,5 @@
 // global styles
-
-@import 'mini-ui/lib/style.css';
+@import "./reset.scss";
 
 .flex {
   display: flex;
@@ -12,9 +11,18 @@
 }
 
 .text-ellipsis {
+  white-space: nowrap;
   overflow: hidden;
   word-break: break-all;
   text-overflow: ellipsis;
+}
+
+.text-ellipsis-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .text-ellipsis-2 {
@@ -37,9 +45,10 @@
 * 清除 button 默认样式，模拟 view 样式，按钮用于包装子元素，例如：
 * <button class="button-to-view" open-ype="share">
 *   <image src="images/icon_share.png" />
-* </button> 
+* </button>
 **/
-.button-to-view, .button-to-view::after {
+.button-to-view,
+.button-to-view::after {
   background: transparent;
   outline: none;
   border: none;
@@ -55,4 +64,15 @@
 // reset styles 覆盖组件样式
 .nut-button--small {
   font-size: 14px;
+}
+
+.nut-dialog {
+  padding: 0 !important;
+}
+
+.icon {
+  display: inline-block;
+  .icon-image {
+    display: block;
+  }
 }

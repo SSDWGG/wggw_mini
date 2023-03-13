@@ -11,7 +11,7 @@
   </view>
 </template>
 <script lang="ts" setup>
-import { Navbar } from "mini-ui";
+import { Navbar } from '@fishui/taro-vue';
 import styles from "./styles.scss";
 import bars from "../bars/index.vue"
 import classic from "../classic/index.vue"

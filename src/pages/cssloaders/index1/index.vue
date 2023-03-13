@@ -31,7 +31,8 @@
   </view>
 </template>
 <script lang="ts" setup>
-import { Navbar } from "mini-ui";
+import { Navbar } from '@fishui/taro-vue';
+
 import styles from "./styles.scss";
 import infinity from "../infinity/index.vue"
 import progressloader from "../progress/index.vue"

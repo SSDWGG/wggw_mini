@@ -52,7 +52,7 @@
 </template>
 <script lang="ts" setup>
   import styles from "./styles.scss";
-  import { Navbar } from "mini-ui";
+  import { Navbar } from '@fishui/taro-vue';
   import MyCircleProgress from "@/components/MyCircleProgress/index.vue";
   import dayjs from "dayjs";
   import { computed, reactive } from "vue";

@@ -13,7 +13,7 @@
   </view>
 </template>
 <script lang="ts" setup>
-import { Navbar } from "mini-ui";
+import { Navbar } from '@fishui/taro-vue';
 import styles from "./styles.scss";
 import hypnotic from "../hypnotic/index.vue"
 import Spinnertwo from "../Spinnertwo/index.vue"

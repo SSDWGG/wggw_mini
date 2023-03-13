@@ -47,7 +47,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
-import { Drag } from 'mini-ui';
+import { Drag } from '@fishui/taro-vue';
 import Taro, { useRouter } from '@tarojs/taro';
 import ICON_CLOSE from '@/assets/images/menu/post/icon-close.png';
 import ICON_VEDIO_STATE from '@/assets/images/menu/post/vedio-state.png';
