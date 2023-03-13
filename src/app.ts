@@ -14,7 +14,7 @@ import {
   Popup,
 } from '@nutui/nutui-taro';
 import Taro from '@tarojs/taro';
-import { adjustSelected } from './custom-tab-bar/useTabBarStore';
+import { adjustSelected } from './pages/memoAndMine/custom-tab-bar/useTabBarStore';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 
 /**

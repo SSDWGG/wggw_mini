@@ -1,10 +1,7 @@
 <template>
   <view :class="styles.myContainer">
-    <navbar hideBack title="Mine" backgroundColor="transparent" />
-
     <nut-water-mark v-if="data.waterMarkFlag" :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1"
       :content="data.info.waterMark" />
-
       <view class="head">
       <image :src="data.info.avatarurl"  @tap="previewImage" />
       <view class="headText" @tap="handleChangeAvatarurl">

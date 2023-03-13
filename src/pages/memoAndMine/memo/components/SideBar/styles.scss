@@ -1,8 +1,13 @@
 .container {
-  position: fixed;
-  bottom: 123px;
-  right: 14px;
+  position: absolute;
+  bottom: 83px;
+  right: -32px;
   z-index: 999;
+  transition: right .3s ease;
+
+  &.show {
+    right: 14px;
+  }
 
   :global {
     .icon {

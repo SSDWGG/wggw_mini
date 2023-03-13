@@ -1,12 +1,13 @@
 <template>
-  <view>
     <!-- <view>此页面作初始化跳转页面，可以放 loading or logo</view> -->
-  </view>
+    <view class="flex" style="height: 100vh; justify-content: center; align-items: center;">
+    <nut-icon name="loading1" color="#7468F2" size="4rem" />
+    </view>
 </template>
 
 <script lang="ts" setup>
 import { switchTab, useLoad, useRouter } from '@tarojs/taro';
-import { adjustSelected } from '../../custom-tab-bar/useTabBarStore';
+import { adjustSelected } from '../memoAndMine/custom-tab-bar/useTabBarStore';
 import { useAccountStore } from '@/stores/account';
 import { uuid } from '@/utils/index';
 

@@ -1,6 +1,10 @@
-## WGGW 小程序项目介绍（纯前端的工具小程序）
+## WGGW 
 
-项目地址：https://github.com/SSDWGG/wggw_mini.git   小程序搜索WGGW查看线上项目效果
+### 小程序项目介绍
+这是一个纯前端的小程序应用，用于记录一些作者的学习所得，仅限于学习交流
+小程序搜索WGGW查看线上项目效果
+
+项目地址：https://github.com/SSDWGG/wggw_mini.git   
 
 功能：时间钟表，前端备忘录（数据本地存储），css动画样式合集
 

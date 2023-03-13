@@ -68,7 +68,7 @@ const handleChoose = async (type: IMediaType) => {
     console.log('选择的资源',list);
     account.templeChoosePostList = list
     Taro.navigateTo({
-      url: `/pages/memo/post/index?type=${type}`
+      url: `/pages/memoAndMine/memo/post/index?type=${type}`
     });
     
   } catch (err) {
@@ -82,7 +82,7 @@ const handleChooseText = ()=>{
   handleClose();
   account.templeChoosePostList = []
     Taro.navigateTo({
-      url: `/pages/memo/post/index?type=${'image'}`
+      url: `/pages/memoAndMine/memo/post/index?type=${'image'}`
     });
 }
 

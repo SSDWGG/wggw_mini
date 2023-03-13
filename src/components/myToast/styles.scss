@@ -1,0 +1,67 @@
+.mpmToastDiv {
+  :global {
+    .mpmtoast {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // width: 96px;
+      // min-height: 96px;
+
+      .nut-toast-inner {
+        max-width: 90px;
+        min-width:50px;
+        padding:21px 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .nut-toast-icon-wrapper {
+          margin-bottom: 10px;
+          .nut-icon__img {
+            width: 24px !important;
+            height: 24px !important;
+          }
+        }
+
+        .nut-toast-title {
+          font-size: 12px;
+          font-weight: Regular;
+          letter-spacing: 1.5px;
+        }
+
+        .nut-toast-text {
+          margin-bottom: 0;
+         }
+
+      }
+
+
+    }
+  }
+}
+.mpmToastDivNoIcon {
+  :global {
+    .nut-toast-base {
+      top: 334px ;
+    }
+    .mpmtoast {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .nut-toast-inner {
+        .nut-toast-title {
+          font-size: 14px;
+          font-weight: Regular;
+          letter-spacing: 1.5px;
+        }
+        .nut-toast-text {
+         margin-bottom: 0;
+        }
+
+      }
+
+
+    }
+  }
+}

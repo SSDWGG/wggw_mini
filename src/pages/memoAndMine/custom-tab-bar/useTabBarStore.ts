@@ -25,14 +25,15 @@ export const tabList: Taro.TabBarItem[] = [
   {
     pagePath: 'pages/menu/index', // 请确保 /pages/menu/index.vue has definePageConfig.usingComponents
     text: 'Menu',
-    iconPath: '../assets/images/tabbar/icon-tabbar-mine.png',
-    selectedIconPath: '../assets/images/tabbar/icon-tabbar-mine-active.png',
+    iconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine.png',
+    selectedIconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine-active.png',
   }, 
+  // src/pages/memo/components/custom-tab-bar/tabbar/icon-tabbar-album.png
   {
     pagePath: 'pages/mine/index', // 请确保 /pages/mine/index has definePageConfig.usingComponents
     text: 'Mine',
-    iconPath: '../assets/images/tabbar/icon-tabbar-mine.png',
-    selectedIconPath: '../assets/images/tabbar/icon-tabbar-mine-active.png',
+    iconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine.png',
+    selectedIconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine-active.png',
   },
 ];
 

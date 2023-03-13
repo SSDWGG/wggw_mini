@@ -1,16 +1,6 @@
 <template>
-   
   <view :class="styles.myContainer">
-  <navbar title="Memo" background-color="transparent" />
-
-    <!-- notice -->
-   <nut-notice-bar
-   closeMode
-   right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="50"
-        v-if="account.memoDataList.length===0">
-        {{account.NoticeBarDataSaveText}}
-      </nut-notice-bar>
-    <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList">
+    <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList" @scroll="onScroll">
       <view v-for="(item, index) in data.memoList" :key="index" class="memoDataList">
         <view class="item">
           <view class="aside" v-if="!!item.TimeLineList">
@@ -54,13 +44,14 @@
     </view>
     <view class="safeBottom"></view>
   </view>
-  <side-bar />
+  <side-bar :show="show" />
 
 </template>
 <script lang="ts" setup>
 import styles from './styles.scss';
-import { Navbar } from 'mini-ui';
 import SideBar from './components/SideBar/index.vue';
+
+import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useAccountStore } from '@/stores/account';
 import { reactive } from 'vue';
 import { useDidShow } from '@tarojs/taro';
@@ -68,14 +59,13 @@ import { IMemo } from '@/apis/memo/model';
 import { timelineFormat, timeFormat } from '@/utils/date';
 import myImage from '@/components/image';
 import Taro from '@tarojs/taro';
-import {
-  NoticeBar as NutNoticeBar
-} from '@nutui/nutui-taro';
 
 const account = useAccountStore();
 const data = reactive({
   memoList: [] as IMemo[]
 })
+const { show, onScroll } = useListScroll();
+
 
 const initData = () => {
   data.memoList = account.memoDataList

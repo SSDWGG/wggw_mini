@@ -12,7 +12,6 @@
     <preview-swiper
       :List="
       data.swiperListData"
-      @load-more="loadMore"
     />
   </view>
 </template>
@@ -37,12 +36,9 @@ const data = reactive({
   swiperListData:[] as  (IMemo & IMemoItem)[]
 })
 
-// chatGpt 
 const flat = (arr: IMemo[]) => arr.flatMap(i => i.list.map(v => ({...i, ...v})));
  data.swiperListData = computed(() => flat(account.memoDataList));
  
-const loadMore = () =>console.log('扩增数据');
-
 definePageConfig({
   backgroundColor: '#000',
   enableShareAppMessage: true,

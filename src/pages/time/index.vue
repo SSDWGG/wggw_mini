@@ -1,21 +1,8 @@
 <template>
   <!-- 普通样式三个时间表 -->
   <navbar title="TIME" background-color="transparent" v-show="data.showNav"  />
-
   <view :class="styles.myContainer" :style="{ height:data.showNav?normalHeight:'100vh' }">
-
-
     <view class="progress">
-    
-      <!-- day progress -->
-      <MyCircleProgress
-        format="MM-DD hh:mm"
-        @tap="data.showNav = !data.showNav"
-        :onAfterProgress="() => handleAfter('hahah')"
-        :outEngineTime="data.nowTime"
-
-      />
-      <!-- year progress -->
       <MyCircleProgress
         :content-title-text="`${dayjs().year()}-progress`"
         :end="startYear"
@@ -37,7 +24,6 @@
         </template>
       </MyCircleProgress>
 
-      <!-- work progress -->
       <MyCircleProgress
         @tap="data.showNav = !data.showNav"
         content-title-text="WorkTimeProgress"
@@ -51,15 +37,14 @@
           <view> 9:00-18:00 </view>
         </template>
       </MyCircleProgress>
-      <!-- 
-        <view class="pulldown" v-show="data.showNav">
-        {{
-        !!data.selfProgress.progressId
-          ? "show you progress ~"
-          : "create you progress now ~"
-        }}
-      </view>
-        -->
+
+      <MyCircleProgress
+        format="MM-DD hh:mm"
+        @tap="data.showNav = !data.showNav"
+        :onAfterProgress="() => handleAfter('hahah')"
+        :outEngineTime="data.nowTime"
+
+      />
     </view>
   </view>
 
@@ -73,8 +58,10 @@
   import { computed, reactive } from "vue";
   import { useAccountStore } from "@/stores/account";
   import { IProgress } from "@/apis/progress/model";
+import { useSystemInfoStore } from "@/stores/systemInfo";
 
   const account = useAccountStore();
+  const systemInfo = useSystemInfoStore();
 
 
   const dayInfo = dayjs()
@@ -92,10 +79,12 @@
   const handleAfter = (msg: string) => {
     console.log(msg);
   };
-  const normalHeight = computed(
-    () =>
-      `calc( 100vh -88rpx  - env(safe-area-inset-bottom))`
-  );
+
+  const normalHeight = computed(() =>
+  `calc( 100vh - ${systemInfo.statusBarHeight}px - 88rpx  - env(safe-area-inset-bottom))`
+);
+
+
   const timefun = () => {
   // 清除上一个 setTimeout
   clearTimeout(data.aeta);
@@ -105,7 +94,7 @@
     data.nowTime = dayjs();
     // 递归调用 timefun
     timefun();
-  }, 50);
+  }, 100);
 };
 
 timefun();

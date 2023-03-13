@@ -4,15 +4,15 @@ export default defineAppConfig({
   // 除了首页和tabbar页，其他页面全部放入 subpackages（小程序分包数量没限制）
   pages: [
     'pages/index/index',
-    'pages/mine/index',
-    'pages/menu/index'
+    'pages/menu/index',
   ],
   subpackages: [
-    { root: 'pages/memo', pages: ['index','post/index'] },
+    // ,'memo/index','memo/post/index','mine/index'
+    { root: 'pages/memoAndMine', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/time', pages: ['index'] },
-    { root: 'pages/cssloaders', pages: ['index1/index','index2/index','index3/index'] },
     { root: 'pages/waterfall', pages: ['index'] },
+    { root: 'pages/cssloaders', pages: ['index1/index','index2/index','index3/index'] },
   ],
   window: {
     navigationBarTextStyle: 'black',
@@ -35,8 +35,8 @@ export default defineAppConfig({
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       }, 
       {
-        pagePath: 'pages/mine/index',
-        text: 'Mine',
+        pagePath: 'pages/index/index',
+        text: 'index',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       },
