@@ -65,12 +65,9 @@
     "@tarojs/taro-h5": "3.5.7",
     "dayjs": "^1.11.5",
     "lodash": "^4.17.21",
-    "mini-ui": "git+ssh://git@gitlab.meipingmi.com.cn:fe-lib/mini-ui.git",
     "pinia": "^2.0.6",
     "taro-plugin-pinia": "^1.0.0",
     "vue": "^3.2.24",
-    "@wangeditor/editor": "^5.1.1",
-    "@wangeditor/editor-for-vue": "^1.0.1",
     "mp-html": "^2.3.2"
     
   },

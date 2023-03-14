@@ -1,7 +1,6 @@
 <template>
       <navbar title="css-loaders" background-color="transparent" />
-  <view :class="styles.myContainer">
-  
+    <view :class="styles.cssloaders"> 
     <scroll-view class="listBox" scroll-y="true">
       <view class="title">
       <view>

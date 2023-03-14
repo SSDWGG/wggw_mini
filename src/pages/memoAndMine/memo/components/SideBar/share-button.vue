@@ -42,14 +42,14 @@
 </template>
 <script lang="ts" setup>
 import { reactive, defineProps, withDefaults, watch } from 'vue';
-// import { useTabBarStore } from '@/custom-tab-bar/useTabBarStore';
+import { useTabBarStore } from '../../../custom-tab-bar/useTabBarStore';
 import styles from './styles.scss';
 
 const props = withDefaults(defineProps<{ type?: 'goods'|'general' }>(), {
   type: 'general',
 });
 
-// const tabbarstore = useTabBarStore();
+const tabbarstore = useTabBarStore();
 
 interface IState {
   visible: boolean;
@@ -66,7 +66,7 @@ const onShare = () => {
 
 
 watch(() => state.visible, (val: boolean) => {
-  // tabbarstore.setVisible(!val);
+  tabbarstore.setVisible(!val);
 });
 
 const handleClose = () => {

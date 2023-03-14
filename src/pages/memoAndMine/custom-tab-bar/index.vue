@@ -1,5 +1,5 @@
 <template>
-  <cover-view :class="styles.tabbar">
+  <cover-view v-show='store.visible' :class="styles.tabbar">
     <cover-view :class="styles.topBorder" />
     <cover-view :class="styles.container">
       <cover-view

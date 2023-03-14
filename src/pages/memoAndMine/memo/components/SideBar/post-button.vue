@@ -1,5 +1,5 @@
 <template>
-    <image class="icon" src="@/assets/images/menu/icon-menu-add.png" @tap="state.visible = true"/>
+    <image class="icon" src="@/assets/images/menu/icon-menu-add.png" @tap="post"/>
   <root-portal>
     <nut-popup
       v-model:visible="state.visible"
@@ -34,12 +34,16 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive,watch } from 'vue';
 import styles from './styles.scss';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
 import selectMedia, { IMediaType } from '@/components/selectMedia';
+import { useTabBarStore } from '../../../custom-tab-bar/useTabBarStore';
+
+
+
 const account = useAccountStore();
 
 interface IState {
@@ -57,9 +61,6 @@ const state = reactive<IState>({
 const handleClose = () => {
   state.visible = false;
 };
-
-
-
 
 const handleChoose = async (type: IMediaType) => {
   handleClose();
@@ -85,5 +86,17 @@ const handleChooseText = ()=>{
       url: `/pages/memoAndMine/memo/post/index?type=${'image'}`
     });
 }
+
+const tabbarstore = useTabBarStore();
+
+
+const post  =()=>{
+  state.visible = true
+}
+
+watch(() => state.visible, (val: boolean) => {
+  tabbarstore.setVisible(!val);
+});
+
 
 </script>

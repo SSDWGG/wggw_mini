@@ -20,20 +20,15 @@ export const useTabBarStore = defineStore('tabbar', {
   }
 });
 
-// 请同步 app.config.ts tabBar.list
 export const tabList: Taro.TabBarItem[] = [
   {
-    pagePath: 'pages/menu/index', // 请确保 /pages/menu/index.vue has definePageConfig.usingComponents
-    text: 'Menu',
-    iconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine.png',
-    selectedIconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine-active.png',
+    pagePath: 'pages/menu/index', 
+    text: 'Memo',
+   
   }, 
-  // src/pages/memo/components/custom-tab-bar/tabbar/icon-tabbar-album.png
   {
-    pagePath: 'pages/mine/index', // 请确保 /pages/mine/index has definePageConfig.usingComponents
+    pagePath: 'pages/mine/index', 
     text: 'Mine',
-    iconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine.png',
-    selectedIconPath: './components/custom-tab-bar/tabbar/icon-tabbar-mine-active.png',
   },
 ];
 

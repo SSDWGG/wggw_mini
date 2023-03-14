@@ -1,6 +1,6 @@
 <template>
-  <navbar title="WaterFall" background-color="#f3f3fe" />
-  <view :class="styles.myContainer">
+  <navbar title="WaterFall" background-color='#f3f3fe' />
+  <view :class="styles.waterfall">
     <view class="item" v-for="imgsrc in imgList" :key="imgsrc">
       <image mode="widthFix" :src=imgsrc></image>
     </view>
@@ -9,6 +9,7 @@
 <script lang="ts" setup>
 import styles from "./styles.scss";
 import { Navbar } from '@fishui/taro-vue';
+
 
 definePageConfig({ backgroundColor: "#f3f3fe" });
 

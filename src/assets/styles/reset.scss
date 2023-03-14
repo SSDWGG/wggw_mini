@@ -4,19 +4,19 @@
 ***/
 
 .fish-navbar__goback {
-  padding-left: 16px;
-  padding-right: 32px;
+  padding-left: 16px !important;
+  padding-right: 32px !important;
 }
 
 .fish-navbar__icon {
-  width: 24px;
-  height: 24px;
+  width: 24px !important;
+  height: 24px !important;
 }
 
 .fish-navbar__header-wrap {
-  max-width: 180px;
+  max-width: 180px !important;
   text {
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 18px !important;
+    line-height: 18px !important;
   }
 }

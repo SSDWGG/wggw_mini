@@ -33,8 +33,9 @@ const height = computed(() =>
   `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
 
-const mpH5 = `<div style="color: red">我是HTML代码</div>`
-const h5 = `<div style="color: red">这是wgg的富文本内容哦</div>`
+const mpH5 = `<div style="color: #7468F2">我是HTML代码</div>`
+const h5 = "<p style=\"text-align: center;color: #7468F2;\"><span style=\"font-size: 22px;\"><strong>richText&amp;&amp;Echarts</strong></span></p>"
+
 
 const initChart = (canvas, width, height) => {
   const chart = echarts.init(canvas, null, {
