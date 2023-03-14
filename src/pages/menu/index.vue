@@ -64,6 +64,11 @@ const data = reactive({
       Ctitle: "瀑布流照片墙",
       router: '/pages/waterfall/index'
     },
+    {
+      title: "Editor",
+      Ctitle: "富文本",
+      router: '/pages/editor/index'
+    },
   ]
 })
 

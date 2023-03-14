@@ -22,9 +22,6 @@ if(account.uuid==="0"){
   account.setStorage(account.$state)
 }
 
-
-
-
 const router = useRouter();
 const homePage = router.params.tabbar || '/pages/menu/index';
 

@@ -12,7 +12,8 @@ export default defineAppConfig({
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/time', pages: ['index'] },
     { root: 'pages/waterfall', pages: ['index'] },
-    { root: 'pages/cssloaders', pages: ['index1/index','index2/index','index3/index'] },
+    { root: 'pages/cssloaders', pages: ['index1/index'] },
+    { root: 'pages/editor', pages: ['index'] },
   ],
   window: {
     navigationBarTextStyle: 'black',

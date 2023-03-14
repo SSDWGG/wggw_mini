@@ -1,6 +1,7 @@
 <template>
+      <navbar title="css-loaders" background-color="transparent" />
+
   <view :class="styles.myContainer">
-    <navbar title="css-loaders" background-color="transparent" />
     <view class="title">Hope you liked this first collection of CSS loaders.</view>
     <scroll-view class="listBox" scroll-y="true">
      

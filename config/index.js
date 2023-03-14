@@ -32,9 +32,9 @@ const config = {
   },
   copy: {
     patterns: [
+      { from: 'src/components/mp-html', to: 'dist/components/mp-html' },
     ],
-    options: {
-    }
+    options: {},
   },
   framework: 'vue3',
   compiler: 'webpack5',
@@ -92,6 +92,13 @@ const config = {
     },
     miniCssExtractPluginOption: { // [mini-css-extract-plugin] Conflicting order error: https://github.com/NervJS/taro/issues/7160
       ignoreOrder: true,
+    }
+  },
+  weapp: {
+    compile: {
+      exclude: ['src/components/ec-canvas/echarts.js']
+    },
+    module: {
     }
   },
   h5: {

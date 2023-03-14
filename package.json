@@ -70,7 +70,9 @@
     "taro-plugin-pinia": "^1.0.0",
     "vue": "^3.2.24",
     "@wangeditor/editor": "^5.1.1",
-    "@wangeditor/editor-for-vue": "^1.0.1"
+    "@wangeditor/editor-for-vue": "^1.0.1",
+    "mp-html": "^2.3.2"
+    
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
