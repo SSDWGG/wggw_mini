@@ -32,7 +32,6 @@ const config = {
   },
   copy: {
     patterns: [
-      { from: 'src/components/mp-html', to: 'dist/components/mp-html' },
     ],
     options: {},
   },

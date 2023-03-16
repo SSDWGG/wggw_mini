@@ -8437,11 +8437,6 @@ mocha@^5.2.0:
     mkdirp "0.5.1"
     supports-color "5.4.0"
 
-mp-html@^2.3.2:
-  version "2.4.1"
-  resolved "https://registry.npmmirror.com/mp-html/-/mp-html-2.4.1.tgz#b019f873527d2c5a70aea7a9187d923ab1ef14c7"
-  integrity sha512-io/SMZwmlqQwWuD3AwpnVslvR/Xz7xhhbAxHQ3n5ooQQQ1v2tF+ikEfyepAdOi4lUePZ70VM3hEV3EEGamkhVA==
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

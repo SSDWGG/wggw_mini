@@ -65,10 +65,20 @@ const data = reactive({
       router: '/pages/waterfall/index'
     },
     {
-      title: "Editor",
-      Ctitle: "富文本",
+      title: "Echars",
+      Ctitle: "图",
       router: '/pages/editor/index'
     },
+    {
+      title: "WGG",
+      Ctitle: "wgg",
+      router: '/pages/wgg/index'
+    },
+    // {
+    //   title: "Test",
+    //   Ctitle: "测试",
+    //   router: '/pages/test/index'
+    // },
   ]
 })
 

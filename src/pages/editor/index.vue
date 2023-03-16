@@ -2,7 +2,6 @@
   <navbar title="Editor" background-color="transparent" />
   <view :class="styles.editor">
     <view class="menu" :style="{ height }">
-      <mp-html :content="mpH5" />
       <rich-text :nodes="h5"></rich-text>
       <view class="echarts">
         <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" :ec="ec" />
@@ -22,8 +21,6 @@ definePageConfig({
   enableShareAppMessage: true,
   enableShareTimeline: true,
   usingComponents: {
-    "mp-html": "../../components/mp-html",
-    // 'wxparse': '../../components/wxParse/index'
     "ec-canvas": "../../components/ec-canvas/ec-canvas",
   },
 });

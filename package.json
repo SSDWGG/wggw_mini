@@ -67,8 +67,7 @@
     "lodash": "^4.17.21",
     "pinia": "^2.0.6",
     "taro-plugin-pinia": "^1.0.0",
-    "vue": "^3.2.24",
-    "mp-html": "^2.3.2"
+    "vue": "^3.2.24"
     
   },
   "devDependencies": {
