@@ -2,8 +2,17 @@
   <navbar title="Editor" background-color="transparent" />
   <view :class="styles.editor">
     <view class="menu" :style="{ height }">
-      <rich-text :nodes="h5"></rich-text>
-      <view class="echarts">
+      <view class="title"> Rich-Text</view>
+      <view class="richText">
+        <mp-html :content="h5" :nodes="h5" />
+        <rich-text :nodes="h5" />
+        <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
+        :controls="false" :show-fullscreen-btn="false" :show-center-play-btn="false" :show-play-btn="false" :loop="true"
+        :muted="false" :enable-progress-gesture="false" style="width: 100%;"
+        src="https://career.djicdn.com/broadway/public/0448b719-9f90-410c-841c-5e8cc2721cc6/campus-index-9.5.mp4" />
+      </view>
+      <view class="title">Echarts</view>
+        <view class="echarts">
         <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" :ec="ec" />
         <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" :ec="ec2" />
       </view>
@@ -22,6 +31,7 @@ definePageConfig({
   enableShareTimeline: true,
   usingComponents: {
     "ec-canvas": "../../components/ec-canvas/ec-canvas",
+    "mp-html": "../../components/mp-html/index",
   },
 });
 
@@ -32,9 +42,9 @@ const height = computed(
     `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
 
-const mpH5 = `<div style="color: #7468F2">我是HTML代码</div>`;
 const h5 =
-  '<p style="text-align: center;color: #7468F2;"><span style="font-size: 22px;"><strong>richText&amp;&amp;Echarts</strong></span></p>';
+  `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>`
+  ;
 
 const initChart = (canvas, width, height) => {
   const chart = echarts.init(canvas, null, {
@@ -43,9 +53,9 @@ const initChart = (canvas, width, height) => {
   });
   canvas.setChart(chart);
 
-  let xData = [];
-  let yData = [];
-  let data = [];
+  let xData = [] as any;
+  let yData = [] as any;
+  let data = [] as any;
   for (let y = 0; y < 2; y++) {
     yData.push(y);
     for (let x = 0; x < 10; x++) {

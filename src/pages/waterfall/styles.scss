@@ -9,6 +9,15 @@
   // 非必须   
   width: 100%;
   counter-reset: items;
+  opacity: 0;
+  animation: page 3s ease;
+  animation-delay: .2s;
+  animation-fill-mode : forwards;
+  @keyframes page {
+    100% {
+      opacity: 1;
+    }
+  }
   :global {
     .item {
       width: 25%;

@@ -2,9 +2,12 @@
   <view :class="styles.personCard">
     <view class="b">
       <view class="a">WGGのweb</view>
-      <view class="h2">WX:Ren</view>
-      <view class="span">I am a web developer<view />In the days to
-        come<view />Keep going!!</view>
+      <view class="wxTxt">WX:Ren</view>
+      <view class="contentText">
+        <view>I am a web developer</view>
+        <view >In the days to come</view>
+        <view>Keep going!!</view>
+      </view>
     </view>
     <view class="c">
       <!-- --i是用来计算平面圆柱的动效延迟和距离的

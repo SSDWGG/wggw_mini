@@ -1,15 +1,18 @@
 <template>
-    <!-- <view>此页面作初始化跳转页面，可以放 loading or logo</view> -->
-    <view class="flex" style="height: 100vh; justify-content: center; align-items: center;">
-    <nut-icon name="loading1" color="#7468F2" size="4rem" />
-    </view>
+  <view :class="styles.firstPage">
+    <view class="title">Welcome to WGGW</view>
+    <view class="logo">
+        <image class="bgImg" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg" />
+      </view>
+      <view class="hypnotic-5"></view>
+  </view>
 </template>
 
 <script lang="ts" setup>
 import { switchTab, useLoad, useRouter } from '@tarojs/taro';
-import { adjustSelected } from '../memoAndMine/custom-tab-bar/useTabBarStore';
 import { useAccountStore } from '@/stores/account';
 import { uuid } from '@/utils/index';
+import styles from './styles.scss'
 
 const account = useAccountStore();
 
@@ -23,10 +26,11 @@ if(account.uuid==="0"){
 }
 
 const router = useRouter();
-const homePage = router.params.tabbar || '/pages/menu/index';
+const homePage = router.params.url || '/pages/menu/index';
 
-// @ts-ignore
-useLoad((options: any) => {
-  switchTab({ url: homePage, success: () => adjustSelected(homePage) });
+useLoad(() => {
+  setTimeout(()=>{
+    switchTab({ url: homePage });
+  },3000) 
 });
 </script>

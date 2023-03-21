@@ -13,9 +13,9 @@
       width: 28vw;
       height: 30vw;
       left: 0;
-      margin: 3vw 8vw;
+      margin: 5vw 8vw;
       transition: 1s;
-      .h2{
+      .wxTxt{
         /* 鼠标放开时的动画，第一个值是动画的过渡时间
                 第二个值是延迟一秒后执行动画 */
         font-size: 16px;
@@ -23,10 +23,11 @@
         opacity: 0;
         color: rgb(30, 210, 200);
       }
-      .span {
+      .contentText {
         transition: 0.5s 1s;
         color: #fff;
-        font: 500 14px "";
+        font-size: 14px;
+        font-weight: 500;
         position: absolute;
         width: 100%;
         left: 0;
@@ -35,7 +36,8 @@
       .a {
         text-decoration: none;
         color: #fff;
-        font: 900 14px "";
+        font-size: 16px;
+        font-weight: 900;
       }
     }
 
@@ -70,12 +72,12 @@
     }
 
     .f {
-      width: 25vw;
-      height: 25vw;
+      width: 29vw;
+      height: 29vw;
       position: absolute;
       background-image: url("./wechat.png");
       background-size: cover;
-      margin: 7vw;
+      margin: 6vw;
       opacity: 0;
       transition: 0.5s;
     }
@@ -95,14 +97,14 @@
       .b {
         transition: 1s 0.5s;
         left: 30vw;
-        .h2 {
+        .wxTxt {
           font-size: 16px;
           transition: 1s 0.5s;
           opacity: 1;
         }
-        .span {
+        .contentText {
           transition: 1s 0.5s;
-          top: 9vw;
+          top: 11vw;
         }
       }
     }

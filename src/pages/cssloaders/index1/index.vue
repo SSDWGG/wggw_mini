@@ -1,5 +1,5 @@
 <template>
-      <navbar title="css-loaders" background-color="transparent" />
+      <navbar title="css-loaders" background-color="#f3f3fe" />
     <view :class="styles.cssloaders"> 
     <scroll-view class="listBox" scroll-y="true">
       <view class="title">
