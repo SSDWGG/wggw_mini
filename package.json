@@ -45,9 +45,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "@nutui/nutui-taro": "^3.2.1",
     "@fishui/taro-request": "^1.0.0",
     "@fishui/taro-vue": "1.1.5",
+    "@nutui/nutui-taro": "^3.2.1",
     "@tarojs/components": "3.5.7",
     "@tarojs/helper": "3.5.7",
     "@tarojs/plugin-framework-vue3": "3.5.7",
@@ -68,7 +68,6 @@
     "pinia": "^2.0.6",
     "taro-plugin-pinia": "^1.0.0",
     "vue": "^3.2.24"
-    
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

@@ -2,7 +2,6 @@
   <view  :class="{[styles.container]: true, [styles.show]: props.show }">
     <post-button />
     <share-button/>
-
   </view>
 </template>
 <script lang="ts" setup>

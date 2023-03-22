@@ -9,12 +9,13 @@
       </view>
       <view> Hope you enjoy these  CSS loaders.</view>
     </view>
+    <pulsing />
+
         <hypnotic/>
         <Spinnertwo/>
         <Wobbligntwo/>
         <arcade/>
       
-        <pulsing />
         <shapes />
         <shuriken />
         <infinity />

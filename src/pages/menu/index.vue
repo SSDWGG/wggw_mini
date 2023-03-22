@@ -1,13 +1,12 @@
 <template>
   <view :class="styles.myContainer" class="pageIn">
-    <navbar title="Menu" hide-back background-color="#f5f5f9" />
+  <navbar title="Menu" hide-back background-color="#f5f5f9" />
     <nut-water-mark
       :gap-x="20"
       font-color="rgba(0, 0, 0, .1)"
       :z-index="1"
       :content="account.waterMark"
     />
-    <!-- notice -->
     <nut-notice-bar
       right-icon="circle-close"
       :background="`#F1EFFD`"
@@ -18,11 +17,11 @@
       {{ account.NoticeBarText }}
     </nut-notice-bar>
 
-    <view class="richText">
+      <view class="richText">
         <rich-text :nodes="h5" />
         <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
         :controls="false" :show-fullscreen-btn="false" :show-center-play-btn="false" :show-play-btn="false" :loop="true"
-        :muted="false" :enable-progress-gesture="false" style="width: 100%;"
+        :muted="true" :enable-progress-gesture="false" style="width: 100%;"
         src="https://career.djicdn.com/broadway/public/0448b719-9f90-410c-841c-5e8cc2721cc6/campus-index-9.5.mp4" />
       </view>
 
@@ -44,7 +43,7 @@
           src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg"
         />
       </view>
-    </view>
+    </view> 
   </view>
 </template>
 <script lang="ts" setup>
@@ -55,7 +54,7 @@
   } from "@nutui/nutui-taro";
   import { computed, reactive } from "vue";
   import { useAccountStore } from "@/stores/account";
-  import Taro from "@tarojs/taro";
+  import Taro, { useShareTimeline } from "@tarojs/taro";
   import { Navbar } from "@fishui/taro-vue";
   import { useSystemInfoStore } from "@/stores/systemInfo";
 
@@ -69,6 +68,11 @@
   const systemInfo = useSystemInfoStore();
   const data = reactive({
     menuList: [
+      {
+        title: "WGG",
+        Ctitle: "wgg",
+        router: "/pages/wgg/index",
+      },
       {
         title: "Media Memo",
         Ctitle: "多媒体记录",
@@ -90,20 +94,15 @@
         router: "/pages/waterfall/index",
       },
       {
-        title: "Plugin",
-        Ctitle: "组件",
+        title: "More Plugin",
+        Ctitle: "多种组件",
         router: "/pages/editor/index",
       },
       {
-        title: "WGG",
-        Ctitle: "wgg",
-        router: "/pages/wgg/index",
+        title: "IKun",
+        Ctitle: "小黑子",
+        router: '/pages/cxk/index'
       },
-      // {
-      //   title: "Test",
-      //   Ctitle: "测试",
-      //   router: '/pages/test/index'
-      // },
     ],
   });
 
@@ -117,4 +116,12 @@
   const goto = (item) => {
     Taro.navigateTo({ url: item.router });
   };
+
+  useShareTimeline(()=>{
+    return { 
+    title: '快来看看wgg哒小程序吧~',
+    path: `/pages/index/index`,
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg',
+  }
+  })
 </script>

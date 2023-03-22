@@ -4,11 +4,13 @@
     <view class="menu" :style="{ height }">
       <view class="title"> Rich-Text</view>
       <view class="richText">
-        <mp-html :content="h5" :nodes="h5" />
-        <rich-text :nodes="h5" />
-        <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
+        <!-- <view class="mp">
+          <mp-html :content="data.html"  />
+        </view> -->
+          <rich-text :nodes="data.html" />
+      <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
         :controls="false" :show-fullscreen-btn="false" :show-center-play-btn="false" :show-play-btn="false" :loop="true"
-        :muted="false" :enable-progress-gesture="false" style="width: 100%;"
+        :muted="true" :enable-progress-gesture="false" style="width: 100%;"
         src="https://career.djicdn.com/broadway/public/0448b719-9f90-410c-841c-5e8cc2721cc6/campus-index-9.5.mp4" />
       </view>
       <view class="title">Echarts</view>
@@ -21,10 +23,11 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import { computed } from "vue";
+import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import * as echarts from "@/components/ec-canvas/echarts";
+import { useDidShow } from "@tarojs/taro";
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -42,7 +45,11 @@ const height = computed(
     `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
 
-const h5 =
+const data  = reactive({
+  html:''
+})
+
+data.html =
   `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>`
   ;
 
@@ -266,6 +273,10 @@ const initChart2 = (canvas, width, height) => {
   }, 500);
   chart.setOption(option);
 };
+
+useDidShow(()=>{
+  data.html =  `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>`
+})
 const ec = { onInit: initChart };
 const ec2 = { onInit: initChart2 };
 </script>

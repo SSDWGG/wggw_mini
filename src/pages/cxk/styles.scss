@@ -1,0 +1,91 @@
+page {
+  background: rgba(116, 104, 242,.4);
+}
+
+.cxk {
+  width: 100vw;
+  height: 100vh;
+  :global {
+    .title {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      font-size: 20px;
+      color: #7468f2;
+      font-weight: 500;
+    }
+    .cxkContent {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      image {
+        width: 197px;
+        height: 300px;
+      }
+      .txt:local {
+        text-align: center;
+        font-family: monospace;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: rgba(116, 104, 242,.5);
+        color: #fff;
+        box-shadow: 0 0 0 0 rgba(120, 108, 246,.5);
+        animation: pl2 1.5s infinite linear;
+        position: relative;
+        width: 80px;
+      }
+
+      .txt:before:local,
+      .txt:after:local {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        box-shadow: 0 0 0 0 rgba(120, 108, 246,.5);
+        animation: inherit;
+        animation-delay: -0.5s;
+      }
+      .txt:after:local {
+        animation-delay: -1s;
+      }
+      @keyframes pl2 {
+        100% {
+          box-shadow: 0 0 0 40px #0000;
+        }
+      }
+
+      image:after:local {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle 10px, rgb(116, 104, 242) 94%, #0000),
+          repeating-conic-gradient(
+            from -30deg,
+            #0000 0 60deg,
+            #7468f2 61deg 120deg
+          );
+        -webkit-mask: radial-gradient(
+          circle 15px,
+          #000 calc(100% - 6px),
+          #0000 calc(100% - 5px) 94%,
+          #000
+        );
+        top: 50%;
+        left: 45%;
+        opacity: 0.9;
+        background-size: 60px 60px;
+        background-repeat: no-repeat;
+        animation: pl3 0.5s infinite;
+      }
+      @keyframes pl3 {
+        to {
+          transform: scale(1.8);
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

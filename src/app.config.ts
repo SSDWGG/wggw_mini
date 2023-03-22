@@ -1,7 +1,6 @@
 // details config doc: https://docs.taro.zone/docs/app-config
 export default defineAppConfig({
   entryPagePath: 'pages/index/index',
-  // 除了首页和tabbar页，其他页面全部放入 subpackages（小程序分包数量没限制）
   pages: [
     'pages/index/index',
     'pages/menu/index',
@@ -15,8 +14,9 @@ export default defineAppConfig({
     { root: 'pages/cssloaders', pages: ['index1/index'] },
     { root: 'pages/editor', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
-    { root: 'pages/test', pages: ['index'] },
+    { root: 'pages/cxk', pages: ['index'] },
   ],
+  requiredBackgroundModes:["audio"],
   window: {
     navigationBarTextStyle: 'black',
     navigationBarTitleText: 'WGGW',

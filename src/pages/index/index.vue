@@ -9,10 +9,12 @@
 </template>
 
 <script lang="ts" setup>
-import { switchTab, useLoad, useRouter } from '@tarojs/taro';
+import {  useLoad, useRouter,switchTab } from '@tarojs/taro';
 import { useAccountStore } from '@/stores/account';
 import { uuid } from '@/utils/index';
 import styles from './styles.scss'
+import Taro from '@tarojs/taro';
+
 
 const account = useAccountStore();
 
@@ -27,6 +29,14 @@ if(account.uuid==="0"){
 
 const router = useRouter();
 const homePage = router.params.url || '/pages/menu/index';
+
+  // ios和安卓共同支持的音频格式 mp3 mp4a acc
+const backgroundAudioManager = Taro.getBackgroundAudioManager()
+backgroundAudioManager.title = '谢谢...'
+backgroundAudioManager.epname = '谢谢...'
+backgroundAudioManager.singer = 'KOKIA'
+backgroundAudioManager.coverImgUrl =  'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/BCADOECL-1678081703044WechatIMG21.jpeg'
+backgroundAudioManager.src = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IEPOALOG-1679458147373thanks.mp3'
 
 useLoad(() => {
   setTimeout(()=>{
