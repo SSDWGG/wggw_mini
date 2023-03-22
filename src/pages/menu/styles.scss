@@ -2,7 +2,8 @@ page {
   background: #f5f5f9;
 }
 .myContainer {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   
   :global {
     .nut-noticebar {
