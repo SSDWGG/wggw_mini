@@ -37,7 +37,9 @@ backgroundAudioManager.epname = '谢谢...'
 backgroundAudioManager.singer = 'KOKIA'
 backgroundAudioManager.coverImgUrl =  'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/BCADOECL-1678081703044WechatIMG21.jpeg'
 backgroundAudioManager.src = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IEPOALOG-1679458147373thanks.mp3'
-
+backgroundAudioManager.onEnded(()=>{
+  backgroundAudioManager.play()
+})
 useLoad(() => {
   setTimeout(()=>{
     switchTab({ url: homePage });
