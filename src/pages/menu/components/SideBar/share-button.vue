@@ -1,12 +1,5 @@
 <template>
-  <!-- <check-login-button
-    check-member
-    style="margin-top: 8rpx"
-    event-name="sider-button-album-share-click"
-    @tap="onShare"
-  > -->
     <image class="icon"  style="margin-top: 8rpx" src="@/assets/images/album/icon-album-share.png" @tap="onShare" />
-  <!-- </check-login-button> -->
 
   <root-portal>
     <nut-popup
