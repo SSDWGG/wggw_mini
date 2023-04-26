@@ -10,7 +10,6 @@
       @click-overlay="handleClose"
     >
       <view :class="styles.share">
-       
         <view  class="share-content">
           <button class="share-content-item button-to-view" open-type="share" data-from="all">
             <image class="icon" src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/wechat.png" />

@@ -3,27 +3,35 @@ page {
 }
 
 .cxk {
+  position: relative;
   width: 100vw;
   height: 100vh;
   :global {
+    video{
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
     .title {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 200px;
+      height: 70px;
       font-size: 20px;
       color: #7468f2;
       font-weight: 500;
     }
     .cxkContent {
       position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      opacity: .5;
       image {
-        width: 197px;
-        height: 300px;
+        width: 66px;
+        height: 99px;
       }
       .txt:local {
         text-align: center;
@@ -73,8 +81,8 @@ page {
           #0000 calc(100% - 5px) 94%,
           #000
         );
-        top: 50%;
-        left: 45%;
+        top: 37%;
+        left: 13%;
         opacity: 0.9;
         background-size: 60px 60px;
         background-repeat: no-repeat;
@@ -86,6 +94,21 @@ page {
           opacity: 0;
         }
       }
+    }
+
+    .c1{
+      top: 180px;
+      left: 50px;
+
+    }
+    .c2{
+      top: 180px;
+      right: 50%;
+      transform: translateX(+50%);
+    }
+    .c3{
+      top: 180px;
+      right: 50px;
     }
   }
 }
