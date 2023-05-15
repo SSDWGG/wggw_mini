@@ -107,10 +107,8 @@
   const goback = () => {
     innerAudioContext.destroy();
     Taro.navigateBack();
-    console.log("goback");
   };
 
   useDidHide(() => {
-    console.log("useDidHide");
   });
 </script>

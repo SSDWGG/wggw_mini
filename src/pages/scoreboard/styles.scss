@@ -1,0 +1,59 @@
+.scoreboard {
+  background-color: #f3f3fe;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  :global {
+    .rule-button-div {
+      margin-top: 50px;
+    }
+    .no-data {
+      font-size: 20px;
+      color: #7468f2;
+      font-weight: bolder;
+    }
+
+    .btnGroup {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+    }
+    .popTip {
+      display: flex;
+      align-items: flex-end;
+      color: #7468f2;
+      font-size: 10px;
+      margin-top: 10px;
+      .nut-icon {
+        font-size: 16px;
+      }
+      .icon {
+        font-size: 8px;
+        margin-top: 2px;
+        margin-right: 4px;
+        position: relative;
+        width: 11px;
+        height: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .icon::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 9px;
+        height: 9px;
+        border: 1px solid #7468f2;
+        border-radius: 50%;
+      }
+      .txt {
+        line-height: 14px;
+      }
+    }
+  }
+}

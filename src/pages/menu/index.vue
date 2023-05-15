@@ -99,6 +99,11 @@
         router: "/pages/wgg/index",
       },
       {
+        title: "Score Board",
+        Ctitle: "计分板",
+        router: "/pages/scoreboard/index",
+      },
+      {
         title: "Media Memo",
         Ctitle: "多媒体记录",
         router: "/pages/memoAndMine/index",
