@@ -133,6 +133,11 @@
         Ctitle: "小黑子",
         router: "/pages/cxk/index",
       },
+      {
+        title: " Shake Kun",
+        Ctitle: "摇动kun",
+        router: "/pages/cxk2/index",
+      },
     ],
   });
 

@@ -33,7 +33,7 @@
   </root-portal>
 </template>
 <script lang="ts" setup>
-import { reactive, defineProps, withDefaults, watch } from 'vue';
+import { reactive } from 'vue';
 import styles from './styles.scss';
 
 const props = withDefaults(defineProps<{ type?: 'goods'|'general' }>(), {

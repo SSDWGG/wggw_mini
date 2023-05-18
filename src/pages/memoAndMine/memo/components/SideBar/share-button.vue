@@ -41,7 +41,7 @@
   </root-portal>
 </template>
 <script lang="ts" setup>
-import { reactive, defineProps, withDefaults, watch } from 'vue';
+import { reactive, watch } from 'vue';
 import { useTabBarStore } from '../../../custom-tab-bar/useTabBarStore';
 import styles from './styles.scss';
 
