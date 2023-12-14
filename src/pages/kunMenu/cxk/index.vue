@@ -1,7 +1,7 @@
 <template>
   <view :class="styles.cxk">
     <navbar title="IKun" background-color="transparent" :goback="goback" />
-    <view class="title"> 支持哥哥的第912.5天 </view>
+    <view class="title"> 支持坤坤的第912.5天 </view>
     <view class="cxkContent c1" @tap="handleClickCxk">
       <view class="txt" :style="{ color: data.bg }">
         {{ audioChoose.text }}

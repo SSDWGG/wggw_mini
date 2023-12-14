@@ -6,35 +6,12 @@
       <view class="content">
         <view class="tips"> ❤️ Welcome to star SSDWGG on github ❤️</view>
         <view class="project">
-          <view class="a" @tap="copyStr('https://github.com/SSDWGG', {
+          <view v-for="item in data.dataList" :key="item.href" class="a" @tap="copyStr(item.href, {
             icon: 'none',
-            title: 'wgg-github 网址链接复制成功',
+            title: `${item.showName} 网址链接复制成功`,
             duration: 2000
           })">
-            wgg-github</view>
-          <view class="a" @tap="copyStr('https://github.com/SSDWGG/MP_V2', {
-            icon: 'none',
-            title: 'MP_V2 后台管理系统 网址链接复制成功',
-            duration: 2000
-          })">
-            ！MP_V2 后台管理系统 ！</view>
-          <view class="a" @tap="copyStr('https://github.com/SSDWGG/rabbitMall', {
-            icon: 'none',
-            title: '🐰商城 网址链接复制成功',
-            duration: 2000
-          })">🐰 电商商城 (pc)</view>
-          <view class="a" @tap="copyStr('https://github.com/SSDWGG/blog', {
-            icon: 'none',
-            title: 'WGG—Blog 网址链接复制成功',
-            duration: 2000
-          })">WGG—Blog
-          </view>
-          <view class="a" @tap="copyStr('https://github.com/SSDWGG/wggw_mini', {
-            icon: 'none',
-            title: 'WGGW-mini小程序 网址链接复制成功',
-            duration: 2000
-          })">WGGW-mini小程序
-          </view>
+            {{item.showName}}</view>
         </view>
         <view class="tips">❤️ thanks for your attention ❤️</view>
         <person-card/>
@@ -47,6 +24,7 @@ import { copyStr } from '@/utils/index';
 import styles from './styles.scss';
 import PersonCard from './components/PersonCard/index.vue';
 import { Navbar } from '@fishui/taro-vue';
+import { reactive } from 'vue';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -54,5 +32,53 @@ definePageConfig({
 });
 
 
+const data = reactive({
+    dataList: [
+      {
+        showName: 'GitHub(开源仓库)',
+        href: 'https://github.com/SSDWGG',
+      },
+      {
+        showName: 'MP_V2（个人中后台管理系统pc）',
+        href: 'http://ssdwgg.cn:8686',
+      },
+      {
+        showName: '云小叮微信小程序、wggw微信小程序',
+        href: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IFCAICKK-1683525307009WechatIMG25.png',
+      },
+      {
+        showName: '诗文卡片',
+        href: 'http://ssdwgg.cn:8696',
+      },
+      {
+        showName: 'MRTK（流媒体视频项目）',
+        href: 'https://ssdwgg.cn:8693',
+      },
+      {
+        showName: 'GAME_hextris（游戏娱乐项目）',
+        href: 'http://ssdwgg.cn:8694',
+      },
+      {
+        showName: 'RabbitMall（商城项目pc）',
+        href: 'http://ssdwgg.cn:8687',
+      },
+      {
+        showName: 'MGJ（练习项目pc）',
+        href: 'http://ssdwgg.cn:8688',
+      },
+      {
+        showName: 'wgg_project（个人项目简介pc、移动端）',
+        href: 'http://ssdwgg.cn:8689',
+      },
+      {
+        showName: 'IKUN_SHAKE（娱乐项目）',
+        href: 'http://ssdwgg.cn:8691',
+      },
+      {
+        showName: 'IKUN_STR（娱乐项目_移动端）',
+        href: 'http://ssdwgg.cn:8692',
+      },
+    ],
+  });
 
 </script>
