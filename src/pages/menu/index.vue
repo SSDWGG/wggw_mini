@@ -128,22 +128,6 @@
         Ctitle: "计分板",
         router: "/pages/scoreboard/index",
       },
-
-      {
-        title: " KunKun ",
-        Ctitle: "黑屋",
-        router: "/pages/kunMenu/index",
-      },
-      // {
-      //   title: "IKun",
-      //   Ctitle: "小黑子",
-      //   router: "/pages/cxk/index",
-      // },
-      // {
-      //   title: " Shake Kun",
-      //   Ctitle: "摇动kun",
-      //   router: "/pages/cxk2/index",
-      // },
       // {
       //   title: " Test",
       //   Ctitle: "TEST",

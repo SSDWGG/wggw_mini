@@ -15,12 +15,6 @@ export default defineAppConfig({
     { root: 'pages/editor', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },
-    { root: 'pages/kunMenu', pages: ['index','cxk/index','cxk2/index','cxk3/index'] },
-
-
-    // { root: 'pages/cxk', pages: ['index'] },
-    // { root: 'pages/cxk2', pages: ['index'] },
-    { root: 'pages/test', pages: ['index'] },
   ],
   requiredBackgroundModes:["audio"],
   window: {
