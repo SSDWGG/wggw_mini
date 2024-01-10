@@ -128,11 +128,11 @@
         Ctitle: "计分板",
         router: "/pages/scoreboard/index",
       },
-      // {
-      //   title: " Test",
-      //   Ctitle: "TEST",
-      //   router: "/pages/test/index",
-      // },
+      {
+        title: "ikun",
+        Ctitle: "黑屋",
+        router: "/pages/cxk/index",
+      },
     ],
   });
 
