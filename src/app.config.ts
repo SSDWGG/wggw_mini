@@ -15,7 +15,7 @@ export default defineAppConfig({
     { root: 'pages/editor', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },
-    { root: 'pages/cxk', pages: ['index'] },
+    { root: 'pages/cxk', pages: ['index/index'] },
 
   ],
   requiredBackgroundModes:["audio"],
