@@ -131,7 +131,7 @@
       {
         title: "ikun",
         Ctitle: "黑屋",
-        router: "/pages/cxk/index",
+        router: "/pages/cxk/index/index",
       },
     ],
   });

@@ -1,6 +1,6 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" @scroll="onScroll" scroll-y="true" v-if="data.showPage">
-    <navbar title="黑屋" background-color="#f5f5f9" hide-back/>
+    <navbar title="黑屋" background-color="#f5f5f9" :goback="goback"/>
     <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="致敬最爱的坤坤" />
     <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
       世上本没有坤，坤的人多了便也有了坤。宁可食无肉，不可居无坤。无肉令人瘦，无坤令人俗。
@@ -38,7 +38,7 @@ import {
   WaterMark as NutWaterMark,
 } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
-import Taro, { useShareAppMessage, useShareTimeline } from "@tarojs/taro";
+import Taro, { useShareAppMessage, useShareTimeline,switchTab } from "@tarojs/taro";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import sideBar from "@/components/SideBar/index.vue";
@@ -59,32 +59,32 @@ const data = reactive({
     {
       title: "IKun",
       Ctitle: "小黑子",
-      router: "/pages/cxk/index",
+      router: "/pages/cxk/cxk/index",
     },
     {
       title: "IKun",
       Ctitle: "坤歌台",
-      router: "/pages/cxk3/index",
+      router: "/pages/cxk/cxk3/index",
     },
     {
       title: "Shake Kun",
       Ctitle: "摇坤",
-      router: "/pages/cxk2/index",
+      router: "/pages/cxk/cxk2/index",
     },
     {
       title: "Kun Str",
       Ctitle: "字符坤",
-      router: "/pages/cxk4/index",
+      router: "/pages/cxk/cxk4/index",
     },
     {
       title: "Game",
       Ctitle: "旋转俄罗斯方块",
-      router: "/pages/cxk5/index",
+      router: "/pages/cxk/cxk5/index",
     },
     {
       title: "test",
       Ctitle: "旋转俄罗斯方块",
-      router: "/pages/cxk6/index",
+      router: "/pages/cxk/cxk6/index",
     },
   ],
 });
@@ -97,6 +97,11 @@ const height = computed(
 const goto = (item) => {
   Taro.navigateTo({ url: item.router });
 };
+
+const goback = () => {
+    
+  switchTab({ url: '/pages/menu/index' });
+  };
 
 useShareTimeline(() => {
   return {

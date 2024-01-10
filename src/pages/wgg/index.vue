@@ -40,7 +40,7 @@ const data = reactive({
       },
       {
         showName: 'MP_V2（个人中后台管理系统pc）',
-        href: 'http://ssdwgg.cn:8686',
+        href: 'http://todo.ssdwgg.cn',
       },
       {
         showName: '云小叮微信小程序、wggw微信小程序',
@@ -48,7 +48,7 @@ const data = reactive({
       },
       {
         showName: '诗文卡片',
-        href: 'http://ssdwgg.cn:8696',
+        href: 'http://poem.ssdwgg.cn',
       },
       {
         showName: 'MRTK（流媒体视频项目）',
@@ -56,27 +56,27 @@ const data = reactive({
       },
       {
         showName: 'GAME_hextris（游戏娱乐项目）',
-        href: 'http://ssdwgg.cn:8694',
+        href: 'http://hextris.ssdwgg.cn',
       },
       {
         showName: 'RabbitMall（商城项目pc）',
-        href: 'http://ssdwgg.cn:8687',
+        href: 'http://mall.ssdwgg.cn',
       },
       {
         showName: 'MGJ（练习项目pc）',
-        href: 'http://ssdwgg.cn:8688',
+        href: 'http://mgj.ssdwgg.cn',
       },
       {
         showName: 'wgg_project（个人项目简介pc、移动端）',
-        href: 'http://ssdwgg.cn:8689',
+        href: 'http://wgg.ssdwgg.cn',
       },
       {
         showName: 'IKUN_SHAKE（娱乐项目）',
-        href: 'http://ssdwgg.cn:8691',
+        href: 'http://ikunqqq.ssdwgg.cn',
       },
       {
         showName: 'IKUN_STR（娱乐项目_移动端）',
-        href: 'http://ssdwgg.cn:8692',
+        href: 'http://ikunstr.ssdwgg.cn',
       },
     ],
   });

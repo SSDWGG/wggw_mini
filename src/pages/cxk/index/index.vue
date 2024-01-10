@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import {  useLoad, useRouter,switchTab } from '@tarojs/taro';
+import {  useLoad, useRouter,navigateTo } from '@tarojs/taro';
 import Taro from '@tarojs/taro';
 import fullPreview from '../fullPreview/index.vue'
 import { reactive } from 'vue';
@@ -12,7 +12,7 @@ import { reactive } from 'vue';
 
 
 const router = useRouter();
-const homePage = router.params.url || '/pages/menu/index';
+const homePage = router.params.url || '/pages/cxk/menu/index';
 
 
 const data = reactive({
@@ -48,7 +48,7 @@ backgroundAudioManager.onEnded(()=>{
 
 useLoad(() => {
   setTimeout(()=>{
-    switchTab({ url: homePage });
+    navigateTo({ url: homePage });
   },3000) 
 });
 </script>
