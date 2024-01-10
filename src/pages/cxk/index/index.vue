@@ -29,8 +29,6 @@ const data = reactive({
   songIndex:0
 })
 
-
-
   // ios和安卓共同支持的音频格式 mp3 mp4a acc
 const backgroundAudioManager = Taro.getBackgroundAudioManager()
 const playMusic = ()=>{
