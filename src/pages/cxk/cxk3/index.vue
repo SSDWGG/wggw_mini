@@ -20,17 +20,13 @@ import {
   WaterMark as NutWaterMark,
 } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
-import Taro, { useShareAppMessage, useShareTimeline } from "@tarojs/taro";
+import Taro from "@tarojs/taro";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import fullPreview from "../fullPreview/index.vue";
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 
-definePageConfig({
-  enableShareAppMessage: true,
-  enableShareTimeline: true,
-});
 
 const { show, onScroll } = useListScroll();
 
@@ -92,19 +88,5 @@ const goto = (item) => {
   Taro.navigateTo({ url: item.router });
 };
 
-useShareTimeline(() => {
-  return {
-    title: "快来看看wgg哒小程序吧~",
-    path: `/pages/index/index`,
-    imageUrl:
-      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg",
-  };
-});
-useShareAppMessage(() => {
-  return {
-    title: '快来看看wgg哒小程序吧~',
-    path: `/pages/index/index`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg',
-  };
-});
+
 </script>

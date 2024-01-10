@@ -19,17 +19,17 @@ const data = reactive({
   musicList:[
   {
       name:'爱鸡',
-      src:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/AEGCNOKF-1702614271625爱鸡.mp3'
+      src:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/KPPHBLKN-1704879026226ij.mp3'
     },
     {
       name:'奇鸡再现',
-      src:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/KOIIDIOG-1702614317245奇鸡再现.mp3'
+      src:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/CECPPDKF-1704878863927qjzx.mp3'
     }
   ],
   songIndex:0
 })
 
-  // ios和安卓共同支持的音频格式 mp3 mp4a acc
+  // ios和安卓共同支持的音频格式 mp3 mp4a acc   src源无法解析中文
 const backgroundAudioManager = Taro.getBackgroundAudioManager()
 const playMusic = ()=>{
   backgroundAudioManager.title = data.musicList[data.songIndex].name

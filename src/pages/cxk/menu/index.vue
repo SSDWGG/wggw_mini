@@ -106,7 +106,7 @@ const goback = () => {
 useShareTimeline(() => {
   return {
     title: "快来坤屋吧~",
-    path: `/pages/menu/index`,
+    path: `/pages/cxk/index/index`,
     imageUrl:
       "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
   };
@@ -114,7 +114,7 @@ useShareTimeline(() => {
 useShareAppMessage(() => {
   return {
     title: "快来坤屋吧~",
-    path: `/pages/menu/index`,
+    path: `/pages/cxk/index/index`,
     imageUrl:
       "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
   };
