@@ -29,7 +29,7 @@
 
     <side-bar :show="show" @full="data.showPage = false" />
   </scroll-view>
-  <fullPreview :back="true" @back="data.showPage = true" v-else />
+  <fullPreview :back="true" @back="data.showPage = true" v-else  />
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";

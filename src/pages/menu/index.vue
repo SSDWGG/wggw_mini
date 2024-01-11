@@ -3,52 +3,55 @@
     :class="styles.myContainer"
     class="pageIn"
     v-if="data.showPage"
-    @scroll="onScroll" scroll-y="true"
+    @scroll="onScroll"
+    scroll-y="true"
   >
-      <navbar title="Menu" hide-back background-color="#f5f5f9" />
-      <nut-water-mark
-        :gap-x="20"
-        font-color="rgba(0, 0, 0, .1)"
-        :z-index="1"
-        :content="account.waterMark"
+    <navbar title="Menu" hide-back background-color="#f5f5f9" />
+    <nut-water-mark
+      :gap-x="20"
+      font-color="rgba(0, 0, 0, .1)"
+      :z-index="1"
+      :content="account.waterMark"
+    />
+    <nut-notice-bar
+      right-icon="circle-close"
+      :background="`#F1EFFD`"
+      color="#8074FE"
+      :speed="35"
+      v-if="account.showfirstTimePageNoticeBar"
+    >
+      {{ account.NoticeBarText }}
+    </nut-notice-bar>
+
+    <view class="richText">
+      <rich-text :nodes="h5" />
+      <video
+        class="video"
+        object-fit="contain"
+        :show-bottom-progress="false"
+        :initial-time="0"
+        :autoplay="true"
+        :controls="false"
+        :show-fullscreen-btn="false"
+        :show-center-play-btn="false"
+        :show-play-btn="false"
+        :loop="true"
+        :muted="true"
+        :enable-progress-gesture="false"
+        style="width: 100%"
+        src="https://career.djicdn.com/broadway/public/0448b719-9f90-410c-841c-5e8cc2721cc6/campus-index-9.5.mp4"
       />
-      <nut-notice-bar
-        right-icon="circle-close"
-        :background="`#F1EFFD`"
-        color="#8074FE"
-        :speed="35"
-        v-if="account.showfirstTimePageNoticeBar"
+    </view>
+
+    <view class="menu" :style="{ height }">
+      <nut-animate
+        type="breath"
+        class="rule-button-div"
+        loop
+        v-for="(item, index) in data.menuList"
+        :key="index"
       >
-        {{ account.NoticeBarText }}
-      </nut-notice-bar>
-
-      <view class="richText">
-        <rich-text :nodes="h5" />
-        <video
-          class="video"
-          object-fit="contain"
-          :show-bottom-progress="false"
-          :initial-time="0"
-          :autoplay="true"
-          :controls="false"
-          :show-fullscreen-btn="false"
-          :show-center-play-btn="false"
-          :show-play-btn="false"
-          :loop="true"
-          :muted="true"
-          :enable-progress-gesture="false"
-          style="width: 100%"
-          src="https://career.djicdn.com/broadway/public/0448b719-9f90-410c-841c-5e8cc2721cc6/campus-index-9.5.mp4"
-        />
-      </view>
-
-      <view class="menu" :style="{ height }">
-        <view
-          class="menu-item"
-          @tap="goto(item)"
-          v-for="(item, index) in data.menuList"
-          :key="index"
-        >
+        <view class="menu-item" @tap="goto(item)">
           <view class="title">
             {{ item.title }}
           </view>
@@ -60,8 +63,9 @@
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg"
           />
         </view>
-      </view>
-      <side-bar :show="show" @full="data.showPage = false" />
+      </nut-animate>
+    </view>
+    <side-bar :show="show" @full="data.showPage = false" />
   </scroll-view>
   <fullPreview :back="true" @back="data.showPage = true" v-else />
 </template>
@@ -70,6 +74,7 @@
   import {
     NoticeBar as NutNoticeBar,
     WaterMark as NutWaterMark,
+    Animate as NutAnimate,
   } from "@nutui/nutui-taro";
   import { computed, reactive } from "vue";
   import { useAccountStore } from "@/stores/account";
@@ -97,6 +102,11 @@
         title: "WGG",
         Ctitle: "wgg",
         router: "/pages/wgg/index",
+      },
+      {
+        title: "ikun",
+        Ctitle: "kunkun妙妙屋",
+        router: "/pages/cxk/index/index",
       },
       {
         title: "Media Memo",
@@ -128,11 +138,6 @@
         Ctitle: "计分板",
         router: "/pages/scoreboard/index",
       },
-      {
-        title: "ikun",
-        Ctitle: "黑屋",
-        router: "/pages/cxk/index/index",
-      },
     ],
   });
 
@@ -147,17 +152,18 @@
 
   useShareTimeline(() => {
     return {
-      title: "快来看看wgg哒小程序吧~",
+      title: "快来看看wggw小程序吧~",
       path: `/pages/index/index`,
       imageUrl:
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg",
     };
   });
   useShareAppMessage(() => {
-  return {
-    title: '快来看看wgg哒小程序吧~',
-    path: `/pages/index/index`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg',
-  };
-});
+    return {
+      title: "快来看看wggw小程序吧~",
+      path: `/pages/index/index`,
+      imageUrl:
+        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg",
+    };
+  });
 </script>

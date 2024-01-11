@@ -16,12 +16,11 @@ interface IState {
   NoticeBarDataSaveText:string,//memo数据安全提示公告栏
   memoDataList: IMemo[]; //备忘录的数据
   selfProgress:IProgress; //用户设置的个性化时间进度
-
 }
 
 export const useAccountStore = defineStore("account", {
   state: (): IState => ({
-    username:'WGG',
+    username:'WGG的妙妙屋',
     waterMark:'WGGW',
     uuid: "0",
     avatarurl:"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
