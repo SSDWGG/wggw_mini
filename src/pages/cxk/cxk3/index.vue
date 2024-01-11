@@ -1,6 +1,6 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
-    <navbar title="坤歌台" background-color="rgba(116, 104, 242,.1)" >
+    <navbar title="坤歌台" background-color="rgba(116, 104, 242,.1)">
 
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
@@ -17,14 +17,14 @@
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
-      <view class="menu-item" @tap="play(item,index)" v-for="(item, index) in musicStore.cxkMusicList" :key="index">
+      <view class="menu-item" @tap="play(item, index)" v-for="(item, index) in musicStore.cxkMusicList" :key="index">
         <view class="title">
           {{ item.title }}
         </view>
         <view class="title">
           {{ item.singer }}
         </view>
-        <image class="bgImg" :class="{activeImg:item.isplay}" :src='item.coverImgUrl' />
+        <image class="bgImg" :class="{ activeImg: item.isplay }" :src='item.coverImgUrl' />
       </view>
     </view>
 
@@ -43,7 +43,7 @@ import fullPreview from "../fullPreview/index.vue";
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import { useMusicStore } from '@/stores/music';
-import  { useShareAppMessage, useShareTimeline,useRouter,switchTab } from "@tarojs/taro";
+import { useShareAppMessage, useShareTimeline, useRouter, switchTab, useDidShow } from "@tarojs/taro";
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -62,12 +62,19 @@ const data = reactive({
   showPage: true,
 });
 
+
+useDidShow(() => {
+  if (!musicStore.isPlay()) {
+    musicStore.playCxkMusic()
+  }
+});
+
 const height = computed(
   () =>
     `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
 
-const play = (item,index)=>{
+const play = (item, index) => {
   musicStore.play(item)
   musicStore.cxkSongIndex = index
 }
