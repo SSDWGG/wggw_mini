@@ -76,16 +76,11 @@ const data = reactive({
       Ctitle: "字符坤",
       router: "/pages/cxk/cxk4/index",
     },
-    {
-      title: "Game",
-      Ctitle: "旋转俄罗斯方块",
-      router: "/pages/cxk/cxk5/index",
-    },
-    {
-      title: "test",
-      Ctitle: "旋转俄罗斯方块",
-      router: "/pages/cxk/cxk6/index",
-    },
+    // {
+    //   title: "Game",
+    //   Ctitle: "旋转俄罗斯方块",
+    //   router: "/pages/cxk/cxk5/index",
+    // },
   ],
 });
 

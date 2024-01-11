@@ -1,6 +1,13 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
-    <navbar title="坤歌台" background-color="rgba(116, 104, 242,.1)" />
+    <navbar title="坤歌台" background-color="rgba(116, 104, 242,.1)" >
+
+      <template v-if="!!router.params.isShare" #left>
+        <view style="padding: 6px 20px" @tap="goHomePage">
+          <nut-icon name="home" size="20" />
+        </view>
+      </template>
+    </navbar>
     <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="坤坤大舞台有歌你就来" />
     <side-bar :show="show" @full="data.showPage = false" />
 
@@ -10,7 +17,7 @@
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
-      <view class="menu-item" @tap="play(item)" v-for="(item, index) in musicStore.cxkMusicList" :key="index">
+      <view class="menu-item" @tap="play(item,index)" v-for="(item, index) in musicStore.cxkMusicList" :key="index">
         <view class="title">
           {{ item.title }}
         </view>
@@ -36,12 +43,15 @@ import fullPreview from "../fullPreview/index.vue";
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import { useMusicStore } from '@/stores/music';
-import  { useShareAppMessage, useShareTimeline } from "@tarojs/taro";
+import  { useShareAppMessage, useShareTimeline,useRouter,switchTab } from "@tarojs/taro";
 
 definePageConfig({
   enableShareAppMessage: true,
   enableShareTimeline: true,
 });
+
+const router = useRouter();
+
 
 const { show, onScroll } = useListScroll();
 
@@ -57,14 +67,15 @@ const height = computed(
     `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
 
-const play = (item)=>{
+const play = (item,index)=>{
   musicStore.play(item)
+  musicStore.cxkSongIndex = index
 }
 
 useShareTimeline(() => {
   return {
     title: "快来听坤歌吧~",
-    path: `/pages/cxk/cxk3/index`,
+    path: `/pages/cxk/cxk3/index?isShare=true`,
     imageUrl:
       "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
   };
@@ -72,10 +83,13 @@ useShareTimeline(() => {
 useShareAppMessage(() => {
   return {
     title: "快来听坤歌吧~",
-    path: `/pages/cxk/cxk3/index`,
+    path: `/pages/cxk/cxk3/index?isShare=true`,
     imageUrl:
       "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
   };
 });
 
+const goHomePage = () => {
+  switchTab({ url: '/pages/index/index' });
+};
 </script>

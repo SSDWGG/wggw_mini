@@ -41,7 +41,6 @@ const flat = (arr: IMemo[]) => arr.flatMap(i => i.list.map(v => ({...i, ...v})))
  
 definePageConfig({
   backgroundColor: '#000',
-  enableShareAppMessage: true,
 });
 
 </script>

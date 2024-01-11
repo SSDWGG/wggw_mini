@@ -30,8 +30,6 @@ import * as echarts from "@/components/ec-canvas/echarts";
 import { useDidShow } from "@tarojs/taro";
 
 definePageConfig({
-  enableShareAppMessage: true,
-  enableShareTimeline: true,
   usingComponents: {
     "ec-canvas": "../../components/ec-canvas/ec-canvas",
     "mp-html": "../../components/mp-html/index",

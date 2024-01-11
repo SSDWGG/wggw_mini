@@ -28,6 +28,14 @@ export const useMusicStore = defineStore("musicStore", {
     cxkMusicList: [
       {
         isplay:false,
+        epname: '你干嘛~哎呦~',
+        title: '你干嘛~哎呦~',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/PEELADIA-1679390220050ngm.mp3'
+      },
+      {
+        isplay:false,
         epname: '爱鸡',
         title: '爱鸡',
         singer: 'kunkun',
@@ -41,7 +49,57 @@ export const useMusicStore = defineStore("musicStore", {
         singer: 'kunkun',
         coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
         src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/CECPPDKF-1704878863927qjzx.mp3'
-      }
+      },
+      {
+        isplay:false,
+        epname: '鸡花瓷',
+        title: '鸡花瓷',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NFJJPOLP-1704958512624jhc.mp3'
+      },
+      {
+        isplay:false,
+        epname: '本草鸡木',
+        title: '本草鸡木',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/PDEMMNJJ-1704958512624bcjm.mp3'
+      },
+      {
+        isplay:false,
+        epname: '仙剑鸡侠传',
+        title: '仙剑鸡侠传',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/OMFOJGMP-1704958512624xjjxz.mp3'
+      },
+      {
+        isplay:false,
+        epname: '!坤!',
+        title: '!坤!',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/APENDBMF-1679390216522j.mp3'
+      },
+      
+      {
+        isplay:false,
+        epname: '!坤你太美!',
+        title: '!坤你太美!',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KBOAGENL-1679390152917jntm.mp3",
+      },
+      {
+        isplay:false,
+        epname: '篮球坤',
+        title: '篮球坤',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NFHKMKOK-1679390468478bgm.mp3",
+      },
+      
     ],
     cxkSongIndex: 0
   }),

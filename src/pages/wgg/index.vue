@@ -26,10 +26,6 @@ import PersonCard from './components/PersonCard/index.vue';
 import { Navbar } from '@fishui/taro-vue';
 import { reactive } from 'vue';
 
-definePageConfig({
-  enableShareAppMessage: true,
-  enableShareTimeline: true,
-});
 
 
 const data = reactive({
