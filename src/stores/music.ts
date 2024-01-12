@@ -60,6 +60,14 @@ export const useMusicStore = defineStore("musicStore", {
       },
       {
         isplay:false,
+        epname: '曹鸡',
+        title: '曹鸡',
+        singer: 'kunkun',
+        coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IBPDHKBN-1705023432828cj.mp3'
+      },
+      {
+        isplay:false,
         epname: '本草鸡木',
         title: '本草鸡木',
         singer: 'kunkun',
