@@ -106,7 +106,7 @@ export const useMusicStore = defineStore("musicStore", {
   actions: {
     isPlay(){
       const backgroundAudioManager = Taro.getBackgroundAudioManager()
-      return !!backgroundAudioManager.paused
+      return !backgroundAudioManager.paused
     },
     playDefaultBGM(){      
       // ios和安卓共同支持的音频格式 mp3 mp4a acc
