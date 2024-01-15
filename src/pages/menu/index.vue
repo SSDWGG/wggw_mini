@@ -46,7 +46,7 @@ import Taro, { useShareAppMessage, useShareTimeline, useDidShow } from "@tarojs/
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import fullPreview from "../fullPreview/index.vue";
-import sideBar from "./components/SideBar/index.vue";
+import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import { useMusicStore } from '@/stores/music';
 

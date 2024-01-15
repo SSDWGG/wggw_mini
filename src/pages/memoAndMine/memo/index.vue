@@ -49,7 +49,7 @@
 </template>
 <script lang="ts" setup>
 import styles from './styles.scss';
-import SideBar from './components/SideBar/index.vue';
+import SideBar from '@/components/SideBar/index.vue';
 
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useAccountStore } from '@/stores/account';

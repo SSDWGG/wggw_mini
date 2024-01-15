@@ -20,6 +20,8 @@
       "@/components/*": ["./src/components/*"],
       "@/stores/*": ["./src/stores/*"],
       "@/utils/*": ["./src/utils/*"],
+      "@root/project.config.json": ["./project.config.json"],
+      "@root/package.json": ["./package.json"],
     },
     "rootDir": ".",
     "jsx": "preserve",

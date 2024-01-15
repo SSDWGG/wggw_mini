@@ -39,6 +39,33 @@
       width: 86%;
     }
 
+    //  清除原生button样式
+    .kf {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      border-radius: 0;
+      background-color: transparent;
+      line-height: inherit;
+    }
+
+    .kf::after {
+      border: none;
+    }
+
+    .contact {
+      font-size: 9px;
+      color: rgba(116, 104, 242, .7);
+      box-shadow: 0px 1px 7px 0px rgb(225, 226, 229);
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, .9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      height: 86%;
+      width: 86%;
+    }
    
   }
 }
