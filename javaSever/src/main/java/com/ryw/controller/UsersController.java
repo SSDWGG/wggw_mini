@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ryw.controller.util.JWTUtils;
 import com.ryw.entity.Users;
+import com.ryw.framework.domain.AjaxResult;
 import com.ryw.hander.MyPasswordEncoder;
 import com.ryw.mapper.UsersMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.ryw.framework.domain.AjaxResult.error;
+import static com.ryw.framework.domain.AjaxResult.success;
 
 @Slf4j
 @RestController
@@ -52,17 +56,21 @@ public class UsersController {
         queryMap.put("email",email);
         wrapper.allEq(queryMap, false);
         Users users = usersMapper.selectOne(wrapper);
-
         users.setPassword(password);
         return null;
     }
 
 
     @RequestMapping("/v1/user/test")              // 分页查询  和全部数据条数
-    public int getUserList(@RequestParam("test") int test){   //接收传来的参数，这里了封装一个实体类
-
-System.out.print(test);
-        return test;
+    public AjaxResult getUserList(
+            @RequestParam("code") String code,
+            @RequestParam("appid") String appid,
+            @RequestParam("test") String test
+            ){   //接收传来的参数，这里了封装一个实体类
+        System.out.println(code);
+        System.out.println(appid);
+        System.out.println(test);
+        return error(301,appid);
     }
 
 

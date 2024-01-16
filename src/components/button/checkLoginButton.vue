@@ -16,21 +16,11 @@
 import { ref } from 'vue';
 import Taro from '@tarojs/taro';
 import { useAccountStore } from '@/stores/account';
-import mpmToast from '@/components/mpmToast/index.vue';
+import mpmToast from '@/components/myToast/index.vue';
 
-const props = withDefaults(
-  defineProps<{
-    checkMember?: boolean;
-    eventName?: string; // 埋点事件名称
-  }>(),
-  {
-    checkMember: false,
-    eventName: '',
-  },
-);
 const emit = defineEmits<{
   (e: 'tap'): void;
-  (e: 'callback', success: boolean): void; // 店家授权登录的回调
+  (e: 'callback', success: boolean): void; 
 }>();
 
 const accountStore = useAccountStore();
@@ -42,6 +32,8 @@ const loginData = {
 const myToast = ref<any>();
 
 const getPhoneNumber = (e) => {
+  console.log(e);
+  
   loginData.phoneCode = e.detail.code;
   if (e.detail.errMsg === 'getPhoneNumber:ok') {
     Taro.login({
@@ -62,8 +54,6 @@ const getPhoneNumber = (e) => {
     });
     emit('callback', false);
   }
-  // @ts-ignore
-  if (props.eventName) wx.aldstat.sendEvent(props.eventName, {});
 };
 
 const tapClick = () => {

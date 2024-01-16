@@ -24,7 +24,7 @@
 
 <script lang="ts" setup>
 import { uuid } from '@/utils/index';
-import { h, watchEffect } from 'vue';
+import { watchEffect } from 'vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { IMpmToastState, IVariable, useToastStore } from './useToastStore';

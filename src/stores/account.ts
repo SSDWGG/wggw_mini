@@ -16,6 +16,9 @@ interface IState {
   NoticeBarDataSaveText:string,//memo数据安全提示公告栏
   memoDataList: IMemo[]; //备忘录的数据
   selfProgress:IProgress; //用户设置的个性化时间进度
+
+
+  isLogined:boolean; //用户设置的个性化时间进度
 }
 
 export const useAccountStore = defineStore("account", {
@@ -50,6 +53,7 @@ export const useAccountStore = defineStore("account", {
       contentOverText: '', //内容区域结束后的文案
       contentTitleText: '',  //title文案
     },
+    isLogined:false
   }),
   actions: {
     // 同步strore数据到Storage
