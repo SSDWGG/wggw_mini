@@ -39,6 +39,7 @@ interface IState {
 
   isLogined:boolean; //是否登录
   biddingDefaultList:Array<IBiddingItem>; //竞拍本地列表
+  biddingKunDefaultList:Array<IBiddingItem>; //竞拍本地列表（坤版）
 }
 
 export const useAccountStore = defineStore("account", {
@@ -77,11 +78,90 @@ export const useAccountStore = defineStore("account", {
     isLogined:false,
     biddingDefaultList:[
       {
-       
         shopId:'1',
         imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
         title:'野生kun',
-        dec:'守护最好的坤，把价格打下去家人们！！',
+        dec:'守护最好的野生坤，把价格打下去家人们！！',
+        priceLine:[
+          {
+            time:'2024-1-7 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:1
+          },
+          {
+            time:'2024-1-8 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:100
+
+          },
+          {
+            time:'2024-1-9 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-800
+          },
+          {
+            time:'2024-1-10 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:300
+          },
+          {
+            time:'2024-1-11 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-100
+
+          },
+          {
+            time:'2024-1-12 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-800
+          },
+          {
+            time:'2024-1-13 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-1800
+          },
+          {
+            time:'2024-1-14 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:800
+
+          },
+          {
+            time:'2024-1-15 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-2800
+          },
+          {
+            time:'2024-1-16 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-1100
+
+          },
+          {
+            time:'2024-1-17 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-2600
+          }
+        ]
+      },
+    ],
+    biddingKunDefaultList:[
+      {
+        shopId:'1',
+        imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        title:'野生kun',
+        dec:'守护最好的野生坤，把价格打下去家人们！！',
         priceLine:[
           {
             time:'2024-1-7 2:30:00',
@@ -159,8 +239,8 @@ export const useAccountStore = defineStore("account", {
        
         shopId:'2',
         imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
-        title:'野生kun',
-        dec:'守护最好的坤，把价格打下去家人们！！',
+        title:'家养kun',
+        dec:'守护最好的家养坤，把价格打下去家人们！！',
         priceLine:[
           {
             time:'2024-1-7 2:30:00',
@@ -234,7 +314,7 @@ export const useAccountStore = defineStore("account", {
           }
         ]
       },
-    ]
+    ],
   }),
   actions: {
     // 同步strore数据到Storage

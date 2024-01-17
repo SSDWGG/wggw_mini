@@ -67,6 +67,11 @@ const data = reactive({
       router: "/pages/cxk/cxk3/index",
     },
     {
+      title: "Kun Bidding",
+      Ctitle: "坤线图",
+      router: "/pages/cxk/cxk7/index",
+    },
+    {
       title: "Shake Kun",
       Ctitle: "摇坤",
       router: "/pages/cxk/cxk2/index",

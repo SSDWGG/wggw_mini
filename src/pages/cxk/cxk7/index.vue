@@ -1,13 +1,13 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage"  scroll-y="true">
-    <navbar title="价格曲线" background-color="rgba(116, 104, 242,.1)"/>
+    <navbar title="坤线图" background-color="rgba(116, 104, 242,.1)"/>
     <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="wggw大舞台" />
     <view class="tipTitle">
       首先很高兴您能参与此试验游戏，我们会为您提供以下内容显示报价，您可以参与试验游戏提供您觉得合理的价格
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
-      <view class="menu-item"  @tap="open(item)"  v-for="item in accountStore.biddingDefaultList" :key="item.shopId" >
+      <view class="menu-item"  @tap="open(item)"  v-for="item in accountStore.biddingKunDefaultList" :key="item.shopId" >
           <view class="title">
             {{ item.title }}
           </view>
@@ -46,7 +46,7 @@ const height = computed(
 
 const open = (item) => {
   Taro.navigateTo({
-    url:`/pages/bidding/detail/index?shopId=${item.shopId}`
+    url:`/pages/cxk/cxk7/detail/index?shopId=${item.shopId}`
   })
 
 }
