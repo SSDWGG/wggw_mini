@@ -19,7 +19,7 @@
     "ios >= 8"
   ],
   "engines": {
-    "node": "16.15.1"
+    "node": "^16.15.1"
   },
   "author": "",
   "license": "MIT",
@@ -30,6 +30,7 @@
     "@babel/runtime": "^7.7.7",
     "@fishui/taro-request": "^1.0.0",
     "@fishui/taro-vue": "1.1.5",
+    "@lucky-canvas/taro": "^0.0.14",
     "@nutui/nutui-taro": "^3.2.1",
     "@tarojs/components": "3.5.7",
     "@tarojs/helper": "3.5.7",
@@ -49,6 +50,7 @@
     "dayjs": "^1.11.5",
     "lodash": "^4.17.21",
     "pinia": "^2.0.6",
+    "taro-calendar-heatmap": "^0.3.2",
     "taro-plugin-pinia": "^1.0.0",
     "vue": "^3.2.24"
   },

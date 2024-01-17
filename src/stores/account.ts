@@ -4,6 +4,15 @@ import { IResult } from "@/components/selectMedia";
 import Taro from "@tarojs/taro";
 import { defineStore } from "pinia";
 
+
+interface IBiddingItem {
+  uid:string
+  imgSrc:string
+  title:string
+  dec:string
+  price:[]
+}
+
 interface IState {
   username:string,
   waterMark:string,
@@ -18,7 +27,8 @@ interface IState {
   selfProgress:IProgress; //用户设置的个性化时间进度
 
 
-  isLogined:boolean; //用户设置的个性化时间进度
+  isLogined:boolean; //是否登录
+  biddingDefaultList:Array<IBiddingItem>; //竞拍本地列表
 }
 
 export const useAccountStore = defineStore("account", {
@@ -53,7 +63,26 @@ export const useAccountStore = defineStore("account", {
       contentOverText: '', //内容区域结束后的文案
       contentTitleText: '',  //title文案
     },
-    isLogined:false
+
+    isLogined:false,
+    biddingDefaultList:[
+      {
+       
+        uid:'1',
+        imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        title:'kun kun image',
+        dec:'kun kun image',
+        price:[]
+      },
+      {
+       
+        uid:'2',
+        imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+        title:'kun kun image',
+        dec:'kun kun image',
+        price:[]
+      }
+    ]
   }),
   actions: {
     // 同步strore数据到Storage

@@ -112,6 +112,11 @@ const data = reactive({
       Ctitle: "计分板",
       router: "/pages/scoreboard/index",
     },
+    {
+      title: "Open Bidding",
+      Ctitle: "猜想价格曲线",
+      router: "/pages/bidding/index",
+    },
   ],
 });
 

@@ -51,10 +51,11 @@ data.html =
   `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>`
   ;
 
-const initChart = (canvas, width, height) => {
+const initChart = (canvas, width, height,dpr) => {
   const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
+    width,
+    height,
+    devicePixelRatio: dpr,
   });
   canvas.setChart(chart);
 
@@ -200,10 +201,11 @@ const initChart = (canvas, width, height) => {
   return chart;
 };
 
-const initChart2 = (canvas, width, height) => {
+const initChart2 = (canvas, width, height,dpr) => {
   const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
+    width,
+    height,
+    devicePixelRatio: dpr,
   });
   canvas.setChart(chart);
   const option = {
@@ -278,3 +280,4 @@ useDidShow(()=>{
 const ec = { onInit: initChart };
 const ec2 = { onInit: initChart2 };
 </script>
+@/components/ec-canvas1/echarts@/components/ec-canvas/echarts
