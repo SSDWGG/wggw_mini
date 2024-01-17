@@ -3,14 +3,24 @@ import { IProgress } from "@/apis/progress/model";
 import { IResult } from "@/components/selectMedia";
 import Taro from "@tarojs/taro";
 import { defineStore } from "pinia";
-
+  
+export interface IPriceLineItem {
+  // 报价时间
+  time:string,
+  // 报价人唯一Id
+  uid:string,
+  // 报价人名称
+  uName:string,
+  // 价格
+  price:Number
+}
 
 interface IBiddingItem {
-  uid:string
+  shopId:string
   imgSrc:string
   title:string
   dec:string
-  price:[]
+  priceLine:Array< IPriceLineItem >
 }
 
 interface IState {
@@ -68,20 +78,162 @@ export const useAccountStore = defineStore("account", {
     biddingDefaultList:[
       {
        
-        uid:'1',
+        shopId:'1',
         imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
-        title:'kun kun image',
-        dec:'kun kun image',
-        price:[]
+        title:'野生kun',
+        dec:'守护最好的坤，把价格打下去家人们！！',
+        priceLine:[
+          {
+            time:'2024-1-7 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:1
+          },
+          {
+            time:'2024-1-8 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:100
+
+          },
+          {
+            time:'2024-1-9 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-800
+          },
+          {
+            time:'2024-1-10 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:300
+          },
+          {
+            time:'2024-1-11 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-100
+
+          },
+          {
+            time:'2024-1-12 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-800
+          },
+          {
+            time:'2024-1-13 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-1800
+          },
+          {
+            time:'2024-1-14 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:800
+
+          },
+          {
+            time:'2024-1-15 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-2800
+          },
+          {
+            time:'2024-1-16 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-1100
+
+          },
+          {
+            time:'2024-1-17 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-2600
+          }
+        ]
       },
       {
        
-        uid:'2',
+        shopId:'2',
         imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
-        title:'kun kun image',
-        dec:'kun kun image',
-        price:[]
-      }
+        title:'野生kun',
+        dec:'守护最好的坤，把价格打下去家人们！！',
+        priceLine:[
+          {
+            time:'2024-1-7 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:1
+          },
+          {
+            time:'2024-1-8 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:100
+
+          },
+          {
+            time:'2024-1-9 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-800
+          },
+          {
+            time:'2024-1-10 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:300
+          },
+          {
+            time:'2024-1-11 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-100
+
+          },
+          {
+            time:'2024-1-12 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-800
+          },
+          {
+            time:'2024-1-13 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-1800
+          },
+          {
+            time:'2024-1-14 2:30:00',
+            uid:'2',
+            uName:'护坤大使',
+            price:800
+
+          },
+          {
+            time:'2024-1-15 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-2800
+          },
+          {
+            time:'2024-1-16 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-1100
+
+          },
+          {
+            time:'2024-1-17 2:30:00',
+            uid:'1',
+            uName:'小黑子',
+            price:-2600
+          }
+        ]
+      },
     ]
   }),
   actions: {

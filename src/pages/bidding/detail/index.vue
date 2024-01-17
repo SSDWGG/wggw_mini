@@ -7,11 +7,12 @@
         </view>
       </template>
     </navbar>
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" :content="chooseItem?.title" />
-    <side-bar :show="show" @full="data.showPage = false" />
+    
+    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
+    <side-bar :show="show" :showFlags = [1,3] />
 
-    <view class="img">
-      {{ chooseItem?.imgSrc }}
+    <view class="imgDiv">
+      <image mode="aspectFit" :src=chooseItem?.imgSrc class="img"></image>
     </view>
     <view class="title">
       {{ chooseItem?.title }}
@@ -20,10 +21,8 @@
       {{ chooseItem?.dec }}
     </view>
 
-    <view class="bar-chart">
-      <EChart ref="barChat" canvas-id="bar-canvas" />
-    </view>
-    <button :plain="true" @tap="onRefreshData">刷新数据</button>
+    <chartLine v-if="!!chooseItem?.priceLine" :orginData = chooseItem?.priceLine></chartLine>
+    
   </scroll-view>
 </template>
 <script lang="ts" setup>
@@ -40,42 +39,16 @@ import {
   useRouter,
   switchTab,
   useDidShow,
-  useReady,
 } from "@tarojs/taro";
 import { changeLongStr } from "@/utils/index";
-import EChart from '@/components/myEcharts/e-chart.vue';
-import Taro from "@tarojs/taro";
+import chartLine from './chartLine.vue'
 
-useReady(() => {
-  initMultiBarChart();
-})
-const barChat = ref<any>();
-const onRefreshData = () => {
-  initMultiBarChart();
-}
-const initMultiBarChart = () => {
-  const options = {
-    xAxis: {
-      type: "category",
-      boundaryGap: false,
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    },
-    yAxis: {
-      type: "value",
-    },
-    series: [
-      {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: "line",
-        smooth: true,
-        stack: "Total",
-      },
-    ],
-  };
-  Taro.nextTick(() => {
-    barChat.value.refresh(options)
-  })
-}
+definePageConfig({
+  enableShareAppMessage: true,
+  enableShareTimeline: true,
+});
+
+
 
 const router = useRouter();
 
@@ -92,11 +65,13 @@ const data = reactive({
 let chooseItem = ref();
 
 const init = () => {
+  console.log(router.params);
+  
   chooseItem.value = accountStore.biddingDefaultList.filter(
-    (item) => item.uid == router.params.uid
+    (item) => item.shopId == router.params.shopId
   )[0];
   pageTitle.value =
-    changeLongStr(chooseItem.value.title, 3, true) + "价格曲线";
+    changeLongStr(chooseItem.value.title, 6, true) + "价格";
 };
 
 useDidShow(() => {
@@ -105,16 +80,16 @@ useDidShow(() => {
 
 useShareTimeline(() => {
   return {
-    title: "快来听坤歌吧~",
-    path: `/pages/cxk/cxk3/index?isShare=true`,
+    title: "守护最好的坤~",
+    path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
     imageUrl:
       "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
   };
 });
 useShareAppMessage(() => {
   return {
-    title: "快来听坤歌吧~",
-    path: `/pages/cxk/cxk3/index?isShare=true`,
+    title: "守护最好的坤~",
+    path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
     imageUrl:
       "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
   };

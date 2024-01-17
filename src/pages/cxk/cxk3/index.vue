@@ -9,7 +9,7 @@
       </template>
     </navbar>
     <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="坤坤大舞台有歌你就来" />
-    <side-bar :show="show" @full="data.showPage = false" />
+    <side-bar :show="show" :onfullButtonBack="()=>data.showPage = false"  :showFlags = [1,2,3] />
 
 
     <view class="tipTitle">

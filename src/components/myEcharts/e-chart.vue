@@ -6,6 +6,7 @@
 /**
 * 自定义下载的echarts.min.js 文件  要使用需使用js,ts需要声明文件
 * 此组件不能使用setup语法糖，会报错的.
+https://echarts.apache.org/zh/builder.html  在线构建echart.min
 */
 import Taro, { useLoad } from "@tarojs/taro";
 import * as echarts from './ec-canvas/echarts-5.4.1.min'
