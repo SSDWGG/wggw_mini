@@ -14,6 +14,7 @@
 </template>
 
 <script>
+// https://100px.net/    组件文档地址
 import { ref, reactive, toRefs } from 'vue'
 import { LuckyWheel } from '@lucky-canvas/taro/vue'
 export default {

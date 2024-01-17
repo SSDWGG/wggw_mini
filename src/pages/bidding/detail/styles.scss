@@ -20,17 +20,13 @@ page {
       }
     }
 
-    .echart{
-      height: 1000rpx;
+    .bar-chart{
+      height: 500rpx;
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      // .ec-canvas {
-      //   width: 100% !important;
-      //   height: 100% !important;
-      // }
     }
     
    .title{
