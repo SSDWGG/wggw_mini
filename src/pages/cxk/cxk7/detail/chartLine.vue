@@ -132,6 +132,6 @@ const addGame = debounce(() => {
     last
   )
   initMultiBarChart()
-},100)
+},1000, { leading: true, trailing: false })
 
 </script>
