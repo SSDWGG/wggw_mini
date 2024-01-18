@@ -1,4 +1,5 @@
 import { IMemo } from "@/apis/memo/model";
+import { wxLogin } from "@/apis/mine";
 import { IProgress } from "@/apis/progress/model";
 import { IResult } from "@/components/selectMedia";
 import Taro from "@tarojs/taro";
@@ -37,7 +38,7 @@ interface IState {
   selfProgress:IProgress; //用户设置的个性化时间进度
 
 
-  isLogined:boolean; //是否登录
+  openid:string; //是否登录
   biddingDefaultList:Array<IBiddingItem>; //竞拍本地列表
   biddingKunDefaultList:Array<IBiddingItem>; //竞拍本地列表（坤版）
 }
@@ -75,7 +76,7 @@ export const useAccountStore = defineStore("account", {
       contentTitleText: '',  //title文案
     },
 
-    isLogined:false,
+    openid:'',
     biddingDefaultList:[
       {
         shopId:'1',
@@ -317,6 +318,14 @@ export const useAccountStore = defineStore("account", {
     ],
   }),
   actions: {
+
+    // 箭头函数中没有this，如果想使用this，请不要使用箭头函数
+   async login(){
+      const res =  await wxLogin()
+      this.openid = res.openid
+      console.log(this.openid);
+    },
+
     // 同步strore数据到Storage
     setStorage: (state: IState) => {
       for (var key in state) {
