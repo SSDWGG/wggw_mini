@@ -1,9 +1,9 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" @scroll="onScroll" scroll-y="true" v-if="data.showPage">
-    <navbar title="黑屋" background-color="#f5f5f9" :goback="goback"/>
+    <navbar title="坤坤妙妙屋" background-color="#f5f5f9" :goback="goback"/>
     <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="致敬最爱的坤坤" />
     <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
-      世上本没有坤，坤的人多了便也有了坤。宁可食无肉，不可居无坤。无肉令人瘦，无坤令人俗。
+      巅峰见证虚伪的拥护 黄昏迎来虔诚的信徒。世上本没有坤，坤的人多了便也有了坤。宁可食无肉，不可居无坤。无肉令人瘦，无坤令人俗。
     </nut-notice-bar>
 
     <view class="richText">
@@ -15,16 +15,23 @@
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
-      <view class="menu-item" @tap="goto(item)" v-for="(item, index) in data.menuList" :key="index">
+      <nut-animate type="breath" class="rule-button-div" loop v-for="(item, index) in data.menuList" :key="index">
+
+      <view class="menu-item" @tap="goto(item)" >
         <view class="title">
           {{ item.title }}
         </view>
         <view class="title">
           {{ item.Ctitle }}
         </view>
-        <image class="bgImg"
-          src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg" />
+        <image 
+          class="bgImg"
+          mode="aspectFill"
+          :src="item.bgSrc"
+          :style="{ opacity: item.opacity }"
+        />
       </view>
+      </nut-animate>
     </view>
 
     <side-bar :show="show" :onfullButtonBack="()=>data.showPage = false"  :showFlags = [1,2,3] />
@@ -36,6 +43,7 @@ import styles from "./styles.scss";
 import {
   NoticeBar as NutNoticeBar,
   WaterMark as NutWaterMark,
+  Animate as NutAnimate,
 } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import Taro, { useShareAppMessage, useShareTimeline,switchTab } from "@tarojs/taro";
@@ -60,36 +68,50 @@ const data = reactive({
       title: "IKun",
       Ctitle: "小黑子",
       router: "/pages/cxk/cxk/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+      opacity:0.2
     },
     {
       title: "IKun",
       Ctitle: "坤歌台",
       router: "/pages/cxk/cxk3/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+      opacity:0.2
     },
     {
       title: "Kun Bidding",
       Ctitle: "坤线图",
       router: "/pages/cxk/cxk7/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+      opacity:0.2
     },
     {
       title: "Shake Kun",
       Ctitle: "摇坤",
       router: "/pages/cxk/cxk2/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/BEDKEKCP-1705543014391shakeKun.gif',
+      opacity:1
     },
     {
       title: "Kun Str",
       Ctitle: "字符坤",
       router: "/pages/cxk/cxk4/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IIOMLFKE-1705543014391strkun.gif',
+      opacity:1
     },
     {
       title: "Game",
       Ctitle: "旋转俄罗斯方块",
       router: "/pages/cxk/cxk5/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HEPJCNMO-1705543014391game1.gif',
+      opacity:1
     },
     {
       title: "Game",
-      Ctitle: "xlgx",
+      Ctitle: "兔了个兔",
       router: "/pages/cxk/cxk6/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NICPAEIK-1705543014391tlgt.gif',
+      opacity:1
     },
   ],
 });

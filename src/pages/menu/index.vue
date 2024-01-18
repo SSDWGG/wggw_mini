@@ -25,7 +25,9 @@
             {{ item.Ctitle }}
           </view>
           <image class="bgImg"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg" />
+          mode="aspectFill"
+          :style="{ opacity: item.opacity??0.2 }"
+            :src="item.bgSrc??imgDefaultSrc" />
         </view>
       </nut-animate>
     </view>
@@ -55,6 +57,8 @@ definePageConfig({
   enableShareTimeline: true,
 });
 
+const imgDefaultSrc = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg'
+
 const { show, onScroll } = useListScroll();
 
 const account = useAccountStore();
@@ -81,6 +85,8 @@ const data = reactive({
       title: "ikun",
       Ctitle: "kunkun妙妙屋",
       router: "/pages/cxk/index/index",
+      bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/BEDKEKCP-1705543014391shakeKun.gif',
+      opacity:1
     },
     // {
     //   title: "Open Bidding",
