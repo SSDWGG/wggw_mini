@@ -101,7 +101,7 @@ const data = reactive({
     {
       title: "CSS Loaders",
       Ctitle: "新奇的动效css",
-      router: "/pages/cssloaders/index1/index",
+      router: "/pages/cssloaders/index",
     },
     {
       title: "Clock",

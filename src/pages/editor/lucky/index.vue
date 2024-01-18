@@ -1,9 +1,10 @@
 <template>
   <view>
+    <view class="title">抽奖</view>
     <LuckyWheel
       ref="myLucky"
-      width="600rpx"
-      height="600rpx"
+      width="400rpx"
+      height="400rpx"
       :prizes="prizes"
       :blocks="blocks"
       :buttons="buttons"
@@ -11,16 +12,23 @@
       @end="endCallback"
     ></LuckyWheel>
   </view>
+
+  <!-- toast提示 -->
+  <mpm-toast ref="myToast" :duration="2500" />
 </template>
 
 <script>
 // https://100px.net/    组件文档地址
 import { ref, reactive, toRefs } from 'vue'
 import { LuckyWheel } from '@lucky-canvas/taro/vue'
+import mpmToast from "@/components/myToast/index.vue";
+
 export default {
-  components: { LuckyWheel },
+  components: { LuckyWheel,mpmToast },
   setup () {
     const myLucky = ref(null)
+    const myToast = ref(null);
+
     const state = reactive({
       blocks: [{ padding: '13px', background: '#617df2' }],
       prizes: [
@@ -56,12 +64,18 @@ export default {
     // 抽奖结束会触发end回调
     function endCallback (prize) {
       console.log(prize)
+      myToast.value.mpmToastShow({
+        icon: "success",
+        title: `6666666`,
+        duration: 3000,
+      });
     }
     return {
       ...toRefs(state),
       startCallback,
       endCallback,
-      myLucky
+      myLucky,
+      myToast
     }
   }
 }

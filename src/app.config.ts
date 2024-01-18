@@ -11,7 +11,7 @@ export default defineAppConfig({
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/time', pages: ['index'] },
     { root: 'pages/waterfall', pages: ['index'] },
-    { root: 'pages/cssloaders', pages: ['index1/index'] },
+    { root: 'pages/cssloaders', pages: ['index'] },
     { root: 'pages/editor', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },
