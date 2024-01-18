@@ -3,7 +3,7 @@ import * as T from "./model";
 import Taro from "@tarojs/taro";
 import projectConfig from "@root/project.config.json";
 
-const { appid, secret } = projectConfig;
+const { appid } = projectConfig;
 
 // 测试接口
 export const getUserApiTest = async (test: number) => {
@@ -25,7 +25,7 @@ export const getUserApiTest = async (test: number) => {
 export const wxLogin = async () => {
   let params = {};
   const { code } = await Taro.login();
-  params = { appid, js_code: code, secret, grant_type: "authorization_code" };
+  params = { appid, js_code: code, grant_type: "authorization_code" };
   return request<{
     openid: string;
     session_key: string;
