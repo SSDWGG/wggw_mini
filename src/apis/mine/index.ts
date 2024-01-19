@@ -9,7 +9,7 @@ const { appid } = projectConfig;
 export const getUserApiTest = async (test: number) => {
   let params = {};
   const { code } = await Taro.login();
-  params = { appid, code, test };
+  params = {  code };
   return request<number>({
     url: "/v1/user/test",
     method: "GET",
@@ -25,12 +25,12 @@ export const getUserApiTest = async (test: number) => {
 export const wxLogin = async () => {
   let params = {};
   const { code } = await Taro.login();
-  params = { appid, js_code: code, grant_type: "authorization_code" };
+  params = {  code };
   return request<{
     openid: string;
     session_key: string;
   }>({
-    url: "https://api.weixin.qq.com/sns/jscode2session",
+    url: "/v1/user/getOpenid",
     method: "GET",
     params,
   });
@@ -56,17 +56,4 @@ export const userLogin = (data: {
     request.setConfig({ header: { token: res.token } });
     tokenUtil.set(res.token);
     return res;
-  });
-/**
- * 静默登录
- */
-export const silentLoginApi = (data: {
-  appid: string;
-  inviteUserId: string;
-  loginCode: string;
-}) =>
-  request<T.IUserItem>({
-    url: "/yxd/wx/mini/user/silentLogin",
-    method: "POST",
-    data,
   });

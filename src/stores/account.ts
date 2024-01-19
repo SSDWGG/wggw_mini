@@ -318,14 +318,11 @@ export const useAccountStore = defineStore("account", {
     ],
   }),
   actions: {
-
     // 箭头函数中没有this，如果想使用this，请不要使用箭头函数
    async login(){
       const res =  await wxLogin()
       this.openid = res.openid
-      console.log(this.openid);
     },
-
     // 同步strore数据到Storage
     setStorage: (state: IState) => {
       for (var key in state) {

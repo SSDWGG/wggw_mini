@@ -105,7 +105,7 @@ requestInstance.interceptors.response.use((response, config) => {
   //   throw new Error(commonError.get(response.statusCode) || '请求异常');
   // }
   
-return response.data
+return response.data.data
 
 }, (error: Error & { errMsg?: string }, { showErrorMsg }) => {
   if (error.errMsg?.startsWith('request:fail')) {

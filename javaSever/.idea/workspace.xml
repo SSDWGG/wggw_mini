@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="WGGW:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -23,39 +28,75 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/constant/CacheConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/constant/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/constant/GenConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/constant/HttpStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/constant/ScheduleConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/constant/UserConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/core/text/CharsetKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/core/text/Convert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/core/text/StrFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/enums/HttpMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/enums/UserStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/StringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/Threads.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/bean/BeanUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/bean/BeanValidators.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/html/EscapeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/html/HTMLFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/http/HttpHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/http/HttpUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/sign/Base64.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/sign/Md5Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/xss/Xss.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/xss/XssValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/framework/domain/AjaxResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/WGGW_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_hutool_hutool_all_5_8_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_31_1_jre.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/WGGW_jar/WGGW.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/common/utils/HttpUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP_V2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MP_V2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP_V2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WGGW.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/controller/UsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ryw/controller/UsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/WGGW_Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/constant/CacheConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/constant/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/constant/GenConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/constant/HttpStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/constant/ScheduleConstants$Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/constant/ScheduleConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/constant/UserConstants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/core/text/CharsetKit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/core/text/Convert.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/core/text/StrFormatter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/enums/HttpMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/enums/UserStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/StringUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/Threads.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/bean/BeanUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/bean/BeanValidators.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/html/EscapeUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/html/HTMLFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/http/HttpHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/http/HttpUtils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/http/HttpUtils$TrustAnyHostnameVerifier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/http/HttpUtils$TrustAnyTrustManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/http/HttpUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/sign/Base64.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/utils/sign/Md5Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/xss/Xss.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/common/xss/XssValidator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/config/InterceptorConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/config/MyBatisPlusConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/config/WebConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/config/WebSocketConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/controller/UsersController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/controller/VerificationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/controller/WS/WebSocketServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/controller/WS/WebSocketServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/controller/util/JWTUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/controller/util/MD5Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/entity/Users.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/framework/domain/AjaxResult.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/hander/MyMateObjectHander.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/hander/MyPasswordEncoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/interceptors/JWTInterceptors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ryw/mapper/UsersMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mailtemplate.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/apis/mine/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/mine/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/stores/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stores/account.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/utils/env.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/utils/env.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/utils/request.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/utils/request.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,34 +163,34 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/ryw/controller/WS" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ryw.hander" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/com/ryw" />
       <recent name="$PROJECT_DIR$/src/main/java/com/ryw/controller/WS" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ryw.common.utils" />
       <recent name="com.ryw.component" />
       <recent name="com.ryw.vo" />
       <recent name="com.ryw.config" />
       <recent name="com.ryw.controller" />
-      <recent name="com.ryw.mapper" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.ryw.hander" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/ryw/controller/WS" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -283,7 +324,7 @@
       </method>
     </configuration>
     <configuration name="WGGW_Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="MP_V2" />
+      <module name="WGGW" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.ryw.*" />
@@ -442,6 +483,8 @@
       <workItem from="1705299630413" duration="2920000" />
       <workItem from="1705308971576" duration="1160000" />
       <workItem from="1705369696367" duration="4512000" />
+      <workItem from="1705571094729" duration="1026000" />
+      <workItem from="1705626893217" duration="3263000" />
     </task>
     <servers />
   </component>
@@ -471,54 +514,62 @@
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state x="507" y="315" key="#com.intellij.fileTypes.FileTypeChooser/0.38.1512.944@0.38.1512.944" timestamp="1705369752243" />
+    <state x="494" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1705629079877">
+      <screen x="0" y="38" width="1512" height="944" />
+    </state>
+    <state x="494" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.38.1512.944@0.38.1512.944" timestamp="1705629079877" />
     <state x="494" y="260" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1705300419734">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state x="494" y="260" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.38.1512.944@0.38.1512.944" timestamp="1705300419734" />
-    <state width="1170" height="241" key="GridCell.Tab.0.bottom" timestamp="1705375472166">
+    <state width="1470" height="260" key="GridCell.Tab.0.bottom" timestamp="1705630546444">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.bottom/0.32.1512.950@0.32.1512.950" timestamp="1705372569570" />
-    <state width="1170" height="241" key="GridCell.Tab.0.bottom/0.38.1512.944@0.38.1512.944" timestamp="1705375472166" />
-    <state width="1170" height="241" key="GridCell.Tab.0.center" timestamp="1705375472165">
+    <state width="1470" height="260" key="GridCell.Tab.0.bottom/0.38.1512.944@0.38.1512.944" timestamp="1705630546444" />
+    <state width="1470" height="260" key="GridCell.Tab.0.center" timestamp="1705630546443">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.center/0.32.1512.950@0.32.1512.950" timestamp="1705372569566" />
-    <state width="1170" height="241" key="GridCell.Tab.0.center/0.38.1512.944@0.38.1512.944" timestamp="1705375472165" />
-    <state width="1170" height="241" key="GridCell.Tab.0.left" timestamp="1705375472165">
+    <state width="1470" height="260" key="GridCell.Tab.0.center/0.38.1512.944@0.38.1512.944" timestamp="1705630546443" />
+    <state width="1470" height="260" key="GridCell.Tab.0.left" timestamp="1705630546443">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.left/0.32.1512.950@0.32.1512.950" timestamp="1705372569565" />
-    <state width="1170" height="241" key="GridCell.Tab.0.left/0.38.1512.944@0.38.1512.944" timestamp="1705375472165" />
-    <state width="1170" height="241" key="GridCell.Tab.0.right" timestamp="1705375472166">
+    <state width="1470" height="260" key="GridCell.Tab.0.left/0.38.1512.944@0.38.1512.944" timestamp="1705630546443" />
+    <state width="1470" height="260" key="GridCell.Tab.0.right" timestamp="1705630546444">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.right/0.32.1512.950@0.32.1512.950" timestamp="1705372569569" />
-    <state width="1170" height="241" key="GridCell.Tab.0.right/0.38.1512.944@0.38.1512.944" timestamp="1705375472166" />
-    <state width="1170" height="241" key="GridCell.Tab.1.bottom" timestamp="1705375472167">
+    <state width="1470" height="260" key="GridCell.Tab.0.right/0.38.1512.944@0.38.1512.944" timestamp="1705630546444" />
+    <state width="1170" height="329" key="GridCell.Tab.1.bottom" timestamp="1705630546428">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.bottom/0.32.1512.950@0.32.1512.950" timestamp="1705372569574" />
-    <state width="1170" height="241" key="GridCell.Tab.1.bottom/0.38.1512.944@0.38.1512.944" timestamp="1705375472167" />
-    <state width="1170" height="241" key="GridCell.Tab.1.center" timestamp="1705375472167">
+    <state width="1170" height="329" key="GridCell.Tab.1.bottom/0.38.1512.944@0.38.1512.944" timestamp="1705630546428" />
+    <state width="1170" height="329" key="GridCell.Tab.1.center" timestamp="1705630546427">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.center/0.32.1512.950@0.32.1512.950" timestamp="1705372569573" />
-    <state width="1170" height="241" key="GridCell.Tab.1.center/0.38.1512.944@0.38.1512.944" timestamp="1705375472167" />
-    <state width="1170" height="241" key="GridCell.Tab.1.left" timestamp="1705375472166">
+    <state width="1170" height="329" key="GridCell.Tab.1.center/0.38.1512.944@0.38.1512.944" timestamp="1705630546427" />
+    <state width="1170" height="329" key="GridCell.Tab.1.left" timestamp="1705630546427">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.left/0.32.1512.950@0.32.1512.950" timestamp="1705372569572" />
-    <state width="1170" height="241" key="GridCell.Tab.1.left/0.38.1512.944@0.38.1512.944" timestamp="1705375472166" />
-    <state width="1170" height="241" key="GridCell.Tab.1.right" timestamp="1705375472167">
+    <state width="1170" height="329" key="GridCell.Tab.1.left/0.38.1512.944@0.38.1512.944" timestamp="1705630546427" />
+    <state width="1170" height="329" key="GridCell.Tab.1.right" timestamp="1705630546428">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.right/0.32.1512.950@0.32.1512.950" timestamp="1705372569573" />
-    <state width="1170" height="241" key="GridCell.Tab.1.right/0.38.1512.944@0.38.1512.944" timestamp="1705375472167" />
-    <state x="294" y="168" key="Maven.ArtifactSearchDialog" timestamp="1705370804828">
+    <state width="1170" height="329" key="GridCell.Tab.1.right/0.38.1512.944@0.38.1512.944" timestamp="1705630546428" />
+    <state x="294" y="168" key="Maven.ArtifactSearchDialog" timestamp="1705571702788">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
-    <state x="294" y="168" key="Maven.ArtifactSearchDialog/0.38.1512.944@0.38.1512.944" timestamp="1705370804828" />
+    <state x="294" y="168" key="Maven.ArtifactSearchDialog/0.38.1512.944@0.38.1512.944" timestamp="1705571702788" />
+    <state x="244" y="88" key="SettingsEditor" timestamp="1705629138606">
+      <screen x="0" y="38" width="1512" height="944" />
+    </state>
+    <state x="244" y="88" key="SettingsEditor/0.38.1512.944@0.38.1512.944" timestamp="1705629138606" />
     <state x="721" y="414" width="670" height="676" key="search.everywhere.popup" timestamp="1705300923880">
       <screen x="0" y="38" width="1512" height="944" />
     </state>

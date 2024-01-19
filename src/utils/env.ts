@@ -10,14 +10,9 @@ const allConfigs: { [k in BUILD_ENV] : IEnvConfig } = {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
     baseApi: 'http://localhost:9051', 
   },
-  release: {
-    cdnHost: 'https://panshi-on.meipingmi.com.cn',
-    baseApi: 'http://localhost:9051', 
-
-  },
   prod: {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
-    baseApi: 'http://localhost:9051', 
+    baseApi: 'https://wggw.ssdwgg.cn', 
 
   },
 };
