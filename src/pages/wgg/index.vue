@@ -13,30 +13,16 @@
         <person-card />
       </view>
     </view>
-    <update-pop v-model:modelValue="data.popTipVisible" confirmText="复制链接" cancelText="关闭" :on-confirm='onConfirm'
-      title="温馨提示">
-
-      <template #contentBottom>
-        <view class="template-content">
-          <view class="tipText">
-            因微信严格外部网站打开，现为您准备打开如下，您可以截屏扫码或者复制网址链接查看。也欢迎联系客服作者使用体验版小程序
-          </view>
-          <view class="imgDiv">
-            <image :src="data.chooseItem.qrSrc" mode="aspectFit" class="img" :show-menu-by-longpress="true"></image>
-          </view>
-        </view>
-      </template>
-
-    </update-pop>
+    <openOutLinkTipPop :pop-tip-visible="data.popTipVisible" :qrSrc="data.chooseItem.qrSrc" 
+    :show-name="data.chooseItem.showName" :href="data.chooseItem.href" @close="()=>{data.popTipVisible = false}"/>
   </view>
 </template>
 <script lang="ts" setup>
-import { copyStr } from '@/utils/index';
 import styles from './styles.scss';
 import PersonCard from './components/PersonCard/index.vue';
 import { Navbar } from '@fishui/taro-vue';
 import { reactive } from 'vue';
-import UpdatePop from '@/components/pop/updatePop/index.vue';
+import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
 
 
 
@@ -120,15 +106,6 @@ const data = reactive({
 const showTipPop = (item) => {
   data.chooseItem = item
   data.popTipVisible = true
-}
-
-const onConfirm = () => {
-  copyStr(data.chooseItem.href, {
-    icon: "none",
-    title: `${data.chooseItem.showName} 网址链接复制成功`,
-    duration: 2000,
-  })
-  data.popTipVisible = false
 }
 
 </script>

@@ -31,21 +31,10 @@
 
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[1, 2, 3]" />
 
-    <update-pop v-model:modelValue="data.popTipVisible" confirmText="复制链接" cancelText="关闭" :on-confirm='onConfirm'
-      title="温馨提示"  >
+    <openOutLinkTipPop :pop-tip-visible="data.popTipVisible" :qrSrc="data.chooseItem.qrSrc" 
+    :show-name="data.chooseItem.Ctitle" :href="data.chooseItem.linkUrl" @close="()=>{data.popTipVisible = false}"/>
 
-      <template #contentBottom>
-        <view class="template-content">
-          <view class="tipText">
-            因微信严格外部网站打开，现为您准备打开如下，您可以截屏扫码或者复制网址链接查看。也欢迎联系客服作者使用体验版小程序
-          </view>
-          <view class="imgDiv">
-            <image :src="data.chooseItem.qrSrc" mode="aspectFit" class="img" :show-menu-by-longpress="true"></image>
-          </view>
-        </view>
-      </template>
 
-      </update-pop>
   </scroll-view>
   <fullPreview :back="true" @back="data.showPage = true" v-else />
 </template>
@@ -67,8 +56,7 @@ import { useSystemInfoStore } from "@/stores/systemInfo";
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import fullPreview from "../fullPreview/index.vue";
-import { copyStr } from "@/utils/index";
-import UpdatePop from '@/components/pop/updatePop/index.vue';
+import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -165,14 +153,6 @@ const height = computed(
     `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
 
-const onConfirm = () => {
-  copyStr(data.chooseItem.linkUrl, {
-    icon: "none",
-    title: `${data.chooseItem.Ctitle} 网址链接复制成功`,
-    duration: 2000,
-  })
-  data.popTipVisible = false
-}
 
 const goto = (item) => {
   if (process.env.NODE_ENV === 'development') {
