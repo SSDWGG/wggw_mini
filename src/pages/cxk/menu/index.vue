@@ -30,6 +30,22 @@
     </view>
 
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[1, 2, 3]" />
+
+    <update-pop v-model:modelValue="data.popTipVisible" confirmText="复制链接" cancelText="关闭" :on-confirm='onConfirm'
+      title="温馨提示"  >
+
+      <template #contentBottom>
+        <view class="template-content">
+          <view class="tipText">
+            因微信严格外部网站打开，现为您准备打开如下，您可以截屏扫码或者复制网址链接查看。也欢迎联系客服作者使用体验版小程序
+          </view>
+          <view class="imgDiv">
+            <image :src="data.chooseItem.qrSrc" mode="aspectFit" class="img" :show-menu-by-longpress="true"></image>
+          </view>
+        </view>
+      </template>
+
+      </update-pop>
   </scroll-view>
   <fullPreview :back="true" @back="data.showPage = true" v-else />
 </template>
@@ -52,6 +68,7 @@ import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import fullPreview from "../fullPreview/index.vue";
 import { copyStr } from "@/utils/index";
+import UpdatePop from '@/components/pop/updatePop/index.vue';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -96,6 +113,7 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/BEDKEKCP-1705543014391shakeKun.gif",
       opacity: 1,
       linkUrl: "http://ikunqqq.ssdwgg.cn",
+      qrSrc:require('@/assets/images/qrCode/ikunqqq.png')
     },
     {
       title: "Kun Str",
@@ -105,6 +123,7 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IIOMLFKE-1705543014391strkun.gif",
       opacity: 1,
       linkUrl: "http://ikunstr.ssdwgg.cn",
+      qrSrc:require('@/assets/images/qrCode/ikunstr.png')
     },
     {
       title: "Game",
@@ -114,6 +133,7 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HEPJCNMO-1705543014391game1.gif",
       opacity: 1,
       linkUrl: "http://hextris.ssdwgg.cn",
+      qrSrc:require('@/assets/images/qrCode/hextris.png')
     },
     {
       title: "Game",
@@ -123,8 +143,20 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NICPAEIK-1705543014391tlgt.gif",
       opacity: 1,
       linkUrl: "http://xlgx.ssdwgg.cn",
+      qrSrc:require('@/assets/images/qrCode/xlgx.png')
     },
   ],
+  chooseItem: {
+      title: "Game",
+      Ctitle: "兔了个兔",
+      router: "/pages/cxk/cxk6/index",
+      bgSrc:
+        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NICPAEIK-1705543014391tlgt.gif",
+      opacity: 1,
+      linkUrl: "http://xlgx.ssdwgg.cn",
+      qrSrc:  require('@/assets/images/qrCode/xlgx.png')
+    },
+  popTipVisible: false
 });
 
 const h5 = `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造坤去改变坤</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象坤到现象坤</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻坤坤</strong></h2>`;
@@ -132,14 +164,25 @@ const height = computed(
   () =>
     `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
+
+const onConfirm = () => {
+  copyStr(data.chooseItem.linkUrl, {
+    icon: "none",
+    title: `${data.chooseItem.Ctitle} 网址链接复制成功`,
+    duration: 2000,
+  })
+  data.popTipVisible = false
+}
+
 const goto = (item) => {
-  if (!!item.linkUrl) {
-  // 因微信存在外部网站限制打卡，现在为您准备了链接如下，您可以截屏扫码该图片或者
-    copyStr(item.linkUrl, {
-      icon: "none",
-      title: `${item.Ctitle} 网址链接复制成功`,
-      duration: 2000,
-    });
+  if (process.env.NODE_ENV === 'development') {
+    // dev直接跳转
+    Taro.navigateTo({ url: item.router });
+  }
+  else if (!!item.linkUrl) {
+    // 提示网址
+    data.chooseItem = item
+    data.popTipVisible = true
   } else {
     Taro.navigateTo({ url: item.router });
   }

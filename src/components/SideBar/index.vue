@@ -9,6 +9,7 @@ import ShareButton from './share-button.vue';
 import FullButton from './full-button.vue';
 import ContactButton from './contact-button.vue';
 import TestButton from './test-button.vue';
+import CallButton from './call-button.vue';
 import { computed } from 'vue';
 
 interface IProps {
@@ -27,7 +28,8 @@ const buttonComponentType = {
   1: ShareButton,
   2: FullButton,
   3: ContactButton,
-  4: TestButton,
+  4: CallButton,
+  5: TestButton,
 };
 
 const buttonComponents = computed(() => props.showFlags.map((num: number) => buttonComponentType[num]));
