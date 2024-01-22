@@ -8,3 +8,4 @@ node_modules/
 project.private.config.json
 
 javaSever/target/
+javaSever/.idea/
