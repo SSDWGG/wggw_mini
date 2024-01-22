@@ -127,7 +127,7 @@ const addGame = debounce(() => {
   last.time = dayjs().format('YYYY-MM-DD HH:mm:ss')
   last.uid = '250'
   last.uName = '坤之守护者'
-  last.price = last.price - 912.5
+  last.price = Number(last.price)  - 912.5
   props.orginData.push(
     last
   )

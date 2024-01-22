@@ -27,6 +27,7 @@ import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import { useAccountStore } from '@/stores/account';
 import Taro from "@tarojs/taro";
+import { addKunChart,getKunChartList,deleteKunChartByShopId } from "@/apis/kunChart";
 
 
 
@@ -36,6 +37,18 @@ const systemInfo = useSystemInfoStore();
 const data = reactive({
   showPage: true,
 });
+
+// addKunChart({
+//   title: '123',
+//   imgSrc: '123',
+//   kcDesc: '123'
+// })
+
+deleteKunChartByShopId({
+shopId:'1749268448801030145'
+})
+// getKunChartList()
+
 
 
 

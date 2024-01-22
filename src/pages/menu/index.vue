@@ -88,11 +88,11 @@ const data = reactive({
       bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/BEDKEKCP-1705543014391shakeKun.gif',
       opacity:1
     },
-    // {
-    //   title: "Open Bidding",
-    //   Ctitle: "猜想价格曲线",
-    //   router: "/pages/bidding/index",
-    // },
+    {
+      title: "Open Bidding",
+      Ctitle: "猜想价格曲线",
+      router: "/pages/bidding/index",
+    },
     {
       title: "Media Memo",
       Ctitle: "多媒体记录",

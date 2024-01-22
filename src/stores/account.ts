@@ -1,3 +1,4 @@
+import { IBiddingItem } from "@/apis/kunChart/model";
 import { IMemo } from "@/apis/memo/model";
 import { wxLogin } from "@/apis/mine";
 import { IProgress } from "@/apis/progress/model";
@@ -5,24 +6,7 @@ import { IResult } from "@/components/selectMedia";
 import Taro from "@tarojs/taro";
 import { defineStore } from "pinia";
   
-export interface IPriceLineItem {
-  // 报价时间
-  time:string,
-  // 报价人唯一Id
-  uid:string,
-  // 报价人名称
-  uName:string,
-  // 价格
-  price:Number
-}
 
-interface IBiddingItem {
-  shopId:string
-  imgSrc:string
-  title:string
-  dec:string
-  priceLine:Array< IPriceLineItem >
-}
 
 interface IState {
   username:string,
@@ -82,7 +66,7 @@ export const useAccountStore = defineStore("account", {
         shopId:'1',
         imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
         title:'野生kun',
-        dec:'守护最好的野生坤，把价格打下去家人们！！',
+        kcDesc:'守护最好的野生坤，把价格打下去家人们！！',
         priceLine:[
           {
             time:'2024-1-7 2:30:00',
@@ -162,7 +146,7 @@ export const useAccountStore = defineStore("account", {
         shopId:'1',
         imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
         title:'野生kun',
-        dec:'守护最好的野生坤，把价格打下去家人们！！',
+        kcDesc:'守护最好的野生坤，把价格打下去家人们！！',
         priceLine:[
           {
             time:'2024-1-7 2:30:00',
@@ -241,7 +225,7 @@ export const useAccountStore = defineStore("account", {
         shopId:'2',
         imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
         title:'家养kun',
-        dec:'守护最好的家养坤，把价格打下去家人们！！',
+        kcDesc:'守护最好的家养坤，把价格打下去家人们！！',
         priceLine:[
           {
             time:'2024-1-7 2:30:00',

@@ -15,8 +15,6 @@ import com.google.common.collect.Maps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.ryw.framework.domain.AjaxResult.error;
 import static com.ryw.framework.domain.AjaxResult.success;
 
 @Slf4j
@@ -56,17 +54,6 @@ public class UsersController {
     }
 
 
-    @RequestMapping("/v1/user/test")
-    public AjaxResult getUserList(
-            @RequestParam("code") String code,
-            @RequestParam("appid") String appid,
-            @RequestParam("test") String test
-            ){   //接收传来的参数，这里了封装一个实体类
-        System.out.println(code);
-        System.out.println(appid);
-        System.out.println(test);
-        return error(301,appid);
-    }
 
 //    获取openid
     @RequestMapping("/v1/user/getOpenid")
