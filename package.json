@@ -19,9 +19,6 @@
     "Android >= 4.1",
     "ios >= 8"
   ],
-  "engines": {
-    "node": "^16.15.1"
-  },
   "author": "",
   "license": "MIT",
   "lint-staged": {

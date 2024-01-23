@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, watch } from 'vue';
+import { reactive } from 'vue';
 import styles from './styles.scss';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';

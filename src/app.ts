@@ -22,10 +22,9 @@ import { useSystemInfoStore } from '@/stores/systemInfo';
 const initApp = (options: Taro.getLaunchOptionsSync.LaunchOptions ) => {
 
   const systemInfoStore = useSystemInfoStore();
-
-
   // 获取系统信息
   systemInfoStore.getSystemInfo();
+  console.log('init app',options);
 
   // 内存占用警告
   Taro.onMemoryWarning(() => {
@@ -39,7 +38,6 @@ const initApp = (options: Taro.getLaunchOptionsSync.LaunchOptions ) => {
 };
 
 console.log('小程序打包信息', process.env.buildInfo); // eslint-disable-line no-console
-
 
 const App = createApp({
   onShow: initApp,

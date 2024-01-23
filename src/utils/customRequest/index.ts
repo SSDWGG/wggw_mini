@@ -81,12 +81,12 @@ export const createRequest = (defaultConfig: Type.RequestConfig): Type.RequestMe
     Object.assign(_defaultConfig, merge(_defaultConfig, config));
   };
 
-  request.get = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'GET' });
-  request.post = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'POST' });
-  request.put = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'PUT' });
-  request.delete = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'DELETE' });
-  request.trace = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'TRACE' });
-  request.head = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'HEAD' });
+  // request.get = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'GET' });
+  // request.post = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'POST' });
+  // request.put = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'PUT' });
+  // request.delete = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'DELETE' });
+  // request.trace = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'TRACE' });
+  // request.head = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'HEAD' });
 
   return request;
 };
