@@ -9,7 +9,7 @@
       <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
         :controls="false" :show-fullscreen-btn="false" :show-center-play-btn="false" :show-play-btn="false" :loop="true"
         :muted="true" :enable-progress-gesture="false" style="width: 100%;"
-        src="https://career.djicdn.com/broadway/public/0448b719-9f90-410c-841c-5e8cc2721cc6/campus-index-9.5.mp4" />
+        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/OMFHLJDP-17059977997221.mp4" />
       </view>
 </template>
 <script lang="ts" setup>

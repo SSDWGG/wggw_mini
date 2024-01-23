@@ -27,24 +27,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/MemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/entity/Memo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/mapper/MemoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/entity/KunChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/entity/KunChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/hander/MyMateObjectHander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/hander/MyMateObjectHander.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/apis/memo/model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/memo/model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/post-button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/post-button.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/button/checkLoginButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/button/checkLoginButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/memo/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/memoAndMine/memo/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/memo/post/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/memoAndMine/memo/post/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/mine/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/memoAndMine/mine/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/stores/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stores/account.ts" afterDir="false" />
-    </list>
+    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
