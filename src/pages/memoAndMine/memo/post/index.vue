@@ -24,10 +24,11 @@ import styles from './styles.scss';
 import aliossUpload from '@/utils/alioss-upload';
 import Prelist from './prelist/index.vue';
 import { debounce } from 'lodash';
-import { getOSSVideoImg, uuid } from '@/utils/index';
-import { IMemo, IMemoItem } from '@/apis/memo/model';
+import { getOSSVideoImg } from '@/utils/index';
+import {  IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
 import { IResult } from '@/components/selectMedia';
+import { AddMemo } from '@/apis/memo';
 
 
 definePageConfig({
@@ -84,16 +85,15 @@ const addMemoData = async (
     hash?: string;
   }[]
 ) => {
-  let listParam: IMemo = {} as IMemo;
-  const targetList:IMemoItem[] = [] 
-  const time = (new Date()).valueOf()+''
+  const targetList: IMemoItem[] = []
+  const time = (new Date()).valueOf() + ''
 
   // 数据格式化存储的内容
   List.forEach((item, index) => {
     targetList.push({
       memoItemType: data.childDataPicList[index].type === 'image'
-          ? 0
-          : 1,
+        ? 0
+        : 1,
       picUrl: item.fullpath as string,
       sort: index,
       // 封面默认取第30帧内容
@@ -106,21 +106,17 @@ const addMemoData = async (
       gmtModified: time,
     });
   });
-listParam = {
-  memoType:
-  targetList.length===0?2:targetList[0].memoItemType,
-  content: data.content, // 文案内容
-  gmtCreate: time,
-  gmtModified: time,
-  memoId: uuid(),
-  list: targetList, // 相册详情
-}
 
-// 更新store
-account.memoDataList.unshift(listParam)
-// 更新storage
-account.setStorage(account.$state)
 
+  // gmtCreate: time,
+  // gmtModified: time,
+  let listParam = {
+    memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
+    content: data.content, // 文案内容
+    list: JSON.stringify(targetList), // 相册详情
+    uid: account.openid
+  };
+  AddMemo(listParam)
 };
 
 const postHttp = debounce(async () => {

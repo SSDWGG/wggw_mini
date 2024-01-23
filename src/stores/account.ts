@@ -1,4 +1,5 @@
 import { IBiddingItem } from "@/apis/kunChart/model";
+import { deleteMemo } from "@/apis/memo";
 import { IMemo } from "@/apis/memo/model";
 import { wxLogin } from "@/apis/mine";
 import { IProgress } from "@/apis/progress/model";
@@ -13,11 +14,9 @@ interface IState {
   waterMark:string,
   uuid: string; //账号唯一id
   avatarurl:string, //用户头像
-  showTabs: boolean; //是否展示底部tabs
   showfirstTimePageNoticeBar: boolean; //是否展示头部公告栏tabs
   templeChoosePostList: IResult[]; //上传选择的临时资源
   NoticeBarText: string; //头部公告栏自定义内容
-  NoticeBarDataSaveText:string,//memo数据安全提示公告栏
   memoDataList: IMemo[]; //备忘录的数据
   selfProgress:IProgress; //用户设置的个性化时间进度
 
@@ -33,7 +32,6 @@ export const useAccountStore = defineStore("account", {
     waterMark:'WGGW',
     uuid: "0",
     avatarurl:"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
-    showTabs: true,
     showfirstTimePageNoticeBar: true,
     templeChoosePostList: [],
     NoticeBarText: `
@@ -43,9 +41,6 @@ export const useAccountStore = defineStore("account", {
     Though wise men at their end know dark is right,
     Because their words had forked no lightning they
     Do not go gentle into that good night.`,
-    NoticeBarDataSaveText:`您的账号数据内容只存储在您的设备硬件上，他人以及其他设备无法访问，
-    如果您将本小程序删除，微信团队将会清空本程序内的所有的记录数据，
-    请妥善保存您的数据——wggw开发者 `,
     memoDataList: [], 
     selfProgress:{
       progressId:'',          //唯一id
@@ -355,11 +350,8 @@ export const useAccountStore = defineStore("account", {
       }else{
         const memoIndex = this.memoDataList.findIndex(i => i.memoId === memo.memoId);
         if (memoIndex !== -1) this.memoDataList.splice(memoIndex, 1);
+        deleteMemo({ memoId: firstId })
       }
-      
-      // 同步storage
-      this.setStorage(this.$state)
-
     },
   },
 });

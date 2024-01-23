@@ -1,7 +1,7 @@
 <template>
   <view :class="styles.myContainer">
     <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList" @scroll="onScroll">
-      <view v-for="(item, index) in data.memoList" :key="index" class="memoDataList">
+      <view v-for="(item, index) in account.memoDataList" :key="index" class="memoDataList">
         <view class="item">
           <view class="aside" v-if="!!item.TimeLineList">
             <view class="day">
@@ -14,18 +14,22 @@
           <view class="main">
             <view class="content">{{ item.content }}</view>
             <view class="resourceList">
-              <view v-for="(resItem, resItemIndex) in item.list" :key="resItemIndex" class="resourceListItem" @tap="toPreview(resItem.memoResId)">
+              <view v-for="(resItem, resItemIndex) in item.list" :key="resItemIndex" class="resourceListItem"
+                @tap="toPreview(resItem.memoResId)">
                 <!-- 判断是图片还是视屏，展示封面图 -->
-                <myImage :src="resItem.memoItemType === 1 ? resItem.videoPicUrl : resItem.picUrl" class="pic" :lazyLoad = true />
+                <myImage :src="resItem.memoItemType === 1
+                    ? resItem.videoPicUrl
+                    : resItem.picUrl
+                  " class="pic" :lazyLoad="true" />
                 <!-- <image :src="resItem.picUrl" class="pic" /> -->
-                <image v-if="(resItem.memoItemType === 1)" mode="aspectFill" class="vedioFlag" :lazyLoad = true
+                <image v-if="resItem.memoItemType === 1" mode="aspectFill" class="vedioFlag" :lazyLoad="true"
                   src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" />
               </view>
             </view>
 
             <view class="bottom">
               <view class="time">
-                {{ timeFormat(Number(item.gmtModified)) }}
+                {{ timeFormat(item.createTime) }}
               </view>
               <view class="op">
                 <!-- <view class="opItem add" @tap="add">编辑</view> -->
@@ -44,64 +48,72 @@
     </view>
     <view class="safeBottom"></view>
   </view>
-  <side-bar :show="show"   :showFlags = [5,1,3] />
-
+  <side-bar :show="show" :showFlags="[5, 3]" />
 </template>
 <script lang="ts" setup>
-import styles from './styles.scss';
-import SideBar from '@/components/SideBar/index.vue';
+import styles from "./styles.scss";
+import SideBar from "@/components/SideBar/index.vue";
 
-import { useListScroll } from '@/components/scrollHooks/useListScroll';
-import { useAccountStore } from '@/stores/account';
-import { reactive } from 'vue';
-import { useDidShow } from '@tarojs/taro';
-import { IMemo } from '@/apis/memo/model';
-import { timelineFormat, timeFormat } from '@/utils/date';
-import myImage from '@/components/image';
-import Taro from '@tarojs/taro';
+import { useListScroll } from "@/components/scrollHooks/useListScroll";
+import { useAccountStore } from "@/stores/account";
+import { useDidShow } from "@tarojs/taro";
+import { timelineFormat, timeFormat } from "@/utils/date";
+import myImage from "@/components/image";
+import Taro from "@tarojs/taro";
+import { getMemoList } from "@/apis/memo";
 
 const account = useAccountStore();
-const data = reactive({
-  memoList: [] as IMemo[]
-})
+
 const { show, onScroll } = useListScroll();
 
-
-const initData = () => {
-  data.memoList = account.memoDataList
-  data.memoList.forEach((item,index,arr) => {
-    const beforeItemTime =  !!arr[index-1]?timelineFormat( Number(arr[index-1].gmtCreate)):[]
-    const nowItemTime =  timelineFormat(Number( item.gmtCreate))    
-    if(beforeItemTime[0]===nowItemTime[0]&&beforeItemTime[1]===nowItemTime[1]){
-      item.TimeLineList = []
-    }
-    else{
-      item.TimeLineList = nowItemTime
-    }
-  })
-}
-initData()
-
-const toPreview = (detailId:string)=>{
-  Taro.navigateTo({ url: `/pages/preview/index?detailId=${detailId}` });
-}
-
-const deleteMemo  = (memoId:string) =>{
-  Taro.showModal({
-    content: `确定删除该条记录？`,
-    cancelColor: '#999999',
-    confirmColor: '#7468F2 ',
-    confirmText: '删除',
-    success: async res => {
-      if (res.confirm) {
-        await  account.removeMemoItem(memoId);
-      }
+const initData = async () => {
+  const res = await getMemoList({
+    current: 1,
+    pageSize: 10,
+    uid: account.openid,
+  });
+  
+  res.forEach((item, index, arr) => {
+    item.list = JSON.parse(item.list as unknown as string);
+    const beforeItemTime = !!arr[index - 1]
+      ? timelineFormat(arr[index - 1].createTime)
+      : [];
+    const nowItemTime = timelineFormat(item.createTime);
+    if (
+      beforeItemTime[0] === nowItemTime[0] &&
+      beforeItemTime[1] === nowItemTime[1]
+    ) {
+      item.TimeLineList = [];
+    } else {
+      item.TimeLineList = nowItemTime;
     }
   });
-}
-useDidShow(() => {
-  initData()
-})
+  account.memoDataList = res;
+};
 
+const toPreview = (detailId: string) => {
+  Taro.navigateTo({ url: `/pages/preview/index?detailId=${detailId}` });
+};
 
+const deleteMemo = (memoId: string) => {
+  Taro.showModal({
+    content: `确定删除该条记录？`,
+    cancelColor: "#999999",
+    confirmColor: "#7468F2 ",
+    confirmText: "删除",
+    success: async (res) => {
+      if (res.confirm) {
+        await account.removeMemoItem(memoId);
+      }
+    },
+  });
+};
+useDidShow(async () => {
+  if (account.openid.length === 0) {
+    await account.login();
+    initData();
+  } else {
+    initData();
+  }
+});
 </script>

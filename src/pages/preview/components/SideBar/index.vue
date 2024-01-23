@@ -2,10 +2,10 @@
 <template>
   <view :class="styles.container">
     <!-- delete -->
-    <delete-button
+    <!-- <delete-button
       v-if="hide(info.hideSideBarItem as any ?? [], 'delete')"
       v-bind="$attrs"
-    />
+    /> -->
     <!-- save -->
     <save-button
       v-if="hide(info.hideSideBarItem as any ?? [], 'save')"
@@ -17,7 +17,7 @@
 <!-- 需要抛出，按钮的操作回调 -->
 <script lang="ts" setup>
 import styles from './styles.scss';
-import DeleteButton from './delete-button.vue';
+// import DeleteButton from './delete-button.vue';
 import SaveButton from './save-button.vue';
 import { useAttrs } from 'vue';
 

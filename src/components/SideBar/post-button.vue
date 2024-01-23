@@ -1,5 +1,7 @@
 <template>
-  <image class="icon" src="@/assets/images/menu/icon-menu-add.png" @tap="post" />
+  <check-login-button @tap="post">
+    <image class="icon" src="@/assets/images/menu/icon-menu-add.png"  />
+  </check-login-button>
   <root-portal>
     <nut-popup v-model:visible="state.visible" position="bottom" round close-on-click-overlay
       @click-overlay="handleClose">
@@ -35,6 +37,7 @@ import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
 import selectMedia, { IMediaType, IResult } from '@/components/selectMedia';
 import { useTabBarStore } from '../../pages/memoAndMine/custom-tab-bar/useTabBarStore';
+import checkLoginButton from '@/components/button/checkLoginButton.vue';
 
 
 

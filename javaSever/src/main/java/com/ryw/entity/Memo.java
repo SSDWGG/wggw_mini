@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -14,18 +15,22 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class KunChart {
+public class Memo {
 
     //long类型出现前端精度失灵，使用注解转成字符串形式
     @TableId(type = IdType.ID_WORKER)
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Long shopId;
+    private Long memoId;
 
-    private String title;
+    private int memoType;
 
-    private String kcDesc;
+    private String content;
 
-    private String imgSrc;
+    private String list;
+
+    private String uid;
+
+
 
     @TableLogic //逻辑删除注解    (内部进行更新)
     private Integer deleted;
@@ -33,7 +38,8 @@ public class KunChart {
     @Version    //乐观锁注解
     private  Integer version;
 
-    @TableField(fill = FieldFill.INSERT)        //内容自动填充（插入时自动填充时间）
+    //内容自动填充（插入时自动填充时间）
+    @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private Date createTime;
 
@@ -45,30 +51,45 @@ public class KunChart {
     //构造类和setget方法 和tostring方法
 
 
-    public Long getShopId() {
-        return shopId;
+    public Long getMemoId() {
+        return memoId;
     }
 
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
+    public void setMemoId(Long memoId) {
+        this.memoId = memoId;
     }
 
-    public String getImgSrc() {
-        return imgSrc;
+    public int getMemoType() {
+        return memoType;
     }
 
-    public void setImgSrc(String imgSrc) {
-        this.imgSrc = imgSrc;
+    public void setMemoType(int memoType) {
+        this.memoType = memoType;
     }
 
-    public String getTitle() {
-        return title;
+    public String getContent() {
+        return content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setContent(String content) {
+        this.content = content;
     }
 
+    public String getList() {
+        return list;
+    }
+
+    public void setList(String list) {
+        this.list = list;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public Integer getDeleted() {
         return deleted;
@@ -100,13 +121,5 @@ public class KunChart {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getKcDesc() {
-        return kcDesc;
-    }
-
-    public void setKcDesc(String kcDesc) {
-        this.kcDesc = kcDesc;
     }
 }

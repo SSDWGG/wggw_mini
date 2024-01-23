@@ -3,6 +3,7 @@ package com.ryw.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.serializer.ToStringSerializer;
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ public class Users {
 
     //long类型出现前端精度失灵，使用注解转成字符串形式
     @TableId(type = IdType.ID_WORKER)
-    @JSONField(serializeUsing= ToStringSerializer.class)
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long userid;
 
     private String username;
@@ -47,8 +48,10 @@ public class Users {
     private  Integer version;
 
     @TableField(fill = FieldFill.INSERT)        //内容自动填充（插入时自动填充时间）
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private Date createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)//内容自动填充（修改时自动填充时间）
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private Date updateTime;
 
 

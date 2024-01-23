@@ -13,12 +13,17 @@ export interface IMemoItem {
   videoPicUrl: string; // 视频封面
 }
 
+
+
+// createTime
 // 相册
 export interface IMemo {
   memoType: IMemoType;
   content: string; // 文案内容
-  gmtCreate: string;
-  gmtModified: string;
+  createTime: string;
   memoId: string;
   list: IMemoItem[]; // 相册详情
+
+  // 前端属性
+  TimeLineList:string|string[]
 }

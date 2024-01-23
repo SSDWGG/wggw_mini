@@ -14,7 +14,7 @@ export const isSameDay = (date1: IDate, date2: IDate): boolean => dayjs(date1).i
  * 12/9月
 */
 export const timelineFormat = (date?: IDate): string[]|string => {
-  const day = dayjs(date);  
+  const day = dayjs(date);    
   const today = dayjs();
   if (day.isSame(today, 'day')) {
     return '今天';
