@@ -44,7 +44,7 @@
     </view>
     <view class="safeBottom"></view>
   </view>
-  <side-bar :show="show"   :showFlags = [1,3,5] />
+  <side-bar :show="show"   :showFlags = [5,1,3] />
 
 </template>
 <script lang="ts" setup>

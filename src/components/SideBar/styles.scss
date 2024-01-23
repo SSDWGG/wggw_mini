@@ -70,6 +70,43 @@
   }
 }
 
+
+
+.post {
+  display: flex;
+  flex-direction: column;
+  color: #222222;
+  height: 100%;
+  :global {
+    .share-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 24px 36px 18px;
+      margin-bottom: env(safe-area-inset-bottom);
+      .share-content-item {
+        font-size: 16px;
+        font-weight: Regular;
+        color: #666666;
+        .icon {
+          display: block;
+          width: 38px;
+          height: 38px;
+          margin-bottom: 8px;
+        }
+      }
+      .video-text {
+        text-align: left;
+        text {
+          margin-left: 1px;
+        }
+      }
+    }
+  }
+}
+
+
+
 // for share-button.vue
 .share {
   display: flex;
