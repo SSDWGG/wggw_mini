@@ -11,6 +11,7 @@ import ContactButton from './contact-button.vue';
 import TestButton from './test-button.vue';
 import CallButton from './call-button.vue';
 import PostButton from './post-button.vue';
+import MineButton from './mine-button.vue';
 
 import { computed } from 'vue';
 
@@ -32,7 +33,8 @@ const buttonComponentType = {
   3: ContactButton,
   4: CallButton,
   5: PostButton,
-  6: TestButton,
+  6: MineButton,
+  7: TestButton,
   
 };
 

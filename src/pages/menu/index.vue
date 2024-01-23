@@ -31,7 +31,7 @@
         </view>
       </nut-animate>
     </view>
-    <side-bar :show="show" :onfullButtonBack="()=>data.showPage = false"  :showFlags = [1,2,3,4] />
+    <side-bar :show="show" :onfullButtonBack="()=>data.showPage = false"  :showFlags = [6,1,2,3,4] />
   </scroll-view>
   <fullPreview :back="true" @back="data.showPage = true" v-else />
 </template>

@@ -4,7 +4,6 @@ import { IMemo } from "@/apis/memo/model";
 import { wxLogin } from "@/apis/mine";
 import { IProgress } from "@/apis/progress/model";
 import { IResult } from "@/components/selectMedia";
-import Taro from "@tarojs/taro";
 import { defineStore } from "pinia";
   
 
@@ -12,7 +11,6 @@ import { defineStore } from "pinia";
 interface IState {
   username:string,
   waterMark:string,
-  uuid: string; //账号唯一id
   avatarurl:string, //用户头像
   showfirstTimePageNoticeBar: boolean; //是否展示头部公告栏tabs
   templeChoosePostList: IResult[]; //上传选择的临时资源
@@ -30,7 +28,6 @@ export const useAccountStore = defineStore("account", {
   state: (): IState => ({
     username:'WGG的妙妙屋',
     waterMark:'WGGW',
-    uuid: "0",
     avatarurl:"https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
     showfirstTimePageNoticeBar: true,
     templeChoosePostList: [],
@@ -143,34 +140,6 @@ export const useAccountStore = defineStore("account", {
    async login(){
       const res =  await wxLogin()
       this.openid = res.openid
-    },
-    // 同步strore数据到Storage
-    setStorage: (state: IState) => {
-      for (var key in state) {
-        Taro.setStorage({
-          key: key,
-          data: state[key],
-        });
-      }
-    },
-    // 同步Storage数据到strore
-    getStorage:(state: IState) => {
-      for (var key in state) {
-        try {
-          var value = Taro.getStorageSync(key)
-          if (value) {
-            // Do something with return value
-            state[key] = value
-          }
-        } catch (e) {
-          // Do something when catch error
-          console.log(e);
-          
-        }
-      }
-
-
-     
     },
 
     /**

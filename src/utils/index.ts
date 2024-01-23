@@ -1,4 +1,4 @@
-import Taro , { SelectorQuery, NodesRef, createSelectorQuery } from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 
 
   // 返回一个指定长度的字符串     随机字符串+4位时间戳

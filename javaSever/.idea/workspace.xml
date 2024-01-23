@@ -27,7 +27,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes" />
+    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/index/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/index/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/custom-tab-bar/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/custom-tab-bar/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/custom-tab-bar/tabbar/icon-tabbar-album-active.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/custom-tab-bar/tabbar/icon-tabbar-album.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/custom-tab-bar/tabbar/icon-tabbar-mine-active.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/custom-tab-bar/tabbar/icon-tabbar-mine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/custom-tab-bar/useTabBarStore.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/mine/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/mine/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/menu/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/menu/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/stores/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stores/account.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/utils/index.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -451,46 +468,46 @@
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state x="494" y="260" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.38.1512.944@0.38.1512.944" timestamp="1705300419734" />
-    <state width="1170" height="248" key="GridCell.Tab.0.bottom" timestamp="1705999298581">
+    <state width="1170" height="248" key="GridCell.Tab.0.bottom" timestamp="1706003452040">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.bottom/0.32.1512.950@0.32.1512.950" timestamp="1705372569570" />
-    <state width="1170" height="248" key="GridCell.Tab.0.bottom/0.38.1512.944@0.38.1512.944" timestamp="1705999298581" />
-    <state width="1170" height="248" key="GridCell.Tab.0.center" timestamp="1705999298580">
+    <state width="1170" height="248" key="GridCell.Tab.0.bottom/0.38.1512.944@0.38.1512.944" timestamp="1706003452040" />
+    <state width="1170" height="248" key="GridCell.Tab.0.center" timestamp="1706003452040">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.center/0.32.1512.950@0.32.1512.950" timestamp="1705372569566" />
-    <state width="1170" height="248" key="GridCell.Tab.0.center/0.38.1512.944@0.38.1512.944" timestamp="1705999298580" />
-    <state width="1170" height="248" key="GridCell.Tab.0.left" timestamp="1705999298580">
+    <state width="1170" height="248" key="GridCell.Tab.0.center/0.38.1512.944@0.38.1512.944" timestamp="1706003452040" />
+    <state width="1170" height="248" key="GridCell.Tab.0.left" timestamp="1706003452039">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.left/0.32.1512.950@0.32.1512.950" timestamp="1705372569565" />
-    <state width="1170" height="248" key="GridCell.Tab.0.left/0.38.1512.944@0.38.1512.944" timestamp="1705999298580" />
-    <state width="1170" height="248" key="GridCell.Tab.0.right" timestamp="1705999298580">
+    <state width="1170" height="248" key="GridCell.Tab.0.left/0.38.1512.944@0.38.1512.944" timestamp="1706003452039" />
+    <state width="1170" height="248" key="GridCell.Tab.0.right" timestamp="1706003452040">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.0.right/0.32.1512.950@0.32.1512.950" timestamp="1705372569569" />
-    <state width="1170" height="248" key="GridCell.Tab.0.right/0.38.1512.944@0.38.1512.944" timestamp="1705999298580" />
-    <state width="1170" height="248" key="GridCell.Tab.1.bottom" timestamp="1705999298581">
+    <state width="1170" height="248" key="GridCell.Tab.0.right/0.38.1512.944@0.38.1512.944" timestamp="1706003452040" />
+    <state width="1170" height="248" key="GridCell.Tab.1.bottom" timestamp="1706003452041">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.bottom/0.32.1512.950@0.32.1512.950" timestamp="1705372569574" />
-    <state width="1170" height="248" key="GridCell.Tab.1.bottom/0.38.1512.944@0.38.1512.944" timestamp="1705999298581" />
-    <state width="1170" height="248" key="GridCell.Tab.1.center" timestamp="1705999298581">
+    <state width="1170" height="248" key="GridCell.Tab.1.bottom/0.38.1512.944@0.38.1512.944" timestamp="1706003452041" />
+    <state width="1170" height="248" key="GridCell.Tab.1.center" timestamp="1706003452040">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.center/0.32.1512.950@0.32.1512.950" timestamp="1705372569573" />
-    <state width="1170" height="248" key="GridCell.Tab.1.center/0.38.1512.944@0.38.1512.944" timestamp="1705999298581" />
-    <state width="1170" height="248" key="GridCell.Tab.1.left" timestamp="1705999298581">
+    <state width="1170" height="248" key="GridCell.Tab.1.center/0.38.1512.944@0.38.1512.944" timestamp="1706003452040" />
+    <state width="1170" height="248" key="GridCell.Tab.1.left" timestamp="1706003452040">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.left/0.32.1512.950@0.32.1512.950" timestamp="1705372569572" />
-    <state width="1170" height="248" key="GridCell.Tab.1.left/0.38.1512.944@0.38.1512.944" timestamp="1705999298581" />
-    <state width="1170" height="248" key="GridCell.Tab.1.right" timestamp="1705999298581">
+    <state width="1170" height="248" key="GridCell.Tab.1.left/0.38.1512.944@0.38.1512.944" timestamp="1706003452040" />
+    <state width="1170" height="248" key="GridCell.Tab.1.right" timestamp="1706003452041">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
     <state width="1170" height="241" key="GridCell.Tab.1.right/0.32.1512.950@0.32.1512.950" timestamp="1705372569573" />
-    <state width="1170" height="248" key="GridCell.Tab.1.right/0.38.1512.944@0.38.1512.944" timestamp="1705999298581" />
+    <state width="1170" height="248" key="GridCell.Tab.1.right/0.38.1512.944@0.38.1512.944" timestamp="1706003452041" />
     <state x="294" y="168" key="Maven.ArtifactSearchDialog" timestamp="1705571702788">
       <screen x="0" y="38" width="1512" height="944" />
     </state>
