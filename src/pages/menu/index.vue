@@ -4,7 +4,7 @@
     <view class="menu" :style="{ height }">
       <view class="menu-item" @tap="goto(item)" v-for="(item, index) in data.menuList" :key="index">
         <image class="bgImg"
-          src="https://gaywss.wuchuangroup.com/2.jpg" />
+          :src="item.imgSrc" />
       </view>
     </view>
   </scroll-view>
@@ -24,21 +24,25 @@ const data = reactive({
       title: "WGG",
       Ctitle: "wgg",
       router: "/pages/wgg/index",
+      imgSrc:'https://gaywss.wuchuangroup.com/1.jpg'
     },
     {
       title: "Media Memo",
       Ctitle: "多媒体记录",
       router: "/pages/memoAndMine/index",
+      imgSrc:'https://gaywss.wuchuangroup.com/2.jpg'
     },
     {
       title: "CSS Loaders",
       Ctitle: "新奇的动效css",
       router: "/pages/cssloaders/index1/index",
+      imgSrc:'https://gaywss.wuchuangroup.com/3.jpg'
     },
     {
       title: "Clock",
       Ctitle: "进度计时",
       router: "/pages/time/index",
+      imgSrc:'https://gaywss.wuchuangroup.com/4.jpg'
     },
   ],
 });
