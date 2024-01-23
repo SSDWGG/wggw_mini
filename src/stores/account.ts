@@ -57,244 +57,86 @@ export const useAccountStore = defineStore("account", {
 
     openid:'',
     biddingDefaultList:[
-      {
-        shopId:'1',
-        imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
-        title:'野生kun',
-        kcDesc:'守护最好的野生坤，把价格打下去家人们！！',
-        priceLine:[
-          {
-            time:'2024-1-7 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:1
-          },
-          {
-            time:'2024-1-8 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:100
+      // {
+      //   shopId:'1',
+      //   imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
+      //   title:'野生kun',
+      //   kcDesc:'守护最好的野生坤，把价格打下去家人们！！',
+      //   priceLine:[
+      //     {
+      //       time:'2024-1-7 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:1
+      //     },
+      //     {
+      //       time:'2024-1-8 2:30:00',
+      //       uid:'2',
+      //       uName:'护坤大使',
+      //       price:100
 
-          },
-          {
-            time:'2024-1-9 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-800
-          },
-          {
-            time:'2024-1-10 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:300
-          },
-          {
-            time:'2024-1-11 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-100
+      //     },
+      //     {
+      //       time:'2024-1-9 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:-800
+      //     },
+      //     {
+      //       time:'2024-1-10 2:30:00',
+      //       uid:'2',
+      //       uName:'护坤大使',
+      //       price:300
+      //     },
+      //     {
+      //       time:'2024-1-11 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:-100
 
-          },
-          {
-            time:'2024-1-12 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-800
-          },
-          {
-            time:'2024-1-13 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-1800
-          },
-          {
-            time:'2024-1-14 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:800
+      //     },
+      //     {
+      //       time:'2024-1-12 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:-800
+      //     },
+      //     {
+      //       time:'2024-1-13 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:-1800
+      //     },
+      //     {
+      //       time:'2024-1-14 2:30:00',
+      //       uid:'2',
+      //       uName:'护坤大使',
+      //       price:800
 
-          },
-          {
-            time:'2024-1-15 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-2800
-          },
-          {
-            time:'2024-1-16 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-1100
+      //     },
+      //     {
+      //       time:'2024-1-15 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:-2800
+      //     },
+      //     {
+      //       time:'2024-1-16 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:-1100
 
-          },
-          {
-            time:'2024-1-17 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-2600
-          }
-        ]
-      },
+      //     },
+      //     {
+      //       time:'2024-1-17 2:30:00',
+      //       uid:'1',
+      //       uName:'小黑子',
+      //       price:-2600
+      //     }
+      //   ]
+      // },
     ],
-    biddingKunDefaultList:[
-      {
-        shopId:'1',
-        imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
-        title:'野生kun',
-        kcDesc:'守护最好的野生坤，把价格打下去家人们！！',
-        priceLine:[
-          {
-            time:'2024-1-7 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:1
-          },
-          {
-            time:'2024-1-8 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:100
-
-          },
-          {
-            time:'2024-1-9 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-800
-          },
-          {
-            time:'2024-1-10 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:300
-          },
-          {
-            time:'2024-1-11 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-100
-
-          },
-          {
-            time:'2024-1-12 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-800
-          },
-          {
-            time:'2024-1-13 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-1800
-          },
-          {
-            time:'2024-1-14 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:800
-
-          },
-          {
-            time:'2024-1-15 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-2800
-          },
-          {
-            time:'2024-1-16 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-1100
-
-          },
-          {
-            time:'2024-1-17 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-2600
-          }
-        ]
-      },
-      {
-       
-        shopId:'2',
-        imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
-        title:'家养kun',
-        kcDesc:'守护最好的家养坤，把价格打下去家人们！！',
-        priceLine:[
-          {
-            time:'2024-1-7 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:1
-          },
-          {
-            time:'2024-1-8 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:100
-
-          },
-          {
-            time:'2024-1-9 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-800
-          },
-          {
-            time:'2024-1-10 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:300
-          },
-          {
-            time:'2024-1-11 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-100
-
-          },
-          {
-            time:'2024-1-12 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-800
-          },
-          {
-            time:'2024-1-13 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-1800
-          },
-          {
-            time:'2024-1-14 2:30:00',
-            uid:'2',
-            uName:'护坤大使',
-            price:800
-
-          },
-          {
-            time:'2024-1-15 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-2800
-          },
-          {
-            time:'2024-1-16 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-1100
-
-          },
-          {
-            time:'2024-1-17 2:30:00',
-            uid:'1',
-            uName:'小黑子',
-            price:-2600
-          }
-        ]
-      },
-    ],
+    biddingKunDefaultList:[],
   }),
   actions: {
     // 箭头函数中没有this，如果想使用this，请不要使用箭头函数

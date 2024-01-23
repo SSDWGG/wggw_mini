@@ -28,6 +28,15 @@ const initApp = (options: Taro.getLaunchOptionsSync.LaunchOptions ) => {
   // 获取系统信息
   systemInfoStore.getSystemInfo();
 
+  // 内存占用警告
+  Taro.onMemoryWarning(() => {
+    const data = {
+      brand: systemInfoStore.brand,
+      model: systemInfoStore.model,
+      system: systemInfoStore.system,
+    };
+    console.warn('memory-warning', data); // eslint-disable-line no-console
+  });
 
   // 矫正 tabbar 选中状态
   setTimeout(() => adjustSelected(options.path), 0);
