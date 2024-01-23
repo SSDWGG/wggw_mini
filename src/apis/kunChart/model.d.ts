@@ -1,6 +1,10 @@
 export interface IPriceLineItem {
+
+  lineId:string
+  shopId:string
+
   // 报价时间
-  time:string,
+  createTime:string,
   // 报价人唯一Id(openId)
   uid:string,
   // 报价人名称

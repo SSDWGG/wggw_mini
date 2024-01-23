@@ -8,4 +8,4 @@ node_modules/
 project.private.config.json
 
 javaSever/target/
-javaSever/.idea/
+javaSever/.idea/workspace.xml

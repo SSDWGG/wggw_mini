@@ -28,19 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/KunChartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/entity/KunChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/mapper/KunChartMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/WGGW_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/WGGW_Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/apis/mine/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/mine/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/apis/mine/model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/mine/model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/bidding/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/bidding/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/cxk7/detail/chartLine.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/cxk/cxk7/detail/chartLine.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/menu/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/menu/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/stores/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stores/account.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,19 +133,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.WGGW_Application">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FinalprojectApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finalproject" />
       <extension name="coverage">
@@ -432,6 +407,7 @@
       <workItem from="1705571094729" duration="1026000" />
       <workItem from="1705626893217" duration="3263000" />
       <workItem from="1705887042613" duration="7324000" />
+      <workItem from="1705973095491" duration="596000" />
     </task>
     <servers />
   </component>

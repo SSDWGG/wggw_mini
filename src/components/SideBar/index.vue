@@ -10,6 +10,8 @@ import FullButton from './full-button.vue';
 import ContactButton from './contact-button.vue';
 import TestButton from './test-button.vue';
 import CallButton from './call-button.vue';
+import PostButton from './post-button.vue';
+
 import { computed } from 'vue';
 
 interface IProps {
@@ -29,7 +31,9 @@ const buttonComponentType = {
   2: FullButton,
   3: ContactButton,
   4: CallButton,
-  5: TestButton,
+  5: PostButton,
+  6: TestButton,
+  
 };
 
 const buttonComponents = computed(() => props.showFlags.map((num: number) => buttonComponentType[num]));
