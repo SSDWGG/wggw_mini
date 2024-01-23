@@ -6,21 +6,8 @@ export default defineAppConfig({
     'pages/menu/index',
   ],
   subpackages: [
-    // ,'memo/index','memo/post/index','mine/index'
     { root: 'pages/memoAndMine', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
-    { root: 'pages/time', pages: ['index'] },
-    { root: 'pages/waterfall', pages: ['index'] },
-    { root: 'pages/cssloaders', pages: ['index1/index'] },
-    { root: 'pages/editor', pages: ['index'] },
-    { root: 'pages/wgg', pages: ['index'] },
-    { root: 'pages/scoreboard', pages: ['index'] },
-    { root: 'pages/kunMenu', pages: ['index','cxk/index','cxk2/index','cxk3/index'] },
-
-
-    // { root: 'pages/cxk', pages: ['index'] },
-    // { root: 'pages/cxk2', pages: ['index'] },
-    { root: 'pages/test', pages: ['index'] },
   ],
   requiredBackgroundModes:["audio"],
   window: {
