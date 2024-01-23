@@ -36,7 +36,6 @@ import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
 import selectMedia, { IMediaType, IResult } from '@/components/selectMedia';
-import { useTabBarStore } from '../../pages/memoAndMine/custom-tab-bar/useTabBarStore';
 import checkLoginButton from '@/components/button/checkLoginButton.vue';
 
 
@@ -84,16 +83,9 @@ const handleChooseText = () => {
   });
 }
 
-const tabbarstore = useTabBarStore();
-
 
 const post = () => {
   state.visible = true
 }
-
-watch(() => state.visible, (val: boolean) => {
-  tabbarstore.setVisible(!val);
-});
-
 
 </script>

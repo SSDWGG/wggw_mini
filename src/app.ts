@@ -14,7 +14,6 @@ import {
   Popup,
 } from '@nutui/nutui-taro';
 import Taro from '@tarojs/taro';
-import { adjustSelected } from './pages/memoAndMine/custom-tab-bar/useTabBarStore';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 
 /**
@@ -37,10 +36,6 @@ const initApp = (options: Taro.getLaunchOptionsSync.LaunchOptions ) => {
     };
     console.warn('memory-warning', data); // eslint-disable-line no-console
   });
-
-  // 矫正 tabbar 选中状态
-  setTimeout(() => adjustSelected(options.path), 0);
-
 };
 
 console.log('小程序打包信息', process.env.buildInfo); // eslint-disable-line no-console

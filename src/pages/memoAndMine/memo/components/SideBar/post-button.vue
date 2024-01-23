@@ -34,13 +34,12 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive,watch } from 'vue';
+import { reactive } from 'vue';
 import styles from './styles.scss';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
 import selectMedia, { IMediaType } from '@/components/selectMedia';
-import { useTabBarStore } from '../../../custom-tab-bar/useTabBarStore';
 
 
 
@@ -67,7 +66,7 @@ const handleChoose = async (type: IMediaType) => {
   try {
     const list = await selectMedia(type);
     console.log('选择的资源',list);
-    account.templeChoosePostList = list
+    account.templeChoosePostList = list as any
     Taro.navigateTo({
       url: `/pages/memoAndMine/memo/post/index?type=${type}`
     });
@@ -87,16 +86,9 @@ const handleChooseText = ()=>{
     });
 }
 
-const tabbarstore = useTabBarStore();
-
-
 const post  =()=>{
   state.visible = true
 }
-
-watch(() => state.visible, (val: boolean) => {
-  tabbarstore.setVisible(!val);
-});
 
 
 </script>

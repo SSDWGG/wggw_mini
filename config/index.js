@@ -132,7 +132,6 @@ const config = {
     '@/stores': path.resolve(__dirname, '..', 'src/stores'),
     '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     '@/pages': path.resolve(__dirname, '..', 'src/pages'),
-    '@/custom-tab-bar': path.resolve(__dirname, '..', 'src/custom-tab-bar'),
     "@root/project.config.json": path.resolve(
       __dirname,
       "../project.config.json"
