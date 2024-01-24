@@ -4,7 +4,7 @@
     <view class="menu" :style="{ height }">
       <view
         class="menu-item"
-        @tap="goto(item)"
+        @tap="previewImage(item.imgSrc)"
         v-for="(item, index) in data.menuList"
         :key="index"
       >
@@ -18,6 +18,7 @@
   import { computed, reactive } from "vue";
   import { Navbar } from "@fishui/taro-vue";
   import { useSystemInfoStore } from "@/stores/systemInfo";
+import Taro from "@tarojs/taro";
 
   const systemInfo = useSystemInfoStore();
   const data = reactive({
@@ -53,8 +54,9 @@
     () =>
       `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
   );
-  const goto = (item) => {
-    console.log(item);
-    // Taro.navigateTo({ url: item.router });
-  };
+ const previewImage = (src) => {
+  Taro.previewImage({
+    urls: [src] // 需要预览的图片http链接列表
+  })
+}
 </script>
