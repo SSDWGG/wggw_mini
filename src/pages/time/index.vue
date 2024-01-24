@@ -56,11 +56,8 @@
   import MyCircleProgress from "@/components/MyCircleProgress/index.vue";
   import dayjs from "dayjs";
   import { computed, reactive } from "vue";
-  import { useAccountStore } from "@/stores/account";
-  import { IProgress } from "@/apis/progress/model";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 
-  const account = useAccountStore();
   const systemInfo = useSystemInfoStore();
 
 
@@ -71,7 +68,6 @@ import { useSystemInfoStore } from "@/stores/systemInfo";
 
   const data = reactive({
     showNav: true,
-    selfProgress: account.selfProgress as IProgress,
     nowTime: dayjs(),
     aeta: null as any,
   });

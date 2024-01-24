@@ -1,7 +1,6 @@
 import request from "@/utils/request";
 import Taro from "@tarojs/taro";
 
-
 /**
  * 微信登录  wxLogin
  */
@@ -10,7 +9,7 @@ import Taro from "@tarojs/taro";
 export const wxLogin = async () => {
   let params = {};
   const { code } = await Taro.login();
-  params = {  code };
+  params = { code };
   return request<{
     openid: string;
     session_key: string;
@@ -20,6 +19,14 @@ export const wxLogin = async () => {
     params,
   });
 };
+
+// 发送验证码
+export const sendCode = (params: { email: string }) =>
+  request<boolean>({
+    url: "/v2/code/sendEmail",
+    method: "GET",
+    params,
+  });
 // .then((res) => {
 //   request.setConfig({ header: { token: res.token } });
 //   tokenUtil.set(res.token);

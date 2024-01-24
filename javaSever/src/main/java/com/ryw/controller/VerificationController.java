@@ -1,6 +1,7 @@
 package com.ryw.controller;
 
 import com.ryw.controller.util.MD5Utils;
+import com.ryw.framework.domain.AjaxResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.mail.MailSendException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,6 +28,9 @@ import java.util.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.ryw.framework.domain.AjaxResult.success;
+import static com.ryw.framework.domain.AjaxResult.error;
 
 @Controller
 public class VerificationController {
@@ -49,29 +51,6 @@ public class VerificationController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @CrossOrigin
 
-    //    发送普通邮件
-    @RequestMapping("/v2/code/sendNormalEmail")
-    @ResponseBody
-    public String sendEmail(String email) {
-        String code = VerifyCode(6);
-        SimpleMailMessage message = new SimpleMailMessage();
-        try {
-            message.setFrom(sender);
-            message.setTo(email);
-            message.setSubject("MP_V2 的验证码邮件");
-            message.setText("【MP_V2】您的验证码为："+code+"，有效时间为30分钟(若不是本人操作，请忽略该条邮件)");// 内容
-            javaMailSender.send(message);
-            logger.info(email+"文本邮件发送成功！");
-            saveCode(code,email);
-            return "success";
-        }catch (MailSendException e){
-            logger.error(email+"目标邮箱不存在");
-            return "false";
-        } catch (Exception e) {
-            logger.error(email+"文本邮件发送异常", e);
-            return "failure";
-        }
-    }//发送验证码
 
     //随机数生成x位数
     private String VerifyCode(int n){
@@ -168,7 +147,7 @@ public class VerificationController {
      */
     public String buildContent(String title) {
         //加载邮件html模板
-        Resource resource = new ClassPathResource("mailtemplate.ftl");
+        Resource resource = new ClassPathResource("WGGWMailTemplate.html");
         InputStream inputStream = null;
         BufferedReader fileReader = null;
         StringBuffer buffer = new StringBuffer();
@@ -209,27 +188,27 @@ public class VerificationController {
      */
     @RequestMapping("/v2/code/sendEmail")
     @ResponseBody
-    public String sendEmailMessage(String email) {
+    public AjaxResult sendEmailMessage(String email) {
 
         MimeMessage message = javaMailSender.createMimeMessage();
         try {
             String code = VerifyCode(6);
             //邮箱发送内容组成
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setSubject("来自【MP_V2】系统 的验证码邮件");
+            helper.setSubject("【WGGW】的验证码邮件");
             helper.setText(buildContent(code + ""), true);
             helper.setTo(email);
             helper.setFrom(sender);
             javaMailSender.send(message);
             logger.info(email+"文本邮件发送成功！");
             saveCode(code,email);
-            return "success";
+            return success();
         }catch (MailSendException e){
             logger.error(email+"目标邮箱不存在");
-            return "false";
+            return error();
         } catch (Exception e) {
             logger.error(email+"文本邮件发送异常", e);
-            return "failure";
+            return error();
         }
     }
 

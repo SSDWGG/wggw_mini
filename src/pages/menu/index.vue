@@ -2,8 +2,7 @@
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
     <navbar title="Menu" hide-back background-color="#f5f5f9" />
     <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" :content="account.waterMark" />
-    <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35"
-      v-if="account.showfirstTimePageNoticeBar">
+    <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
       {{ account.NoticeBarText }}
     </nut-notice-bar>
 

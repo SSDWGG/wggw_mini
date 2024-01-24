@@ -30,3 +30,10 @@ export const deleteMemo = (params: { memoId: string }) =>
     method: "POST",
     params,
   });
+  
+export const updateMemo = (data) =>
+  request<boolean>({
+    url: "/v1/memo/updateMemo",
+    method: "POST",
+    data,
+  });
