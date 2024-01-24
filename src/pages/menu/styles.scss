@@ -48,16 +48,16 @@ page {
         width: 150px;
         height: 150px;
         margin: 10px;
-        border: 1px  #8074fe ;
-        border-style: dashed;
+        // border: 1px  #8074fe ;
+        // border-style: dashed;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: relative;
-        border-radius: 50%;
-        position: relative;
+        border-radius: 10%;
         overflow: hidden;
+        position: relative;
 
         .title{
           font-size: 20px;

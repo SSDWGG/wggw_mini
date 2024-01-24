@@ -8,7 +8,7 @@
         v-for="(item, index) in data.menuList"
         :key="index"
       >
-        <image class="bgImg" :src="item.imgSrc" />
+        <image class="bgImg" :src="item.imgSrc" mode='aspectFill'/>
       </view>
     </view>
   </scroll-view>
@@ -23,16 +23,28 @@
   const data = reactive({
     menuList: [
       {
-        imgSrc: "https://gaywss.wuchuangroup.com/1.jpg",
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/1.jpg",
       },
       {
-        imgSrc: "https://gaywss.wuchuangroup.com/2.jpg",
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/2.jpg",
       },
       {
-        imgSrc: "https://gaywss.wuchuangroup.com/3.jpg",
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/3.jpg",
       },
       {
-        imgSrc: "https://gaywss.wuchuangroup.com/4.jpg",
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/4.jpg",
+      },
+      {
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/5.jpg",
+      },
+      {
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/6.jpg",
+      },
+      {
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/7.jpg",
+      },
+      {
+        imgSrc: "https://wedding.wuchuangroup.com/img/yh/8.jpg",
       },
     ],
   });
