@@ -114,7 +114,7 @@ const addMemoData = async (
     memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
     content: data.content, // 文案内容
     list: JSON.stringify(targetList), // 相册详情
-    uid: account.openid
+    uid: account.userInfo.openid
   };
   AddMemo(listParam)
 };

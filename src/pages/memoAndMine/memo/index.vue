@@ -70,7 +70,7 @@ const initData = async () => {
   const res = await getMemoList({
     current: 1,
     pageSize: 10,
-    uid: account.openid,
+    uid: account.userInfo.openid,
   });
   
   res.forEach((item, index, arr) => {
@@ -109,7 +109,7 @@ const deleteMemo = (memoId: string) => {
   });
 };
 useDidShow(async () => {
-  if (account.openid.length === 0) {
+  if (account.userInfo.openid.length === 0) {
     await account.login();
     initData();
   } else {

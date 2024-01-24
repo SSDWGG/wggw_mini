@@ -8,7 +8,6 @@ import styles from './styles.scss';
 import ShareButton from './share-button.vue';
 import FullButton from './full-button.vue';
 import ContactButton from './contact-button.vue';
-import TestButton from './test-button.vue';
 import CallButton from './call-button.vue';
 import PostButton from './post-button.vue';
 import MineButton from './mine-button.vue';
@@ -33,9 +32,7 @@ const buttonComponentType = {
   3: ContactButton,
   4: CallButton,
   5: PostButton,
-  6: MineButton,
-  7: TestButton,
-  
+  6: MineButton,  
 };
 
 const buttonComponents = computed(() => props.showFlags.map((num: number) => buttonComponentType[num]));

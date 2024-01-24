@@ -13,9 +13,6 @@ export interface IMemoItem {
   videoPicUrl: string; // 视频封面
 }
 
-
-
-// createTime
 // 相册
 export interface IMemo {
   memoType: IMemoType;
