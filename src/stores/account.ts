@@ -10,21 +10,21 @@ import cloneDeep from 'lodash/cloneDeep';
 
 interface IState {
   
-
+  biddingDefaultList:Array<IBiddingItem>; //竞拍本地列表
+  biddingKunDefaultList:Array<IBiddingItem>; //竞拍本地列表（坤版）
+  
   templeChoosePostList: IResult[]; //上传选择的临时资源
-
-  NoticeBarText: string; //头部公告栏自定义内容
   memoDataList: IMemo[]; //前端缓存备忘录的数据（列表+详情）
 
 
   openid:string; //是否登录
-  username:string,
-  waterMark:string,
+  username:string,//用户名
+  waterMark:string,//水印
   avatarurl:string, //用户头像
+  NoticeBarText: string; //头部公告栏自定义内容
 
   
-  biddingDefaultList:Array<IBiddingItem>; //竞拍本地列表
-  biddingKunDefaultList:Array<IBiddingItem>; //竞拍本地列表（坤版）
+
 }
 
 export const useAccountStore = defineStore("account", {
