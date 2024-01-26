@@ -1,6 +1,7 @@
 import { Image, ImageProps } from '@tarojs/components';
 import { cdnHost } from '@/utils/env';
 import { appendQueryParams } from '@/utils/index';
+// @ts-ignore
 import placeholder from './image-placeholder.png';
 /**
  * 图片处理文档 https://help.aliyun.com/document_detail/144582.html
@@ -17,6 +18,7 @@ interface IProps extends ImageProps {
   sourceMode?: 'lfit'|'mfit'|'fill'|'pad'|'fixed'; // 指定缩放的模式 default mfit
   interlace?: 0|1; // 渐进显示
   origin?: boolean; // 原生 src，不做转化
+  class?:any
 }
 
 const defaultProps: IProps = {

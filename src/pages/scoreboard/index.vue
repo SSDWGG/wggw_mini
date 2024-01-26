@@ -82,7 +82,7 @@
   } from "@nutui/nutui-taro";
   import { reactive, h, computed, ref } from "vue";
   import mpmToast from "@/components/myToast/index.vue";
-  import UpdatePop from "@/components/updatePop/index.vue";
+  import UpdatePop from "@/components/pop/updatePop/index.vue";
 
   definePageConfig({ backgroundColor: "#f3f3fe" });
 

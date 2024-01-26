@@ -18,25 +18,32 @@
       +.icon {
         margin-top: 4px;
       }
-      
+
     }
-    .fcc{
+
+    .fcc {
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .full{
+
+    .full {
       font-size: 9px;
-      color: rgba(116, 104, 242,.7);
+      color: rgba(116, 104, 242, .7);
       box-shadow: 0px 1px 7px 0px rgb(225, 226, 229);
       border-radius: 50%;
-      background-color: rgba(255, 255, 255,.9);
+      background-color: rgba(255, 255, 255, .9);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 600;
       height: 86%;
       width: 86%;
+    }
+
+    .phoneIcon {
+      width: 34px;
+      height: 34px;
     }
 
     .contact {
@@ -52,7 +59,7 @@
       height: 86%;
       width: 86%;
     }
-   
+
   }
 }
 
@@ -63,6 +70,7 @@
   flex-direction: column;
   color: #222222;
   height: 100%;
+
   :global {
     .share-content {
       display: flex;
@@ -70,10 +78,12 @@
       align-items: center;
       padding: 24px 36px 18px;
       margin-bottom: env(safe-area-inset-bottom);
+
       .share-content-item {
         font-size: 16px;
         font-weight: Regular;
         color: #666666;
+
         .icon {
           display: block;
           width: 38px;
@@ -81,8 +91,10 @@
           margin-bottom: 8px;
         }
       }
+
       .video-text {
         text-align: left;
+
         text {
           margin-left: 1px;
         }
@@ -99,6 +111,7 @@
   flex-direction: column;
   color: #222222;
   height: 100%;
+
   :global {
     .footer {
       display: flex;
@@ -112,8 +125,10 @@
       box-sizing: content-box;
       padding-bottom: env(safe-area-inset-bottom);
     }
+
     .border-bottom {
       position: relative;
+
       &::before {
         content: "";
         position: absolute;
@@ -125,14 +140,17 @@
         border-top: 1px solid #eee;
       }
     }
+
     .pop-title {
       padding: 14px;
       font-weight: Medium;
     }
+
     .pop-item-list {
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
+
       .pop-content-item {
         padding: 14px;
         font-weight: Regular;
@@ -141,14 +159,16 @@
       }
     }
 
-    .share-content{
+    .share-content {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      padding: 24px 36px  18px;
-      .share-content-item{
+      padding: 24px 36px 18px;
+
+      .share-content-item {
         font-size: 16px;
         color: #666666;
+
         .icon {
           display: block;
           width: 44px;
@@ -164,8 +184,8 @@
       color: #222222;
       height: 100%;
 
-      
-      
+
+
     }
   }
 }
@@ -175,6 +195,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 16px;
+
   :global {
     .action-item {
       padding: 20px 0;
@@ -183,7 +204,8 @@
       line-height: 16px;
       text-align: center;
     }
-    .action-item + .action-item {
+
+    .action-item+.action-item {
       border-top: 1px solid #EEEEEE;
     }
 
@@ -191,7 +213,7 @@
 }
 
 
-.shareFriendsTools{
+.shareFriendsTools {
   width: 375px;
   position: fixed;
   top: 80px;

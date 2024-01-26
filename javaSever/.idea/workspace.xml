@@ -28,24 +28,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/WxPhoneResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/controller/KunChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/KunChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/apis/mine/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/mine/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/apis/mine/model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/mine/model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/call-button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/call-button.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/contact-button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/contact-button.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/post-button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/post-button.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/components/button/checkLoginButton.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/index/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/index/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/memoAndMine/memo/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/memoAndMine/memo/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/pages/mine/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/mine/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/mine/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/mine/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/stores/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stores/account.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,17 +134,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.WGGW_Application">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FinalprojectApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="finalproject" />
       <extension name="coverage">
@@ -440,6 +413,7 @@
       <workItem from="1706069971416" duration="3038000" />
       <workItem from="1706153405953" duration="3331000" />
       <workItem from="1706231512211" duration="9483000" />
+      <workItem from="1706254639766" duration="481000" />
     </task>
     <servers />
   </component>

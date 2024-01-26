@@ -21,11 +21,11 @@
           <text>邮箱</text>
         </view>
         <view class="content">
-          <NutInput v-model="account.userInfo.email" placeholder="请输入邮箱号" class="edit-NutInput" type="text"
-            input-align="right" :border="false" :formatter="(str) => formatterLen(str, 30)" format-trigger="onChange" />
-          <image class="phoneImg"
+          
+          {{ account.userInfo.email||'点击验证邮箱' }}
+          <!-- <image class="phoneImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/BMNLGHAP-1668669017857复制@2x.png"
-            @tap="testEmail(account.userInfo.email)" />
+            @tap="testEmail(account.userInfo.email)" /> -->
         </view>
       </view>
       <view class="infoItem">
@@ -37,18 +37,15 @@
         </view>
 
 
-        <checkSystemButton button-type="getPhoneNumber">
           <view class="content">
-            {{ account.userInfo.phone }}
-            <image class="phoneImg"
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/BMNLGHAP-1668669017857复制@2x.png"
-              @tap="copyStr(account.userInfo.phone)" />
+            <checkSystemButton button-type="getPhoneNumber">
+            {{ account.userInfo.phone||'点击绑定手机号' }}
+            </checkSystemButton>
           </view>
 
-        </checkSystemButton>
+        
 
       </view>
-
     </view>
 
 
@@ -68,6 +65,8 @@ import aliossUpload from '@/utils/alioss-upload';
 import { sendCode } from '@/apis/mine';
 import { formatterLen } from '@/utils/index';
 import checkSystemButton from '@/components/button/checkSystemButton.vue';
+import Taro from '@tarojs/taro';
+// import myImage from '@/components/image';
 
 
 

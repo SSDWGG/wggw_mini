@@ -3,39 +3,34 @@
 <template>
   <!-- 使用root-portal会造成无法修改css的问题，所有使用root-portal的情况css需要保持不可变 -->
   <!-- <root-portal > -->
-    <!-- 不能设置属性 :close-on-click-overlay="false" ，否则不触发点击遮罩事件  该弹窗统一为可以点击遮罩关闭 -->
-    <nut-popup v-model:visible="popVisable"  :class="styles.updatePopDiv" pop-class="my-pop" :z-index="999"
-    :catch-move="false"
-    @click-overlay="handleClose('overlay')">
-      <view class="content">
-        <slot v-if="!!slots.title" name="title" />
-        <view v-else class="title">{{props.title}}</view>
-        <slot v-if="!!slots.content" name="content" />
-        <view v-else-if="!!contentText" class="contentText">
-          {{props.contentText}}
-        </view>
-        <!--  请不要使用ui库的长度限制属性，在ios上，会出现bug -->
-        <view v-else >
-          <nut-input v-model="inputValue" :border="false"
-        :formatter="(str)=>formatterLen(str,props.max)"
-        format-trigger="onChange"
-        v-bind="$attrs"
-         />
-         <view class="error-text">
-            {{props.errorText}}
-         </view>
-        </view>
-         <slot v-if="!!slots.contentBottom" name="contentBottom" />
+  <!-- 不能设置属性 :close-on-click-overlay="false" ，否则不触发点击遮罩事件  该弹窗统一为可以点击遮罩关闭 -->
+  <nut-popup v-model:visible="popVisable" :class="styles.updatePopDiv" pop-class="my-pop" :z-index="999"
+    :catch-move="false" @click-overlay="handleClose('overlay')">
+    <view class="content">
+      <slot v-if="!!slots.title" name="title" />
+      <view v-else class="title">{{ props.title }}</view>
+      <slot v-if="!!slots.content" name="content" />
+      <view v-else-if="!!contentText" class="contentText">
+        {{ props.contentText }}
       </view>
-      <view class="footer">
-        <view class="cancel" @tap="handleClose('button')">{{props.cancelText}}</view>
-        
-        <view  class="confirm" @tap="handleOk">{{props.confirmText}}</view>
+      <!--  请不要使用ui库的长度限制属性，在ios上，会出现bug -->
+      <view v-else>
+        <nut-input v-model="inputValue" :border="false" :formatter="(str) => formatterLen(str, props.max)"
+          format-trigger="onChange" v-bind="$attrs" />
+        <view class="error-text">
+          {{ props.errorText }}
+        </view>
+      </view>
+      <slot v-if="!!slots.contentBottom" name="contentBottom" />
+    </view>
+    <view class="footer">
+      <view class="cancel" @tap="handleClose('button')">{{ props.cancelText }}</view>
 
-      </view>
-    </nut-popup>
+      <view class="confirm" @tap="handleOk">{{ props.confirmText }}</view>
+
+    </view>
+  </nut-popup>
   <!-- </root-portal> -->
-
 </template>
 
 
@@ -44,6 +39,9 @@ import { ref, toRef, watch, useSlots } from 'vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { formatterLen } from '@/utils/index';
+import {
+  Input as NutInput,
+} from '@nutui/nutui-taro';
 
 
 const props = defineProps({
@@ -72,7 +70,7 @@ const props = defineProps({
     type: String,
     default: ''
   },
-    // 输入框值(双向受控，退出时会被清空)
+  // 输入框值(双向受控，退出时会被清空)
   inputValue: {
     type: String,
     default: ''
@@ -112,7 +110,7 @@ const props = defineProps({
 });
 
 
-const emit = defineEmits(['update:modelValue','update:inputValue', 'ok']);
+const emit = defineEmits(['update:modelValue', 'update:inputValue', 'ok']);
 
 
 const slots = useSlots();
@@ -121,20 +119,20 @@ const popVisable = ref(props.modelValue);
 
 // eslint-disable-next-line vue/no-dupe-keys
 const inputValue = ref('');
-watch(()=>props.inputValue,
-(val)=>{
-  inputValue.value = val;
-});
+watch(() => props.inputValue,
+  (val) => {
+    inputValue.value = val;
+  });
 
-watch(()=>props.defaultInputValue,
-(val)=>{
-  inputValue.value = val;
-});
+watch(() => props.defaultInputValue,
+  (val) => {
+    inputValue.value = val;
+  });
 
-watch(()=>inputValue.value,
-(val)=>{
-  emit('update:inputValue', val);
-});
+watch(() => inputValue.value,
+  (val) => {
+    emit('update:inputValue', val);
+  });
 
 
 
@@ -143,7 +141,7 @@ watch(toRef(props, 'modelValue'), (val) => {
 });
 
 // 请注意input的失焦事件会在点击事件之后触发
-const handleClose = (orgin:'overlay'|'button') => {
+const handleClose = (orgin: 'overlay' | 'button') => {
   if (props.onClose) props.onClose(orgin);
   else {
     !!props.onAfterClose && props.onAfterClose(orgin);
@@ -159,6 +157,7 @@ const handleOk = () => {
   else {
     !!props.onAfterOk && props.onAfterOk();
     emit('ok', inputValue.value);
-    emit('update:modelValue', false);  }
+    emit('update:modelValue', false);
+  }
 };
 </script>
