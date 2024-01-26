@@ -17,7 +17,7 @@ const router = useRouter();
 const homePage = router.params.url || '/pages/menu/index';
 
 musicStore.playDefaultBGM()
-if(account.userInfo.openid.length === 0){
+if(!account.isLogin()){
   account.login()
 }
 

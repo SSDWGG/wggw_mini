@@ -39,20 +39,6 @@
       width: 86%;
     }
 
-    //  清除原生button样式
-    .kf {
-      margin: 0;
-      padding: 0;
-      outline: none;
-      border-radius: 0;
-      background-color: transparent;
-      line-height: inherit;
-    }
-
-    .kf::after {
-      border: none;
-    }
-
     .contact {
       font-size: 9px;
       color: rgba(116, 104, 242, .7);

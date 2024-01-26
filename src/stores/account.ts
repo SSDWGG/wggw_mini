@@ -1,7 +1,7 @@
 import { IBiddingItem } from "@/apis/kunChart/model";
 import { deleteMemo, updateMemo } from "@/apis/memo";
 import { IMemo } from "@/apis/memo/model";
-import { wxLogin } from "@/apis/mine";
+import { bindPhone, updateUser, wxLogin } from "@/apis/mine";
 import { IResult } from "@/components/selectMedia";
 import { defineStore } from "pinia";
 import cloneDeep from "lodash/cloneDeep";
@@ -10,20 +10,19 @@ import { IUserInfo } from "@/apis/mine/model";
 interface IState {
   biddingDefaultList: Array<IBiddingItem>; //竞拍本地列表
   biddingKunDefaultList: Array<IBiddingItem>; //竞拍本地列表（坤版）
-
   templeChoosePostList: IResult[]; //上传选择的临时资源
   memoDataList: IMemo[]; //前端缓存备忘录的数据（列表+详情）
-
   userInfo: IUserInfo;
 }
 
 export const useAccountStore = defineStore("account", {
   state: (): IState => ({
     userInfo: {
-      username: "WGGW的神秘用户",
-      avatarurl:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
+      username: "",
+      avatarurl:"",
       openid: "",
+      phone: "",
+      email: "",
     },
     templeChoosePostList: [],
     memoDataList: [],
@@ -106,12 +105,23 @@ export const useAccountStore = defineStore("account", {
     biddingKunDefaultList: [],
   }),
   actions: {
+    async bindPhone(phoneCode) {
+      const res = await bindPhone(phoneCode);
+      this.userInfo = res;
+    },
+
     // 箭头函数中没有this，如果想使用this，请不要使用箭头函数
     async login() {
       const res = await wxLogin();
-      this.userInfo.openid = res.openid;
+      this.userInfo = res;
     },
-
+    // 函数不具备响应式，使用时需要注意
+    isLogin(){
+       return this.userInfo.openid.length !== 0
+    },
+    async updateUser(){
+      return  await updateUser(this.userInfo)
+    },
     /**
      * 移除一个 image / video
      * @param {string} firstId 外层

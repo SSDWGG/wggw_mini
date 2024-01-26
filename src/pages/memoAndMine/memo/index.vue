@@ -109,11 +109,6 @@ const deleteMemo = (memoId: string) => {
   });
 };
 useDidShow(async () => {
-  if (account.userInfo.openid.length === 0) {
-    await account.login();
     initData();
-  } else {
-    initData();
-  }
 });
 </script>

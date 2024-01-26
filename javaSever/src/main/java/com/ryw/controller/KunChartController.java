@@ -35,7 +35,6 @@ public class KunChartController {
     }
     @RequestMapping("/v1/KunChart/addKunChart")              // 增加
     public AjaxResult addKunChart(@RequestBody KunChart kc){
-
         kunchartMapper.insert(kc);
         return success();
     }

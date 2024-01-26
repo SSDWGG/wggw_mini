@@ -1,14 +1,13 @@
 <template>
-  <view class="icon fcc" style="margin-top: 8rpx">
-    <check-login-button class="contact kf" @tap="test">
+  <view class="icon fcc" style="margin-top: 8rpx" @tap="call">
+    <view class="contact" >
       电联
-    </check-login-button>
+    </view>
     <!-- toast提示 -->
     <mpm-toast ref="myToast" :duration="2500" />
   </view>
 </template>
 <script lang="ts" setup>
-import checkLoginButton from '@/components/button/checkLoginButton.vue';
 import Taro from '@tarojs/taro';
 import { useAccountStore } from '@/stores/account';
 import mpmToast from '@/components/myToast/index.vue';
@@ -20,7 +19,7 @@ const myToast = ref<any>();
 
 const accountStore = useAccountStore();
 
-const test = () => {
+const call = () => {
   Taro.authorize({
     scope: 'scope.record',
     fail: () => {

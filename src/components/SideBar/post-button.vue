@@ -1,7 +1,7 @@
 <template>
-  <check-login-button @tap="post">
+  <view @tap="post">
     <image class="icon" src="@/assets/images/menu/icon-menu-add.png"  />
-  </check-login-button>
+  </view>
   <root-portal>
     <nut-popup v-model:visible="state.visible" position="bottom" round close-on-click-overlay
       @click-overlay="handleClose">
@@ -36,7 +36,6 @@ import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
 import selectMedia, { IMediaType, IResult } from '@/components/selectMedia';
-import checkLoginButton from '@/components/button/checkLoginButton.vue';
 
 
 

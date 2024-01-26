@@ -31,3 +31,24 @@ export const sendCode = (params: { email: string }) =>
     params,
   });
 
+// 修改user
+export const updateUser = (data: T.IUserInfo) =>
+  request<boolean>({
+    url: "/v1/user/updateUser",
+    method: "POST",
+    data,
+  });
+
+
+  // 绑定手机号
+  export const bindPhone = async (phoneCode:string) => {
+    let params = {};
+    const { code } = await Taro.login();
+    params = { code,phoneCode };
+    return request<T.IUserInfo>({
+      url: "/v1/user/bindPhone",
+      method: "GET",
+      params,
+    });
+  };
+
