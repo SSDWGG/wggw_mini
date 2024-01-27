@@ -49,7 +49,6 @@
 import { computed, reactive } from 'vue';
 import { Drag } from '@fishui/taro-vue';
 import Taro, { useRouter } from '@tarojs/taro';
-import ICON_VEDIO_STATE from '@/assets/images/menu/post/vedio-state.png';
 import styles from './styles.scss';
 import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
