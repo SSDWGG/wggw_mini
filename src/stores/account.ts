@@ -19,7 +19,7 @@ export const useAccountStore = defineStore("account", {
   state: (): IState => ({
     userInfo: {
       username: "",
-      avatarurl:"",
+      avatarurl: "",
       openid: "",
       phone: "",
       email: "",
@@ -109,18 +109,17 @@ export const useAccountStore = defineStore("account", {
       const res = await bindPhone(phoneCode);
       this.userInfo = res;
     },
-
     // 箭头函数中没有this，如果想使用this，请不要使用箭头函数
     async login() {
       const res = await wxLogin();
       this.userInfo = res;
     },
     // 函数不具备响应式，使用时需要注意
-    isLogin(){
-       return this.userInfo.openid.length !== 0
+    isLogin() {
+      return this.userInfo.openid.length !== 0;
     },
-    async updateUser(){
-      return  await updateUser(this.userInfo)
+    async updateUser() {
+      return await updateUser(this.userInfo);
     },
     /**
      * 移除一个 image / video

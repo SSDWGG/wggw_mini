@@ -26,10 +26,20 @@ export const wxLogin = async () => {
 // 发送验证码
 export const sendCode = (params: { email: string }) =>
   request<boolean>({
-    url: "/v2/code/sendEmail",
+    url: "/v1/verification/sendEmail",
     method: "GET",
     params,
   });
+
+// 验证验证码
+export const testCode = (params: { email: string,code:string }) =>
+  request<boolean>({
+    url: "/v1/verification/testCode",
+    method: "GET",
+    params,
+  });
+
+
 
 // 修改user
 export const updateUser = (data: T.IUserInfo) =>

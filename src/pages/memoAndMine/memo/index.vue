@@ -44,7 +44,7 @@
       <view class="img">
         <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/default1.png"></image>
       </view>
-      <view class="img tips">No Memo</view>
+      <view class="img tips">快来记录第一个心情吧</view>
     </view>
     <view class="safeBottom"></view>
   </view>
@@ -69,7 +69,7 @@ const { show, onScroll } = useListScroll();
 const initData = async () => {
   const res = await getMemoList({
     current: 1,
-    pageSize: 10,
+    pageSize: 100,
     uid: account.userInfo.openid,
   });
   

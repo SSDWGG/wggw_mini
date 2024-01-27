@@ -115,7 +115,8 @@ const initMultiBarChart = () => {
   })
 }
 
-const addGame = debounce(() => {
+const addGame = debounce(
+  () => {
 
   myToast.value.mpmToastShow({
         icon: "error",
@@ -132,6 +133,7 @@ const addGame = debounce(() => {
     last
   )
   initMultiBarChart()
-},1000, { leading: true, trailing: false })
+}
+,1000, { leading: true, trailing: false })
 
 </script>

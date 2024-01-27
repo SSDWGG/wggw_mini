@@ -1,5 +1,5 @@
 <template>
-  <navbar title="我的多媒体记录" background-color="transparent" />
+  <navbar title="我的记录" background-color="transparent" />
   <view :class="styles.memoAndMine">
     <view class="content"  :style="{ height }">
      <memo />

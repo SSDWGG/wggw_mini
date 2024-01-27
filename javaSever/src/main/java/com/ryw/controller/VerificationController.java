@@ -92,13 +92,13 @@ public class VerificationController {
         }
     }
 
-    @RequestMapping("/v2/code/testCode")
+    @RequestMapping("/v1/verification/testCode")
     @ResponseBody
     //验证验证码是否正确
 //    {state；boolean}
-    private boolean testCode(String code,String email){
+    private AjaxResult testCode(String code,String email){
         if (list.size()==0){
-            return false;
+            return error("验证邮箱失败");
         } //验证码集为空，请再次申请验证码       代码000
         else{
             /*先拿到email   查找是否有这个email如果存在就对比时间是否过期和验证码是否正确*/
@@ -116,24 +116,24 @@ public class VerificationController {
                         if (hash.equalsIgnoreCase(requestHash)){
                             //校验正确
                             //判断数据是否合法（用户名，邮箱不能重复）
-                            return true;
+                            return success(true);
                         }
                         else {
                             //验证码不正确，校验失败  代码002
                             //attributes.addFlashAttribute("message", "验证码输入不正确");
-                            return false;
+                            return error("验证邮箱失败");
                         }
                     }
                     else {
                         // 超时代码  001   超时也有可能是验证码不正确（包含关系）
                         //attributes.addFlashAttribute("message", "验证码已过期");
-                        return false;
+                        return error("验证邮箱失败");
                     }
                 }//在验证码集中找到email
                 //该条集合中未找到该email继续往下执行如果所有都没有找到则发送未找到
             }
 //                return"验证码集不为空";
-            return false;
+            return error("验证邮箱失败");
         }
     }
 
@@ -186,7 +186,7 @@ public class VerificationController {
      *
      * @param email 收件人邮箱
      */
-    @RequestMapping("/v2/code/sendEmail")
+    @RequestMapping("/v1/verification/sendEmail")
     @ResponseBody
     public AjaxResult sendEmailMessage(String email) {
 
@@ -202,13 +202,13 @@ public class VerificationController {
             javaMailSender.send(message);
             logger.info(email+"文本邮件发送成功！");
             saveCode(code,email);
-            return success();
+            return success("文本邮件发送成功！");
         }catch (MailSendException e){
-            logger.error(email+"目标邮箱不存在");
-            return error();
+            logger.error(email+"邮箱不存在");
+            return error(email+"邮箱不存在");
         } catch (Exception e) {
-            logger.error(email+"文本邮件发送异常", e);
-            return error();
+            logger.error(email+"邮件发送异常", e);
+            return error(email+"邮件发送异常");
         }
     }
 

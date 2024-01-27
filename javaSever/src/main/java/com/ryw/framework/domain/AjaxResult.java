@@ -18,7 +18,7 @@ public class AjaxResult extends HashMap<String, Object>
     public static final String CODE_TAG = "code";
 
     /** 返回内容 */
-    public static final String MSG_TAG = "msg";
+    public static final String MSG_TAG = "message";
 
     /** 数据对象 */
     public static final String DATA_TAG = "data";
@@ -139,7 +139,7 @@ public class AjaxResult extends HashMap<String, Object>
      * 返回错误消息
      *
      * @param msg 返回内容
-     * @return 错误消息
+     * @return 错误消息error
      */
     public static AjaxResult error(String msg)
     {
