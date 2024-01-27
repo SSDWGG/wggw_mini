@@ -1,6 +1,6 @@
 <template>
   <view @tap="post">
-    <image class="icon" src="@/assets/images/menu/icon-menu-add.png"  />
+    <image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CNJBBHDF-1706331733330icon-menu-add.png"  />
   </view>
   <root-portal>
     <nut-popup v-model:visible="state.visible" position="bottom" round close-on-click-overlay

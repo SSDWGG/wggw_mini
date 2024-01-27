@@ -90,6 +90,11 @@ const data = reactive({
       opacity:1
     },
     {
+      title: "Media Memo",
+      Ctitle: "多媒体记录",
+      router: "/pages/memoAndMine/index",
+    },
+    {
       title: "developer",
       Ctitle: "开发者专区",
       router: "/pages/developer/index",
@@ -99,11 +104,7 @@ const data = reactive({
       Ctitle: "猜想价格曲线",
       router: "/pages/bidding/index",
     },
-    {
-      title: "Media Memo",
-      Ctitle: "多媒体记录",
-      router: "/pages/memoAndMine/index",
-    },
+    
     {
       title: "Score Board",
       Ctitle: "计分板",

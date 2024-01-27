@@ -31,42 +31,42 @@ const data = reactive({
     {
       showName: 'GitHub(开源仓库)',
       href: 'https://github.com/SSDWGG',
-      qrSrc: require('@/assets/images/qrCode/github.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/OEAHMDAL-1706331258037github.png'
 
     },
     {
       showName: 'wgg_project（个人项目简介pc、移动端）',
       href: 'http://wgg.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/wgg.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/DBKHBFBE-1706331330465wgg.png'
 
     },
     {
       showName: '弹弹坤（娱乐）',
       href: 'http://ikunqqq.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/ikunqqq.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJHBFEAA-1706331358049ikunqqq.png'
 
     },
     {
       showName: '字符坤（娱乐）',
       href: 'http://ikunstr.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/ikunstr.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GIKJIPEA-1706331381805ikunstr.png'
 
     },
     {
-      showName: '消消乐旋转板（娱乐）',
+      showName: '消消乐旋转版（娱乐）',
       href: 'http://hextris.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/hextris.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IMDCHDJP-1706331384525hextris.png'
 
     },
     {
       showName: '兔了个兔（娱乐）',
       href: 'http://xlgx.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/xlgx.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MOCAPJJK-1706331446705xlgx.png'
     },
     {
       showName: 'MP_V2（个人中后台管理系统pc）',
       href: 'http://todo.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/todo.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FCAAEBLP-1706331461355todo.png'
     },
     {
       showName: '云小叮微信小程序、wggw微信小程序',
@@ -76,30 +76,30 @@ const data = reactive({
     {
       showName: '诗文卡片',
       href: 'http://poem.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/poem.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MPMMHFKJ-1706331478715poem.png'
     },
     {
       showName: 'RabbitMall（商城项目pc）',
       href: 'http://mall.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/mall.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NBDGFNGN-1706331492335mall.png'
     },
     {
       showName: 'MGJ（练习项目pc）',
       href: 'http://mgj.ssdwgg.cn',
-      qrSrc: require('@/assets/images/qrCode/mgj.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NMICMNJA-1706331504105mgj.png'
 
     },
     {
       showName: 'MRTK（流媒体视频）',
       href: 'https://ssdwgg.cn:8693',
-      qrSrc: require('@/assets/images/qrCode/lmt.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/ENBMHPOG-1706331514250lmt.png'
     },
   ],
   popTipVisible: false,
   chooseItem: {
     showName: 'GitHub(开源仓库)',
     href: 'https://github.com/SSDWGG',
-    qrSrc: require('@/assets/images/qrCode/github.png')
+    qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/OEAHMDAL-1706331258037github.png'
   },
 });
 

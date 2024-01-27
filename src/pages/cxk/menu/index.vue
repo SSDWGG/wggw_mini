@@ -101,7 +101,7 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/BEDKEKCP-1705543014391shakeKun.gif",
       opacity: 1,
       linkUrl: "http://ikunqqq.ssdwgg.cn",
-      qrSrc:require('@/assets/images/qrCode/ikunqqq.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJHBFEAA-1706331358049ikunqqq.png'
     },
     {
       title: "Kun Str",
@@ -111,17 +111,17 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IIOMLFKE-1705543014391strkun.gif",
       opacity: 1,
       linkUrl: "http://ikunstr.ssdwgg.cn",
-      qrSrc:require('@/assets/images/qrCode/ikunstr.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GIKJIPEA-1706331381805ikunstr.png'
     },
     {
       title: "Game",
-      Ctitle: "旋转俄罗斯方块",
+      Ctitle: "消消乐旋转版本",
       router: "/pages/cxk/cxk5/index",
       bgSrc:
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HEPJCNMO-1705543014391game1.gif",
       opacity: 1,
       linkUrl: "http://hextris.ssdwgg.cn",
-      qrSrc:require('@/assets/images/qrCode/hextris.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IMDCHDJP-1706331384525hextris.png'
     },
     {
       title: "Game",
@@ -131,7 +131,7 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NICPAEIK-1705543014391tlgt.gif",
       opacity: 1,
       linkUrl: "http://xlgx.ssdwgg.cn",
-      qrSrc:require('@/assets/images/qrCode/xlgx.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MOCAPJJK-1706331446705xlgx.png'
     },
   ],
   chooseItem: {
@@ -142,7 +142,7 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NICPAEIK-1705543014391tlgt.gif",
       opacity: 1,
       linkUrl: "http://xlgx.ssdwgg.cn",
-      qrSrc:  require('@/assets/images/qrCode/xlgx.png')
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MOCAPJJK-1706331446705xlgx.png'
     },
   popTipVisible: false
 });
