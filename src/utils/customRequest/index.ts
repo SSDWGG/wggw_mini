@@ -36,7 +36,7 @@ export const createRequest = (defaultConfig: Type.RequestConfig): Type.RequestMe
   }
 
   // 公共请求方法，请求/响应 处理 请在 requestInstance.interceptors 中
-  const request = (async <T>(option: Type.RequestOption) => {
+  const request = (async (option: Type.RequestOption) => {
     let config = merge(_defaultConfig, option) as Type.AllConfig;
     if (!config.params) config.params = {};
     if (config.showErrorMsg === undefined) config.showErrorMsg = true;
@@ -48,9 +48,9 @@ export const createRequest = (defaultConfig: Type.RequestConfig): Type.RequestMe
     try {
       let response: ReturnType<Type.ResponseInterceptor> = await Taro.request(config);
       for (const func of _responseInterceptors ) {
-        response = await func(response as Taro.request.SuccessCallbackResult<Type.ResponseData<T>>, config);
+        response = await func(response as Taro.request.SuccessCallbackResult<Type.ResponseData<any>>, config);
       }
-      return (response as any) as T;
+      return response;
     } catch (e) {
       let error = e;
       for (const func of _responseErrorInterceptors) {
@@ -81,12 +81,12 @@ export const createRequest = (defaultConfig: Type.RequestConfig): Type.RequestMe
     Object.assign(_defaultConfig, merge(_defaultConfig, config));
   };
 
-  // request.get = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'GET' });
-  // request.post = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'POST' });
-  // request.put = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'PUT' });
-  // request.delete = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'DELETE' });
-  // request.trace = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'TRACE' });
-  // request.head = <T>(url: string, option?: Type.RequestWithMehodOption) => request<T>({...option, url, method: 'HEAD' });
+  request.get = (url: string, option?: Type.RequestWithMehodOption) => request({...option, url, method: 'GET' });
+  request.post = (url: string, option?: Type.RequestWithMehodOption) => request({...option, url, method: 'POST' });
+  request.put = (url: string, option?: Type.RequestWithMehodOption) => request({...option, url, method: 'PUT' });
+  request.delete = (url: string, option?: Type.RequestWithMehodOption) => request({...option, url, method: 'DELETE' });
+  request.trace = (url: string, option?: Type.RequestWithMehodOption) => request({...option, url, method: 'TRACE' });
+  request.head = (url: string, option?: Type.RequestWithMehodOption) => request({...option, url, method: 'HEAD' });
 
   return request;
 };
