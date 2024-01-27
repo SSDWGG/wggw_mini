@@ -21,7 +21,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   back: true,
   imgSrc: require('@/assets/images/cxk/kun.png') ,
-  // imgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg',
 });
 const emit = defineEmits(['back']);
 

@@ -91,8 +91,6 @@ import mpmToast from "@/components/myToast/index.vue";
 import { checkEmail } from "@/utils/verify";
 import { debounce } from 'lodash';
 
-// import myImage from '@/components/image';
-
 definePageConfig({ backgroundColor: "#f3f3fe" });
 
 const account = useAccountStore();

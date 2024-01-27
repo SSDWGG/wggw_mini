@@ -1,5 +1,5 @@
 <template>
-    <image class="icon"  style="margin-top: 8rpx" src="@/assets/images/album/icon-album-share.png" @tap="onShare" />
+    <image class="icon"  style="margin-top: 8rpx" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/ANLMOBKI-1706328203630icon-album-share.png" @tap="onShare" />
 
   <root-portal>
     <nut-popup
