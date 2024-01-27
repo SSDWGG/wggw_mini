@@ -9,15 +9,12 @@ export default defineAppConfig({
     // ,'memo/index','memo/post/index','mine/index'
     { root: 'pages/memoAndMine', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
-    { root: 'pages/time', pages: ['index'] },
-    { root: 'pages/waterfall', pages: ['index'] },
-    { root: 'pages/cssloaders', pages: ['index'] },
-    { root: 'pages/editor', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },
     { root: 'pages/bidding', pages: ['index','detail/index'] },
     { root: 'pages/cxk', pages: ['index/index','menu/index','cxk/index','cxk2/index','cxk3/index','cxk4/index','cxk5/index','cxk6/index','cxk7/index','cxk7/detail/index'] },
+    { root: 'pages/developer', pages: ['index','cssloaders/index','time/index','editor/index','waterfall/index'] },
 
   ],
   requiredBackgroundModes:["audio"],

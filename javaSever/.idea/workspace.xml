@@ -28,12 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/controller/VerificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/VerificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/framework/domain/AjaxResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/framework/domain/AjaxResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/apis/mine/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/mine/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/mine/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/mine/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/mine/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/mine/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/pop/openOutLinkTipPop/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/pop/openOutLinkTipPop/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

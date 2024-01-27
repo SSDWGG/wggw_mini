@@ -4,7 +4,7 @@
     <update-pop v-model:modelValue="props.popTipVisible" confirmText="复制链接" cancelText="关闭" :on-close="onclose"  :on-confirm='onConfirm'
       title="温馨提示">
 
-      <template #contentBottom>
+      <template #content>
         <view class="template-content">
           <view class="tipText">
             因微信严格限制外部网站打开，现为您准备打开方式如下，1:截屏扫码 2:复制网址链接查看 3:联系客服作者使用体验版小程序

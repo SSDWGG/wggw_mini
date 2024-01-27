@@ -90,6 +90,11 @@ const data = reactive({
       opacity:1
     },
     {
+      title: "developer",
+      Ctitle: "开发者专区",
+      router: "/pages/developer/index",
+    },
+    {
       title: "Open Bidding",
       Ctitle: "猜想价格曲线",
       router: "/pages/bidding/index",
@@ -98,26 +103,6 @@ const data = reactive({
       title: "Media Memo",
       Ctitle: "多媒体记录",
       router: "/pages/memoAndMine/index",
-    },
-    {
-      title: "CSS Loaders",
-      Ctitle: "新奇的动效css",
-      router: "/pages/cssloaders/index",
-    },
-    {
-      title: "Clock",
-      Ctitle: "进度计时",
-      router: "/pages/time/index",
-    },
-    {
-      title: "Water Fall",
-      Ctitle: "瀑布流照片墙",
-      router: "/pages/waterfall/index",
-    },
-    {
-      title: "More Plugin",
-      Ctitle: "多种组件",
-      router: "/pages/editor/index",
     },
     {
       title: "Score Board",
