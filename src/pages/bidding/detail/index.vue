@@ -12,13 +12,13 @@
     <side-bar :show="show" :showFlags = [1,3] />
 
     <view class="imgDiv">
-      <image mode="aspectFit" :src=chooseItem?.imgSrc class="img"></image>
+      <image mode="aspectFit" :src=item?.picUrl class="img" v-for="(item ,index) in chooseItem?.imgSrc" :key="index"></image>
     </view>
     <view class="title">
       {{ chooseItem?.title }}
     </view>
     <view class="title">
-      {{ chooseItem?.dec }}
+      {{ chooseItem?.kcDesc }}
     </view>
 
     <chartLine v-if="!!chooseItem?.priceLine" :orginData = chooseItem?.priceLine></chartLine>
@@ -32,7 +32,6 @@ import { reactive, ref } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
-import { useAccountStore } from "@/stores/account";
 import {
   useShareAppMessage,
   useShareTimeline,
@@ -42,13 +41,12 @@ import {
 } from "@tarojs/taro";
 import { changeLongStr } from "@/utils/index";
 import chartLine from './chartLine.vue'
+import { getKunCharOne } from "@/apis/kunChart";
 
 definePageConfig({
   enableShareAppMessage: true,
   enableShareTimeline: true,
 });
-
-
 
 const router = useRouter();
 
@@ -56,7 +54,6 @@ const pageTitle = ref("");
 
 const { show, onScroll } = useListScroll();
 
-const accountStore = useAccountStore();
 
 const data = reactive({
   showPage: true,
@@ -64,12 +61,11 @@ const data = reactive({
 
 let chooseItem = ref();
 
-const init = () => {
-  console.log(router.params);
-  
-  chooseItem.value = accountStore.biddingDefaultList.filter(
-    (item) => item.shopId == router.params.shopId
-  )[0];
+const init = async() => {
+
+  chooseItem.value =await getKunCharOne({ shopId: router.params.shopId as string })
+
+  chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc)
   pageTitle.value =
     changeLongStr(chooseItem.value.title, 6, true) + "价格";
 };

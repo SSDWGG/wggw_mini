@@ -1,56 +1,67 @@
 <template>
-  <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage"  scroll-y="true">
-    <navbar title="价格曲线" background-color="rgba(116, 104, 242,.1)"/>
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="wggw大舞台" />
+  <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
+    <navbar title="价值曲线" background-color="rgba(116, 104, 242,.1)" />
+    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="价值曲线" />
     <view class="tipTitle">
-      首先很高兴您能参与此试验游戏，我们会为您提供以下内容显示报价，您可以参与试验游戏提供您觉得合理的价格
+      您觉得他们价值几何？
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
-      <view class="menu-item"  @tap="open(item)"  v-for="item in accountStore.biddingDefaultList" :key="item.shopId" >
-          <view class="title">
-            {{ item.title }}
-          </view>
-          <image class="bgImg" :src='item.imgSrc' />
+      <view class="menu-item" @tap="open(item)" v-for="item in data.biddingDefaultList" :key="item.shopId">
+        <view class="title">
+          {{ item.title }}
+        </view>
+        <image class="bgImg" :src="(item.imgSrc as any)[0]?.picUrl" />
       </view>
     </view>
-
+    <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({
+    url:`/pages/bidding/post/index?type=image`
+  })" :showFlags="[7]" />
   </scroll-view>
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import {
-  WaterMark as NutWaterMark,
-} from "@nutui/nutui-taro";
+import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
-import { useAccountStore } from '@/stores/account';
 import Taro from "@tarojs/taro";
-import { addKunChart,getKunChartList,deleteKunChartByShopId } from "@/apis/kunChart";
+import {
+  getKunChartList,
+  // deleteKunChartByShopId,
+} from "@/apis/kunChart";
+import sideBar from "@/components/SideBar/index.vue";
+import { useListScroll } from "@/components/scrollHooks/useListScroll";
+import { useDidShow } from "@tarojs/taro";
+import { IBiddingItem } from "@/apis/kunChart/model";
 
-
-
-const accountStore = useAccountStore();
+const { show, onScroll } = useListScroll();
 
 const systemInfo = useSystemInfoStore();
 const data = reactive({
   showPage: true,
+  biddingDefaultList: [] as IBiddingItem[],
 });
 
-// addKunChart({
-//   title: '123',
-//   imgSrc: '123',
-//   kcDesc: '123'
+
+
+// deleteKunChartByShopId({
+// shopId:'1749268448801030145'
 // })
 
-deleteKunChartByShopId({
-shopId:'1749268448801030145'
-})
-// getKunChartList()
+useDidShow(async () => {
+ const res  = await getKunChartList({
+    current: 1,
+    pageSize: 100,
+  });
 
+  res.forEach(item=>{
+    item.imgSrc = JSON.parse(item.imgSrc)
+  })
 
-
+  data.biddingDefaultList =  res
+  
+});
 
 const height = computed(
   () =>
@@ -59,10 +70,7 @@ const height = computed(
 
 const open = (item) => {
   Taro.navigateTo({
-    url:`/pages/bidding/detail/index?shopId=${item.shopId}`
-  })
-
-}
-
-
+    url: `/pages/bidding/detail/index?shopId=${item.shopId}`,
+  });
+};
 </script>

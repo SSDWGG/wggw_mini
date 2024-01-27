@@ -90,8 +90,8 @@ const data = reactive({
       opacity:1
     },
     {
-      title: "Media Memo",
-      Ctitle: "多媒体记录",
+      title: "Mood Memo",
+      Ctitle: "心情记录",
       router: "/pages/memoAndMine/index",
     },
     {
@@ -100,8 +100,8 @@ const data = reactive({
       router: "/pages/developer/index",
     },
     {
-      title: "Open Bidding",
-      Ctitle: "猜想价格曲线",
+      title: "Value Curve",
+      Ctitle: "价值曲线",
       router: "/pages/bidding/index",
     },
     

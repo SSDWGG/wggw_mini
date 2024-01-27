@@ -33,6 +33,14 @@ public class KunChartController {
         List<KunChart> kunchartList  = page.getRecords();  //分页查询的结果
         return success(kunchartList);
     }
+    @RequestMapping("/v1/KunChart/getKunCharOne")              // id查询
+    public AjaxResult getKunCharOne(@RequestParam("shopId") Long shopId ){
+        KunChart kunChartOne  =  kunchartMapper.selectById(shopId);
+        return success(kunChartOne);
+    }
+
+
+
     @RequestMapping("/v1/KunChart/addKunChart")              // 增加
     public AjaxResult addKunChart(@RequestBody KunChart kc){
         kunchartMapper.insert(kc);

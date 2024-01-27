@@ -1,14 +1,14 @@
 import request from "@/utils/request";
 import * as T from "./model";
 
-export const getKunChartList = () =>
+export const getKunChartList = (params: {
+  current: number,
+  pageSize: number,
+}) =>
   request<T.IBiddingItem[]>({
     url: "/v1/KunChart/getKunChartList",
     method: "GET",
-    params: {
-      current: 1,
-      pageSize: 100,
-    },
+    params
   });
 
 export const addKunChart = (data: {
@@ -21,9 +21,18 @@ export const addKunChart = (data: {
     method: "POST",
     data,
   });
+
+
 export const deleteKunChartByShopId = (params: { shopId: string }) =>
   request<boolean>({
     url: "/v1/KunChart/deleteKunChartByShopId",
     method: "POST",
+    params,
+  });
+  
+export const getKunCharOne = (params: { shopId: string }) =>
+  request<boolean>({
+    url: "/v1/KunChart/getKunCharOne",
+    method: "GET",
     params,
   });

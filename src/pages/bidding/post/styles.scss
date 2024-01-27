@@ -1,0 +1,55 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  :global {
+    .body {
+      flex-grow: 1;
+      .nut-textarea__textarea {
+        height: 65px;
+        font-size: 16px;
+        font-weight: Regular;
+      }
+      .post-textarea {
+        padding: 10px 20px;
+        .textarea-placeholder{
+          color: #999999;
+          font-weight: Regular;
+          font-size: 16px;
+        }
+
+
+      }
+      .module-button {
+        display: flex;
+        justify-content: space-between;
+        color: #7468f2;
+        margin: 8px 20px;
+        .module{
+          font-size: 14px;
+        }      
+
+        .nut-checkbox__label {
+          font-size: 14px;
+        }
+        .nut-icon {
+          font-size: 16px;
+        }
+      }
+    }
+    .footer {
+      margin: 8px 28px;
+      padding-bottom: constant(safe-area-inset-bottom);
+      padding-bottom: env(safe-area-inset-bottom);
+      .publish{
+        height: 40px;
+        margin-bottom: 20px;
+      }
+      .nut-button__warp {
+        font-size: 16px;
+        font-weight: Medium;
+      }
+    }
+  }
+}

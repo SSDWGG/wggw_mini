@@ -11,6 +11,7 @@ import ContactButton from './contact-button.vue';
 import CallButton from './call-button.vue';
 import PostButton from './post-button.vue';
 import MineButton from './mine-button.vue';
+import BiddingButton from './bidding-button.vue';
 
 import { computed } from 'vue';
 
@@ -33,6 +34,7 @@ const buttonComponentType = {
   4: CallButton,
   5: PostButton,
   6: MineButton,  
+  7: BiddingButton,  
 };
 
 const buttonComponents = computed(() => props.showFlags.map((num: number) => buttonComponentType[num]));
