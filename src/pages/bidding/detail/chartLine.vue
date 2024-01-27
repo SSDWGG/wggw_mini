@@ -9,13 +9,13 @@
         type="breath"
         class="rule-button-div"
         loop
-        @tap="onRefreshData"
+        @tap="initMultiBarChart"
       >
         <nut-button
           block
           type="primary"
           class="publish"
-          @tap="onRefreshData"
+          @tap="()=>{emit('gx')}"
           >更新报价</nut-button
         >
       </nut-animate>
@@ -33,18 +33,14 @@
 
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
-import {
-  useReady,
-} from "@tarojs/taro";
+import { ref ,watch} from "vue";
 import EChart from '@/components/myEcharts/e-chart.vue';
 import Taro from "@tarojs/taro";
-import { IPriceLineItem } from "@/stores/account";
-import dayjs from 'dayjs';
 import {
     Animate as NutAnimate,
     Button as NutButton,
   } from "@nutui/nutui-taro";
+import { IPriceLineItem } from "@/apis/kunChart/model";
 
 interface IProps {
   orginData: IPriceLineItem[]
@@ -57,23 +53,20 @@ const props = withDefaults(
   }
 );
 
-useReady(() => {
-  initMultiBarChart();
-})
-const barChat = ref<any>();
-const onRefreshData = () => {
-  initMultiBarChart();
-}
+const emit = defineEmits(['bj','gx']);
 
-const initData  = (option)=>{
+
+const barChat = ref<any>();
+
+const initData  = (option)=>{  
   props.orginData.forEach(item=>{
-    option.xAxis.data.push(item.time)
-    
+    option.xAxis.data.push(item.createTime)
     option.series[0].data.push(item.price)
   })
 }
 
 const initMultiBarChart = () => {
+  
   const option = {
     tooltip: {
       trigger: 'axis',
@@ -128,8 +121,16 @@ const initMultiBarChart = () => {
 }
 
 const addGame = ()=>{
-console.log(dayjs().format('YYYY-MM-DD HH:mm:ss'));
-  
+  emit('bj')
 }
 
+watch(
+  () => props.orginData,
+  newVal => {    
+    if(newVal.length>0){   
+      console.log('echart init');
+      initMultiBarChart()
+    }
+  }
+);
 </script>

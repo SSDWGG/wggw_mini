@@ -9,7 +9,9 @@
     </navbar>
     
     <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
-    <side-bar :show="show" :showFlags = [1,3] />
+    <side-bar :show="show" :showFlags = [8,1,3] :onbiddingLineButtonBack = '()=>{
+      data.popVisable  =true
+    }'/>
 
     <view class="imgDiv">
       <image mode="aspectFit" :src=item?.picUrl class="img" v-for="(item ,index) in chooseItem?.imgSrc" :key="index"></image>
@@ -21,8 +23,18 @@
       {{ chooseItem?.kcDesc }}
     </view>
 
-    <chartLine v-if="!!chooseItem?.priceLine" :orginData = chooseItem?.priceLine></chartLine>
-    
+    <chartLine  :orginData = chooseItem?.priceLine @gx="()=>{init()}" @bj="()=>{data.popVisable  = true}"></chartLine>
+
+    <update-pop
+      v-model:modelValue="data.popVisable"
+      v-model:inputValue="data.popInputValue"
+      title="添加报价（￥）"
+      placeholder="添加价格（￥）"
+      @ok="handlePopOK"
+      :max="1000"
+    > </update-pop>
+
+
   </scroll-view>
 </template>
 <script lang="ts" setup>
@@ -41,7 +53,9 @@ import {
 } from "@tarojs/taro";
 import { changeLongStr } from "@/utils/index";
 import chartLine from './chartLine.vue'
-import { getKunCharOne } from "@/apis/kunChart";
+import { addKunChartLine, getKunCharOne, getKunChartLineList } from "@/apis/kunChart";
+import UpdatePop from "@/components/pop/updatePop/index.vue";
+import { useAccountStore } from '@/stores/account';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -52,27 +66,46 @@ const router = useRouter();
 
 const pageTitle = ref("");
 
+const account = useAccountStore();
+
+
 const { show, onScroll } = useListScroll();
 
 
 const data = reactive({
   showPage: true,
+  popVisable:false,
+  popInputValue:''
 });
 
 let chooseItem = ref();
 
+
 const init = async() => {
-
   chooseItem.value =await getKunCharOne({ shopId: router.params.shopId as string })
-
+  pageTitle.value = changeLongStr(chooseItem.value.title, 6, true) + "价格";
   chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc)
-  pageTitle.value =
-    changeLongStr(chooseItem.value.title, 6, true) + "价格";
+  chooseItem.value.priceLine =   await  getKunChartLineList({ shopId: router.params.shopId as string })
 };
+
 
 useDidShow(() => {
   init();
 });
+
+const handlePopOK = async ()=>{
+ await addKunChartLine(
+  {
+    shopId: router.params.shopId as string,
+    openid: account.userInfo.openid,
+    username: account.userInfo.username,
+    price: data.popInputValue
+  }
+)
+init();
+}
+
+
 
 useShareTimeline(() => {
   return {

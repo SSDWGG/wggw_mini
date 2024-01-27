@@ -7,14 +7,8 @@ import com.ryw.mapper.KunChartMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import static com.ryw.framework.domain.AjaxResult.success;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static com.ryw.framework.domain.AjaxResult.success;
 
 @Slf4j
 @RestController
