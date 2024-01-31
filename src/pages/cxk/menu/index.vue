@@ -1,11 +1,11 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" @scroll="onScroll" scroll-y="true" v-if="data.showPage">
     <navbar title="坤坤妙妙屋" background-color="#f5f5f9" :goback="goback" />
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="致敬最爱的坤坤" />
-    <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="致敬最爱的坤坤" />
+    <nut-noticebar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
       巅峰见证虚伪的拥护
       黄昏迎来虔诚的信徒。世上本没有坤，坤的人多了便也有了坤。宁可食无肉，不可居无坤。无肉令人瘦，无坤令人俗。
-    </nut-notice-bar>
+    </nut-noticebar>
 
     <view class="richText">
       <rich-text :nodes="h5" />
@@ -40,11 +40,11 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import {
-  NoticeBar as NutNoticeBar,
-  WaterMark as NutWaterMark,
-  Animate as NutAnimate,
-} from "@nutui/nutui-taro";
+// import {
+//   NoticeBar as NutNoticeBar,
+//   WaterMark as NutWaterMark,
+//   Animate as NutAnimate,
+// } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import Taro, {
   useShareAppMessage,

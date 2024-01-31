@@ -1,15 +1,15 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
     <navbar title="Menu" hide-back background-color="#f5f5f9" />
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
-    <nut-notice-bar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
+    <nut-noticebar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
     Do not go gentle into that good night,
     Old age should burn and rave at close of day;
     Rage, rage against the dying of the light.
     Though wise men at their end know dark is right,
     Because their words had forked no lightning they
     Do not go gentle into that good night.
-    </nut-notice-bar>
+    </nut-noticebar>
 
     <view class="richText">
       <rich-text :nodes="h5" />
@@ -41,11 +41,6 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import {
-  NoticeBar as NutNoticeBar,
-  WaterMark as NutWaterMark,
-  Animate as NutAnimate,
-} from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import Taro, { useShareAppMessage, useShareTimeline, useDidShow } from "@tarojs/taro";
 import { Navbar } from "@fishui/taro-vue";

@@ -9,7 +9,7 @@
     "css": "less"
   },
   "scripts": {
-    "start test": "taro build --watch --type weapp --buildEnv test",
+    "start test": "taro3-vue3-iconfont && taro build --watch --type weapp --buildEnv test",
     "start prod": "taro build --watch --type weapp --buildEnv prod",
     "build:test": "taro build --type weapp --buildEnv test",
     "build:prod": "taro build --type weapp --buildEnv prod"
@@ -25,10 +25,10 @@
     "*.{js,jsx,vue,ts,tsx}": "eslint"
   },
   "dependencies": {
-    "unplugin-vue-components": "^0.25.1",
+    "unplugin-vue-components": "^0.26.0",
     "@babel/runtime": "^7.23.9",
     "@nutui/icons-vue-taro": "^0.0.9",
-    "@nutui/nutui-taro": "^3.2.1",
+    "@nutui/nutui-taro": "^4.2.9",
     "@tarojs/components": "3.6.23",
     "@tarojs/helper": "3.6.23",
     "@tarojs/plugin-framework-vue3": "3.6.23",
@@ -64,12 +64,12 @@
     "css-loader": "6.10.0",
     "eslint": "^8.56.0",
     "eslint-config-alloy": "^5.1.2",
-    "eslint-config-prettier": "^8.8.0",
-    "prettier": "3.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "3.2.4",
     "taro3-vue3-iconfont": "^1.2.6",
     "eslint-plugin-vue": "^9.21.0",
     "husky": "^9.0.7",
-    "lint-staged": "^15.2.0",
+    "lint-staged": "^15.2.1",
     "style-loader": "3.3.4",
     "typescript": "^5.3.3",
     "vue-eslint-parser": "^9.4.2",
@@ -78,9 +78,9 @@
   },
   "taro3-vue3-iconfont": [
     {
-      "url": "//at.alicdn.com/t/c/font_3800888_0n82qma4vgz.js",
-      "output": "./src/components/iconfont",
-      "componentName": "Iconfont"
+      "url": "//at.alicdn.com/t/c/font_3800888_v2gj6229j2k.js",
+      "output": "./src/components/alIconfont",
+      "componentName": "alIconfont"
     }
   ]
 }

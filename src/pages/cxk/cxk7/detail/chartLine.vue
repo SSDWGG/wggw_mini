@@ -25,10 +25,10 @@ import EChart from '@/components/myEcharts/e-chart.vue';
 import Taro from "@tarojs/taro";
 import { IPriceLineItem } from "@/stores/account";
 import dayjs from 'dayjs';
-import {
-  Animate as NutAnimate,
-  Button as NutButton,
-} from "@nutui/nutui-taro";
+// import {
+//   Animate as NutAnimate,
+//   Button as NutButton,
+// } from "@nutui/nutui-taro";
 import cloneDeep from 'lodash/cloneDeep';
 import mpmToast from "@/components/myToast/index.vue";
 import { debounce } from 'lodash';

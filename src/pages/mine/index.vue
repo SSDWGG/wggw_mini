@@ -1,7 +1,7 @@
 <template>
   <view :class="styles.myContainer">
     <navbar title="我的信息" />
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
     <view class="head">
       <image :src="account.userInfo.avatarurl" @tap="handleChangeAvatarurl" />
     </view>
@@ -85,10 +85,10 @@
 import { useAccountStore } from "@/stores/account";
 import { Navbar } from "@fishui/taro-vue";
 import styles from "./styles.scss";
-import {
-  WaterMark as NutWaterMark,
-  Input as NutInput,
-} from "@nutui/nutui-taro";
+// import {
+//   WaterMark as NutWaterMark,
+//   Input as NutInput,
+// } from "@nutui/nutui-taro";
 import selectMedia from "@/components/selectMedia";
 import aliossUpload from "@/utils/alioss-upload";
 import { sendCode, testCode } from "@/apis/mine";

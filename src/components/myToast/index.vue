@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { uuid } from '@/utils/index';
-import { Toast as NutToast } from '@nutui/nutui-taro';
+// import { Toast as NutToast } from '@nutui/nutui-taro';
 import { watchEffect } from 'vue';
 import styles from './styles.scss';
 import { IMpmToastState, IVariable, useToastStore } from './useToastStore';

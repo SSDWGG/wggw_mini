@@ -8,7 +8,7 @@
       </template>
     </navbar>
     
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
     <side-bar :show="show" :showFlags = [1,3] />
 
     <view class="imgDiv">
@@ -27,7 +27,7 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
+// import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
 import { reactive, ref } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import sideBar from "@/components/SideBar/index.vue";

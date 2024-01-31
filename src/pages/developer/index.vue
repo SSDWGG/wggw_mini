@@ -1,7 +1,7 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage"  scroll-y="true">
     <navbar title="开发者专区" background-color="#f5f5f9" />
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="开发者专区" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="开发者专区" />
     <view class="menu" :style="{ height }">
       <nut-animate type="breath" class="rule-button-div" loop v-for="(item, index) in data.menuList" :key="index">
         <view class="menu-item" @tap="goto(item)">
@@ -22,10 +22,10 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import {
-  WaterMark as NutWaterMark,
-  Animate as NutAnimate,
-} from "@nutui/nutui-taro";
+// import {
+//   WaterMark as NutWaterMark,
+//   Animate as NutAnimate,
+// } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import Taro, { useShareAppMessage, useShareTimeline, useDidShow } from "@tarojs/taro";
 import { Navbar } from "@fishui/taro-vue";

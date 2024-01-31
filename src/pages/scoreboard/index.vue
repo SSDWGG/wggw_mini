@@ -75,11 +75,11 @@
 <script lang="ts" setup>
   import styles from "./styles.scss";
   import { Navbar } from "@fishui/taro-vue";
-  import {
-    Table as NutTable,
-    Animate as NutAnimate,
-    Button as NutButton,
-  } from "@nutui/nutui-taro";
+  // import {
+  //   Table as NutTable,
+  //   Animate as NutAnimate,
+  //   Button as NutButton,
+  // } from "@nutui/nutui-taro";
   import { reactive, h, computed, ref } from "vue";
   import mpmToast from "@/components/myToast/index.vue";
   import UpdatePop from "@/components/pop/updatePop/index.vue";

@@ -1,18 +1,8 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-/**
- * 只将【基础组件】注册到全局 Button,Cell,ConfigProvider,Icon,OverLay,Popup,
- * https://nutui.jd.com/#/zh-cn/component/button
-*/
-import {
-  Icon,
-  Cell,
-  CellGroup,
-  Button,
-  ConfigProvider,
-  OverLay,
-  Popup,
-} from '@nutui/nutui-taro';
+import '@nutui/nutui-taro/dist/style.css';
+import alIconfont from '@/components/alIconfont';
+import { IconFont } from '@nutui/icons-vue-taro';
 import Taro from '@tarojs/taro';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 
@@ -44,7 +34,8 @@ const App = createApp({
   // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 });
 
-App.use(createPinia());
-[Icon, Cell, CellGroup, Button, ConfigProvider, OverLay, Popup].forEach(Component => App.use(Component));
+App.component('IconFont', IconFont);
+
+App.use(createPinia()).use(alIconfont);
 
 export default App;

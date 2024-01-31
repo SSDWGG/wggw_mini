@@ -14,9 +14,9 @@
 </template>
 
 <script lang="ts" setup>
-import { 
-    Toast  as NutToast,
-  } from '@nutui/nutui-taro';
+// import { 
+//     Toast  as NutToast,
+//   } from '@nutui/nutui-taro';
 import { ref, toRef, watch } from 'vue';
 import styles from './styles.scss';
 const props = defineProps({

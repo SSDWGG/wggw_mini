@@ -38,7 +38,7 @@
 </template>
 <script lang="ts" setup>
   import styles from "./styles.scss";
-  import { CircleProgress as NutCircleProgress } from "@nutui/nutui-taro";
+  // import { CircleProgress as NutCircleProgress } from "@nutui/nutui-taro";
   import dayjs from "dayjs";
   import { onUnmounted, reactive, watch } from "vue";
 
