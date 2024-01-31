@@ -7,6 +7,7 @@
     .body {
       flex-grow: 1;
       .nut-textarea__textarea {
+        padding: 0px !important;
         height: 65px;
         font-size: 16px;
         font-weight: Regular;

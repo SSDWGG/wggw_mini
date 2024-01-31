@@ -1,14 +1,21 @@
 <template>
   <view class="title">Echarts图表</view>
-        <view class="echarts">
-        <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" :ec="ec" />
-        <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" :ec="ec2" />
-      </view>
+  <view class="echarts">
+    <ec-canvas id="mychart-dom-area1" canvas-id="mychart-area1" :ec="ec" />
+    <!-- <ec-canvas id="mychart-dom-area2" canvas-id="mychart-area2" :ec="ec2" /> -->
+    <!-- <EChart ref="barChat" canvas-id="bar-canvas" /> -->
+  </view>
 </template>
 <script lang="ts" setup>
 import * as echarts from "@/components/ec-canvas/echarts";
+// import EChart from '@/components/myEcharts/e-chart.vue';
+// import Taro from "@tarojs/taro";
+// import { ref } from "vue";
 
-const initChart = (canvas, width, height,dpr) => {
+
+// const barChat = ref<any>();
+
+const initChart = (canvas, width, height, dpr) => {
   const chart = echarts.init(canvas, null, {
     width,
     height,
@@ -158,79 +165,55 @@ const initChart = (canvas, width, height,dpr) => {
   return chart;
 };
 
-const initChart2 = (canvas, width, height,dpr) => {
-  const chart = echarts.init(canvas, null, {
-    width,
-    height,
-    devicePixelRatio: dpr,
-  });
-  canvas.setChart(chart);
-  const option = {
-    series: [
-      {
-        type: "gauge",
-        progress: {
-          show: true,
-          width: 12,
-        },
-        axisLine: {
-          lineStyle: {
-            width: 12,
-          },
-        },
-        axisTick: {
-          show: false,
-        },
-        splitLine: {
-          length: 15,
-          show: false,
-          lineStyle: {
-            width: 1,
-            color: "#7468F2",
-          },
-        },
-        axisLabel: {
-          distance: -10,
-          color: "#7468F2",
-          fontSize: 9,
-        },
-        anchor: {
-          show: true,
-          showAbove: true,
-          size: 12,
-          itemStyle: {
-            borderWidth: 10,
-          },
-        },
-        title: {
-          show: false,
-        },
-        detail: {
-          valueAnimation: true,
-          fontSize: 16,
-          offsetCenter: [0, "66%"],
-        },
-        data: [
-          {
-            value: 66,
-          },
-        ],
-      },
-    ],
-  };
-
-  const dataValue = [80, 10, 70, 40, 90, 30, 66, 20, 80, 5, 99];
-
-  let optionIndex = 0;
-  dataValue[optionIndex];
-  setInterval(function () {
-    option.series[0].data[0].value = dataValue[(optionIndex + 1) % dataValue.length];
-    optionIndex++
-    chart.setOption(option);
-  }, 500);
-  chart.setOption(option);
-};
 
 const ec = { onInit: initChart };
-const ec2 = { onInit: initChart2 };
+// const ec2 = { onInit: initChart };
+
+// Taro.nextTick(() => {
+//   const option = {
+//     tooltip: {
+//       trigger: 'item'
+//     },
+//     legend: {
+//       top: '5%',
+//       left: 'center'
+//     },
+//     series: [
+//       {
+//         name: 'Access From',
+//         type: 'pie',
+//         radius: ['40%', '70%'],
+//         avoidLabelOverlap: false,
+//         itemStyle: {
+//           borderRadius: 10,
+//           borderColor: '#fff',
+//           borderWidth: 2
+//         },
+//         label: {
+//           show: false,
+//           position: 'center'
+//         },
+//         emphasis: {
+//           label: {
+//             show: true,
+//             fontSize: 40,
+//             fontWeight: 'bold'
+//           }
+//         },
+//         labelLine: {
+//           show: false
+//         },
+//         data: [
+//           { value: 1048, name: 'Search Engine' },
+//           { value: 735, name: 'Direct' },
+//           { value: 580, name: 'Email' },
+//           { value: 484, name: 'Union Ads' },
+//           { value: 300, name: 'Video Ads' }
+//         ]
+//       }
+//     ]
+//   };
+//   barChat.value.refresh(option)
+// })
+
 </script>
