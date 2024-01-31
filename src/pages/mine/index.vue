@@ -8,9 +8,8 @@
     <view class="info">
       <view class="infoItem">
         <view class="lable">用户名 :</view>
-        <view class="content">
-          <NutInput v-model="account.userInfo.username" placeholder="请输入用户名" class="edit-NutInput" type="text"
-            input-align="right" :border="false" :formatter="(str) => formatterLen(str, 30)" format-trigger="onChange" />
+        <view class="content" @tap="showNormalEditPop('编辑用户名','请输入用户名','username')">
+          {{ account.userInfo.username || '请输入用户名'}}
         </view>
       </view>
       <view class="infoItem">
@@ -21,7 +20,7 @@
           <text>邮箱</text>
         </view>
         <!-- sendEmail(account.userInfo.email) -->
-        <view class="content" @tap="showPop">
+        <view class="content" @tap="showEmailPop">
           {{ account.userInfo.email || "点击验证邮箱" }}
         </view>
       </view>
@@ -68,6 +67,16 @@
         </view>
       </template>
     </update-pop>
+
+    <update-pop
+      v-model:modelValue="normalPop.visable"
+      v-model:inputValue="normalPop.inputValue"
+      :title="normalPop.title"
+      :placeholder="normalPop.placeholder"
+      @ok="handleNormalPopOK"
+      :max="normalPop.max"
+    > </update-pop>
+
   </view>
   <!-- toast提示 -->
   <mpm-toast ref="myToast" :duration="2500" />
@@ -83,7 +92,6 @@ import {
 import selectMedia from "@/components/selectMedia";
 import aliossUpload from "@/utils/alioss-upload";
 import { sendCode, testCode } from "@/apis/mine";
-import { formatterLen } from "@/utils/index";
 import checkSystemButton from "@/components/button/checkSystemButton.vue";
 import UpdatePop from "@/components/pop/updatePop/index.vue";
 import { reactive, ref } from "vue";
@@ -107,8 +115,27 @@ const emailPop = reactive({
   intervalTimer: null as any,
 });
 
-const showPop = () => {
-  emailPop.popTipVisible = true;
+const normalPop = reactive({
+  visable:false,
+  inputValue:'',
+  title:'',
+  placeholder:'',
+  max:1000,
+  // 当前修改的属性名
+  attrName:''
+})
+
+const showEmailPop = () => {
+  if(!account.userInfo.email){
+    emailPop.popTipVisible = true;
+  }
+};
+
+const showNormalEditPop = (title,placeholder,attrName) => {
+  normalPop.title = title
+  normalPop.placeholder = placeholder
+  normalPop.attrName = attrName
+  normalPop.visable = true;
 };
 
 const handleGetCode = () => {
@@ -159,6 +186,18 @@ const onConfirm = debounce(async () => {
   });
 }
   , 3000, { leading: true, trailing: false })
+
+const handleNormalPopOK = debounce(async()=>{
+  // 更新userinfo
+  account.userInfo[normalPop.attrName] = normalPop.inputValue;
+  await account.updateUser();
+  myToast.value.mpmToastShow({
+    icon: "success",
+    title: "修改成功",
+    duration: 3000,
+  });
+  
+},3000, { leading: true, trailing: false })
 
 const handleChangeAvatarurl = async () => {
   const chooseList = await selectMedia("image", 1);

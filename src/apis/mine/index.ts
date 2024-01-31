@@ -3,25 +3,33 @@ import Taro from "@tarojs/taro";
 import * as T from "./model";
 
 /**
- * 微信登录  wxLogin
+ * 微信登录  获取userdata
  */
-// https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
 
 export const wxLogin = async () => {
   let params = {};
   const { code } = await Taro.login();
-  params = { code };
+  params = { code, hasToken: true };
   return request<T.IUserInfo>({
     url: "/v1/user/getOpenid",
     method: "GET",
     params,
   });
 };
-// .then((res) => {
-//   request.setConfig({ header: { token: res.token } });
-//   tokenUtil.set(res.token);
-//   return res;
-// });
+
+// 获取token
+export const getToken = () =>
+  Taro.login()
+    .then((res) => {
+      return request<string>({
+        url: "/v1/user/getOpenid",
+        method: "GET",
+        params: {
+          code: res.code,
+          hasToken: false,
+        },
+      });
+    })
 
 // 发送验证码
 export const sendCode = (params: { email: string }) =>
@@ -32,14 +40,12 @@ export const sendCode = (params: { email: string }) =>
   });
 
 // 验证验证码
-export const testCode = (params: { email: string,code:string }) =>
+export const testCode = (params: { email: string; code: string }) =>
   request<boolean>({
     url: "/v1/verification/testCode",
     method: "GET",
     params,
   });
-
-
 
 // 修改user
 export const updateUser = (data: T.IUserInfo) =>
@@ -49,16 +55,14 @@ export const updateUser = (data: T.IUserInfo) =>
     data,
   });
 
-
-  // 绑定手机号
-  export const bindPhone = async (phoneCode:string) => {
-    let params = {};
-    const { code } = await Taro.login();
-    params = { code,phoneCode };
-    return request<T.IUserInfo>({
-      url: "/v1/user/bindPhone",
-      method: "GET",
-      params,
-    });
-  };
-
+// 绑定手机号
+export const bindPhone = async (phoneCode: string) => {
+  let params = {};
+  const { code } = await Taro.login();
+  params = { code, phoneCode };
+  return request<T.IUserInfo>({
+    url: "/v1/user/bindPhone",
+    method: "GET",
+    params,
+  });
+};

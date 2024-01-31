@@ -23,9 +23,10 @@
       {{ chooseItem?.kcDesc }}
     </view>
 
-    <chartLine  :orginData = chooseItem?.priceLine @gx="()=>{init()}" @bj="()=>{data.popVisable  = true}"></chartLine>
+    <chartLine  :orginData = data.priceLine @gx="()=>{init()}" @bj="()=>{data.popVisable  = true}"></chartLine>
 
     <update-pop
+      type="number"
       v-model:modelValue="data.popVisable"
       v-model:inputValue="data.popInputValue"
       title="添加报价（￥）"
@@ -56,6 +57,7 @@ import chartLine from './chartLine.vue'
 import { addKunChartLine, getKunCharOne, getKunChartLineList } from "@/apis/kunChart";
 import UpdatePop from "@/components/pop/updatePop/index.vue";
 import { useAccountStore } from '@/stores/account';
+import { IPriceLineItem } from "@/apis/kunChart/model";
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -75,17 +77,24 @@ const { show, onScroll } = useListScroll();
 const data = reactive({
   showPage: true,
   popVisable:false,
-  popInputValue:''
+  popInputValue:'',
+  priceLine:[] as IPriceLineItem[]
 });
 
 let chooseItem = ref();
 
 
-const init = async() => {
-  chooseItem.value =await getKunCharOne({ shopId: router.params.shopId as string })
-  pageTitle.value = changeLongStr(chooseItem.value.title, 6, true) + "价格";
-  chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc)
-  chooseItem.value.priceLine =   await  getKunChartLineList({ shopId: router.params.shopId as string })
+const init = async() => {  
+  getKunChartLineList({ shopId: router.params.shopId as string }).then(res=>{
+    data.priceLine  = res
+  })
+
+  getKunCharOne({ shopId: router.params.shopId as string }).then(res=>{
+    chooseItem.value  = res
+    pageTitle.value = changeLongStr(chooseItem.value.title, 6, true) + "价格";
+    chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc)
+  })
+  
 };
 
 

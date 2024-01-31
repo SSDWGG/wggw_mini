@@ -109,9 +109,11 @@ export const useAccountStore = defineStore("account", {
     },
     // 箭头函数中没有this，如果想使用this，请不要使用箭头函数
     async login() {
-      const res = await wxLogin();
+      const res = await wxLogin();      
       this.userInfo = res;
     },
+
+
     // 函数不具备响应式，使用时需要注意
     isLogin() {
       return this.userInfo.openid.length !== 0;
