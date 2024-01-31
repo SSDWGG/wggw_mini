@@ -6,7 +6,7 @@
       <template #item="item">
         <view v-if="!item.fixed" class="item-view">
           <view v-if="!data.isDraging" @tap="removeItem(item)">
-            <nut-icon name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png" :size="20" class="close-img"></nut-icon>
+            <IconFont name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png" :size="20" class="close-img"></IconFont>
           </view>
           <view class="up-list-item">
             <img :src="item.path" mode='aspectFill' />
@@ -14,7 +14,7 @@
         </view>
         <view v-else-if="data.picList.length < maxChooseCount" class="item-view">
           <view class="up-list-item uploader-button" @tap="handleAdd">
-            <nut-icon :name="item.path" :size="35" class="upload-more" />
+            <IconFont :name="item.path" :size="35" class="upload-more" />
           </view>
         </view>
       </template>
@@ -26,16 +26,16 @@
         <view class="vedioDiv-item">
           <view v-for="(picObj, index) in data.picList" :key="index" class="item-view">
             <view @tap="removeItem(picObj)">
-              <nut-icon name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png" :size="16" class="close-img"></nut-icon>
+              <IconFont name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png" :size="16" class="close-img"></IconFont>
             </view>
             <video class="up-list-item" :src="picObj.path" :controls="false" :showCenterPlayBtn="false">
-              <nut-icon name="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" :size="25" class="vedio-state" />
+              <IconFont name="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" :size="25" class="vedio-state" />
             </video>
           </view>
             <!-- 继续添加按钮 视频限制添加一个，图片限制添加9张-->
             <view v-if="isShowAddButton" class="item-view">
               <view class="up-list-item uploader-button" @tap="handleAdd">
-                <nut-icon name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CDMKFOCD-1706332570146upload-more.png" :size="35" class="upload-more" />
+                <IconFont name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CDMKFOCD-1706332570146upload-more.png" :size="35" class="upload-more" />
               </view>
             </view>
         </view>

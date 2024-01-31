@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start test": "taro3-vue3-iconfont && taro build --watch --type weapp --buildEnv test",
-    "start prod": "taro build --watch --type weapp --buildEnv prod",
+    "start prod": "taro3-vue3-iconfont && taro build --watch --type weapp --buildEnv prod",
     "build:test": "taro build --type weapp --buildEnv test",
     "build:prod": "taro build --type weapp --buildEnv prod"
   },

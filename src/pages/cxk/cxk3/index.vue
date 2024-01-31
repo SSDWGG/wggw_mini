@@ -4,7 +4,7 @@
 
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
-          <nut-icon name="home" size="20" />
+          <IconFont name="home" size="20" />
         </view>
       </template>
     </navbar>
