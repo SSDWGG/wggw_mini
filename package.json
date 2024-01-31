@@ -25,9 +25,9 @@
     "*.{js,jsx,vue,ts,tsx}": "eslint"
   },
   "dependencies": {
+    "unplugin-vue-components": "^0.25.1",
     "@babel/runtime": "^7.23.9",
-    "@fishui/taro-vue": "1.1.5",
-    "@lucky-canvas/taro": "^0.0.14",
+    "@nutui/icons-vue-taro": "^0.0.9",
     "@nutui/nutui-taro": "^3.2.1",
     "@tarojs/components": "3.6.23",
     "@tarojs/helper": "3.6.23",
@@ -43,7 +43,9 @@
     "lodash": "^4.17.21",
     "pinia": "^2.1.7",
     "taro-plugin-pinia": "^1.0.0",
-    "vue": "^3.4.15"
+    "vue": "^3.4.15",
+    "@fishui/taro-vue": "1.1.5",
+    "@lucky-canvas/taro": "^0.0.14"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -62,6 +64,9 @@
     "css-loader": "6.10.0",
     "eslint": "^8.56.0",
     "eslint-config-alloy": "^5.1.2",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "3.0.0",
+    "taro3-vue3-iconfont": "^1.2.6",
     "eslint-plugin-vue": "^9.21.0",
     "husky": "^9.0.7",
     "lint-staged": "^15.2.0",
