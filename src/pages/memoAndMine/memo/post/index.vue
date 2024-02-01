@@ -3,15 +3,14 @@
     <navbar title="上传至备忘录" />
     <view class="body">
       <!-- 文案 -->
-      <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2"
-        class="post-textarea"></nut-textarea>
+      <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
       <!-- 预览列表(图片、视频，添加按钮) -->
       <prelist ref="prelistRef" />
     </view>
 
     <!-- 发表按钮 -->
     <view class="footer">
-      <nut-button block type="primary" class="publish" @tap="handleAddAlbum">发表</nut-button>
+      <nut-button block type="primary" class="publish" @tap="handleAddAlbum">{{ !!router.params.memoId ? '确认修改' : '发表' }}</nut-button>
     </view>
   </view>
 </template>
@@ -24,15 +23,16 @@ import aliossUpload from '@/utils/alioss-upload';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
 import { getOSSVideoImg } from '@/utils/index';
-import {  IMemoItem } from '@/apis/memo/model';
+import { IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
 import { IResult } from '@/components/selectMedia';
 import { AddMemo } from '@/apis/memo';
-
+import { useRouter } from '@tarojs/taro';
 
 definePageConfig({
-  disableScroll: true
+  disableScroll: true,
 });
+const router = useRouter();
 
 const account = useAccountStore();
 
@@ -41,9 +41,21 @@ const data = reactive({
   saveModule: false,
   modulePopshow: true,
   // 子组件的data
-  childDataPicList: [] as IResult[]
+  childDataPicList: [] as IResult[],
 });
 const prelistRef = ref();
+
+// 编辑逻辑
+if (!!router.params.memoId) {
+  console.log(1111, account.editMemoData);
+  data.content = account.editMemoData.content;
+  account.templeChoosePostList = account.editMemoData.list.map((item) => {
+    return {
+      path: item.picUrl || item.videoPicUrl,
+      type: item.memoItemType + '',
+    };
+  });
+}
 
 const PasslintContent = () => {
   // if (prelistRef.value.data.sortedList.length === 0) {
@@ -61,9 +73,11 @@ const uploadOSS = async () => {
   const picPaths = [] as string[];
   data.childDataPicList = prelistRef.value.data.sortedList;
   // 通过ref拿到子组件picList
-  data.childDataPicList.forEach(item => {
+  data.childDataPicList.forEach((item) => {
     picPaths.push(item.path);
   });
+
+  // 校验，上传http图片，https图片保持不动（https图片无法直接上传会报错）
 
   const resList: {
     status: number;
@@ -72,6 +86,9 @@ const uploadOSS = async () => {
     fullpath?: string;
     hash?: string;
   }[] = await aliossUpload(picPaths);
+
+  console.log(picPaths);
+
   return resList;
 };
 
@@ -82,30 +99,24 @@ const addMemoData = async (
     path?: string;
     fullpath?: string;
     hash?: string;
-  }[]
+  }[],
 ) => {
-  const targetList: IMemoItem[] = []
-  const time = (new Date()).valueOf() + ''
+  const targetList: IMemoItem[] = [];
+  const time = new Date().valueOf() + '';
 
   // 数据格式化存储的内容
   List.forEach((item, index) => {
     targetList.push({
-      memoItemType: data.childDataPicList[index].type === 'image'
-        ? 0
-        : 1,
+      memoItemType: data.childDataPicList[index].type === 'image' ? 0 : 1,
       picUrl: item.fullpath as string,
       sort: index,
       // 封面默认取第30帧内容
-      videoPicUrl:
-        data.childDataPicList[index].type === 'image'
-          ? ''
-          : getOSSVideoImg(item.fullpath as string),
+      videoPicUrl: data.childDataPicList[index].type === 'image' ? '' : getOSSVideoImg(item.fullpath as string),
       memoResId: item.name,
       gmtCreate: time,
       gmtModified: time,
     });
   });
-
 
   // gmtCreate: time,
   // gmtModified: time,
@@ -113,29 +124,33 @@ const addMemoData = async (
     memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
     content: data.content, // 文案内容
     list: JSON.stringify(targetList), // 相册详情
-    uid: account.userInfo.openid
+    uid: account.userInfo.openid,
   };
-  AddMemo(listParam)
+  AddMemo(listParam);
 };
 
 const postHttp = debounce(async () => {
+  try {
+    // 上传oss
+    const resList = await uploadOSS();
+    // 存储到store中
+    await addMemoData(resList);
 
-  // 上传oss
-  const resList = await uploadOSS();
-  // 存储到store中
-  await addMemoData(resList);
-
-  Taro.showToast({
-    title: '上传成功',
-    icon: 'success',
-    duration: 2000
-  });
-
-  // store.myAlbumList.unshift(item);
-
-  setTimeout(() => {
-    Taro.navigateBack();
-  }, 1500)
+    Taro.showToast({
+      title: '上传成功',
+      icon: 'success',
+      duration: 2000,
+    });
+    setTimeout(() => {
+      Taro.navigateBack();
+    }, 1500);
+  } catch (error) {
+    Taro.showToast({
+      title: '上传失败',
+      icon: 'error',
+      duration: 2000,
+    });
+  }
 }, 500);
 
 const handleAddAlbum = () => {
@@ -144,10 +159,9 @@ const handleAddAlbum = () => {
 
   Taro.showLoading({
     title: '发布中',
-    mask: true
+    mask: true,
   });
   postHttp();
   return false;
 };
-
 </script>

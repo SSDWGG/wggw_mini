@@ -128,7 +128,6 @@ watch(
   () => props.orginData,
   newVal => {    
     if(newVal.length>0){   
-      console.log('echart init');
       initMultiBarChart()
     }
   }

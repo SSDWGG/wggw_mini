@@ -35,8 +35,6 @@ const uploadFile = function(path, hasStatus, hash = '') {
       success_action_status: '200' // 成功上传时，返回状态码为200
     }
   }).then(res => {
-    console.log('upload [res]', res);
-
     // 不能判断errMsg，上传返回的都会是ok，需要通过判断状态码为200
     if (Number(res.statusCode) === 200) {
       return {

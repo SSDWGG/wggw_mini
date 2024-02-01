@@ -56,7 +56,6 @@ const call = () => {
                 title: '对方暂时不在线，请您选择客服方式联系作者',
                 duration: 5000,
               });
-              // console.log("[startCallWx]err,不在线", err);
             },
           });
         },

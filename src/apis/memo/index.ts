@@ -30,6 +30,13 @@ export const deleteMemo = (params: { memoId: string }) =>
     method: "POST",
     params,
   });
+
+export const getMemoOne = (params: { memoId: string }) =>
+  request<T.IMemo>({
+    url: "/v1/memo/getMemoOne",
+    method: "GET",
+    params,
+  });
   
 export const updateMemo = (data) =>
   request<boolean>({

@@ -205,7 +205,6 @@ const handleNormalPopOK = debounce(async()=>{
 },3000, { leading: true, trailing: false })
 
 const onChangeNickname = async (nickName: string) => {
-  console.log(11111,nickName);
   if (!nickName.trim()) return;
    // 更新userinfo
    account.userInfo.username = nickName;
@@ -215,7 +214,6 @@ const onChangeNickname = async (nickName: string) => {
     title: "修改成功",
     duration: 3000,
   });
-  console.log(nickName);
 };
 
 </script>

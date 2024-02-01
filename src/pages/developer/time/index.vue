@@ -73,7 +73,6 @@ import { useSystemInfoStore } from "@/stores/systemInfo";
   });
 
   const handleAfter = (msg: string) => {
-    console.log(msg);
   };
 
   const normalHeight = computed(() =>

@@ -110,7 +110,6 @@ const handleAdd = async () => {
     }
     data.sortedList = data.picList;
   } catch (err) {
-    console.log('上传抛出异常', err);
     myToast.value.myToastShow({
       icon: 'error',
       title: err.contentTips,

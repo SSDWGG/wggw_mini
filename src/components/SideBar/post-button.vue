@@ -59,14 +59,12 @@ const handleChoose = async (type: IMediaType) => {
   handleClose();
   try {
     const list = await selectMedia(type);
-    console.log('选择的资源', list);
     account.templeChoosePostList = list  as IResult[]
     Taro.navigateTo({
       url: `/pages/memoAndMine/memo/post/index?type=${type}`
     });
 
   } catch (err) {
-    console.log('上传抛出异常', err);
     myToast.value.myToastShow({
         icon: 'error',
         title: err.contentTips,

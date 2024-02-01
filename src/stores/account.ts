@@ -10,6 +10,7 @@ import { IUserInfo } from "@/apis/mine/model";
 interface IState {
   biddingKunDefaultList: Array<IBiddingItem>; //竞拍本地列表（坤版）
   templeChoosePostList: IResult[]; //上传选择的临时资源
+  editMemoData: IMemo; //前端缓存修改备忘录的内容
   memoDataList: IMemo[]; //前端缓存备忘录的数据（列表+详情）
   userInfo: IUserInfo;
 }
@@ -23,6 +24,7 @@ export const useAccountStore = defineStore("account", {
       phone: "",
       email: "",
     },
+    editMemoData:{} as IMemo ,
     templeChoosePostList: [],
     memoDataList: [],
     biddingKunDefaultList: [

@@ -34,7 +34,7 @@
                 {{ timeFormat(item.createTime) }}
               </view>
               <view class="op">
-                <view class="opItem add" >编辑</view>
+                <view class="opItem add" @tap="editMemo(item)">编辑</view>
                 <view class="opItem delete" @tap="deleteMemo(item.memoId)">删除</view>
               </view>
             </view>
@@ -62,6 +62,7 @@ import { useDidShow } from "@tarojs/taro";
 import { timelineFormat, timeFormat } from "@/utils/date";
 import Taro from "@tarojs/taro";
 import { getMemoList } from "@/apis/memo";
+import { IMemo } from "@/apis/memo/model";
 
 const account = useAccountStore();
 
@@ -94,6 +95,11 @@ const initData = async () => {
 
 const toPreview = (detailId: string) => {
   Taro.navigateTo({ url: `/pages/preview/index?detailId=${detailId}` });
+};
+
+const editMemo = (item:IMemo) => {
+  account.editMemoData = item
+  Taro.navigateTo({ url: `/pages/memoAndMine/memo/post/index?type=${item.memoType==1?'video':'image'}&memoId=${item.memoId}` });
 };
 
 const deleteMemo = (memoId: string) => {

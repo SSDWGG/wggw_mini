@@ -24,11 +24,6 @@ public class MemoController {
     public AjaxResult getMemoList(@RequestParam("current") int current  ,
                                   @RequestParam("pageSize") int pageSize,
                                   @RequestParam("uid") String uid){
-
-      System.out.println(current);
-      System.out.println(pageSize);
-      System.out.println(uid);
-
         Page<Memo> page = new Page<>(current, pageSize);
         QueryWrapper<Memo> wrapper = new QueryWrapper<>();
         wrapper.eq("uid",uid);
@@ -36,6 +31,12 @@ public class MemoController {
         List<Memo> memoList  = page.getRecords();  //分页查询的结果
         return success(memoList);
     }
+
+  @RequestMapping("/v1/memo/getMemoOne")             // 根据id搜索
+  public AjaxResult getMemoOne(@RequestParam("memoId") Long memoId){
+    return success(memoMapper.selectById(memoId));
+  }
+
     @RequestMapping("/v1/memo/AddMemo")              // 增加
     public AjaxResult AddMemo(@RequestBody Memo memo){
         memoMapper.insert(memo);

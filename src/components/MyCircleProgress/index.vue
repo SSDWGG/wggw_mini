@@ -178,7 +178,6 @@
   
 
   onUnmounted(() => {
-    // console.log("组件卸载", data.aeta);
     clearTimeout(data.aeta);
   });
 </script>

@@ -14,13 +14,10 @@ const info = useAttrs().itemInfo as (IMemo & IMemoItem);
 
 const pow = () => {
   Taro.openSetting({
-    success: (res) => {
-      console.log(res.authSetting);
+    success: () => {
       Taro.authorize({
         scope: 'scope.writePhotosAlbum',
         success: () => {
-          console.log('授权成功');
-
         },
         fail: () => {
           setTimeout(() => {
