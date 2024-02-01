@@ -14,7 +14,7 @@
     </nut-animate>
   </view>
    <!-- toast提示 -->
-   <mpm-toast ref="myToast" :duration="2500" />
+   <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
@@ -30,7 +30,7 @@ import dayjs from 'dayjs';
 //   Button as NutButton,
 // } from "@nutui/nutui-taro";
 import cloneDeep from 'lodash/cloneDeep';
-import mpmToast from "@/components/myToast/index.vue";
+import myToastComponents from "@/components/myToast/index.vue";
 import { debounce } from 'lodash';
 
 interface IProps {

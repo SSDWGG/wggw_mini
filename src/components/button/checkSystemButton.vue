@@ -7,7 +7,7 @@
   >
     <slot></slot>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </button>
   <button
     v-else-if="
@@ -21,19 +21,19 @@
   >
     <slot></slot>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </button>
   <button v-else class="button-to-view" @tap="tapClick">
     <slot></slot>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </button>
 </template>
 
 <script setup lang="ts">
   import { ref } from "vue";
   import { useAccountStore } from "@/stores/account";
-  import mpmToast from "@/components/myToast/index.vue";
+  import myToastComponents from "@/components/myToast/index.vue";
 
   export type IButtonType = "login" | "getPhoneNumber";
 

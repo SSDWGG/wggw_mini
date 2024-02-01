@@ -4,13 +4,13 @@
       电联
     </view>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </view>
 </template>
 <script lang="ts" setup>
 import Taro from '@tarojs/taro';
 import { useAccountStore } from '@/stores/account';
-import mpmToast from '@/components/myToast/index.vue';
+import myToastComponents from '@/components/myToast/index.vue';
 import { ref } from 'vue';
 
 // import { getUserApiTest } from '@/apis/mine';

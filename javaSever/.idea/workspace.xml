@@ -28,8 +28,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/call-button-test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/call-button-test.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/call-button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/call-button.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/button/checkSystemButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/button/checkSystemButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/cxk7/detail/chartLine.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/cxk/cxk7/detail/chartLine.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/developer/editor/lucky/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/developer/editor/lucky/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/mine/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/mine/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/scoreboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/scoreboard/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +421,7 @@
       <workItem from="1706254639766" duration="8879000" />
       <workItem from="1706347376359" duration="745000" />
       <workItem from="1706667778525" duration="4365000" />
-      <workItem from="1706694354702" duration="667000" />
+      <workItem from="1706694354702" duration="691000" />
     </task>
     <servers />
   </component>

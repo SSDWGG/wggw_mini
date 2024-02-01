@@ -79,7 +79,7 @@
 
   </view>
   <!-- toast提示 -->
-  <mpm-toast ref="myToast" :duration="2500" />
+  <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
 import { useAccountStore } from "@/stores/account";
@@ -95,7 +95,7 @@ import { sendCode, testCode } from "@/apis/mine";
 import checkSystemButton from "@/components/button/checkSystemButton.vue";
 import UpdatePop from "@/components/pop/updatePop/index.vue";
 import { reactive, ref } from "vue";
-import mpmToast from "@/components/myToast/index.vue";
+import myToastComponents from "@/components/myToast/index.vue";
 import { checkEmail } from "@/utils/verify";
 import { debounce } from 'lodash';
 

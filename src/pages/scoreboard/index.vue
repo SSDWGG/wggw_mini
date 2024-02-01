@@ -70,7 +70,7 @@
     </update-pop>
   </view>
   <!-- toast提示 -->
-  <mpm-toast ref="myToast" :duration="2500" />
+  <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
   import styles from "./styles.scss";
@@ -81,7 +81,7 @@
   //   Button as NutButton,
   // } from "@nutui/nutui-taro";
   import { reactive, h, computed, ref } from "vue";
-  import mpmToast from "@/components/myToast/index.vue";
+  import myToastComponents from "@/components/myToast/index.vue";
   import UpdatePop from "@/components/pop/updatePop/index.vue";
 
   definePageConfig({ backgroundColor: "#f3f3fe" });
