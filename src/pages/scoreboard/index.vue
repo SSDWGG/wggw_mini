@@ -157,7 +157,7 @@
       fixAllData();
       pageData.gameStr = "";
     } else {
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: "error",
         title: `当前参赛人${pageData.tableData.length}个，本次输入数据${
           !!resList ? resList.length : 0
@@ -168,7 +168,7 @@
   };
   const handleOkPerson = () => {
     if (!pageData.personStr) {
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: "error",
         title: "请输入参赛人",
         duration: 2000,

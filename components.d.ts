@@ -19,7 +19,6 @@ declare module 'vue' {
     'Icon.h5': typeof import('./src/components/alIconfont/icon.h5.vue')['default']
     'Icon.weapp': typeof import('./src/components/alIconfont/icon.weapp.vue')['default']
     MineButton: typeof import('./src/components/SideBar/mine-button.vue')['default']
-    MpmToast: typeof import('./src/components/mpmToast/index.vue')['default']
     MyCircleProgress: typeof import('./src/components/MyCircleProgress/index.vue')['default']
     MyToast: typeof import('./src/components/myToast/index.vue')['default']
     NutAnimate: typeof import('@nutui/nutui-taro')['Animate']

@@ -64,7 +64,7 @@ export default {
     // 抽奖结束会触发end回调
     function endCallback (prize) {
       console.log(prize)
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: "success",
         title: `6666666`,
         duration: 3000,

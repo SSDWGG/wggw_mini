@@ -2,7 +2,7 @@
 import { reactive,ref } from 'vue';
 import { defineStore } from 'pinia';
 
-export interface IMpmToastState  {
+export interface IMyToastState  {
   id:string,
   visible: boolean,
   defaultduration:number,
@@ -23,7 +23,7 @@ export interface IVariable  {
 
 export const useToastStore = defineStore('toast', () => {
 
-  const state = reactive<IMpmToastState[]>([]);
+  const state = reactive<IMyToastState[]>([]);
 
   const ICONS = {
     success:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJDCGKIE-1670049121825right.png',
@@ -46,20 +46,20 @@ export const useToastStore = defineStore('toast', () => {
   const hideToast = (toastUUID:string,time)=> {
     clearTimeout(timeFlag.value);
     timeFlag.value =   setTimeout(()=>{
-      const target = state.find(item=>item.id===toastUUID) as IMpmToastState;
+      const target = state.find(item=>item.id===toastUUID) as IMyToastState;
       target.visible = false;
       target.duration = target.defaultduration;
     },time);
   };
 
   const showToast = (toastUUID:string) => {
-    const target = state.find(item=>item.id===toastUUID) as IMpmToastState;
+    const target = state.find(item=>item.id===toastUUID) as IMyToastState;
     target.visible = true;
     hideToast(target.id,target.duration);
   };
 
   const showToastByStore = (toastUUID:string,val:IVariable) => {
-    const target = state.find(item=>item.id===toastUUID) as IMpmToastState;
+    const target = state.find(item=>item.id===toastUUID) as IMyToastState;
     target.icon = val.icon?ICONS[val.icon]:'';
     target.msg = val.msg||'';
     target.title = val.title||'';

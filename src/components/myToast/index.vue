@@ -1,32 +1,34 @@
 <!--  支持props+store调用 ,页面和深层子组件支持写多个toast而不用来回回调，同时调用多个toast会出现重叠-->
 <template>
-  <root-portal>
-    <view v-if="!!target.icon" :class="styles.mpmToastDiv">
-      <nut-toast :visible="target.visible" :title="target.title" :msg="target.msg" custom-class="mpmtoast"
-        :icon="target.icon" />
+  <root-portal v-if="props.isRootPortal">
+    <view v-if="!!target.icon" :class="styles.myToastDiv">
+      <nut-toast :visible="target.visible" :title="target.title" :msg="target.msg" custom-class="myToast" :icon="iconRender" />
     </view>
-    <view v-else :class="styles.mpmToastDivNoIcon">
+    <view v-else :class="styles.myToastDivNoIcon">
       <!--  :center="false"
       bottom="0px" -->
-      <nut-toast :visible="target.visible" :title="target.title" 
-     
-      :msg="target.msg" custom-class="mpmtoast"
-        :icon="target.icon" />
+      <nut-toast :visible="target.visible" :title="target.title" :msg="target.msg" custom-class="myToast" :icon="iconRender"/>
     </view>
-</root-portal>
+  </root-portal>
+  <view v-else>
+    <view v-if="!!target.icon" :class="styles.myToastDiv">
+      <nut-toast :visible="target.visible" :title="target.title" :msg="target.msg" custom-class="myToast" :icon="iconRender" />
+    </view>
+    <view v-else :class="styles.myToastDivNoIcon">
+      <!--  :center="false"
+      bottom="0px" -->
+      <nut-toast :visible="target.visible" :title="target.title" :msg="target.msg" custom-class="myToast" :icon="iconRender" />
+    </view>
+  </view>
 </template>
-
-
 
 <script lang="ts" setup>
 import { uuid } from '@/utils/index';
-// import { Toast as NutToast } from '@nutui/nutui-taro';
-import { watchEffect } from 'vue';
+import { h, watchEffect } from 'vue';
+// @ts-ignore
 import styles from './styles.scss';
-import { IMpmToastState, IVariable, useToastStore } from './useToastStore';
-
-
-
+import { IMyToastState, IVariable, useToastStore } from './useToastStore';
+import { IconFont } from '@nutui/icons-vue-taro';
 
 const props = defineProps({
   icon: {
@@ -45,9 +47,11 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  isRootPortal: {
+    type: Boolean,
+    default: true,
+  },
 });
-
-
 
 const store = useToastStore();
 
@@ -55,7 +59,9 @@ const toastUUID = uuid();
 
 store.addToast(toastUUID);
 
-const target = store.state.find(item => item.id === toastUUID) as IMpmToastState;
+const iconRender = ()=>h(IconFont,{name:target.icon});
+
+const target = store.state.find((item) => item.id === toastUUID) as IMyToastState;
 
 watchEffect(() => {
   target.title = props.title;
@@ -64,7 +70,7 @@ watchEffect(() => {
 });
 
 // 支持ref调用
-const mpmToastShow = (val: IVariable) => {
+const myToastShow = (val: IVariable) => {
   target.icon = store.ICONS[val.icon || props.icon] || '';
   target.msg = val.msg || props.msg;
   target.title = val.title || props.title;
@@ -72,9 +78,10 @@ const mpmToastShow = (val: IVariable) => {
   store.showToast(toastUUID);
 };
 
+
 defineExpose({
   // 控制toast显示
-  mpmToastShow,
-  toastUUID
+  myToastShow,
+  toastUUID,
 });
 </script>

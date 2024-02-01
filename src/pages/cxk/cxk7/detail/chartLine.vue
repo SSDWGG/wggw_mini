@@ -118,7 +118,7 @@ const initMultiBarChart = () => {
 const addGame = debounce(
   () => {
 
-  myToast.value.mpmToastShow({
+  myToast.value.myToastShow({
         icon: "error",
         title: `坤之守护大笑着现身，“没有人可以审判我的坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何报价，但坤会被自我扣除912.5点价值’，坤之守护渐渐消失。 `,
         duration: 5000,

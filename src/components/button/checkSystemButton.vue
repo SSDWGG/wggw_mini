@@ -63,7 +63,7 @@
       })
       .catch(() => {
         emit("callback", false);
-        myToast.value.mpmToastShow({
+        myToast.value.myToastShow({
           icon: "error",
           title: "登录失败，请联系客服处理~",
           duration: 2000,
@@ -81,14 +81,14 @@
         })
         .catch(() => {
           emit("callback", false);
-          myToast.value.mpmToastShow({
+          myToast.value.myToastShow({
             icon: "error",
             title: "绑定手机号失败，请联系客服处理~",
             duration: 2000,
           });
         });
     } else {
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: "error",
         title: "您点击了拒绝授权，将会影响部分功能使用",
         duration: 2000,

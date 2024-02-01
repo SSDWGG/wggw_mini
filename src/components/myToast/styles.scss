@@ -1,6 +1,6 @@
-.mpmToastDiv {
+.myToastDiv {
   :global {
-    .mpmtoast {
+    .myToast {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -40,12 +40,12 @@
     }
   }
 }
-.mpmToastDivNoIcon {
+.myToastDivNoIcon {
   :global {
     .nut-toast-base {
       top: 334px ;
     }
-    .mpmtoast {
+    .myToast {
       display: flex;
       justify-content: center;
       align-items: center;

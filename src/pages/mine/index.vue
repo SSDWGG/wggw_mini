@@ -142,7 +142,7 @@ const handleGetCode = () => {
   if (emailPop.canSendTime === 0) {
     checkEmail(emailPop.emailAccount)
       ? sendEmail()
-      : myToast.value.mpmToastShow({
+      : myToast.value.myToastShow({
         icon: "error",
         title: "请输入正确的邮箱格式",
         duration: 3000,
@@ -162,7 +162,7 @@ const sendEmail = async () => {
   await sendCode({
     email: emailPop.emailAccount,
   });
-  myToast.value.mpmToastShow({
+  myToast.value.myToastShow({
     icon: "success",
     title: "发送成功",
     duration: 3000,
@@ -179,7 +179,7 @@ const onConfirm = debounce(async () => {
   account.userInfo.email = emailPop.emailAccount;
   await account.updateUser();
   emailPop.popTipVisible = false
-  myToast.value.mpmToastShow({
+  myToast.value.myToastShow({
     icon: "success",
     title: "绑定成功",
     duration: 3000,
@@ -191,7 +191,7 @@ const handleNormalPopOK = debounce(async()=>{
   // 更新userinfo
   account.userInfo[normalPop.attrName] = normalPop.inputValue;
   await account.updateUser();
-  myToast.value.mpmToastShow({
+  myToast.value.myToastShow({
     icon: "success",
     title: "修改成功",
     duration: 3000,
