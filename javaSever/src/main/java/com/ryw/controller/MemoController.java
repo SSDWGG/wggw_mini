@@ -1,6 +1,4 @@
 package com.ryw.controller;
-
-import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ryw.entity.Memo;
@@ -9,8 +7,6 @@ import com.ryw.mapper.MemoMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
 import java.util.List;
 
 import static com.ryw.framework.domain.AjaxResult.success;
@@ -18,6 +14,7 @@ import static com.ryw.framework.domain.AjaxResult.success;
 @Slf4j
 @RestController
 public class MemoController {
+
 
     @Autowired
     MemoMapper memoMapper;
@@ -27,6 +24,11 @@ public class MemoController {
     public AjaxResult getMemoList(@RequestParam("current") int current  ,
                                   @RequestParam("pageSize") int pageSize,
                                   @RequestParam("uid") String uid){
+
+      System.out.println(current);
+      System.out.println(pageSize);
+      System.out.println(uid);
+
         Page<Memo> page = new Page<>(current, pageSize);
         QueryWrapper<Memo> wrapper = new QueryWrapper<>();
         wrapper.eq("uid",uid);

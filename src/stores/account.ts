@@ -44,60 +44,6 @@ export const useAccountStore = defineStore("account", {
       //       uName:'护坤大使',
       //       price:100
       //     },
-      //     {
-      //       time:'2024-1-9 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:-800
-      //     },
-      //     {
-      //       time:'2024-1-10 2:30:00',
-      //       uid:'2',
-      //       uName:'护坤大使',
-      //       price:300
-      //     },
-      //     {
-      //       time:'2024-1-11 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:-100
-      //     },
-      //     {
-      //       time:'2024-1-12 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:-800
-      //     },
-      //     {
-      //       time:'2024-1-13 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:-1800
-      //     },
-      //     {
-      //       time:'2024-1-14 2:30:00',
-      //       uid:'2',
-      //       uName:'护坤大使',
-      //       price:800
-      //     },
-      //     {
-      //       time:'2024-1-15 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:-2800
-      //     },
-      //     {
-      //       time:'2024-1-16 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:-1100
-      //     },
-      //     {
-      //       time:'2024-1-17 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:-2600
-      //     }
       //   ]
       // },
     ],
@@ -112,8 +58,6 @@ export const useAccountStore = defineStore("account", {
       const res = await wxLogin();      
       this.userInfo = res;
     },
-
-
     // 函数不具备响应式，使用时需要注意
     isLogin() {
       return this.userInfo.openid.length !== 0;

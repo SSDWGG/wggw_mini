@@ -90,13 +90,19 @@ requestInstance.interceptors.response.use(
       return responseData.data || (responseData.message as any); // 正确返回
     } else if (response.statusCode === 403) {
       const oldConfig = config;
+       // 因为params的参数已经被拼接到url上了，这里防止二次拼接出现异常
+       oldConfig.params = {}
+
       if (!isRefreshing) {
         // 重新请求token
         isRefreshing = true
         try {
           const token = await getToken();
+          // token在请求实例存储
           requestInstance.setConfig({ header: { token } });
+          // 持久化存储
           tokenUtil.set(token);
+          // 队列请求存储token
           oldConfig.header.token = token;
           // 已经刷新了token，将所有队列中的请求进行重试
           requests.forEach(cb => cb(token))
