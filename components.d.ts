@@ -35,6 +35,7 @@ declare module 'vue' {
     OpenOutLinkTipPop: typeof import('./src/components/pop/openOutLinkTipPop/index.vue')['default']
     PostButton: typeof import('./src/components/SideBar/post-button.vue')['default']
     PostFailToast: typeof import('./src/components/postFailToast/index.vue')['default']
+    PostPreList: typeof import('./src/components/postPreList/index.vue')['default']
     ShareButton: typeof import('./src/components/SideBar/share-button.vue')['default']
     SideBar: typeof import('./src/components/SideBar/index.vue')['default']
     UpdatePop: typeof import('./src/components/pop/updatePop/index.vue')['default']

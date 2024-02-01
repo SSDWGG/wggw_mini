@@ -21,17 +21,14 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
 import Taro from '@tarojs/taro';
-// import { TextArea as NutTextarea } from '@nutui/nutui-taro';
 import { Navbar } from '@fishui/taro-vue';
 import styles from './styles.scss';
 import aliossUpload from '@/utils/alioss-upload';
-import Prelist from './prelist/index.vue';
+import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
 import { IMemoItem } from '@/apis/memo/model';
 import { IResult } from '@/components/selectMedia';
-import {
-  addKunChart,
-} from "@/apis/kunChart";
+import {addKunChart} from "@/apis/kunChart";
 
 definePageConfig({
   disableScroll: true
