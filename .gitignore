@@ -9,3 +9,5 @@ project.private.config.json
 
 javaSever/target/
 javaSever/.idea/workspace.xml
+
+components.d.ts
