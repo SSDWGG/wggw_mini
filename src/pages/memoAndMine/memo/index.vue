@@ -17,7 +17,9 @@
               <view v-for="(resItem, resItemIndex) in item.list" :key="resItemIndex" class="resourceListItem"
                 @tap="toPreview(resItem.memoResId)">
                 <!-- 判断是图片还是视屏，展示封面图 -->
-                <image :src="resItem.memoItemType === 1
+                <image 
+                mode="aspectFit"
+                :src="resItem.memoItemType === 1
                     ? resItem.videoPicUrl
                     : resItem.picUrl
                   " class="pic" :lazyLoad="true" />
@@ -32,7 +34,7 @@
                 {{ timeFormat(item.createTime) }}
               </view>
               <view class="op">
-                <!-- <view class="opItem add" @tap="add">编辑</view> -->
+                <view class="opItem add" >编辑</view>
                 <view class="opItem delete" @tap="deleteMemo(item.memoId)">删除</view>
               </view>
             </view>

@@ -2,42 +2,46 @@
   <view :class="styles.myContainer">
     <navbar title="我的信息" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
-    <view class="head">
-      <image :src="account.userInfo.avatarurl" @tap="handleChangeAvatarurl" />
-    </view>
+      <checkSystemButton button-type="chooseAvatar" class="head" >
+      <image :src="account.userInfo.avatarurl"  />
+      </checkSystemButton>
     <view class="info">
       <view class="infoItem">
         <view class="lable">用户名 :</view>
-        <view class="content" @tap="showNormalEditPop('编辑用户名','请输入用户名','username')">
+        <!-- showNormalEditPop('编辑用户名','请输入用户名','username') -->
+        <view class="content" @tap="nicknamePop.visible = true">
           {{ account.userInfo.username || '请输入用户名'}}
         </view>
       </view>
-      <view class="infoItem">
+
+      <!-- 修改邮箱 -->
+      <!-- <view class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
           </image>
           <text>邮箱</text>
         </view>
-        <!-- sendEmail(account.userInfo.email) -->
         <view class="content" @tap="showEmailPop">
           {{ account.userInfo.email || "点击验证邮箱" }}
         </view>
-      </view>
-      <view class="infoItem">
+      </view> -->
+
+      <!-- 修改手机号 -->
+      <!-- <view class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
           </image>
           <text>手机号</text>
         </view>
-
         <view class="content">
           <checkSystemButton button-type="getPhoneNumber">
             {{ account.userInfo.phone || "点击绑定手机号" }}
           </checkSystemButton>
         </view>
-      </view>
+      </view> -->
+
     </view>
 
     <update-pop v-model:modelValue="emailPop.popTipVisible" confirmText="确认绑定" cancelText="取消绑定" :on-confirm="onConfirm"
@@ -75,22 +79,19 @@
       :placeholder="normalPop.placeholder"
       @ok="handleNormalPopOK"
       :max="normalPop.max"
-    > </update-pop>
+    /> 
 
   </view>
   <!-- toast提示 -->
   <my-toast-components ref="myToast" :duration="2500" />
+
+  <nickname-robber v-model:visible="nicknamePop.visible" @change="onChangeNickname"  />
+
 </template>
 <script lang="ts" setup>
 import { useAccountStore } from "@/stores/account";
 import { Navbar } from "@fishui/taro-vue";
 import styles from "./styles.scss";
-// import {
-//   WaterMark as NutWaterMark,
-//   Input as NutInput,
-// } from "@nutui/nutui-taro";
-import selectMedia from "@/components/selectMedia";
-import aliossUpload from "@/utils/alioss-upload";
 import { sendCode, testCode } from "@/apis/mine";
 import checkSystemButton from "@/components/button/checkSystemButton.vue";
 import UpdatePop from "@/components/pop/updatePop/index.vue";
@@ -98,6 +99,7 @@ import { reactive, ref } from "vue";
 import myToastComponents from "@/components/myToast/index.vue";
 import { checkEmail } from "@/utils/verify";
 import { debounce } from 'lodash';
+import NicknameRobber from '@/components/nicknameRobber';
 
 definePageConfig({ backgroundColor: "#f3f3fe" });
 
@@ -114,6 +116,9 @@ const emailPop = reactive({
   canSendTime: 0,
   intervalTimer: null as any,
 });
+const nicknamePop = reactive({
+  visible: false,
+});
 
 const normalPop = reactive({
   visable:false,
@@ -125,18 +130,18 @@ const normalPop = reactive({
   attrName:''
 })
 
-const showEmailPop = () => {
-  if(!account.userInfo.email){
-    emailPop.popTipVisible = true;
-  }
-};
+// const showEmailPop = () => {
+//   if(!account.userInfo.email){
+//     emailPop.popTipVisible = true;
+//   }
+// };
 
-const showNormalEditPop = (title,placeholder,attrName) => {
-  normalPop.title = title
-  normalPop.placeholder = placeholder
-  normalPop.attrName = attrName
-  normalPop.visable = true;
-};
+// const showNormalEditPop = (title,placeholder,attrName) => {
+//   normalPop.title = title
+//   normalPop.placeholder = placeholder
+//   normalPop.attrName = attrName
+//   normalPop.visable = true;
+// };
 
 const handleGetCode = () => {
   if (emailPop.canSendTime === 0) {
@@ -199,16 +204,18 @@ const handleNormalPopOK = debounce(async()=>{
   
 },3000, { leading: true, trailing: false })
 
-const handleChangeAvatarurl = async () => {
-  const chooseList = await selectMedia("image", 1);
-  const uploadResList: {
-    status: number;
-    name: string;
-    path: string;
-    fullpath: string;
-    hash: string;
-  }[] = await aliossUpload(chooseList[0].path);
-  account.userInfo.avatarurl = uploadResList[0].fullpath;
-  account.updateUser();
+const onChangeNickname = async (nickName: string) => {
+  console.log(11111,nickName);
+  if (!nickName.trim()) return;
+   // 更新userinfo
+   account.userInfo.username = nickName;
+  await account.updateUser();
+  myToast.value.myToastShow({
+    icon: "success",
+    title: "修改成功",
+    duration: 3000,
+  });
+  console.log(nickName);
 };
+
 </script>
