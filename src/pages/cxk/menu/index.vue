@@ -1,5 +1,6 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" @scroll="onScroll" scroll-y="true" v-if="data.showPage">
+    <page-container :show="data.pageContainerShow" :overlay = 'false' @leave='goback' />
     <navbar title="坤坤妙妙屋" background-color="#f5f5f9" :goback="goback" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="致敬最爱的坤坤" />
     <nut-noticebar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
@@ -40,11 +41,6 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-// import {
-//   NoticeBar as NutNoticeBar,
-//   WaterMark as NutWaterMark,
-//   Animate as NutAnimate,
-// } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import Taro, {
   useShareAppMessage,
@@ -68,6 +64,7 @@ const { show, onScroll } = useListScroll();
 const systemInfo = useSystemInfoStore();
 const data = reactive({
   showPage: true,
+  pageContainerShow: true,
   menuList: [
     {
       title: "IKun",
