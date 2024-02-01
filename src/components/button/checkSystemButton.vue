@@ -7,7 +7,7 @@
   >
     <slot></slot>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </button>
   <button
     v-else-if="
@@ -21,19 +21,19 @@
   >
     <slot></slot>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </button>
   <button v-else class="button-to-view" @tap="tapClick">
     <slot></slot>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </button>
 </template>
 
 <script setup lang="ts">
   import { ref } from "vue";
   import { useAccountStore } from "@/stores/account";
-  import mpmToast from "@/components/myToast/index.vue";
+  import myToastComponents from "@/components/myToast/index.vue";
 
   export type IButtonType = "login" | "getPhoneNumber";
 
@@ -63,7 +63,7 @@
       })
       .catch(() => {
         emit("callback", false);
-        myToast.value.mpmToastShow({
+        myToast.value.myToastShow({
           icon: "error",
           title: "登录失败，请联系客服处理~",
           duration: 2000,
@@ -81,14 +81,14 @@
         })
         .catch(() => {
           emit("callback", false);
-          myToast.value.mpmToastShow({
+          myToast.value.myToastShow({
             icon: "error",
             title: "绑定手机号失败，请联系客服处理~",
             duration: 2000,
           });
         });
     } else {
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: "error",
         title: "您点击了拒绝授权，将会影响部分功能使用",
         duration: 2000,

@@ -36,10 +36,10 @@
 import { ref ,watch} from "vue";
 import EChart from '@/components/myEcharts/e-chart.vue';
 import Taro from "@tarojs/taro";
-import {
-    Animate as NutAnimate,
-    Button as NutButton,
-  } from "@nutui/nutui-taro";
+// import {
+//     Animate as NutAnimate,
+//     Button as NutButton,
+//   } from "@nutui/nutui-taro";
 import { IPriceLineItem } from "@/apis/kunChart/model";
 
 interface IProps {

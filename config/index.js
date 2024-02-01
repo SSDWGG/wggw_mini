@@ -1,4 +1,6 @@
 import path from 'path';
+import ComponentsPlugin from 'unplugin-vue-components/webpack'
+import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
 
 const getArgValue = (name) => {
   const arr = process.argv.splice(2);
@@ -14,7 +16,7 @@ const getArgValue = (name) => {
 
 const config = {
   projectName: 'taro-vue3',
-  date: '2022-8-16',
+  date: '2024-1-1',
   designWidth: 375,
   deviceRatio: {
     640: 2.34 / 2,
@@ -36,7 +38,10 @@ const config = {
     options: {},
   },
   framework: 'vue3',
-  compiler: 'webpack5',
+  compiler: {
+    type: 'webpack5',
+    prebundle: { enable: false }
+  },
   cache: {
     enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
   },
@@ -44,7 +49,9 @@ const config = {
     // 全局 scss 主题变量 https://docs.taro.zone/docs/config-detail#sass
     resource: [
       path.resolve(__dirname, '../src/assets/styles/custom_theme.scss'),
-      path.resolve(__dirname, '../src/assets/styles/common.scss')
+      path.resolve(__dirname, '../src/assets/styles/common.scss'),
+      path.resolve(__dirname, "../src/assets/styles/flexible.scss"),
+
     ],
     data: '@import "@nutui/nutui-taro/dist/styles/variables.scss";',
   },
@@ -64,7 +71,11 @@ const config = {
             }
           }
         }
-      });
+      }) 
+      chain.plugin('unplugin-vue-components').use(ComponentsPlugin({
+        include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
+        resolvers: [NutUIResolver({taro: true})]
+      }))
     },
     postcss: {
       pxtransform: {

@@ -1,7 +1,7 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
     <navbar title="价值曲线" background-color="rgba(116, 104, 242,.1)" />
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="价值曲线" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="价值曲线" />
     <view class="tipTitle">
       您觉得他们价值几何？
     </view>
@@ -21,7 +21,7 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
+// import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";

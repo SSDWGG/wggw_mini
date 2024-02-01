@@ -18,11 +18,10 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
 import Taro from '@tarojs/taro';
-import { TextArea as NutTextarea } from '@nutui/nutui-taro';
 import { Navbar } from '@fishui/taro-vue';
 import styles from './styles.scss';
 import aliossUpload from '@/utils/alioss-upload';
-import Prelist from './prelist/index.vue';
+import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
 import { getOSSVideoImg } from '@/utils/index';
 import {  IMemoItem } from '@/apis/memo/model';

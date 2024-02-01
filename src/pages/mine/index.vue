@@ -1,16 +1,15 @@
 <template>
   <view :class="styles.myContainer">
     <navbar title="我的信息" />
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
     <view class="head">
       <image :src="account.userInfo.avatarurl" @tap="handleChangeAvatarurl" />
     </view>
     <view class="info">
       <view class="infoItem">
         <view class="lable">用户名 :</view>
-        <view class="content">
-          <NutInput v-model="account.userInfo.username" placeholder="请输入用户名" class="edit-NutInput" type="text"
-            input-align="right" :border="false" :formatter="(str) => formatterLen(str, 30)" format-trigger="onChange" />
+        <view class="content" @tap="showNormalEditPop('编辑用户名','请输入用户名','username')">
+          {{ account.userInfo.username || '请输入用户名'}}
         </view>
       </view>
       <view class="infoItem">
@@ -21,7 +20,7 @@
           <text>邮箱</text>
         </view>
         <!-- sendEmail(account.userInfo.email) -->
-        <view class="content" @tap="showPop">
+        <view class="content" @tap="showEmailPop">
           {{ account.userInfo.email || "点击验证邮箱" }}
         </view>
       </view>
@@ -68,26 +67,35 @@
         </view>
       </template>
     </update-pop>
+
+    <update-pop
+      v-model:modelValue="normalPop.visable"
+      v-model:inputValue="normalPop.inputValue"
+      :title="normalPop.title"
+      :placeholder="normalPop.placeholder"
+      @ok="handleNormalPopOK"
+      :max="normalPop.max"
+    > </update-pop>
+
   </view>
   <!-- toast提示 -->
-  <mpm-toast ref="myToast" :duration="2500" />
+  <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
 import { useAccountStore } from "@/stores/account";
 import { Navbar } from "@fishui/taro-vue";
 import styles from "./styles.scss";
-import {
-  WaterMark as NutWaterMark,
-  Input as NutInput,
-} from "@nutui/nutui-taro";
+// import {
+//   WaterMark as NutWaterMark,
+//   Input as NutInput,
+// } from "@nutui/nutui-taro";
 import selectMedia from "@/components/selectMedia";
 import aliossUpload from "@/utils/alioss-upload";
 import { sendCode, testCode } from "@/apis/mine";
-import { formatterLen } from "@/utils/index";
 import checkSystemButton from "@/components/button/checkSystemButton.vue";
 import UpdatePop from "@/components/pop/updatePop/index.vue";
 import { reactive, ref } from "vue";
-import mpmToast from "@/components/myToast/index.vue";
+import myToastComponents from "@/components/myToast/index.vue";
 import { checkEmail } from "@/utils/verify";
 import { debounce } from 'lodash';
 
@@ -107,15 +115,34 @@ const emailPop = reactive({
   intervalTimer: null as any,
 });
 
-const showPop = () => {
-  emailPop.popTipVisible = true;
+const normalPop = reactive({
+  visable:false,
+  inputValue:'',
+  title:'',
+  placeholder:'',
+  max:1000,
+  // 当前修改的属性名
+  attrName:''
+})
+
+const showEmailPop = () => {
+  if(!account.userInfo.email){
+    emailPop.popTipVisible = true;
+  }
+};
+
+const showNormalEditPop = (title,placeholder,attrName) => {
+  normalPop.title = title
+  normalPop.placeholder = placeholder
+  normalPop.attrName = attrName
+  normalPop.visable = true;
 };
 
 const handleGetCode = () => {
   if (emailPop.canSendTime === 0) {
     checkEmail(emailPop.emailAccount)
       ? sendEmail()
-      : myToast.value.mpmToastShow({
+      : myToast.value.myToastShow({
         icon: "error",
         title: "请输入正确的邮箱格式",
         duration: 3000,
@@ -135,7 +162,7 @@ const sendEmail = async () => {
   await sendCode({
     email: emailPop.emailAccount,
   });
-  myToast.value.mpmToastShow({
+  myToast.value.myToastShow({
     icon: "success",
     title: "发送成功",
     duration: 3000,
@@ -152,13 +179,25 @@ const onConfirm = debounce(async () => {
   account.userInfo.email = emailPop.emailAccount;
   await account.updateUser();
   emailPop.popTipVisible = false
-  myToast.value.mpmToastShow({
+  myToast.value.myToastShow({
     icon: "success",
     title: "绑定成功",
     duration: 3000,
   });
 }
   , 3000, { leading: true, trailing: false })
+
+const handleNormalPopOK = debounce(async()=>{
+  // 更新userinfo
+  account.userInfo[normalPop.attrName] = normalPop.inputValue;
+  await account.updateUser();
+  myToast.value.myToastShow({
+    icon: "success",
+    title: "修改成功",
+    duration: 3000,
+  });
+  
+},3000, { leading: true, trailing: false })
 
 const handleChangeAvatarurl = async () => {
   const chooseList = await selectMedia("image", 1);

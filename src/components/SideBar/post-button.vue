@@ -25,32 +25,30 @@
         </view>
       </view>
     </nut-popup>
-    <my-toast v-model="state.toastVisible" :contentTips="state.contentTips" />
   </root-portal>
+   <!-- toast提示 -->
+   <my-toast-components ref="myToast" :duration="2500" />
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { reactive,ref } from 'vue';
 import styles from './styles.scss';
-import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
 import selectMedia, { IMediaType, IResult } from '@/components/selectMedia';
+import myToastComponents from '@/components/myToast/index.vue';
 
 
+const myToast = ref<any>();
 
 const account = useAccountStore();
 
 interface IState {
   visible: boolean;
-  toastVisible: boolean;
-  contentTips: string
 }
 
 const state = reactive<IState>({
   visible: false,
-  toastVisible: false,
-  contentTips: '',
 });
 
 const handleClose = () => {
@@ -69,8 +67,11 @@ const handleChoose = async (type: IMediaType) => {
 
   } catch (err) {
     console.log('上传抛出异常', err);
-    state.contentTips = err.contentTips;
-    state.toastVisible = true;
+    myToast.value.myToastShow({
+        icon: 'error',
+        title: err.contentTips,
+        duration: 2000,
+      });
   }
 };
 

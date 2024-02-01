@@ -39,9 +39,9 @@ import { ref, toRef, watch, useSlots } from 'vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { formatterLen } from '@/utils/index';
-import {
-  Input as NutInput,
-} from '@nutui/nutui-taro';
+// import {
+//   Input as NutInput,
+// } from '@nutui/nutui-taro';
 
 
 const props = defineProps({

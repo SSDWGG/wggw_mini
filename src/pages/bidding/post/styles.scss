@@ -7,13 +7,14 @@
     .body {
       flex-grow: 1;
       .nut-textarea__textarea {
+        padding: 0px !important;
         height: 65px;
         font-size: 16px;
         font-weight: Regular;
       }
       .post-textarea {
         padding: 10px 20px;
-        .textarea-placeholder{
+        .textarea__placeholder{
           color: #999999;
           font-weight: Regular;
           font-size: 16px;

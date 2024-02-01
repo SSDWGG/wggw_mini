@@ -14,7 +14,7 @@
     </nut-animate>
   </view>
    <!-- toast提示 -->
-   <mpm-toast ref="myToast" :duration="2500" />
+   <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
@@ -25,12 +25,12 @@ import EChart from '@/components/myEcharts/e-chart.vue';
 import Taro from "@tarojs/taro";
 import { IPriceLineItem } from "@/stores/account";
 import dayjs from 'dayjs';
-import {
-  Animate as NutAnimate,
-  Button as NutButton,
-} from "@nutui/nutui-taro";
+// import {
+//   Animate as NutAnimate,
+//   Button as NutButton,
+// } from "@nutui/nutui-taro";
 import cloneDeep from 'lodash/cloneDeep';
-import mpmToast from "@/components/myToast/index.vue";
+import myToastComponents from "@/components/myToast/index.vue";
 import { debounce } from 'lodash';
 
 interface IProps {
@@ -118,7 +118,7 @@ const initMultiBarChart = () => {
 const addGame = debounce(
   () => {
 
-  myToast.value.mpmToastShow({
+  myToast.value.myToastShow({
         icon: "error",
         title: `坤之守护大笑着现身，“没有人可以审判我的坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何报价，但坤会被自我扣除912.5点价值’，坤之守护渐渐消失。 `,
         duration: 5000,

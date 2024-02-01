@@ -108,6 +108,7 @@ const deleteMemo = (memoId: string) => {
   });
 };
 useDidShow(async () => {
+  
     initData();
 });
 </script>

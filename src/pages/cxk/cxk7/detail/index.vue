@@ -3,12 +3,12 @@
     <navbar :title="pageTitle" background-color="rgba(116, 104, 242,.1)">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
-          <nut-icon name="home" size="20" />
+          <IconFont name="home" size="20" />
         </view>
       </template>
     </navbar>
     
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
     <side-bar :show="show" :showFlags = [1,3] />
 
     <view class="imgDiv">
@@ -27,7 +27,7 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
+// import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
 import { reactive, ref } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import sideBar from "@/components/SideBar/index.vue";

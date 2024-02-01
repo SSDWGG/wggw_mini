@@ -1,7 +1,7 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage"  scroll-y="true">
     <navbar title="坤线图" background-color="rgba(116, 104, 242,.1)"/>
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="wggw大舞台" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="wggw大舞台" />
     <view class="tipTitle">
       首先很高兴您能参与此试验游戏，我们会为您提供以下内容显示报价，您可以参与试验游戏提供您觉得合理的价格
     </view>
@@ -19,9 +19,9 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import {
-  WaterMark as NutWaterMark,
-} from "@nutui/nutui-taro";
+// import {
+//   WaterMark as NutWaterMark,
+// } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";

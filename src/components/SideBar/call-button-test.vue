@@ -4,13 +4,13 @@
       电联
     </view>
     <!-- toast提示 -->
-    <mpm-toast ref="myToast" :duration="2500" />
+    <my-toast-components ref="myToast" :duration="2500" />
   </view>
 </template>
 <script lang="ts" setup>
 import Taro from '@tarojs/taro';
 import { useAccountStore } from '@/stores/account';
-import mpmToast from '@/components/myToast/index.vue';
+import myToastComponents from '@/components/myToast/index.vue';
 import { ref } from 'vue';
 
 // import { getUserApiTest } from '@/apis/mine';
@@ -23,7 +23,7 @@ const call = () => {
   Taro.authorize({
     scope: 'scope.record',
     fail: () => {
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: 'error',
         title: '您点击了拒绝授权，将会影响您的功能使用',
         duration: 2000,
@@ -51,7 +51,7 @@ const call = () => {
               console.log("[startCallWx]res，在线成功拨打了", res);
             },
             fail(err) {
-              myToast.value.mpmToastShow({
+              myToast.value.myToastShow({
                 icon: 'error',
                 title: '对方暂时不在线，请您选择客服方式联系作者',
                 duration: 5000,

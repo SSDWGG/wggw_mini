@@ -70,18 +70,18 @@
     </update-pop>
   </view>
   <!-- toast提示 -->
-  <mpm-toast ref="myToast" :duration="2500" />
+  <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
   import styles from "./styles.scss";
   import { Navbar } from "@fishui/taro-vue";
-  import {
-    Table as NutTable,
-    Animate as NutAnimate,
-    Button as NutButton,
-  } from "@nutui/nutui-taro";
+  // import {
+  //   Table as NutTable,
+  //   Animate as NutAnimate,
+  //   Button as NutButton,
+  // } from "@nutui/nutui-taro";
   import { reactive, h, computed, ref } from "vue";
-  import mpmToast from "@/components/myToast/index.vue";
+  import myToastComponents from "@/components/myToast/index.vue";
   import UpdatePop from "@/components/pop/updatePop/index.vue";
 
   definePageConfig({ backgroundColor: "#f3f3fe" });
@@ -157,7 +157,7 @@
       fixAllData();
       pageData.gameStr = "";
     } else {
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: "error",
         title: `当前参赛人${pageData.tableData.length}个，本次输入数据${
           !!resList ? resList.length : 0
@@ -168,7 +168,7 @@
   };
   const handleOkPerson = () => {
     if (!pageData.personStr) {
-      myToast.value.mpmToastShow({
+      myToast.value.myToastShow({
         icon: "error",
         title: "请输入参赛人",
         duration: 2000,

@@ -37,14 +37,13 @@ export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult
       tempFiles,
       type
     }: Taro.chooseMedia.SuccessCallbackResult) => {
-      // if (type === 'video' && tempFiles[0].duration > 30) {
-      //   reject({
-      //     title: '上传失败',
-      //     contentTips: '请上传30s内的视频',
-      //     duration: 3500
-      //   });
-
-      // }
+      if (type === 'video' && tempFiles[0].duration > 30) {
+        reject({
+          title: '上传失败',
+          contentTips: '请上传30s内的视频',
+          duration: 3500
+        });
+      }
       resolve(tempFiles.map(i => ({ path: i.tempFilePath, type })));
     };
 

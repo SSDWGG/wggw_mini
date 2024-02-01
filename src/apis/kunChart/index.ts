@@ -38,7 +38,7 @@ export const getKunCharOne = (params: { shopId: string }) =>
     params,
   });
 export const getKunChartLineList = (params: { shopId: string }) =>
-  request<boolean>({
+  request<T.IPriceLineItem[]>({
     url: "/v1/KunChartLine/getKunChartLineList",
     method: "GET",
     params,

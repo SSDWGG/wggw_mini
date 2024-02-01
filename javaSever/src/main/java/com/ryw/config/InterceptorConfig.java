@@ -11,13 +11,14 @@ public class InterceptorConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new JWTInterceptors())
-//                .excludePathPatterns(
-//                        //登录注册放行
-//                        "/v1/user/test"
-//                );
-        // 全部开启验证
-        //.addPathPatterns("/**")
-        // 全部放行
-        .excludePathPatterns("/**");
+                //开启部分通行
+                .excludePathPatterns(
+                        //登录注册放行
+                        "/v1/user/getOpenid"
+                );
+                // 全部开启验证
+                //.addPathPatterns("/**")
+                // 全部放行
+                //.excludePathPatterns("/**");
     }
 }

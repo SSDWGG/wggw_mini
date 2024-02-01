@@ -3,12 +3,12 @@
     <navbar :title="pageTitle" background-color="rgba(116, 104, 242,.1)">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
-          <nut-icon name="home" size="20" />
+          <IconFont name="home" size="20" />
         </view>
       </template>
     </navbar>
     
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
     <side-bar :show="show" :showFlags = [8,1,3] :onbiddingLineButtonBack = '()=>{
       data.popVisable  =true
     }'/>
@@ -23,9 +23,10 @@
       {{ chooseItem?.kcDesc }}
     </view>
 
-    <chartLine  :orginData = chooseItem?.priceLine @gx="()=>{init()}" @bj="()=>{data.popVisable  = true}"></chartLine>
+    <chartLine  :orginData = data.priceLine @gx="()=>{init()}" @bj="()=>{data.popVisable  = true}"></chartLine>
 
     <update-pop
+      type="number"
       v-model:modelValue="data.popVisable"
       v-model:inputValue="data.popInputValue"
       title="添加报价（￥）"
@@ -39,7 +40,6 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
 import { reactive, ref } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import sideBar from "@/components/SideBar/index.vue";
@@ -56,6 +56,7 @@ import chartLine from './chartLine.vue'
 import { addKunChartLine, getKunCharOne, getKunChartLineList } from "@/apis/kunChart";
 import UpdatePop from "@/components/pop/updatePop/index.vue";
 import { useAccountStore } from '@/stores/account';
+import { IPriceLineItem } from "@/apis/kunChart/model";
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -75,17 +76,24 @@ const { show, onScroll } = useListScroll();
 const data = reactive({
   showPage: true,
   popVisable:false,
-  popInputValue:''
+  popInputValue:'',
+  priceLine:[] as IPriceLineItem[]
 });
 
 let chooseItem = ref();
 
 
-const init = async() => {
-  chooseItem.value =await getKunCharOne({ shopId: router.params.shopId as string })
-  pageTitle.value = changeLongStr(chooseItem.value.title, 6, true) + "价格";
-  chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc)
-  chooseItem.value.priceLine =   await  getKunChartLineList({ shopId: router.params.shopId as string })
+const init = async() => {  
+  getKunChartLineList({ shopId: router.params.shopId as string }).then(res=>{
+    data.priceLine  = res
+  })
+
+  getKunCharOne({ shopId: router.params.shopId as string }).then(res=>{
+    chooseItem.value  = res
+    pageTitle.value = changeLongStr(chooseItem.value.title, 6, true) + "价格";
+    chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc)
+  })
+  
 };
 
 

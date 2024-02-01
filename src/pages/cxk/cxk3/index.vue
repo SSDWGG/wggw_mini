@@ -4,11 +4,11 @@
 
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
-          <nut-icon name="home" size="20" />
+          <IconFont name="home" size="20" />
         </view>
       </template>
     </navbar>
-    <nut-water-mark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="坤坤大舞台有歌你就来" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="坤坤大舞台有歌你就来" />
     <side-bar :show="show" :onfullButtonBack="()=>data.showPage = false"  :showFlags = [1,2,3] />
 
 
@@ -33,9 +33,9 @@
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-import {
-  WaterMark as NutWaterMark,
-} from "@nutui/nutui-taro";
+// import {
+//   WaterMark as NutWaterMark,
+// } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";

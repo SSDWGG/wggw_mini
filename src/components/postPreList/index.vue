@@ -6,7 +6,9 @@
       <template #item="item">
         <view v-if="!item.fixed" class="item-view">
           <view v-if="!data.isDraging" @tap="removeItem(item)">
-            <nut-icon name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png" :size="20" class="close-img"></nut-icon>
+            <IconFont
+              name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png"
+              :size="20" class="close-img"></IconFont>
           </view>
           <view class="up-list-item">
             <img :src="item.path" mode='aspectFill' />
@@ -14,7 +16,7 @@
         </view>
         <view v-else-if="data.picList.length < maxChooseCount" class="item-view">
           <view class="up-list-item uploader-button" @tap="handleAdd">
-            <nut-icon :name="item.path" :size="35" class="upload-more" />
+            <IconFont :name="item.path" :size="35" class="upload-more" />
           </view>
         </view>
       </template>
@@ -26,34 +28,40 @@
         <view class="vedioDiv-item">
           <view v-for="(picObj, index) in data.picList" :key="index" class="item-view">
             <view @tap="removeItem(picObj)">
-              <nut-icon name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png" :size="16" class="close-img"></nut-icon>
+              <IconFont
+                name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GHCCAMGL-1706332459221icon-close.png"
+                :size="16" class="close-img"></IconFont>
             </view>
             <video class="up-list-item" :src="picObj.path" :controls="false" :showCenterPlayBtn="false">
-              <nut-icon name="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" :size="25" class="vedio-state" />
+              <IconFont
+                name="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90"
+                :size="25" class="vedio-state" />
             </video>
           </view>
-            <!-- 继续添加按钮 视频限制添加一个，图片限制添加9张-->
-            <view v-if="isShowAddButton" class="item-view">
-              <view class="up-list-item uploader-button" @tap="handleAdd">
-                <nut-icon name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CDMKFOCD-1706332570146upload-more.png" :size="35" class="upload-more" />
-              </view>
+          <!-- 继续添加按钮 视频限制添加一个，图片限制添加9张-->
+          <view v-if="isShowAddButton" class="item-view">
+            <view class="up-list-item uploader-button" @tap="handleAdd">
+              <IconFont
+                name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CDMKFOCD-1706332570146upload-more.png"
+                :size="35" class="upload-more" />
             </view>
+          </view>
         </view>
       </view>
     </block>
   </view>
-  <my-toast v-model="data.toastVisible" :contentTips="data.contentTips"></my-toast>
-
+  <!-- toast提示 -->
+  <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
-import { computed, reactive } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { Drag } from '@fishui/taro-vue';
-import Taro, { useRouter } from '@tarojs/taro';
+import { useRouter, useUnload } from '@tarojs/taro';
 import styles from './styles.scss';
-import MyToast from '@/components/postFailToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import { useSystemInfoStore } from '@/stores/systemInfo';
-import { IResult } from '@/components/selectMedia';
+import selectMedia, { IResult } from '@/components/selectMedia';
+import myToastComponents from '@/components/myToast/index.vue';
 
 type IListItem = IResult & {
   originIndex: number;
@@ -67,10 +75,9 @@ const plusItem: IListItem = { originIndex: -1, fixed: true, type: 'plus', path: 
 const data = reactive({
   picList: [] as IListItem[],
   sortedList: [] as IListItem[],
-  toastVisible: false,
-  contentTips: '',
   isDraging: false,
 });
+const myToast = ref<any>();
 const listData = computed(() => [...data.picList, plusItem]);
 const router = useRouter();
 const isPostImage = router.params.type === 'image';
@@ -92,33 +99,24 @@ const isShowAddButton = computed(() => {
   return true;
 });
 
-const handleAdd = () => {
-  // 调用选择手机相册
-  Taro.chooseMedia({
-    count: isPostImage ? maxChooseCount - data.picList.length : 1,
-    mediaType: [router.params.type as any],
-    sourceType: ['album'],
-    maxDuration: 30,
-    camera: 'back',
-    success: ({
-      tempFiles,
-      type
-    }) => {
-      // 视频过长增加限制
-      if (type === 'video' && tempFiles[0].duration > 30) {
-        data.contentTips = '请上传30s内的视频';
-        data.toastVisible = true;
-        return;
-      }
-      const addList = tempFiles.map((i, originIndex) => ({ path: i.tempFilePath, type, originIndex }));
-      if (isPostImage) {
-        data.picList = [...data.sortedList, ...addList].map((item, originIndex) => ({ ...item, originIndex }));
-      } else {
-        data.picList = addList;
-      }
-      data.sortedList = data.picList;
+const handleAdd = async () => {
+  try {
+    const tempFiles = await selectMedia(router.params.type as any);
+    const addList = (tempFiles as IResult[]).map((i, originIndex) => ({ path: i.path, type: i.type, originIndex }));
+    if (isPostImage) {
+      data.picList = [...data.sortedList, ...addList].map((item, originIndex) => ({ ...item, originIndex }));
+    } else {
+      data.picList = addList;
     }
-  });
+    data.sortedList = data.picList;
+  } catch (err) {
+    console.log('上传抛出异常', err);
+    myToast.value.myToastShow({
+      icon: 'error',
+      title: err.contentTips,
+      duration: 2000,
+    });
+  }
 };
 
 const onChange = (sorted) => {
@@ -135,6 +133,10 @@ const removeItem = (item) => {
   }));
   data.sortedList = data.picList;
 };
+
+useUnload(() => {
+  account.templeChoosePostList = []
+})
 
 defineExpose({
   data
