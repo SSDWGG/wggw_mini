@@ -15,6 +15,7 @@ export const addKunChart = (data: {
   imgSrc: string;
   title: string;
   kcDesc: string;
+  openid:string;
 }) =>
   request<boolean>({
     url: "/v1/KunChart/addKunChart",
@@ -32,7 +33,7 @@ export const deleteKunChartByShopId = (params: { shopId: string }) =>
   });
   
 export const getKunCharOne = (params: { shopId: string }) =>
-  request<boolean>({
+  request<T.IPriceLineItem>({
     url: "/v1/KunChart/getKunCharOne",
     method: "GET",
     params,

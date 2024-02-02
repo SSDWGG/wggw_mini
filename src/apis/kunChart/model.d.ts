@@ -2,6 +2,7 @@ export interface IPriceLineItem {
 
   lineId:string
   shopId:string
+  openid:string
 
   // 报价时间
   createTime:string,

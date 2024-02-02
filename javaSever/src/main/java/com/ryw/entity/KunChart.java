@@ -21,6 +21,8 @@ public class KunChart {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long shopId;
 
+    private String openid;
+
     private String title;
 
     private String kcDesc;
@@ -45,7 +47,15 @@ public class KunChart {
     //构造类和setget方法 和tostring方法
 
 
-    public Long getShopId() {
+  public String getOpenid() {
+    return openid;
+  }
+
+  public void setOpenid(String openid) {
+    this.openid = openid;
+  }
+
+  public Long getShopId() {
         return shopId;
     }
 

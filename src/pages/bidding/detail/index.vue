@@ -19,11 +19,11 @@
     <view class="title">
       {{ chooseItem?.title }}
     </view>
-    <view class="title">
+    <view class="desc">
       {{ chooseItem?.kcDesc }}
     </view>
 
-    <chartLine  :orginData = data.priceLine @gx="()=>{init()}" @bj="()=>{data.popVisable  = true}"></chartLine>
+    <chartLine  :chooseItem="chooseItem"  :orginData = data.priceLine @gx="()=>{init()}" @bj="()=>{data.popVisable  = true}"></chartLine>
 
     <update-pop
       type="number"

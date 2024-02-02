@@ -9,6 +9,7 @@
   :global {
     
    .bar-item {
+    z-index: 99999;
       display: flex;
       justify-content: center;
       align-items: center;

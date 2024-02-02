@@ -22,12 +22,12 @@ import styles from './styles.scss';
 import aliossUpload from '@/utils/alioss-upload';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
-import { getOSSVideoImg } from '@/utils/index';
-import { IMemoItem } from '@/apis/memo/model';
+import { getOSSVideoImg, hasProtocol, uuid } from '@/utils/index';
+import { IMemo, IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
 import { IResult } from '@/components/selectMedia';
-import { AddMemo } from '@/apis/memo';
-import { useRouter } from '@tarojs/taro';
+import { AddMemo, updateMemo } from '@/apis/memo';
+import { useRouter,useUnload } from '@tarojs/taro';
 
 definePageConfig({
   disableScroll: true,
@@ -47,12 +47,11 @@ const prelistRef = ref();
 
 // 编辑逻辑
 if (!!router.params.memoId) {
-  console.log(1111, account.editMemoData);
   data.content = account.editMemoData.content;
   account.templeChoosePostList = account.editMemoData.list.map((item) => {
     return {
       path: item.picUrl || item.videoPicUrl,
-      type: item.memoItemType + '',
+      type: item.memoItemType===0?'image':'video',
     };
   });
 }
@@ -71,24 +70,43 @@ const PasslintContent = () => {
 
 const uploadOSS = async () => {
   const picPaths = [] as string[];
-  data.childDataPicList = prelistRef.value.data.sortedList;
-  // 通过ref拿到子组件picList
-  data.childDataPicList.forEach((item) => {
-    picPaths.push(item.path);
-  });
-
-  // 校验，上传http图片，https图片保持不动（https图片无法直接上传会报错）
-
   const resList: {
     status: number;
     name: string;
     path?: string;
     fullpath?: string;
     hash?: string;
-  }[] = await aliossUpload(picPaths);
+  }[] = [];
+  data.childDataPicList = prelistRef.value.data.sortedList;
+  
+  // 通过ref拿到子组件picList
+  data.childDataPicList.forEach((item) => {
+    picPaths.push(item.path);
+  });
 
-  console.log(picPaths);
-
+  // 校验是否是https图片，上传http图片，https图片包装返回（https图片无法直接上传会报错）
+  picPaths.forEach(async (picPathItem,index) => {
+    if (hasProtocol(picPathItem)) {
+      // https包装
+      resList[index] = {
+        status: 200,
+        name: uuid(),
+        path: picPathItem,
+        fullpath: picPathItem,
+        hash: uuid()
+      };
+    } else {
+      // 非https上传
+      const uploadResList: {
+        status: number;
+        name: string;
+        path?: string;
+        fullpath?: string;
+        hash?: string;
+      }[] = await aliossUpload([picPathItem]);
+      resList[index] = uploadResList[0];
+    }
+  });  
   return resList;
 };
 
@@ -103,7 +121,6 @@ const addMemoData = async (
 ) => {
   const targetList: IMemoItem[] = [];
   const time = new Date().valueOf() + '';
-
   // 数据格式化存储的内容
   List.forEach((item, index) => {
     targetList.push({
@@ -118,24 +135,25 @@ const addMemoData = async (
     });
   });
 
-  // gmtCreate: time,
-  // gmtModified: time,
   let listParam = {
+    ... account.editMemoData,
     memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
     content: data.content, // 文案内容
     list: JSON.stringify(targetList), // 相册详情
     uid: account.userInfo.openid,
   };
-  AddMemo(listParam);
+  if(!!router.params.memoId){
+
+   
+    updateMemo(listParam as unknown as IMemo);
+  }else{
+    AddMemo(listParam);
+  }
 };
 
 const postHttp = debounce(async () => {
   try {
-    // 上传oss
-    const resList = await uploadOSS();
-    // 存储到store中
-    await addMemoData(resList);
-
+    await addMemoData(await uploadOSS());
     Taro.showToast({
       title: '上传成功',
       icon: 'success',
@@ -164,4 +182,9 @@ const handleAddAlbum = () => {
   postHttp();
   return false;
 };
+
+useUnload(() => {
+  account.editMemoData = {} as IMemo
+})
+
 </script>

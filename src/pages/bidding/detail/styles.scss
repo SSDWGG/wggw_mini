@@ -31,6 +31,9 @@ page {
         width: 95%;
         height: 100%;
       }
+      .empty{
+        color: #7468f2;
+      }
     }
     .btnGroup {
       display: flex;
@@ -39,11 +42,20 @@ page {
     }
     
    .title{
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 500;
     color: #ff5a19;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10rpx 0;
+   }
+   .desc{
+    color: #7468f2;
+    font-size: 16px;
+    font-weight: 500;
     opacity: .9;
-
     display: flex;
     align-items: center;
     justify-content: center;

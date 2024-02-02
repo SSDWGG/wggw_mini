@@ -38,7 +38,7 @@ export const getMemoOne = (params: { memoId: string }) =>
     params,
   });
   
-export const updateMemo = (data) =>
+export const updateMemo = (data:T.IMemo) =>
   request<boolean>({
     url: "/v1/memo/updateMemo",
     method: "POST",

@@ -5,7 +5,7 @@
       <nut-textarea v-model="data.title" placeholder="请输入标的名称" :auto-focusd="false" rows="2"
         class="post-textarea"></nut-textarea>
       <!-- 文案 -->
-      <nut-textarea v-model="data.content" placeholder="请输入标的介绍" :auto-focusd="false" rows="2"
+      <nut-textarea v-model="data.kcDesc" placeholder="请输入标的介绍" :auto-focusd="false" rows="2"
         class="post-textarea"></nut-textarea>
 
       <!-- 预览列表(图片、视频，添加按钮) -->
@@ -29,14 +29,19 @@ import { debounce } from 'lodash';
 import { IMemoItem } from '@/apis/memo/model';
 import { IResult } from '@/components/selectMedia';
 import {addKunChart} from "@/apis/kunChart";
+import { IBiddingItem } from '@/apis/kunChart/model';
+import { useAccountStore } from '@/stores/account';
+import { useRouter,useUnload } from '@tarojs/taro';
 
 definePageConfig({
   disableScroll: true
 });
+const router = useRouter();
 
+const account = useAccountStore();
 
 const data = reactive({
-  content: '',
+  kcDesc: '',
   title: '',
   saveModule: false,
   modulePopshow: true,
@@ -44,6 +49,19 @@ const data = reactive({
   childDataPicList: [] as IResult[]
 });
 const prelistRef = ref();
+
+
+// 编辑逻辑
+if (!!router.params.shopId) {
+  data.kcDesc = account.editBinddingData.kcDesc;
+  // account.templeChoosePostList = account.editBinddingData.imgSrc.map((item) => {
+  //   return {
+  //     path: item.picUrl || item.videoPicUrl,
+  //     type: item.memoItemType===0?'image':'video',
+  //   };
+  // });
+}
+
 
 const PasslintContent = () => {
   if (prelistRef.value.data.sortedList.length === 0) {
@@ -53,7 +71,7 @@ const PasslintContent = () => {
       duration: 2000
     });
     return false;
-  } else if (data.content.length === 0) {
+  } else if (data.kcDesc.length === 0) {
     Taro.showToast({
       title: '请输入标的介绍',
       icon: 'error',
@@ -110,7 +128,8 @@ const addMemoData = async (
   await addKunChart({
     title: data.title,
     imgSrc: JSON.stringify(targetList),
-    kcDesc: data.content
+    kcDesc: data.kcDesc,
+    openid:account.userInfo.openid
   })
 };
 
@@ -145,5 +164,11 @@ const handleAddAlbum = () => {
   postHttp();
   return false;
 };
+
+
+
+useUnload(() => {
+  account.editBinddingData = {} as IBiddingItem
+})
 
 </script>

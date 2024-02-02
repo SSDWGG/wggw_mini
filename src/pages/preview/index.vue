@@ -37,7 +37,7 @@ const data = reactive({
 })
 
 const flat = (arr: IMemo[]) => arr.flatMap(i => i.list.map(v => ({...i, ...v})));
- data.swiperListData = computed(() => flat(account.memoDataList));
+ data.swiperListData = computed(() => flat(account.memoDataList)) as any;
  
 definePageConfig({
   backgroundColor: '#000',

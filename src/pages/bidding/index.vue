@@ -14,14 +14,11 @@
         <image class="bgImg" :src="(item.imgSrc as any)[0]?.picUrl" />
       </view>
     </view>
-    <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({
-    url:`/pages/bidding/post/index?type=image`
-  })" :showFlags="[7]" />
+    <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/bidding/post/index?type=image`})" :showFlags="[7]" />
   </scroll-view>
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
-// import { WaterMark as NutWaterMark } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";

@@ -11,6 +11,7 @@ interface IState {
   biddingKunDefaultList: Array<IBiddingItem>; //竞拍本地列表（坤版）
   templeChoosePostList: IResult[]; //上传选择的临时资源
   editMemoData: IMemo; //前端缓存修改备忘录的内容
+  editBinddingData: IBiddingItem; //前端缓存修改备忘录的内容
   memoDataList: IMemo[]; //前端缓存备忘录的数据（列表+详情）
   userInfo: IUserInfo;
 }
@@ -25,6 +26,7 @@ export const useAccountStore = defineStore("account", {
       email: "",
     },
     editMemoData:{} as IMemo ,
+    editBinddingData:{} as IBiddingItem ,
     templeChoosePostList: [],
     memoDataList: [],
     biddingKunDefaultList: [
@@ -85,8 +87,8 @@ export const useAccountStore = defineStore("account", {
           if (memoIndex !== -1) this.memoDataList.splice(memoIndex, 1);
           deleteMemo({ memoId: firstId });
         } else {
-          const parmas = cloneDeep(memo);
-          parmas.list = JSON.stringify(parmas.list);
+          const parmas = cloneDeep(memo) as IMemo;
+          (parmas.list as any )= JSON.stringify(parmas.list);
           updateMemo(parmas);
         }
       } else {
