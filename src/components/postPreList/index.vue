@@ -151,7 +151,7 @@ const uploadOSS = async () => {
   });
 
   // 校验是否是https图片，上传http图片，https图片包装返回（https图片无法直接上传会报错）
-  picPaths.forEach(async (picPathItem, index) => {
+  for await (let [index,picPathItem]  of picPaths.entries()){
     if (hasProtocol(picPathItem)) {
       // https包装
       resList[index] = {
@@ -172,7 +172,8 @@ const uploadOSS = async () => {
       }[] = await aliossUpload([picPathItem]);
       resList[index] = uploadResList[0];
     }
-  });
+  }
+
   return resList;
 };
 

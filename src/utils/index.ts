@@ -132,4 +132,4 @@ export const querySelectorAll = (selector: string, fields: NodesRef.Fields): Pro
 
 
 // 判断路径中是否包含协议头
-export const hasProtocol = (url: string) => url.match(/^https?/);
+export const hasProtocol = (url: string) => url.match(/(https):\/\/([\w.]+\/?)\S*/ig);
