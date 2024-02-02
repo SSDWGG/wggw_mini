@@ -77,9 +77,10 @@ const addMemoData = async (
     fullpath?: string;
     hash?: string;
   }[],
-) => {
+) => {  
   const targetList: IMemoItem[] = [];
   const time = new Date().valueOf() + '';
+  data.childDataPicList = prelistRef.value.data.sortedList;
   // 数据格式化存储的内容
   List.forEach((item, index) => {
     targetList.push({
@@ -93,7 +94,6 @@ const addMemoData = async (
       gmtModified: time,
     });
   });
-
   let listParam = {
     ... account.editMemoData,
     memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
