@@ -1,9 +1,6 @@
 export interface IPriceLineItem {
-
   lineId:string
   shopId:string
-  openid:string
-
   // 报价时间
   createTime:string,
   // 报价人唯一Id(openId)
@@ -19,5 +16,6 @@ interface IBiddingItem {
   imgSrc:string
   title:string
   kcDesc:string
+  openid:string
   priceLine:Array< IPriceLineItem >
 }

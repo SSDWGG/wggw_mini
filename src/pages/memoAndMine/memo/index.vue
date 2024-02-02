@@ -63,6 +63,7 @@ import { timelineFormat, timeFormat } from "@/utils/date";
 import Taro from "@tarojs/taro";
 import { getMemoList } from "@/apis/memo";
 import { IMemo } from "@/apis/memo/model";
+import cloneDeep from "lodash/cloneDeep";
 
 const account = useAccountStore();
 
@@ -98,7 +99,7 @@ const toPreview = (detailId: string) => {
 };
 
 const editMemo = (item:IMemo) => {
-  account.editMemoData = item
+  account.editMemoData =  cloneDeep(item)
   Taro.navigateTo({ url: `/pages/memoAndMine/memo/post/index?type=${item.memoType==1?'video':'image'}&memoId=${item.memoId}` });
 };
 

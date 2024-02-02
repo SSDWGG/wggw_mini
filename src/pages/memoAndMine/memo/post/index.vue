@@ -19,10 +19,9 @@ import { reactive, ref } from 'vue';
 import Taro from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
 import styles from './styles.scss';
-import aliossUpload from '@/utils/alioss-upload';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
-import { getOSSVideoImg, hasProtocol, uuid } from '@/utils/index';
+import { getOSSVideoImg} from '@/utils/index';
 import { IMemo, IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
 import { IResult } from '@/components/selectMedia';
@@ -68,47 +67,7 @@ const PasslintContent = () => {
   return true;
 };
 
-const uploadOSS = async () => {
-  const picPaths = [] as string[];
-  const resList: {
-    status: number;
-    name: string;
-    path?: string;
-    fullpath?: string;
-    hash?: string;
-  }[] = [];
-  data.childDataPicList = prelistRef.value.data.sortedList;
-  
-  // 通过ref拿到子组件picList
-  data.childDataPicList.forEach((item) => {
-    picPaths.push(item.path);
-  });
 
-  // 校验是否是https图片，上传http图片，https图片包装返回（https图片无法直接上传会报错）
-  picPaths.forEach(async (picPathItem,index) => {
-    if (hasProtocol(picPathItem)) {
-      // https包装
-      resList[index] = {
-        status: 200,
-        name: uuid(),
-        path: picPathItem,
-        fullpath: picPathItem,
-        hash: uuid()
-      };
-    } else {
-      // 非https上传
-      const uploadResList: {
-        status: number;
-        name: string;
-        path?: string;
-        fullpath?: string;
-        hash?: string;
-      }[] = await aliossUpload([picPathItem]);
-      resList[index] = uploadResList[0];
-    }
-  });  
-  return resList;
-};
 
 const addMemoData = async (
   List: {
@@ -142,9 +101,8 @@ const addMemoData = async (
     list: JSON.stringify(targetList), // 相册详情
     uid: account.userInfo.openid,
   };
+  
   if(!!router.params.memoId){
-
-   
     updateMemo(listParam as unknown as IMemo);
   }else{
     AddMemo(listParam);
@@ -153,7 +111,7 @@ const addMemoData = async (
 
 const postHttp = debounce(async () => {
   try {
-    await addMemoData(await uploadOSS());
+    await addMemoData(await prelistRef.value.uploadOSS());
     Taro.showToast({
       title: '上传成功',
       icon: 'success',

@@ -27,18 +27,17 @@ public class KunChartController {
         List<KunChart> kunchartList  = page.getRecords();  //分页查询的结果
         return success(kunchartList);
     }
+
     @RequestMapping("/v1/KunChart/getKunCharOne")              // id查询
     public AjaxResult getKunCharOne(@RequestParam("shopId") Long shopId ){
         KunChart kunChartOne  =  kunchartMapper.selectById(shopId);
         return success(kunChartOne);
     }
 
-
-
     @RequestMapping("/v1/KunChart/addKunChart")              // 增加
     public AjaxResult addKunChart(@RequestBody KunChart kc){
         kunchartMapper.insert(kc);
-        return success();
+        return success(kc.getShopId().toString());
     }
 
     @RequestMapping("/v1/KunChart/deleteKunChartByShopId")              // 删除
@@ -46,5 +45,12 @@ public class KunChartController {
         kunchartMapper.deleteById(shopId);
         return success();
     }
+
+  //    改
+  @RequestMapping("/v1/KunChart/updateKunChart")
+  public AjaxResult updateKunChart(@RequestBody KunChart kc){
+    kunchartMapper.updateById(kc);
+    return success();
+  }
 
 }

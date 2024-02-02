@@ -23,47 +23,64 @@
     <nut-animate type="breath" class="rule-button-div" loop>
       <nut-button block type="primary" class="publish" @tap="addGame">参与报价</nut-button>
     </nut-animate>
+  </view>
+  <view class="btnGroup" v-if="account.userInfo.openid === chooseItem.openid">
     <!-- 编辑标的 -->
-    <nut-animate type="breath" class="rule-button-div"  v-if="account.userInfo.openid === chooseItem.openid" loop>
-      <nut-button
-        block
-        type="primary"
-        class="publish"
-        @tap="
-          () =>
-            Taro.navigateTo({
-              url: `/pages/bidding/post/index?type=image&shopId=${router.params.shopId}`,
-            })
-        "
-        >编辑标的</nut-button
-      >
+    <nut-animate type="breath" class="rule-button-div" loop>
+      <nut-button block type="primary" class="publish" @tap="editChart">编辑标的</nut-button>
+    </nut-animate>
+    <!-- 编辑标的 -->
+    <nut-animate type="breath" class="rule-button-div" loop>
+      <nut-button block type="primary" class="publish" @tap="delChart">删除标的</nut-button>
     </nut-animate>
   </view>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 import EChart from '@/components/myEcharts/e-chart.vue';
-import Taro , {  useRouter} from '@tarojs/taro';
-import { IPriceLineItem } from '@/apis/kunChart/model';
+import Taro, { useRouter } from '@tarojs/taro';
+import { IBiddingItem, IPriceLineItem } from '@/apis/kunChart/model';
 import { useAccountStore } from '@/stores/account';
+import cloneDeep from 'lodash/cloneDeep';
+import { deleteKunChartByShopId } from '@/apis/kunChart';
 
 interface IProps {
   orginData: IPriceLineItem[];
-  chooseItem: IPriceLineItem;
+  chooseItem: IBiddingItem;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
   orginData: () => [] as IPriceLineItem[],
-  chooseItem: ()=> ({} as IPriceLineItem),
+  chooseItem: () => ({}) as IBiddingItem,
 });
 const account = useAccountStore();
 
 const router = useRouter();
 
-
 const emit = defineEmits(['bj', 'gx']);
 
 const barChat = ref<any>();
+
+const editChart = () => {
+  account.editBinddingData = cloneDeep(props.chooseItem);
+  Taro.navigateTo({
+    url: `/pages/bidding/post/index?type=image&shopId=${router.params.shopId}`,
+  });
+};
+
+const delChart = async () => {
+  await deleteKunChartByShopId({
+    shopId: router.params.shopId as string,
+  });
+  Taro.showToast({
+    title: '操作成功',
+    icon: 'success',
+    duration: 2000,
+  });
+  setTimeout(() => {
+    Taro.navigateBack();
+  }, 1500);
+};
 
 const initData = (option) => {
   props.orginData.forEach((item) => {

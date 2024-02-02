@@ -40,12 +40,6 @@ const data = reactive({
   biddingDefaultList: [] as IBiddingItem[],
 });
 
-
-
-// deleteKunChartByShopId({
-// shopId:'1749268448801030145'
-// })
-
 useDidShow(async () => {
  const res  = await getKunChartList({
     current: 1,

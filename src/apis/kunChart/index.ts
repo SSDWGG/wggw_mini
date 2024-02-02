@@ -17,7 +17,7 @@ export const addKunChart = (data: {
   kcDesc: string;
   openid:string;
 }) =>
-  request<boolean>({
+  request<string>({
     url: "/v1/KunChart/addKunChart",
     method: "POST",
     data,
@@ -55,6 +55,12 @@ export const getKunChartLineList = (params: { shopId: string }) =>
   }) =>
     request<boolean>({
       url: "/v1/KunChartLine/addKunChartLine",
+      method: "POST",
+      data,
+    });
+  export const updateKunChart = (data: T.IBiddingItem) =>
+    request<boolean>({
+      url: "/v1/KunChart/updateKunChart",
       method: "POST",
       data,
     });

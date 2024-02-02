@@ -62,6 +62,8 @@ import { useAccountStore } from '@/stores/account';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import selectMedia, { IResult } from '@/components/selectMedia';
 import myToastComponents from '@/components/myToast/index.vue';
+import { hasProtocol, uuid } from '@/utils/index';
+import aliossUpload from '@/utils/alioss-upload';
 
 type IListItem = IResult & {
   originIndex: number;
@@ -133,11 +135,53 @@ const removeItem = (item) => {
   data.sortedList = data.picList;
 };
 
+const uploadOSS = async () => {
+  const picPaths = [] as string[];
+  const resList: {
+    status: number;
+    name: string;
+    path?: string;
+    fullpath?: string;
+    hash?: string;
+  }[] = [];
+
+  // 通过ref拿到子组件picList
+  data.sortedList.forEach((item) => {
+    picPaths.push(item.path);
+  });
+
+  // 校验是否是https图片，上传http图片，https图片包装返回（https图片无法直接上传会报错）
+  picPaths.forEach(async (picPathItem, index) => {
+    if (hasProtocol(picPathItem)) {
+      // https包装
+      resList[index] = {
+        status: 200,
+        name: uuid(),
+        path: picPathItem,
+        fullpath: picPathItem,
+        hash: uuid(),
+      };
+    } else {
+      // 非https上传
+      const uploadResList: {
+        status: number;
+        name: string;
+        path?: string;
+        fullpath?: string;
+        hash?: string;
+      }[] = await aliossUpload([picPathItem]);
+      resList[index] = uploadResList[0];
+    }
+  });
+  return resList;
+};
+
 useUnload(() => {
   account.templeChoosePostList = []
 })
 
 defineExpose({
-  data
+  data,
+  uploadOSS
 });
 </script>

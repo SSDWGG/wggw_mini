@@ -23,6 +23,8 @@ public class KunChartLineController {
     @Autowired
     KunChartLineMapper kunchartlineMapper;
 
+
+
     @CrossOrigin
     @RequestMapping("/v1/KunChartLine/addKunChartLine")              // 增加
     public AjaxResult addKunChartLine(@RequestBody KunChartLine kcl){
