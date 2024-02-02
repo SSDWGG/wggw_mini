@@ -3,7 +3,7 @@
     <navbar title="价值曲线" background-color="rgba(116, 104, 242,.1)" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="价值曲线" />
     <view class="tipTitle">
-      您觉得他们价值几何？
+      以下标的价值几何？
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
@@ -11,7 +11,7 @@
         <view class="title">
           {{ item.title }}
         </view>
-        <image class="bgImg" :src="(item.imgSrc as any)[0]?.picUrl" />
+        <image class="bgImg" mode="aspectFill" :src="(item.imgSrc as any)[0]?.picUrl" />
       </view>
     </view>
     <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/bidding/post/index?type=image`})" :showFlags="[7]" />

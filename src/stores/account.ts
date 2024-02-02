@@ -27,27 +27,7 @@ export const useAccountStore = defineStore("account", {
     editMemoData:{} as IMemo ,
     editBinddingData:{} as IBiddingItem ,
     templeChoosePostList: [],
-    memoDataList: [],
-      // {
-      //   shopId:'1',
-      //   imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
-      //   title:'野生kun',
-      //   kcDesc:'守护最好的野生坤，把价格打下去家人们！！',
-      //   priceLine:[
-      //     {
-      //       time:'2024-1-7 2:30:00',
-      //       uid:'1',
-      //       uName:'小黑子',
-      //       price:1
-      //     },
-      //     {
-      //       time:'2024-1-8 2:30:00',
-      //       uid:'2',
-      //       uName:'护坤大使',
-      //       price:100
-      //     },
-      //   ]
-      // },
+    memoDataList: []
   }),
   actions: {
     async bindPhone(phoneCode) {

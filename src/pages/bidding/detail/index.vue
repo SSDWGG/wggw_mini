@@ -11,7 +11,7 @@
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
     <side-bar
       :show="show"
-      :showFlags="[8, 1, 3]"
+      :showFlags="[1, 3]"
       :onbiddingLineButtonBack="
         () => {
           data.popVisable = true;
