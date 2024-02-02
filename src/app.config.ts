@@ -5,10 +5,7 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/menu/index',
   ],
-  subpackages: [
-    { root: 'pages/memoAndMine', pages: ['index','memo/post/index'] },
-    { root: 'pages/preview', pages: ['index'] },
-  ],
+  subpackages: [],
   requiredBackgroundModes:["audio"],
   window: {
     navigationBarTextStyle: 'black',

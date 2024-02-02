@@ -13,24 +13,18 @@ import {
   OverLay,
   Popup,
 } from '@nutui/nutui-taro';
-import Taro from '@tarojs/taro';
-import { adjustSelected } from './pages/memoAndMine/custom-tab-bar/useTabBarStore';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 
 /**
  * 初始化 app 做的事情。如果代码逻辑过于冗长，可以拆分出去
  * **/
-const initApp = (options: Taro.getLaunchOptionsSync.LaunchOptions ) => {
+const initApp = ( ) => {
 
   const systemInfoStore = useSystemInfoStore();
 
 
   // 获取系统信息
   systemInfoStore.getSystemInfo();
-
-
-  // 矫正 tabbar 选中状态
-  setTimeout(() => adjustSelected(options.path), 0);
 
 };
 
