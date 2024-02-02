@@ -74,14 +74,14 @@ const data = reactive({
         "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
       opacity: 0.2,
     },
-    {
-      title: "IKun",
-      Ctitle: "坤歌台",
-      router: "/pages/cxk/cxk3/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
-      opacity: 0.2,
-    },
+    // {
+    //   title: "IKun",
+    //   Ctitle: "坤歌台",
+    //   router: "/pages/cxk/cxk3/index",
+    //   bgSrc:
+    //     "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
+    //   opacity: 0.2,
+    // },
     {
       title: "Shake Kun",
       Ctitle: "摇坤",

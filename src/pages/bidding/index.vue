@@ -14,7 +14,7 @@
         <image class="bgImg" mode="aspectFill" :src="(item.imgSrc as any)[0]?.picUrl" />
       </view>
     </view>
-    <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/bidding/post/index?type=image`})" :showFlags="[7]" />
+    <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/bidding/post/index?type=image`})" :showFlags="[]" />
   </scroll-view>
 </template>
 <script lang="ts" setup>
