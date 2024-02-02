@@ -11,9 +11,10 @@ export default defineAppConfig({
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
+    { root: 'pages/speedTest', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },
     { root: 'pages/bidding', pages: ['index','detail/index','post/index'] },
-    { root: 'pages/cxk', pages: ['index/index','menu/index','cxk/index','cxk2/index','cxk3/index','cxk4/index','cxk5/index','cxk6/index','cxk7/index','cxk7/detail/index'] },
+    { root: 'pages/cxk', pages: ['index/index','menu/index','cxk/index','cxk2/index','cxk3/index','cxk4/index','cxk5/index','cxk6/index'] },
     { root: 'pages/developer', pages: ['index','cssloaders/index','time/index','editor/index','waterfall/index'] },
 
   ],

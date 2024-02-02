@@ -83,14 +83,6 @@ const data = reactive({
       opacity: 0.2,
     },
     {
-      title: "Kun Bidding",
-      Ctitle: "坤线图",
-      router: "/pages/cxk/cxk7/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
-      opacity: 0.2,
-    },
-    {
       title: "Shake Kun",
       Ctitle: "摇坤",
       router: "/pages/cxk/cxk2/index",

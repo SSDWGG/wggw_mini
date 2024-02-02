@@ -8,7 +8,6 @@ import cloneDeep from "lodash/cloneDeep";
 import { IUserInfo } from "@/apis/mine/model";
 
 interface IState {
-  biddingKunDefaultList: Array<IBiddingItem>; //竞拍本地列表（坤版）
   templeChoosePostList: IResult[]; //上传选择的临时资源
   editMemoData: IMemo; //前端缓存修改备忘录的内容
   editBinddingData: IBiddingItem; //前端缓存修改备忘录的内容
@@ -29,7 +28,6 @@ export const useAccountStore = defineStore("account", {
     editBinddingData:{} as IBiddingItem ,
     templeChoosePostList: [],
     memoDataList: [],
-    biddingKunDefaultList: [
       // {
       //   shopId:'1',
       //   imgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg',
@@ -50,7 +48,6 @@ export const useAccountStore = defineStore("account", {
       //     },
       //   ]
       // },
-    ],
   }),
   actions: {
     async bindPhone(phoneCode) {

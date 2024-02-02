@@ -29,6 +29,8 @@ public class KunChart {
 
     private String imgSrc;
 
+    private Integer isKun;
+
     @TableLogic //逻辑删除注解    (内部进行更新)
     private Integer deleted;
 
@@ -46,6 +48,14 @@ public class KunChart {
 
     //构造类和setget方法 和tostring方法
 
+
+  public Integer getIsKun() {
+    return isKun;
+  }
+
+  public void setIsKun(Integer isKun) {
+    this.isKun = isKun;
+  }
 
   public String getOpenid() {
     return openid;

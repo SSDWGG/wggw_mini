@@ -35,6 +35,8 @@
         </view>
       </nut-animate>
     </view>
+
+
     <side-bar :show="show" :onfullButtonBack="()=>data.showPage = false"  :showFlags = [6,1,2,3,4] />
   </scroll-view>
   <fullPreview :back="true" @back="data.showPage = true" v-else />
@@ -90,16 +92,20 @@ const data = reactive({
       router: "/pages/memoAndMine/index",
     },
     {
-      title: "developer",
-      Ctitle: "开发者专区",
-      router: "/pages/developer/index",
-    },
-    {
       title: "Value Curve",
       Ctitle: "价值曲线",
       router: "/pages/bidding/index",
     },
-    
+    // {
+    //   title: "reaction rate",
+    //   Ctitle: "速度反应",
+    //   router: "/pages/speedTest/index",
+    // },
+    {
+      title: "developer",
+      Ctitle: "开发者专区",
+      router: "/pages/developer/index",
+    },
     {
       title: "Score Board",
       Ctitle: "计分板",
