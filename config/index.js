@@ -3,7 +3,7 @@ import ComponentsPlugin from 'unplugin-vue-components/webpack'
 import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
 
 const getArgValue = (name) => {
-  const arr = process.argv.splice(2);
+  const arr = [...process.argv].splice(2);
   for (let i = 0; i < arr.length; i++) {
     const val = arr[i];
     if (val.includes(name)) {
@@ -13,6 +13,9 @@ const getArgValue = (name) => {
   }
   return '';
 }
+// const getArgValue1 = (name) => {
+//   return  process.argv;
+// }
 
 const config = {
   projectName: 'taro-vue3',
@@ -134,6 +137,7 @@ const config = {
       'NODE_ENV': process.env.NODE_ENV,
       'TARO_ENV': process.env.TARO_ENV,
       'BUILD_ENV': getArgValue('buildEnv'),
+      'FIX_ENV': getArgValue('wxFixProd'),
     })
   },
   alias: {

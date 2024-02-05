@@ -7,6 +7,10 @@
 
 项目地址：https://github.com/SSDWGG/wggw_mini.git   
 
+启动环境参数
+buildEnv：通讯ip区别
+wxFixProd：是否通过微信审核限制(个人开发者小程序的限制)
+
 
 
 

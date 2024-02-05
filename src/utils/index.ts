@@ -133,3 +133,9 @@ export const querySelectorAll = (selector: string, fields: NodesRef.Fields): Pro
 
 // 判断路径中是否包含协议头
 export const hasProtocol = (url: string) => url.match(/(https):\/\/([\w.]+\/?)\S*/ig);
+
+
+// 是否显示微信审核内容（返回true表示显示该内容，false为不显示该内容）
+export const isWxFixProd = ()=>{
+  return process.env.FIX_ENV === 'nofix'
+}

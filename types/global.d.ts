@@ -16,6 +16,7 @@ declare const process: {
     TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq';
     NODE_ENV: 'development' | 'production';
     BUILD_ENV: 'test'|'prod';
+    FIX_ENV: 'nofix'|'fix';
     [key: string]: any;
   }
 };
