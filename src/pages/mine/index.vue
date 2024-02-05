@@ -15,7 +15,7 @@
       </view>
 
       <!-- 修改邮箱 -->
-      <!-- <view class="infoItem">
+      <view class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
@@ -25,10 +25,10 @@
         <view class="content" @tap="showEmailPop">
           {{ account.userInfo.email || "点击验证邮箱" }}
         </view>
-      </view> -->
+      </view>
 
       <!-- 修改手机号 -->
-      <!-- <view class="infoItem">
+      <view class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
@@ -40,7 +40,7 @@
             {{ account.userInfo.phone || "点击绑定手机号" }}
           </checkSystemButton>
         </view>
-      </view> -->
+      </view>
 
     </view>
 
@@ -130,11 +130,11 @@ const normalPop = reactive({
   attrName:''
 })
 
-// const showEmailPop = () => {
-//   if(!account.userInfo.email){
-//     emailPop.popTipVisible = true;
-//   }
-// };
+const showEmailPop = () => {
+  if(!account.userInfo.email){
+    emailPop.popTipVisible = true;
+  }
+};
 
 // const showNormalEditPop = (title,placeholder,attrName) => {
 //   normalPop.title = title

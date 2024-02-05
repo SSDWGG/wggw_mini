@@ -44,7 +44,7 @@
     "pinia": "^2.1.7",
     "taro-plugin-pinia": "^1.0.0",
     "vue": "^3.4.15",
-    "@fishui/taro-vue": "1.1.5",
+    "@fishui/taro-vue": "file:.yalc/@fishui/taro-vue",
     "@lucky-canvas/taro": "^0.0.14"
   },
   "devDependencies": {
