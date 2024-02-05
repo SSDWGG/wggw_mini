@@ -102,8 +102,6 @@ import aliossUpload from "@/utils/alioss-upload";
       });
       emit("callback", false);
     }
-    // @ts-ignore
-    if (props.eventName) wx.aldstat.sendEvent(props.eventName, {});
   };
 
   /**

@@ -15,26 +15,13 @@
         :muted="true" :enable-progress-gesture="false" style="width: 100%"
         src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/OMFHLJDP-17059977997221.mp4" />
     </view>
-    <!-- 维护坤坤节目列表 -->
-    <view class="menu" :style="{ height }">
-      <nut-animate type="breath" class="rule-button-div" loop v-for="(item, index) in data.menuList" :key="index">
-        <view class="menu-item" @tap="goto(item)">
-          <view class="title">
-            {{ item.title }}
-          </view>
-          <view class="title">
-            {{ item.Ctitle }}
-          </view>
-          <image class="bgImg" mode="aspectFill" :src="item.bgSrc" :style="{ opacity: item.opacity }" />
-        </view>
-      </nut-animate>
-    </view>
+ 
+    <commonMenu :height="height" :listData="account.cxkMenuList"></commonMenu>
+
 
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[1, 2, 3]" />
 
-    <openOutLinkTipPop :pop-tip-visible="data.popTipVisible" :qrSrc="data.chooseItem.qrSrc" 
-    :show-name="data.chooseItem.Ctitle" :href="data.chooseItem.linkUrl" @close="()=>{data.popTipVisible = false}"/>
-
+  
 
   </scroll-view>
   <fullPreview :back="true" @back="data.showPage = true" v-else />
@@ -42,7 +29,7 @@
 <script lang="ts" setup>
 import styles from "./styles.scss";
 import { computed, reactive } from "vue";
-import Taro, {
+import  {
   useShareAppMessage,
   useShareTimeline,
   switchTab,
@@ -52,7 +39,8 @@ import { useSystemInfoStore } from "@/stores/systemInfo";
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import fullPreview from "../fullPreview/index.vue";
-import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
+import commonMenu from '@/components/commonMenu';
+import { useAccountStore } from '@/stores/account';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -60,80 +48,12 @@ definePageConfig({
 });
 
 const { show, onScroll } = useListScroll();
+const account = useAccountStore();
 
 const systemInfo = useSystemInfoStore();
 const data = reactive({
   showPage: true,
   pageContainerShow: true,
-  menuList: [
-    {
-      title: "IKun",
-      Ctitle: "小黑子",
-      router: "/pages/cxk/cxk/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
-      opacity: 0.2,
-    },
-    {
-      title: "IKun",
-      Ctitle: "坤歌台",
-      router: "/pages/cxk/cxk3/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
-      opacity: 0.2,
-    },
-    {
-      title: "Shake Kun",
-      Ctitle: "摇坤",
-      router: "/pages/cxk/cxk2/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/BEDKEKCP-1705543014391shakeKun.gif",
-      opacity: 1,
-      linkUrl: "http://ikunqqq.ssdwgg.cn",
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJHBFEAA-1706331358049ikunqqq.png'
-    },
-    {
-      title: "Kun Str",
-      Ctitle: "字符坤",
-      router: "/pages/cxk/cxk4/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IIOMLFKE-1705543014391strkun.gif",
-      opacity: 1,
-      linkUrl: "http://ikunstr.ssdwgg.cn",
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GIKJIPEA-1706331381805ikunstr.png'
-    },
-    {
-      title: "Game",
-      Ctitle: "消消乐旋转版本",
-      router: "/pages/cxk/cxk5/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HEPJCNMO-1705543014391game1.gif",
-      opacity: 1,
-      linkUrl: "http://hextris.ssdwgg.cn",
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IMDCHDJP-1706331384525hextris.png'
-    },
-    {
-      title: "Game",
-      Ctitle: "兔了个兔",
-      router: "/pages/cxk/cxk6/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NICPAEIK-1705543014391tlgt.gif",
-      opacity: 1,
-      linkUrl: "http://xlgx.ssdwgg.cn",
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MOCAPJJK-1706331446705xlgx.png'
-    },
-  ],
-  chooseItem: {
-      title: "Game",
-      Ctitle: "兔了个兔",
-      router: "/pages/cxk/cxk6/index",
-      bgSrc:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/NICPAEIK-1705543014391tlgt.gif",
-      opacity: 1,
-      linkUrl: "http://xlgx.ssdwgg.cn",
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MOCAPJJK-1706331446705xlgx.png'
-    },
-  popTipVisible: false
 });
 
 const h5 = `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造坤去改变坤</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象坤到现象坤</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻坤坤</strong></h2>`;
@@ -142,20 +62,6 @@ const height = computed(
     `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`
 );
 
-
-const goto = (item) => {
-  if (process.env.NODE_ENV === 'development') {
-    // dev直接跳转
-    Taro.navigateTo({ url: item.router });
-  }
-  else if (!!item.linkUrl) {
-    // 提示网址
-    data.chooseItem = item
-    data.popTipVisible = true
-  } else {
-    Taro.navigateTo({ url: item.router });
-  }
-};
 
 const goback = () => {
   switchTab({ url: "/pages/menu/index" });

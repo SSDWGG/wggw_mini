@@ -15,7 +15,7 @@
       </view>
 
       <!-- 修改邮箱 -->
-      <view class="infoItem">
+      <view class="infoItem" v-if="isPermissions()">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
@@ -28,7 +28,7 @@
       </view>
 
       <!-- 修改手机号 -->
-      <view class="infoItem">
+      <view class="infoItem" v-if="isPermissions()">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
@@ -41,7 +41,6 @@
           </checkSystemButton>
         </view>
       </view>
-
     </view>
 
     <update-pop v-model:modelValue="emailPop.popTipVisible" confirmText="确认绑定" cancelText="取消绑定" :on-confirm="onConfirm"
@@ -100,6 +99,7 @@ import myToastComponents from "@/components/myToast/index.vue";
 import { checkEmail } from "@/utils/verify";
 import { debounce } from 'lodash';
 import NicknameRobber from '@/components/nicknameRobber';
+import { isPermissions } from "@/utils/index";
 
 definePageConfig({ backgroundColor: "#f3f3fe" });
 

@@ -135,7 +135,9 @@ export const querySelectorAll = (selector: string, fields: NodesRef.Fields): Pro
 export const hasProtocol = (url: string) => url.match(/(https):\/\/([\w.]+\/?)\S*/ig);
 
 
+// todo：升级成权限限制，权限由admin开通
 // 是否显示微信审核内容（返回true表示显示该内容，false为不显示该内容）
-export const isWxFixProd = ()=>{
-  return process.env.FIX_ENV === 'nofix'
-}
+export const isPermissions = ()=>  process.env.FIX_ENV === 'nofix'
+
+// 是否是dev状态
+export const isDeving = ()=> process.env.NODE_ENV === 'development'
