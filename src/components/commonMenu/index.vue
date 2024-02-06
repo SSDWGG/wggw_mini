@@ -46,7 +46,7 @@ const data = reactive({
 });
 
 
-const goto = (item) => {
+const goto = (item:IListDataItem) => {
   if (isDeving()) {
     // dev直接跳转
     Taro.navigateTo({ url: item.router });

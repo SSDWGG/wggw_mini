@@ -8,9 +8,6 @@ import cloneDeep from "lodash/cloneDeep";
 import { IUserInfo } from "@/apis/mine/model";
 import { IListDataItem } from "types/global";
 
-
-
-
 interface IState {
   templeChoosePostList: IResult[]; //上传选择的临时资源
   editMemoData: IMemo; //前端缓存修改备忘录的内容
@@ -77,7 +74,6 @@ export const useAccountStore = defineStore("account", {
         router: "/pages/cxk/cxk/index",
         bgSrc:
           "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
-        opacity: 0.2,
       },
       {
         title: "IKun",
@@ -85,7 +81,6 @@ export const useAccountStore = defineStore("account", {
         router: "/pages/cxk/cxk3/index",
         bgSrc:
           "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
-        opacity: 0.2,
       },
       {
         title: "Shake Kun",
