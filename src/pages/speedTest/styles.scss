@@ -4,7 +4,7 @@ page {
 .myContainer {
   width: 100vw;
   height: 100vh;
-  
+  font-family: monospace;
   :global {
   
    .tipTitle{
@@ -22,7 +22,7 @@ page {
    }
    .tipGameR{
     font-size: 12px;
-    color: #ff5a19;
+    color: rgb(255, 90, 25);
     text-align: center;
     display: flex;
     align-items: center;
@@ -34,10 +34,11 @@ page {
       margin-bottom: 20px;
     }
     .gameBtn{
+      
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      font-size: 40px;
+      
       color: rgb(116, 104, 242);
     }
    }

@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.container">
-    <navbar title="上传标的" />
+    <navbar :title="!!router.params.shopId?'编辑我的标的':'创建我的标的' " />
     <view class="body">
       <nut-textarea v-model="data.title" placeholder="请输入标的名称" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
       <nut-textarea v-model="data.kcDesc" placeholder="请输入标的介绍" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>

@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.container">
-    <navbar title="上传至备忘录" />
+    <navbar :title="!!router.params.memoId?'编辑我的记录':'创建我的记录' " />
     <view class="body">
       <!-- 文案 -->
       <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>

@@ -41,6 +41,11 @@ export const useAccountStore = defineStore("account", {
         opacity:1,
       },
       {
+        title: "reaction rate",
+        Ctitle: "速度反应",
+        router: "/pages/speedTest/index",
+      },
+      {
         title: "Mood Memo",
         Ctitle: "心情记录",
         router: "/pages/memoAndMine/index",
@@ -49,11 +54,6 @@ export const useAccountStore = defineStore("account", {
         title: "Value Curve",
         Ctitle: "价值曲线",
         router: "/pages/bidding/index",
-      },
-      {
-        title: "reaction rate",
-        Ctitle: "速度反应",
-        router: "/pages/speedTest/index",
       },
       {
         title: "developer",

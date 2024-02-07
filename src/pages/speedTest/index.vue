@@ -1,27 +1,60 @@
 <template>
-  <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true">
-    <navbar title="测试反应速度" background-color="rgba(116, 104, 242,.1)" />
+  <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
+    <navbar title="测试反应速度" background-color="rgba(116, 104, 242,.1)" >
+      <template v-if="!!router.params.isShare" #left>
+        <view style="padding: 6px 20px" @tap="goHomePage">
+          <IconFont name="home" size="20" />
+        </view>
+      </template>
+    </navbar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="speedTest" />
     <view class="tipTitle"> 点击开始按钮测试你的最快反应速度吧 </view>
     <view class="tipGameR"> （点击开始游戏，待按钮颜色变色后快速按下按钮） </view>
 
     <!-- 游戏区 -->
     <view class="ganmeCenter flex center column">
-      <view class="tip"> 最近一次记时结果 ：{{ data.historyData[data.historyData.length - 1] || '0.00' }} s </view>
+      <view class="tip"> 最好成绩 ：{{ data.niceResult }} 秒 </view>
 
       <!-- 游戏按钮 -->
       <nut-animate type="breath" class="rule-button-div" loop @tap="tapBtn">
-        <view class="gameBtn flex center" :style="{ backgroundColor: data.gameIngFlag === GameState.start ? 'beige' : 'green' }">
+        <view
+          class="gameBtn flex center"
+          :style="{
+            backgroundColor: data.gameIngFlag === GameState.start ? 'rgba(255, 90, 25 , .6)' : 'rgba(130, 243, 132,.5) ',
+            fontSize: data.gameIngFlag === GameState.end ? '20px' : '40px',
+          }"
+        >
           {{ data.btnText || data.useTime / 100 }}
         </view>
       </nut-animate>
     </view>
+    <!-- toast提示 -->
+    <my-toast-components ref="myToast" :duration="2500" />
+    <side-bar
+      :show="show"
+      :showFlags="[1, 3]"
+    />
   </scroll-view>
 </template>
 <script lang="ts" setup>
 import styles from './styles.scss';
-import { reactive, watch, onUnmounted } from 'vue';
+import { ref, reactive, watch, onUnmounted } from 'vue';
 import { Navbar } from '@fishui/taro-vue';
+import myToastComponents from '@/components/myToast/index.vue';
+import { useListScroll } from '@/components/scrollHooks/useListScroll';
+import { useShareAppMessage, useShareTimeline,switchTab,useRouter } from '@tarojs/taro';
+
+definePageConfig({
+  enableShareAppMessage: true,
+  enableShareTimeline: true,
+});
+
+const { show, onScroll } = useListScroll();
+
+const myToast = ref<any>();
+
+const router = useRouter();
+
 
 const GameState = {
   noStart: 0,
@@ -30,14 +63,18 @@ const GameState = {
   end: 3,
 };
 
+const maxGameTime = 5000;
+
 const data = reactive({
   // 游戏状态   未开始|等待|计时中|结束    结束状态是未重置状态
   gameIngFlag: GameState.noStart,
   useTime: 0,
+  maxGameTime,
   btnText: '' as any,
   intervalFlag: null as any,
   timeoutFlag: null as any,
-  historyData: [] as Array<number>,
+  maxTimeoutFlag: null as any,
+  niceResult: maxGameTime / 1000,
 });
 
 watch(
@@ -50,8 +87,7 @@ watch(
     } else if (val === GameState.start) {
       data.btnText = '';
     } else if (val === GameState.end) {
-      data.btnText = '再来一次!';
-      // data.btnText = '最近一次响应时长：' + data.useTime / 100 + 's';
+      data.btnText = '本次用时:' + data.useTime / 100 + 's';
     }
   },
   { immediate: true },
@@ -64,19 +100,31 @@ const tapBtn = () => {
     waitStartGame();
   } else if (data.gameIngFlag === GameState.end) {
     waitStartGame();
-  }else if(data.gameIngFlag === GameState.wait){
-    // 记录是否在等待开始时多次点击超过最大点击额，多次点击给与提示并终止程序
-    return;
+  } else if (data.gameIngFlag === GameState.wait) {
+    myToast.value.myToastShow({
+      icon: 'error',
+      title: '开始前点击是无效的哦~',
+      duration: 2000,
+    });
+    clearTimeout(data.timeoutFlag);
+    waitStartGame();
   }
 };
 // 结束计时
 const endGame = () => {
   // 结束游戏逻辑
   clearInterval(data.intervalFlag);
+  clearTimeout(data.maxTimeoutFlag);
   data.intervalFlag = null;
-  data.historyData.push(data.useTime / 100);
-  data.useTime = 0;
   data.gameIngFlag = GameState.end;
+  if (data.niceResult > data.useTime / 100) {
+    data.niceResult = data.useTime / 100;
+    myToast.value.myToastShow({
+      icon: 'success',
+      title: '创造了最好记录,太棒啦👍🏻~',
+      duration: 2000,
+    });
+  }
 };
 
 // 等待开始计时
@@ -93,17 +141,43 @@ const waitStartGame = () => {
 
 // 开始计时逻辑
 const startGame = () => {
-
   // 设置定时器（超过最大秒数后终止计时）并提示异常
-  
   data.gameIngFlag = GameState.start;
   data.intervalFlag = setInterval(() => {
     data.useTime++;
   }, 10);
+  data.maxTimeoutFlag = setTimeout(() => {
+    myToast.value.myToastShow({
+      icon: 'error',
+      title: 'OMG,太慢啦~',
+      duration: 2000,
+    });
+    endGame();
+  }, data.maxGameTime);
 };
 
 onUnmounted(() => {
   clearTimeout(data.timeoutFlag);
   clearInterval(data.intervalFlag);
 });
+
+
+useShareTimeline(() => {
+  return {
+    title: '来WGGW比比谁的手速更快',
+    path: `/pages/speedTest/index?isShare=true`,
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg',
+  };
+});
+useShareAppMessage(() => {
+  return {
+    title: '来WGGW比比谁的手速更快',
+    path: `/pages/speedTest/index?isShare=true`,
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg',
+  };
+});
+
+const goHomePage = () => {
+  switchTab({ url: '/pages/index/index' });
+};
 </script>
