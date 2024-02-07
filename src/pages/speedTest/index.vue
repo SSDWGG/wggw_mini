@@ -143,6 +143,7 @@ const waitStartGame = () => {
 const startGame = () => {
   // 设置定时器（超过最大秒数后终止计时）并提示异常
   data.gameIngFlag = GameState.start;
+  data.useTime = 0
   data.intervalFlag = setInterval(() => {
     data.useTime++;
   }, 10);
