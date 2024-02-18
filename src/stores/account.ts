@@ -138,7 +138,7 @@ export const useAccountStore = defineStore("account", {
       const res = await wxLogin();      
       this.userInfo = res;
     },
-    // 函数不具备响应式，使用时需要注意
+    // 函数不具备响应式，使用时需要注意不要在模板中使用
     isLogin() {
       return this.userInfo.openid.length !== 0;
     },

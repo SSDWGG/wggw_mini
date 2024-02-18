@@ -1,6 +1,5 @@
 <template>
-  <!-- v-if="isPermissions()" -->
-  <view  class="icon fcc" style="margin-top: 8rpx" @tap="()=> (attrsParams as unknown as  IAttrsParams).onbiddingButtonBack()">
+  <view v-if="isPermissions()" class="icon fcc" style="margin-top: 8rpx" @tap="()=> (attrsParams as unknown as  IAttrsParams).onbiddingButtonBack()">
     <view class="full" >
       创建
     </view>
@@ -8,7 +7,7 @@
 </template>
 <script lang="ts" setup>
 import { useAttrs } from 'vue';
-// import { isPermissions } from "@/utils/index";
+import { isPermissions } from "@/utils/index";
 
 const attrsParams = useAttrs();
 

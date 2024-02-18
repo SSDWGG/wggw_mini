@@ -28,18 +28,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/entity/KunChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/entity/KunChart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/bidding/detail/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/bidding/detail/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/cxk7/detail/chartLine.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/cxk7/detail/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/cxk7/detail/styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/cxk7/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/cxk7/styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/menu/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/cxk/menu/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/menu/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/menu/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/SideBar/bidding-button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/SideBar/bidding-button.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/stores/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stores/account.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -428,6 +419,8 @@
       <workItem from="1706347376359" duration="745000" />
       <workItem from="1706667778525" duration="4365000" />
       <workItem from="1706694354702" duration="8927000" />
+      <workItem from="1707363652470" duration="731000" />
+      <workItem from="1708229605877" duration="185000" />
     </task>
     <servers />
   </component>
