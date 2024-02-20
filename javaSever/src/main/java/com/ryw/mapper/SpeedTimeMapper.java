@@ -12,14 +12,19 @@ import java.util.List;
 
 @Repository
 public interface SpeedTimeMapper extends BaseMapper<SpeedTime> {
-  String querySql = "SELECT a.*, b.use_time FROM users AS a,speed_time AS b where b.openid = a.openid";
+  String querySqlGetUsersWithSpeedTimeByPage = "SELECT a.*, b.use_time FROM users AS a,speed_time AS b where b.openid = a.openid";
+
+//  获取表总数量
+  String querySqlGetCount =  "SELECT COUNT(*) FROM speed_time";
 
 //  这个联合类型咋定义？现在只能查询出来a的字段，b的无法查出来
-  @Select(querySql)                    //多表的关联并且分页查询
+  @Select(querySqlGetUsersWithSpeedTimeByPage)                    //多表的关联并且分页查询
   List<UsersDto> getUsersWithSpeedTimeByPage(Page page);
 
   int changeDeletedStatus(String openid, int deleted);
 
   List<SpeedTime> getAllDeleted();
 
+  @Select(querySqlGetCount)
+  int GetCount();
 }

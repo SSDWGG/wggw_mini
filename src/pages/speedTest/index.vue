@@ -1,6 +1,6 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="测试反应速度" background-color="rgba(116, 104, 242,.1)" >
+    <navbar title="测试反应速度" background-color="rgba(116, 104, 242,.1)">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
@@ -13,27 +13,30 @@
 
     <!-- 游戏区 -->
     <view class="ganmeCenter flex center column">
-      <view class="tip"> 最好成绩 ：{{ data.niceResult }} 秒 </view>
+      <view class="tip">  <image class="avater" :src="account.userInfo.avatarurl" /> 您的最好成绩 ：{{ data.niceResult }} 秒 (排名第{{ data.countData.userConut }})</view>
+
+      <view class="mySwiper" v-if="data.CurrentUsersSpeedTimeData.length>3">
+        <nut-swiper :height="26" :class="styles.swiper" loop auto-play="1500" direction="vertical" :touchable="false">
+          <nut-swiper-item v-for="(item, index) in data.CurrentUsersSpeedTimeData" :key="index" class="swiper-item">
+            <image class="avater" :src="item.avatarurl" />
+            {{ item.username }} 在 {{ moment((item as any).updateTime).fromNow() }} 创造了{{ item.useTime }}秒的好记录！
+          </nut-swiper-item>
+        </nut-swiper>
+      </view>
 
       <!-- 游戏按钮 -->
       <nut-animate type="breath" class="rule-button-div" loop @tap="tapBtn">
-        <view
-          class="gameBtn flex center"
-          :style="{
-            backgroundColor: data.gameIngFlag === GameState.start ? 'rgba(255, 90, 25 , .6)' : 'rgba(130, 243, 132,.5) ',
-            fontSize: data.gameIngFlag === GameState.end ? '20px' : '40px',
-          }"
-        >
+        <view class="gameBtn flex center" :style="{
+          backgroundColor: data.gameIngFlag === GameState.start ? 'rgba(255, 90, 25 , .6)' : 'rgba(130, 243, 132,.5) ',
+          fontSize: data.gameIngFlag === GameState.end ? '20px' : '40px',
+        }">
           {{ data.btnText || data.useTime / 100 }}
         </view>
       </nut-animate>
     </view>
     <!-- toast提示 -->
     <my-toast-components ref="myToast" :duration="2500" />
-    <side-bar
-      :show="show"
-      :showFlags="[1, 3]"
-    />
+    <side-bar :show="show" :showFlags="[1, 3]" />
   </scroll-view>
 </template>
 <script lang="ts" setup>
@@ -42,12 +45,42 @@ import { ref, reactive, watch, onUnmounted } from 'vue';
 import { Navbar } from '@fishui/taro-vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
-import { useShareAppMessage, useShareTimeline,switchTab,useRouter } from '@tarojs/taro';
-import { getCurrentUsersSpeedTime, getUserFastTime, updateSpeedTime } from "@/apis/speedTime";
+import { useShareAppMessage, useShareTimeline, switchTab, useRouter } from '@tarojs/taro';
+import { getCurrentUsersSpeedTime, getUserFastTime, updateSpeedTime,getUserCount } from '@/apis/speedTime';
 import { ISpeedTimeItem } from '@/apis/speedTime/model';
-import { useAccountStore } from "@/stores/account";
-import { useDidShow } from "@tarojs/taro";
+import { useAccountStore } from '@/stores/account';
+import { useDidShow } from '@tarojs/taro';
+import moment from 'moment';
+// 设置语言为中文
+moment.defineLocale('zh-cn', {
+  relativeTime: {
+    future: '%s内',
 
+    past: '%s前',
+
+    s: '几秒',
+
+    m: '1 分钟',
+
+    mm: '%d 分钟',
+
+    h: '1 小时',
+
+    hh: '%d 小时',
+
+    d: '1 天',
+
+    dd: '%d 天',
+
+    M: '1 个月',
+
+    MM: '%d 个月',
+
+    y: '1 年',
+
+    yy: '%d 年',
+  },
+});
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -80,19 +113,24 @@ const data = reactive({
   timeoutFlag: null as any,
   maxTimeoutFlag: null as any,
   niceResult: maxGameTime / 1000,
-  userFastTimeObj:{} as ISpeedTimeItem,
-  CurrentUsersSpeedTimeData:[] as ISpeedTimeItem[]
+  userFastTimeObj: {} as ISpeedTimeItem,
+  CurrentUsersSpeedTimeData: [] as ISpeedTimeItem[],
+  countData:{} as {
+    userConut:number,
+    allConut:number,
+  }
 });
 
-const getInitData = async()=>{
- const resUserFastTimeData =  await getUserFastTime()
- data.niceResult = Number(resUserFastTimeData.useTime); 
- data.userFastTimeObj = resUserFastTimeData
- data.CurrentUsersSpeedTimeData =   await getCurrentUsersSpeedTime()
-}
+const getInitData = async () => {
+  const resUserFastTimeData = await getUserFastTime();
+  data.niceResult = Number(resUserFastTimeData.useTime);
+  data.userFastTimeObj = resUserFastTimeData;
+  data.CurrentUsersSpeedTimeData = await getCurrentUsersSpeedTime();
+  data.countData =  await getUserCount()
+};
 
-useDidShow( () => {
-  getInitData()
+useDidShow(() => {
+  getInitData();
 });
 
 watch(
@@ -129,7 +167,7 @@ const tapBtn = () => {
   }
 };
 // 结束计时
-const endGame = async() => {
+const endGame = async () => {
   // 结束游戏逻辑
   clearInterval(data.intervalFlag);
   clearTimeout(data.maxTimeoutFlag);
@@ -138,12 +176,14 @@ const endGame = async() => {
   if (data.niceResult > data.useTime / 100) {
     data.niceResult = data.useTime / 100;
     // 上报最好成绩
-   await updateSpeedTime({
-      openid:account.userInfo.openid,
-      avatarurl:account.userInfo.avatarurl,
-      username:account.userInfo.username,
-      useTime:data.niceResult,
-    })
+    await updateSpeedTime({
+      openid: account.userInfo.openid,
+      avatarurl: account.userInfo.avatarurl,
+      username: account.userInfo.username,
+      useTime: data.niceResult,
+    });
+    // 刷新页面排名
+    getInitData()
     // 弹窗提示
     myToast.value.myToastShow({
       icon: 'success',
@@ -169,7 +209,7 @@ const waitStartGame = () => {
 const startGame = () => {
   // 设置定时器（超过最大秒数后终止计时）并提示异常
   data.gameIngFlag = GameState.start;
-  data.useTime = 0
+  data.useTime = 0;
   data.intervalFlag = setInterval(() => {
     data.useTime++;
   }, 10);

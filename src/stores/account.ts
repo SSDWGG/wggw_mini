@@ -66,6 +66,12 @@ export const useAccountStore = defineStore("account", {
         router: "/pages/scoreboard/index",
       },
       
+
+      {
+        title: "Test",
+        Ctitle: "测试",
+        router: "/pages/invite/index",
+      },
     ],
     cxkMenuList: [
       {

@@ -31,9 +31,42 @@ page {
    }
    .ganmeCenter{
     .tip{
-      margin-bottom: 200px;
+      margin-bottom: 20px;
       color: rgb(116, 104, 242);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .avater {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        margin: 3px;
+      }
     }
+    .mySwiper{
+      height: 26px;
+      border-radius: 26px;
+      margin-bottom: 100px;
+      overflow: hidden;
+      // background-color: rgba(255, 255, 255, 0.6);
+      color: #ef4a11;
+      .swiper-item {
+        // height: 26px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: Regular;
+        line-height: 26px;
+        .avater {
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          margin: 3px;
+        }
+      }
+    }
+   
     .gameBtn{
       
       width: 200px;

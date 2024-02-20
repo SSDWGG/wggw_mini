@@ -17,6 +17,16 @@ export const getCurrentUsersSpeedTime = () =>
     url: "/v1/speedTime/getCurrentUsersSpeedTime",
     method: "GET"
   });
+
+export const getUserCount = () =>
+  request<{
+    userConut:number,
+    allConut:number,
+  }>({
+    url: "/v1/speedTime/getUserCount",
+    method: "GET"
+  });
+
 export const test = () =>
   request<boolean>({
     url: "/v1/test1",

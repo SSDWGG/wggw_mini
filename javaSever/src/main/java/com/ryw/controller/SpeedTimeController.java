@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.ryw.framework.domain.AjaxResult.error;
@@ -74,7 +75,7 @@ public class SpeedTimeController {
   }
 
 
-  //  获取分页用户时长并排序
+  //  获取总表排序后的前20条记录
   @RequestMapping("/v1/speedTime/getCurrentUsersSpeedTime")
   public AjaxResult getCurrentUsersSpeedTime(){
     Page<SpeedTime> page = new Page<>(1, 20);
@@ -85,6 +86,25 @@ public class SpeedTimeController {
     return success(speedTimeList);
   }
 
+  //  获取用户在排行榜中的排名
+  @RequestMapping("/v1/speedTime/getUserCount")
+  public AjaxResult getUserCount(HttpServletRequest request){
+    QueryWrapper<SpeedTime> wrapper = new QueryWrapper<>();
+    wrapper.orderByAsc("use_time","update_time");
+    List<SpeedTime> speedTimeList  =  speedTimeMapper.selectList( wrapper);
+    String openid = JWTUtils.verify(request.getHeader("token")).getClaim("openid").asString();
+    HashMap<String, Object> map = new HashMap<>();
+    map.put("allConut",speedTimeList.size());
+
+    for (int i = 0; i < speedTimeList.size(); i++) {
+      if(speedTimeList.get(i).getOpenid().equals(openid)){
+        map.put("userConut",(i+1));
+      }
+    }
+
+    return success(map);
+
+  }
 
   //  test1
   @RequestMapping("/v1/test1")
