@@ -27,7 +27,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes" />
+    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/../src/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/developer/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/developer/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/invite/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/invite/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/invite/invite-swiper/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/invite/invite-swiper/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/invite/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/invite/styles.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

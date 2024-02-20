@@ -1350,8 +1350,10 @@
   resolved "https://registry.npmmirror.com/@eslint/js/-/js-8.56.0.tgz"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
-"@fishui/taro-vue@file:.yalc/@fishui/taro-vue":
+"@fishui/taro-vue@1.1.5":
   version "1.1.5"
+  resolved "https://registry.npmmirror.com/@fishui/taro-vue/-/taro-vue-1.1.5.tgz#a84d7b0d9709ed93e34b09b21601b6b943a7dd6d"
+  integrity sha512-J0IeWa3mHLk8H8y+M2jadtV3YO3OoFsD1z4gXJVuRekTxfuDa0kNYxk+1VDLfag6QbkAft+Utl0DjzBbhsN3qw==
 
 "@hapi/hoek@^9.0.0", "@hapi/hoek@^9.3.0":
   version "9.3.0"

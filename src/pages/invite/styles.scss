@@ -1,245 +1,56 @@
-.invite {
+.container {
+
+
   :global {
-    .container {
-      overflow-y: scroll;
-      position: relative;
+    .itemBox {
+      .time {
+        color: #999999;
+        font-size: 12px;
+        margin-bottom: 8px;
+        line-height: 14px;
 
-      .invite-bg-header {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        .header-bg {
-          width: 100%;
-        }
-        .header-swiper {
-          position: absolute;
-          top: 380px;
-          width: 72%;
-          height: 26px;
-          border-radius: 26px;
-          overflow: hidden;
-          background-color: rgba(255, 255, 255, 0.6);
-          color: #ef4a11;
-        }
-        .header-rule-view {
-          width: 92%;
-          position: absolute;
-          top: 422px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          .rule-img {
-            width: 100%;
-          }
-          .rule-button-div {
-            position: absolute;
-            top: 135px;
-            width: 92%;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          // background-color: #333;
-            .nut-animate-breath{
-            width: 85%;
-            
-            .rule-button{
-              background: linear-gradient(170deg, #fe9da3, #eb4d2d);
-
-              border: none;
-              font-size: 20px;
-              font-weight: Medium;
-              box-shadow: 0px -1px 3px #e94827 inset;
-              text-shadow: 2px 2px 5px #e94827;
-              }
-            }
-
-            
-          }
-        }
-      }
-      .invite-bg-bottom {
-        width: 100vw;
-        background: linear-gradient(#ffbd7f, #fb995c);
-        .bottom-invite-view {
-          padding-top: 150px;
-          padding-bottom: env(safe-area-inset-bottom);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          .invite-content {
-            box-sizing: border-box;
-            width: 92%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 2px solid #ffd6af;
-            background-color: #fff9f9;
-            border-radius: 15px;
-            padding: 20px 25px;
-            position: relative;
-            margin-bottom: 40px;
-            .invite-header {
-              width: 60%;
-              margin-bottom: 20px;
-            }
-            .invite-recordBG {
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 50%;
-            }
-            .invite-item {
-              display: flex;
-              // justify-content: space-between;
-              align-items: center;
-              width: 100%;
-              margin-bottom: 6px;
-              .avater {
-                width: 30px;
-                height: 30px;
-                margin-right: 12px;
-                border-radius: 50%;
-              }
-              .invite-info {
-                flex: 1;
-                 .who {
-                  font-size: 14px;
-                  font-weight: Regular;
-                  color: #666666;
-                }
-                .secondRow{
-                  display: flex;
-                  .time {
-                    width: 100px;
-                    font-size: 10px;
-                    font-weight: Regular;
-                    color: #999999;
-                    margin-right: 8px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-wrap: nowrap;
-                  }
-                  .origin{
-                    width: 100px;
-                    font-size: 10px;
-                    font-weight: Regular;
-                    color: #999999;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                  }
-                }
-               
-              }
-              .invite-info-num {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: #e20505;
-                font-size: 18px;
-                font-weight: Medium;
-              }
-            }
-            .nodata {
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              .nodata-img {
-                width: 148px;
-                height: 83px;
-              }
-              .nodata-tip {
-                font-weight: Regular;
-                font-size: 12px;
-                color: #666;
-              }
-            }
-          }
-        }
-      }
-      .sideTip{
-        position: fixed;
-        top: 350px;
-        right: 0;
-        z-index: 1;
-        width: 50px;
-        height: 90px;
-        .sideTipImg{
-          width: 25px;
-          height: 67px;
-          position: absolute;
-          top: 6px;
-          right: 0px;
-        }
-        .sideTipText{
-          position: absolute;
-          color: #FE3D43;
-          font-size: 12px;
-          top: 10px;
-          right: 7px;
-          width: 10px;
-          line-height: 14px;
-        }
       }
 
-      .explanation{
-        width: 100%;
-        height: 481px;
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        .head{
-          padding: 20px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 16px;
-          font-weight: 500;
-          color: #333;
-
-          position: relative;
-          .close{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 26px;
-            color: #666666;
-            font-size: 22px;
-            font-weight: 400;
-            transform: rotate(45deg);
-          }
-
-        }
-        .content{
-          flex: 1;
-          padding: 0 15px;
-          overflow: scroll;
-          margin-bottom: env(safe-area-inset-bottom);
+      .content {
+        color: #333333;
+        font-weight: Regular;
+        margin-bottom: 20px;
+        .behavior{
+          margin-bottom: 16px;
           font-size: 14px;
-          font-weight: 400;
-          color: #333;
-          line-height: 22px;
-          letter-spacing: 1px;
-          .title{
-            
-            font-weight: 500;
-          }
-          .paragraph{
-            margin-bottom: 26px;
-          }
+          color: #333333;
         }
+      }
+    }
+    // 通过固定的css类型来拿lastchild
+    .stepsline:last-child{
+      .aside::after{
+        display: none;
+      }
+    }
+  
+    .defaultBox {
+      margin-top: 100rpx;
 
+      .img {
+        width: 160rpx;
+        height: 160rpx;
+        margin: 0 auto;
+
+        &>image {
+          width: 100%;
+          height: 100%;
+        }
       }
 
+      .tips {
+        text-align: center;
+        color: #666666;
+        font-size: 24rpx;
+        margin-top: 32rpx;
+      }
     }
+
+    
   }
 }

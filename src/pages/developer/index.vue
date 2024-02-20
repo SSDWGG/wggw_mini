@@ -3,11 +3,10 @@
     <navbar title="开发者专区" background-color="#f5f5f9" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="开发者专区" />
     <commonMenu :height="height" :listData="account.develeopMenuList"></commonMenu>
-
-    
   </scroll-view>
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from "./styles.scss";
 import commonMenu from '@/components/commonMenu';
 import { computed } from "vue";
