@@ -16,7 +16,7 @@ import java.util.Date;
 
 public class Users {
 
-
+    @TableId
     private String openid;
     private String username;
     private String avatarurl;

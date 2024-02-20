@@ -43,6 +43,11 @@ import { Navbar } from '@fishui/taro-vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useShareAppMessage, useShareTimeline,switchTab,useRouter } from '@tarojs/taro';
+import { getCurrentUsersSpeedTime, getUserFastTime, updateSpeedTime } from "@/apis/speedTime";
+import { ISpeedTimeItem } from '@/apis/speedTime/model';
+import { useAccountStore } from "@/stores/account";
+import { useDidShow } from "@tarojs/taro";
+
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -50,11 +55,11 @@ definePageConfig({
 });
 
 const { show, onScroll } = useListScroll();
+const account = useAccountStore();
 
 const myToast = ref<any>();
 
 const router = useRouter();
-
 
 const GameState = {
   noStart: 0,
@@ -75,6 +80,19 @@ const data = reactive({
   timeoutFlag: null as any,
   maxTimeoutFlag: null as any,
   niceResult: maxGameTime / 1000,
+  userFastTimeObj:{} as ISpeedTimeItem,
+  CurrentUsersSpeedTimeData:[] as ISpeedTimeItem[]
+});
+
+const getInitData = async()=>{
+ const resUserFastTimeData =  await getUserFastTime()
+ data.niceResult = Number(resUserFastTimeData.useTime); 
+ data.userFastTimeObj = resUserFastTimeData
+ data.CurrentUsersSpeedTimeData =   await getCurrentUsersSpeedTime()
+}
+
+useDidShow( () => {
+  getInitData()
 });
 
 watch(
@@ -111,7 +129,7 @@ const tapBtn = () => {
   }
 };
 // 结束计时
-const endGame = () => {
+const endGame = async() => {
   // 结束游戏逻辑
   clearInterval(data.intervalFlag);
   clearTimeout(data.maxTimeoutFlag);
@@ -119,6 +137,14 @@ const endGame = () => {
   data.gameIngFlag = GameState.end;
   if (data.niceResult > data.useTime / 100) {
     data.niceResult = data.useTime / 100;
+    // 上报最好成绩
+   await updateSpeedTime({
+      openid:account.userInfo.openid,
+      avatarurl:account.userInfo.avatarurl,
+      username:account.userInfo.username,
+      useTime:data.niceResult,
+    })
+    // 弹窗提示
     myToast.value.myToastShow({
       icon: 'success',
       title: '创造了最好记录,太棒啦👍🏻~',
@@ -161,7 +187,6 @@ onUnmounted(() => {
   clearTimeout(data.timeoutFlag);
   clearInterval(data.intervalFlag);
 });
-
 
 useShareTimeline(() => {
   return {

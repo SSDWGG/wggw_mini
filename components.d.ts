@@ -26,6 +26,7 @@ declare module 'vue' {
     NutButton: typeof import('@nutui/nutui-taro')['Button']
     NutCircleProgress: typeof import('@nutui/nutui-taro')['CircleProgress']
     NutInput: typeof import('@nutui/nutui-taro')['Input']
+    NutNavbar: typeof import('@nutui/nutui-taro')['Navbar']
     NutNoticebar: typeof import('@nutui/nutui-taro')['Noticebar']
     NutPopup: typeof import('@nutui/nutui-taro')['Popup']
     NutTable: typeof import('@nutui/nutui-taro')['Table']

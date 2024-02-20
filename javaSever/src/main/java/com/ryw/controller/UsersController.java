@@ -1,6 +1,8 @@
 package com.ryw.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ryw.common.utils.HttpUtils;
 import com.ryw.controller.util.JWTUtils;
@@ -15,10 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.google.common.collect.Maps;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static com.ryw.framework.domain.AjaxResult.success;
+import static com.ryw.framework.domain.AjaxResult.error;
 
 
 
@@ -132,4 +136,5 @@ public AjaxResult bindPhone(
         usersMapper.update(users,wrapper);
         return success();
     }
+
 }
