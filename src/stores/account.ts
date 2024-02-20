@@ -16,6 +16,7 @@ interface IState {
   userInfo: IUserInfo; //用户信息
   mainMenuList: IListDataItem[] //主菜单
   cxkMenuList: IListDataItem[] //cxk主菜单
+  develeopMenuList: IListDataItem[] //cxk主菜单
 }
 
 export const useAccountStore = defineStore("account", {
@@ -127,6 +128,28 @@ export const useAccountStore = defineStore("account", {
         opacity: 1,
         linkUrl: "http://xlgx.ssdwgg.cn",
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MOCAPJJK-1706331446705xlgx.png'
+      },
+    ],
+    develeopMenuList: [
+      {
+        title: "CSS Loaders",
+        Ctitle: "新奇的动效css",
+        router: "/pages/developer/cssloaders/index",
+      },
+      {
+        title: "Clock",
+        Ctitle: "进度计时",
+        router: "/pages/developer/time/index",
+      },
+      {
+        title: "More Plugin",
+        Ctitle: "多种组件",
+        router: "/pages/developer/editor/index",
+      },
+      {
+        title: "Water Fall",
+        Ctitle: "瀑布流照片墙",
+        router: "/pages/developer/waterfall/index",
       },
     ],
     editMemoData:{} as IMemo ,
