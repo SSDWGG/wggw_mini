@@ -27,19 +27,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/../components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/controller/SpeedTimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/SpeedTimeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/mapper/SpeedTimeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/mapper/SpeedTimeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/apis/speedTime/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/apis/speedTime/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/speedTest/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/speedTest/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/speedTest/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/speedTest/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/stores/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../src/stores/account.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -440,7 +428,7 @@
       <workItem from="1706694354702" duration="8927000" />
       <workItem from="1707363652470" duration="731000" />
       <workItem from="1708229605877" duration="185000" />
-      <workItem from="1708230626839" duration="18993000" />
+      <workItem from="1708230626839" duration="19077000" />
     </task>
     <servers />
   </component>

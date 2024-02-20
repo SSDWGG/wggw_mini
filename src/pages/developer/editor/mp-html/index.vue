@@ -1,10 +1,6 @@
 <template>
   <view class="title"> Rich-Text</view>
       <view class="richText">
-        <!-- <view class="mp">
-          <mp-html :content="data.html"  />
-        </view> -->
-        <!-- <v-html :src="data.html"></v-html> -->
           <rich-text :nodes="data.html" />
       <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
         :controls="false" :show-fullscreen-btn="false" :show-center-play-btn="false" :show-play-btn="false" :loop="true"

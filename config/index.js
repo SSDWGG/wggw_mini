@@ -109,7 +109,7 @@ const config = {
   },
   weapp: {
     compile: {
-      exclude: ['src/components/ec-canvas/echarts.js','src/components/mp-html/index.js']
+      exclude: ['src/components/ec-canvas/echarts.js']
     },
     module: {
     }

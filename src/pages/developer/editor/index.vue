@@ -21,7 +21,6 @@ import myLucky from "./lucky/index.vue"
 
 definePageConfig({
   usingComponents: {
-    "mp-html": "../../../components/mp-html/index",
     "ec-canvas": "../../../components/ec-canvas/ec-canvas",
   },
 });

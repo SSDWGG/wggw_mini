@@ -5,26 +5,7 @@ page {
 .editor {
   width: 100%;
   :global {
-    mp-html{
-      margin-top: 25px;
 
-      image,
-      video {
-        width: 100% !important;
-      }
-
-      view,
-      text {
-        font-size: 32px;
-        font-weight: 400;
-        color: #333333;
-        line-height: 50px;
-      }
-
-      .strong {
-        font-weight: bold;
-      }
-    }
     .menu {
       width: 100%;
       .title {
