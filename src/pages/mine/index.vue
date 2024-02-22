@@ -18,7 +18,7 @@
       <view class="infoItem" v-if="isPermissions()">
         <view class="lable">
           <image class="contactImg"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
+            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
           </image>
           <text>邮箱</text>
         </view>
@@ -31,7 +31,7 @@
       <view class="infoItem" v-if="isPermissions()">
         <view class="lable">
           <image class="contactImg"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MLADJHEL-1666324258493contact.png">
+            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
           </image>
           <text>手机号</text>
         </view>
@@ -49,14 +49,14 @@
         <view class="verify">
           <view class="phoneDiv">
             <image class="img"
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/EGPIFCHL-1686036360534phone.png">
+              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/EGPIFCHL-1686036360534phone.png">
             </image>
             <nut-input v-model="emailPop.emailAccount" placeholder="请输入邮箱" class="input" />
           </view>
           <view class="verifyCode">
             <view class="inputDiv">
               <image class="img"
-                src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/BGHLBMOO-1686036371145v.png" />
+                src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BGHLBMOO-1686036371145v.png" />
               <nut-input v-model="emailPop.code" placeholder="请输入验证码" type="number" />
             </view>
 

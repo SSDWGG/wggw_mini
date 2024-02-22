@@ -21,7 +21,7 @@ const showSvga = async()=>{
       const parser = new Parser;
       const player = new Player;
       await player.setCanvas('#demoCanvas')
-      const videoItem = await parser.load("https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/LIADDEFF-1708481655743halloween.svga");
+      const videoItem = await parser.load("https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/LIADDEFF-1708481655743halloween.svga");
       await player.setVideoItem(videoItem);
       player.startAnimation();
     } catch (error) {

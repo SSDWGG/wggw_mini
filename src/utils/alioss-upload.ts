@@ -17,6 +17,7 @@ const uploadFile = function(path, hasStatus, hash = '') {
   // 自定义生成的文件名
   const name = uuid();
 
+  // 用户上传的内容都用文件夹隔离了
   const filePath = `yunxiaoding-mini/other/wggw/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
 
   return Taro.uploadFile({

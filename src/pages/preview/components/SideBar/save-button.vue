@@ -1,6 +1,6 @@
 <template>
   <view class="bar-item" @tap="(e) => handleSaveImage(e)">
-    <image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FDFLBLFO-1666754577481编组 8@2x.png" />
+    <image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/ededaacav.png" />
     保存
   </view>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <view class="bar-item" @tap="(e) => handleDelete(e)"
-    ><image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/JABPLIME-1666754579994编组 6@2x.png" />
+    ><image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/JABPLIME-1666754579994delete.png" />
     删除</view
   >
 </template>

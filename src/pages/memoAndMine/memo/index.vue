@@ -25,7 +25,7 @@
                   " class="pic" :lazyLoad="true" />
                 <!-- <image :src="resItem.picUrl" class="pic" /> -->
                 <image v-if="resItem.memoItemType === 1" mode="aspectFill" class="vedioFlag" :lazyLoad="true"
-                  src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" />
+                  src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" />
               </view>
             </view>
 
@@ -44,7 +44,7 @@
     </scroll-view>
     <view v-else class="defaultBox">
       <view class="img">
-        <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/default1.png"></image>
+        <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/default1.png"></image>
       </view>
       <view class="img tips">快来记录第一个心情吧</view>
     </view>

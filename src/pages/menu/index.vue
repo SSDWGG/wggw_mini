@@ -23,7 +23,7 @@
         :muted="true"
         :enable-progress-gesture="false"
         style="width: 100%"
-        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/OMFHLJDP-17059977997221.mp4"
+        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OMFHLJDP-17059977997221.mp4"
       />
     </view>
 
@@ -75,14 +75,14 @@ useShareTimeline(() => {
   return {
     title: '快来看看wggw小程序吧~',
     path: `/pages/index/index`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg',
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
   };
 });
 useShareAppMessage(() => {
   return {
     title: '快来看看wggw小程序吧~',
     path: `/pages/index/index`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg',
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
   };
 });
 </script>

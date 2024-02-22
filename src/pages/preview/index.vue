@@ -2,7 +2,7 @@
   <view :class="styles.preview">
     <view class="goback" @tap="Taro.navigateBack()">
       <image
-        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MIPOCGJA-1666323984843icon-back.png"
+        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MIPOCGJA-1666323984843icon-back.png"
         class="goback-icon"
         :style="{
           paddingTop: `${top}`

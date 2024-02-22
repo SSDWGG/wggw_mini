@@ -35,7 +35,7 @@
       :muted="false"
       :enable-progress-gesture="false"
       style="width: 100%"
-      src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/OOJDGCGA-1682498842686kunwu.mov"
+      src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OOJDGCGA-1682498842686kunwu.mov"
     />
   </view>
 </template>
@@ -45,28 +45,22 @@
   import { Navbar } from "@fishui/taro-vue";
   import { computed, reactive } from "vue";
 
-  // bgm :'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NFHKMKOK-1679390468478bgm.mp3',
-  // ngm :  'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/PEELADIA-1679390220050ngm.mp3',
-  // ji  :'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/APENDBMF-1679390216522j.mp3',
-  // jntm :  'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KBOAGENL-1679390152917jntm.mp3',
-
   const innerAudioContext = Taro.createInnerAudioContext();
   const cxkMusicsList = [
     {
-      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/APENDBMF-1679390216522j.mp3",
+      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/APENDBMF-1679390216522j.mp3",
       text: "!ji!",
     },
     {
-      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/PEELADIA-1679390220050ngm.mp3",
+      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/PEELADIA-1679390220050ngm.mp3",
       text: "你干嘛~哎呦~",
     },
-
     {
-      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/KBOAGENL-1679390152917jntm.mp3",
+      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/KBOAGENL-1679390152917jntm.mp3",
       text: "鸡你太美~",
     },
     {
-      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NFHKMKOK-1679390468478bgm.mp3",
+      src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NFHKMKOK-1679390468478bgm.mp3",
       text: "唱、跳、rap、篮球",
     },
   ];

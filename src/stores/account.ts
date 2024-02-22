@@ -38,7 +38,7 @@ export const useAccountStore = defineStore("account", {
         title: "ikun",
         Ctitle: "kunkun妙妙屋",
         router: "/pages/cxk/index/index",
-        bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/BEDKEKCP-1705543014391shakeKun.gif',
+        bgSrc:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
         opacity:1,
       },
       {
@@ -78,54 +78,54 @@ export const useAccountStore = defineStore("account", {
         Ctitle: "小黑子",
         router: "/pages/cxk/cxk/index",
         bgSrc:
-          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg",
+          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg",
       },
       {
         title: "IKun",
         Ctitle: "坤歌台",
         router: "/pages/cxk/cxk3/index",
         bgSrc:
-          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg",
+          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg",
       },
       {
         title: "Shake Kun",
         Ctitle: "摇坤",
         router: "/pages/cxk/cxk2/index",
         bgSrc:
-          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/BEDKEKCP-1705543014391shakeKun.gif",
+          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif",
         opacity: 1,
         linkUrl: "http://ikunqqq.ssdwgg.cn",
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJHBFEAA-1706331358049ikunqqq.png'
+        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FJHBFEAA-1706331358049ikunqqq.png'
       },
       {
         title: "Kun Str",
         Ctitle: "字符坤",
         router: "/pages/cxk/cxk4/index",
         bgSrc:
-          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/IIOMLFKE-1705543014391strkun.gif",
+          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IIOMLFKE-1705543014391strkun.gif",
         opacity: 1,
         linkUrl: "http://ikunstr.ssdwgg.cn",
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GIKJIPEA-1706331381805ikunstr.png'
+        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GIKJIPEA-1706331381805ikunstr.png'
       },
       {
         title: "Game",
         Ctitle: "消消乐旋转版本",
         router: "/pages/cxk/cxk5/index",
         bgSrc:
-          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HEPJCNMO-1705543014391game1.gif",
+          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HEPJCNMO-1705543014391game1.gif",
         opacity: 1,
         linkUrl: "http://hextris.ssdwgg.cn",
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IMDCHDJP-1706331384525hextris.png'
+        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IMDCHDJP-1706331384525hextris.png'
       },
       {
         title: "Game",
         Ctitle: "兔了个兔",
         router: "/pages/cxk/cxk6/index",
         bgSrc:
-          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/NICPAEIK-1705543014391tlgt.gif",
+          "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NICPAEIK-1705543014391tlgt.gif",
         opacity: 1,
         linkUrl: "http://xlgx.ssdwgg.cn",
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MOCAPJJK-1706331446705xlgx.png'
+        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png'
       },
     ],
     develeopMenuList: [

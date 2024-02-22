@@ -93,7 +93,7 @@
     contentBgImg: {
       type: String,
       default:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg",
+        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg",
     },
     // 计算单位毫秒  年31536000000  日86400000
     computedNum: {

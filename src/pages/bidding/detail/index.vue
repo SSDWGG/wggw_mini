@@ -144,14 +144,14 @@ useShareTimeline(() => {
   return {
     title: '~WGGW~',
     path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg',
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
   };
 });
 useShareAppMessage(() => {
   return {
     title: '~WGGW~',
     path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg',
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
   };
 });
 const goHomePage = () => {

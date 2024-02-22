@@ -10,7 +10,7 @@
         <view v-if="data.info.memoItemType === 1" class="vedio-div">
           <!-- 暂停标记 -->
           <image v-show="data.showFlag"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FCOMANDD-1666325886772video-play.png"
+            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FCOMANDD-1666325886772video-play.png"
             class="vedio-flag" />
           <!--封面图  防止被快速下滑，需要使用封面图站位因为快速下滑回调不会被执行 -->
           <image v-if="!props.showVedioFlag" :src="data.info.videoPicUrl" class="img" mode="aspectFit"></image>

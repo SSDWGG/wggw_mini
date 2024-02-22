@@ -32,7 +32,7 @@ useShareAppMessage(() => {
   return {
     title: '快来看看wgg哒小程序吧~',
     path: `/pages/index/index`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/GKNPEBAA-1678694972749test.jpeg',
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
   };
 });
 

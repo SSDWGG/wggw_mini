@@ -232,14 +232,14 @@ useShareTimeline(() => {
   return {
     title: '来WGGW比比谁的手速更快',
     path: `/pages/speedTest/index?isShare=true`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg',
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
   };
 });
 useShareAppMessage(() => {
   return {
     title: '来WGGW比比谁的手速更快',
     path: `/pages/speedTest/index?isShare=true`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg',
+    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
   };
 });
 

@@ -1,7 +1,7 @@
 <template>
   <view class="icon fcc" style="margin-top: 8rpx" @tap="() => Taro.makePhoneCall({ phoneNumber: '13616549486' })">
     <image class="phoneIcon"
-      src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/DCCBINBE-1671510201605phone.png" />
+      src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/DCCBINBE-1671510201605phone.png" />
    
   </view>
 </template>

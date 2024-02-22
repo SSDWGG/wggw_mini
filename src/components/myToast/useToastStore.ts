@@ -26,8 +26,8 @@ export const useToastStore = defineStore('toast', () => {
   const state = reactive<IMyToastState[]>([]);
 
   const ICONS = {
-    success:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/FJDCGKIE-1670049121825right.png',
-    error:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IBHDJHHP-1665451624450warring-icon.png'
+    success:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FJDCGKIE-1670049121825right.png',
+    error:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IBHDJHHP-1665451624450warring-icon.png'
   };
 
   const timeFlag = ref<any>(0);

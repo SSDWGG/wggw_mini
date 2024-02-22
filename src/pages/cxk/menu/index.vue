@@ -13,7 +13,7 @@
       <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
         :controls="false" :show-fullscreen-btn="false" :show-center-play-btn="false" :show-play-btn="false" :loop="true"
         :muted="true" :enable-progress-gesture="false" style="width: 100%"
-        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/OMFHLJDP-17059977997221.mp4" />
+        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OMFHLJDP-17059977997221.mp4" />
     </view>
  
     <commonMenu :height="height" :listData="account.cxkMenuList"></commonMenu>
@@ -72,7 +72,7 @@ useShareTimeline(() => {
     title: "快来坤屋吧~",
     path: `/pages/cxk/index/index`,
     imageUrl:
-      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg",
+      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg",
   };
 });
 useShareAppMessage(() => {
@@ -80,7 +80,7 @@ useShareAppMessage(() => {
     title: "快来坤屋吧~",
     path: `/pages/cxk/index/index`,
     imageUrl:
-      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg",
+      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg",
   };
 });
 </script>

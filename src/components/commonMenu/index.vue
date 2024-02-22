@@ -38,7 +38,7 @@ const props = withDefaults(defineProps<IProps>(), {
   listData:()=>([] as IListDataItem[])
 });
 
-const imgDefaultSrc = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CGHMKNBP-1669687856120rabbit.jpg'
+const imgDefaultSrc = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg'
 
 const data = reactive({
   chooseItem: {} as IListDataItem,

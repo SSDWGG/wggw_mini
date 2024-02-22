@@ -39,7 +39,7 @@ export default defineComponent({
             <nut-animate type="float" loop>
               <View className={styles.main}>
                 <View>点击下方一键输入微信名</View>
-                <Image src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/icon-robber-hand.png" />
+                <Image src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/icon-robber-hand.png" />
               </View>
                </nut-animate>
           </View>

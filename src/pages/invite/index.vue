@@ -18,7 +18,7 @@
       </mpm-steps-line>
       <view v-if="data.behaviorList.length <= 0" class="defaultBox">
         <view class="img">
-          <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/default1.png"></image>
+          <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/default1.png"></image>
         </view>
         <view class="img tips">暂无行为记录</view>
       </view>
