@@ -84,7 +84,7 @@ useShareTimeline(() => {
     title: "快来听坤歌吧~",
     path: `/pages/cxk/cxk3/index?isShare=true`,
     imageUrl:
-      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
+      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg",
   };
 });
 useShareAppMessage(() => {
@@ -92,7 +92,7 @@ useShareAppMessage(() => {
     title: "快来听坤歌吧~",
     path: `/pages/cxk/cxk3/index?isShare=true`,
     imageUrl:
-      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/HHHNOCBG-1702544256738kun.jpeg",
+      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/HHHNOCBG-1702544256738kun.jpeg",
   };
 });
 

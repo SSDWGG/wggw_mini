@@ -17,7 +17,7 @@ const uploadFile = function(path, hasStatus, hash = '') {
   // 自定义生成的文件名
   const name = uuid();
 
-  const filePath = `yunxiaoding-mini/wggw/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
+  const filePath = `yunxiaoding-mini/other/wggw/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
 
   return Taro.uploadFile({
     url: `${cdnHost}/`,

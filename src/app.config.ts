@@ -11,6 +11,7 @@ export default defineAppConfig({
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
+    { root: 'pages/svga', pages: ['index'] },
     { root: 'pages/invite', pages: ['index'] },
     { root: 'pages/speedTest', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },

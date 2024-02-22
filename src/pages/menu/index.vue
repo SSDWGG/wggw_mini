@@ -23,7 +23,7 @@
         :muted="true"
         :enable-progress-gesture="false"
         style="width: 100%"
-        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/OMFHLJDP-17059977997221.mp4"
+        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/OMFHLJDP-17059977997221.mp4"
       />
     </view>
 

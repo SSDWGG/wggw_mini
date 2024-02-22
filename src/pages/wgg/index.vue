@@ -70,8 +70,8 @@ const data = reactive({
     },
     {
       showName: '云小叮微信小程序、wggw微信小程序',
-      href: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IFCAICKK-1683525307009WechatIMG25.png',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/MSI/IFCAICKK-1683525307009WechatIMG25.png'
+      href: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/IFCAICKK-1683525307009WechatIMG25.png',
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggwSystem/IFCAICKK-1683525307009WechatIMG25.png'
     },
     {
       showName: '诗文卡片',

@@ -1,0 +1,114 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /opt/homebrew/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/renshuaiweidemac/Library/pnpm:/Users/renshuaiweidemac/miniconda3/bin:/Users/renshuaiweidemac/miniconda3/condabin:/opt/homebrew/bin:/opt/homebrew/sbin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  20.11.1
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: EACCES: permission denied, unlink '/Users/renshuaiweidemac/Desktop/wggw_mini/node_modules/miniprogram-compiler/LICENSE'
+
+npm manifest: 
+  {
+    "name": "wggw-mini",
+    "version": "1.0.0",
+    "private": true,
+    "description": "WGGW",
+    "templateInfo": {
+      "name": "vue3-pinia",
+      "typescript": true,
+      "css": "less"
+    },
+    "scripts": {
+      "start test": "taro3-vue3-iconfont && taro build --watch --type weapp --buildEnv test --wxFixProd nofix",
+      "start prod": "taro3-vue3-iconfont && taro build --watch --type weapp --buildEnv prod --wxFixProd nofix",
+      "start wxFixProd": "taro3-vue3-iconfont && taro build --watch --type weapp --buildEnv prod --wxFixProd fix",
+      "build:test": "taro build --type weapp --buildEnv test --wxFixProd nofix",
+      "build:prod": "taro build --type weapp --buildEnv prod --wxFixProd nofix",
+      "build:wxFixProd": "taro build --type weapp --buildEnv prod --wxFixProd fix"
+    },
+    "browserslist": [
+      "last 3 versions",
+      "Android >= 4.1",
+      "ios >= 8"
+    ],
+    "author": "",
+    "license": "MIT",
+    "lint-staged": {
+      "*.{js,jsx,vue,ts,tsx}": "eslint"
+    },
+    "dependencies": {
+      "@babel/runtime": "^7.23.9",
+      "@fishui/taro-vue": "1.1.5",
+      "@lucky-canvas/taro": "^0.0.14",
+      "@nutui/icons-vue-taro": "^0.0.9",
+      "@nutui/nutui-taro": "^4.2.9",
+      "@tarojs/components": "3.6.23",
+      "@tarojs/helper": "3.6.23",
+      "@tarojs/plugin-framework-vue3": "3.6.23",
+      "@tarojs/plugin-html": "3.6.23",
+      "@tarojs/plugin-platform-weapp": "3.6.23",
+      "@tarojs/router": "3.6.23",
+      "@tarojs/runtime": "3.6.23",
+      "@tarojs/shared": "3.6.23",
+      "@tarojs/taro": "3.6.23",
+      "@tarojs/taro-h5": "3.6.23",
+      "dayjs": "^1.11.10",
+      "lodash": "^4.17.21",
+      "moment": "^2.25.3",
+      "pinia": "^2.1.7",
+      "taro-plugin-pinia": "^1.0.0",
+      "unplugin-vue-components": "^0.26.0",
+      "vue": "^3.4.15"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.23.9",
+      "@babel/eslint-parser": "^7.23.10",
+      "@tarojs/cli": "3.6.23",
+      "@tarojs/webpack5-runner": "3.6.23",
+      "@types/lodash": "^4.14.202",
+      "@types/webpack-env": "^1.18.4",
+      "@typescript-eslint/eslint-plugin": "^6.20.0",
+      "@typescript-eslint/parser": "^6.20.0",
+      "@vue/babel-plugin-jsx": "^1.2.1",
+      "@vue/compiler-sfc": "^3.4.15",
+      "@vue/eslint-config-typescript": "^12.0.0",
+      "babel-plugin-import": "^1.13.8",
+      "babel-preset-taro": "3.6.23",
+      "css-loader": "6.10.0",
+      "eslint": "^8.56.0",
+      "eslint-config-alloy": "^5.1.2",
+      "eslint-config-prettier": "^9.1.0",
+      "eslint-plugin-vue": "^9.21.1",
+      "husky": "^9.0.7",
+      "lint-staged": "^15.2.1",
+      "prettier": "3.2.4",
+      "style-loader": "3.3.4",
+      "taro3-vue3-iconfont": "^1.2.6",
+      "typescript": "^5.3.3",
+      "vue-eslint-parser": "^9.4.2",
+      "vue-loader": "^17.4.2",
+      "webpack": "5.90.0"
+    },
+    "taro3-vue3-iconfont": [
+      {
+        "url": "//at.alicdn.com/t/c/font_3800888_v2gj6229j2k.js",
+        "output": "./src/components/alIconfont",
+        "componentName": "alIconfont"
+      }
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  
