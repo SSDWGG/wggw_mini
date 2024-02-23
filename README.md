@@ -16,7 +16,8 @@ wxFixProd：是否通过微信审核限制(个人开发者小程序的限制)
 2：分享页面接口采用并传code，可以做到用户静默登录（只要前端不展示用户信息就不需要强制去获取用户信息，接口层的用户信息也是不需要传的，后端可以通过token中的openid或者前端传入的code来获取到数据库中的用户信息）
 
 3:SVGA播放器以及文档： https://github.com/svga/svgaplayer-weapp
-<!--     "svgaplayer-weapp": "github:svga/svgaplayer-weapp" -->
+
+4：程序主包大小需要严格管理，注意components文件夹下的内容
 
 
 

@@ -3,7 +3,7 @@
   <view :class="styles.editor">
     <view class="menu" :style="{ height }">
       <myHtml />
-      <myChart />
+      <!-- <myChart /> -->
       <myLucky />
     </view>
   </view>
@@ -13,17 +13,17 @@ import styles from "./styles.scss";
 import { computed } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
-import myChart from "./echart/index.vue"
+// import myChart from "./echart/index.vue"
 import myHtml from "./mp-html/index.vue"
 import myLucky from "./lucky/index.vue"
  
 
 
-definePageConfig({
-  usingComponents: {
-    "ec-canvas": "../../../components/ec-canvas/ec-canvas",
-  },
-});
+// definePageConfig({
+//   usingComponents: {
+//     "ec-canvas": "../../../components/ec-canvas/ec-canvas",
+//   },
+// });
 
 const systemInfo = useSystemInfoStore();
 
