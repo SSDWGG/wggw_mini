@@ -23,10 +23,7 @@ import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import Taro from "@tarojs/taro";
-import {
-  getKunChartList,
-  // deleteKunChartByShopId,
-} from "@/apis/kunChart";
+import { getKunChartList} from "@/apis/kunChart";
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import { useDidShow } from "@tarojs/taro";

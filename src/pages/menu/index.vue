@@ -32,10 +32,12 @@
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 2, 3, 4]" />
   </scroll-view>
   <fullPreview :back="true" @back="data.showPage = true" v-else />
+  <svga-play-component ref="svgaPlayRef"  svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/angel.svga" />
+
 </template>
 <script lang="ts" setup>
 import styles from './styles.scss';
-import { computed, reactive } from 'vue';
+import { computed, reactive ,ref} from 'vue';
 import { useShareAppMessage, useShareTimeline, useDidShow } from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
@@ -45,6 +47,8 @@ import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import commonMenu from '@/components/commonMenu';
 import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
+import svgaPlayComponent from '@/components/svgaPlay/index.vue';
+import Taro from '@tarojs/taro';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -58,11 +62,17 @@ const account = useAccountStore();
 const systemInfo = useSystemInfoStore();
 const musicStore = useMusicStore();
 
+const svgaPlayRef = ref();
+
 useDidShow(() => {
   if (!musicStore.isPlay()) {
     musicStore.playDefaultBGM();
   }
 });
+// 显示svga动画
+Taro.nextTick(()=>{
+  svgaPlayRef.value.showSvga()
+})
 
 const data = reactive({
   showPage: true,

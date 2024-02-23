@@ -1,4 +1,5 @@
 <template>
+
   <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <navbar title="测试反应速度" background-color="rgba(116, 104, 242,.1)">
       <template v-if="!!router.params.isShare" #left>
@@ -38,8 +39,11 @@
     <my-toast-components ref="myToast" :duration="2500" />
     <side-bar :show="show" :showFlags="[1, 3]" />
   </scroll-view>
+  <svga-play-component ref="svgaPlayRef"  svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/finish.svga" />
+  <svga-play-component ref="svgaPlayRef2"  svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" />
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import { ref, reactive, watch, onUnmounted } from 'vue';
 import { Navbar } from '@fishui/taro-vue';
@@ -51,6 +55,12 @@ import { ISpeedTimeItem } from '@/apis/speedTime/model';
 import { useAccountStore } from '@/stores/account';
 import { useDidShow } from '@tarojs/taro';
 import moment from 'moment';
+import svgaPlayComponent from '@/components/svgaPlay/index.vue';
+import sideBar from "@/components/SideBar/index.vue";
+
+
+
+
 // 设置语言为中文
 moment.defineLocale('zh-cn', {
   relativeTime: {
@@ -91,6 +101,8 @@ const { show, onScroll } = useListScroll();
 const account = useAccountStore();
 
 const myToast = ref<any>();
+  const svgaPlayRef = ref();
+  const svgaPlayRef2 = ref();
 
 const router = useRouter();
 
@@ -184,6 +196,9 @@ const endGame = async () => {
     });
     // 刷新页面排名
     getInitData()
+    // 显示svga
+    svgaPlayRef.value.showSvga()
+    svgaPlayRef2.value.showSvga()
     // 弹窗提示
     myToast.value.myToastShow({
       icon: 'success',

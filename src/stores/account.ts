@@ -66,11 +66,6 @@ export const useAccountStore = defineStore("account", {
         Ctitle: "计分板",
         router: "/pages/scoreboard/index",
       },
-      {
-        title: "svga",
-        Ctitle: "svga",
-        router: "/pages/svga/index",
-      },
     ],
     cxkMenuList: [
       {

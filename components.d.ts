@@ -39,6 +39,7 @@ declare module 'vue' {
     PostPreList: typeof import('./src/components/postPreList/index.vue')['default']
     ShareButton: typeof import('./src/components/SideBar/share-button.vue')['default']
     SideBar: typeof import('./src/components/SideBar/index.vue')['default']
+    SvgaPlay: typeof import('./src/components/svgaPlay/index.vue')['default']
     UpdatePop: typeof import('./src/components/pop/updatePop/index.vue')['default']
     WggwStepsLine: typeof import('./src/components/wggwStepsLine/index.vue')['default']
   }

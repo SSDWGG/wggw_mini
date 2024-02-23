@@ -34,6 +34,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
+// @ts-ignore
 import styles from './styles.scss';
 
 const props = withDefaults(defineProps<{ type?: 'goods'|'general' }>(), {

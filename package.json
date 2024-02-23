@@ -48,6 +48,7 @@
     "pinia": "^2.1.7",
     "taro-plugin-pinia": "^1.0.0",
     "unplugin-vue-components": "^0.26.0",
+    "svgaplayer-weapp": "github:svga/svgaplayer-weapp",
     "vue": "^3.4.15"
   },
   "devDependencies": {
