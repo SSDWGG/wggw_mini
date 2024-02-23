@@ -5,7 +5,8 @@
 // @ts-ignore
 import styles from './styles.scss';
 import Taro from '@tarojs/taro';
-import { Parser, Player } from "svgaplayer-weapp";
+const { Parser, Player } = require('./svgaplayer.weapp');
+//  import { Parser, Player } from "svgaplayer-weapp";
 import { ref} from 'vue';
 import { uuid } from '@/utils/index';
 

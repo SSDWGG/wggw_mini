@@ -44,11 +44,9 @@
     "@tarojs/taro-h5": "3.6.23",
     "dayjs": "^1.11.10",
     "lodash": "^4.17.21",
-    "moment": "^2.25.3",
     "pinia": "^2.1.7",
     "taro-plugin-pinia": "^1.0.0",
     "unplugin-vue-components": "^0.26.0",
-    "svgaplayer-weapp": "github:svga/svgaplayer-weapp",
     "vue": "^3.4.15"
   },
   "devDependencies": {

@@ -20,7 +20,7 @@
         <nut-swiper :height="26" :class="styles.swiper" loop auto-play="1500" direction="vertical" :touchable="false">
           <nut-swiper-item v-for="(item, index) in data.CurrentUsersSpeedTimeData" :key="index" class="swiper-item">
             <image class="avater" :src="item.avatarurl" />
-            {{ item.username }} 在 {{ moment((item as any).updateTime).fromNow() }} 创造了{{ item.useTime }}秒的好记录！
+            {{ item.username }} 在 {{  dayjs((item as any).updateTime).fromNow()}} 创造了{{ item.useTime }}秒的好记录！
           </nut-swiper-item>
         </nut-swiper>
       </view>
@@ -54,43 +54,15 @@ import { getCurrentUsersSpeedTime, getUserFastTime, updateSpeedTime,getUserCount
 import { ISpeedTimeItem } from '@/apis/speedTime/model';
 import { useAccountStore } from '@/stores/account';
 import { useDidShow } from '@tarojs/taro';
-import moment from 'moment';
 import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import sideBar from "@/components/SideBar/index.vue";
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import 'dayjs/locale/zh-cn'
 
+dayjs.locale('zh-cn')
+dayjs.extend(relativeTime);
 
-
-
-// 设置语言为中文
-moment.defineLocale('zh-cn', {
-  relativeTime: {
-    future: '%s内',
-
-    past: '%s前',
-
-    s: '几秒',
-
-    m: '1 分钟',
-
-    mm: '%d 分钟',
-
-    h: '1 小时',
-
-    hh: '%d 小时',
-
-    d: '1 天',
-
-    dd: '%d 天',
-
-    M: '1 个月',
-
-    MM: '%d 个月',
-
-    y: '1 年',
-
-    yy: '%d 年',
-  },
-});
 
 definePageConfig({
   enableShareAppMessage: true,
