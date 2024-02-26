@@ -9,7 +9,7 @@
 https://echarts.apache.org/zh/builder.html  在线构建echart.min
 */
 import Taro, { useLoad } from "@tarojs/taro";
-import * as echarts from './ec-canvas/echarts-5.4.1.min'
+import * as echarts from './ec-canvas/echarts.min'
 import EcCanvas from './ec-canvas/ec-canvas.vue'
 import { ref, reactive } from "vue";
 export default {

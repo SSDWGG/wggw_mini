@@ -7,7 +7,7 @@
 //自定义下载的echarts.min.js 文件  要使用需使用js,ts需要声明文件
 import Taro from "@tarojs/taro";
 import WxCanvas from "./wx-canvas";
-import * as echarts from "./echarts-5.4.1.min";
+import * as echarts from "./echarts.min";
  
 export default {
   name: "EcCanvas",
