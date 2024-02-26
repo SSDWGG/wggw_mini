@@ -1,5 +1,5 @@
 <template>
-    <canvas v-if="showCanvas" :id="svgaPlayCanvasId" type="2d" :class="styles.svgaPlay" :style="props.canvasStyle" />
+  <canvas v-if="showCanvas" :id="svgaPlayCanvasId" type="2d" :class="styles.svgaPlay" :style="props.canvasStyle" />
 </template>
 <script lang="ts" setup>
 // @ts-ignore
@@ -8,7 +8,7 @@ import Taro from '@tarojs/taro';
 const { Parser, Player } = require('./svgaplayer.weapp');
 // 依赖要从github下载太慢，直接使用打包产物
 //  import { Parser, Player } from "svgaplayer-weapp";
-import { ref} from 'vue';
+import { ref } from 'vue';
 import { uuid } from '@/utils/index';
 
 interface IProps {
@@ -23,14 +23,14 @@ const props = withDefaults(defineProps<IProps>(), {
   svgaUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/MerryChristmas.svga',
 });
 
-const showCanvas = ref(false)
-const svgaPlayCanvasId = ref('')
+const showCanvas = ref(false);
+const svgaPlayCanvasId = ref('');
 
-svgaPlayCanvasId.value = uuid()
+svgaPlayCanvasId.value = uuid();
 
-const showSvga =  () => {
-  showCanvas.value = true
-  Taro.nextTick(async() => {
+const showSvga = () => {
+  showCanvas.value = true;
+  Taro.nextTick(async () => {
     try {
       const parser = new Parser();
       const player = new Player();
@@ -38,9 +38,9 @@ const showSvga =  () => {
       const videoItem = await parser.load(props.svgaUrl);
       await player.setVideoItem(videoItem);
       player.loops = props.loop;
-      player.onFinished(()=>{
-        showCanvas.value = false
-      })
+      player.onFinished(() => {
+        showCanvas.value = false;
+      });
       player.startAnimation();
     } catch (error) {
       console.log(error);

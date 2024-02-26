@@ -28,9 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/developer/editor/echart/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/developer/editor/echart/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/pages/developer/editor/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/developer/editor/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/menu/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/cxk/menu/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

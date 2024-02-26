@@ -3,44 +3,48 @@
     <navbar title="Menu" hide-back background-color="#f5f5f9" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
     <nut-noticebar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
-      Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light. Though wise men at their
+      Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of
+      the light. Though wise men at their
       end know dark is right, Because their words had forked no lightning they Do not go gentle into that good night.
     </nut-noticebar>
 
     <view class="richText">
       <rich-text :nodes="h5" />
-      <video
-        class="video"
-        object-fit="contain"
-        :show-bottom-progress="false"
-        :initial-time="0"
-        :autoplay="true"
-        :controls="false"
-        :show-fullscreen-btn="false"
-        :show-center-play-btn="false"
-        :show-play-btn="false"
-        :loop="true"
-        :muted="true"
-        :enable-progress-gesture="false"
-        style="width: 100%"
-        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OMFHLJDP-17059977997221.mp4"
-      />
+      <video class="video" object-fit="contain" :show-bottom-progress="false" :initial-time="0" :autoplay="true"
+        :controls="false" :show-fullscreen-btn="false" :show-center-play-btn="false" :show-play-btn="false" :loop="true"
+        :muted="true" :enable-progress-gesture="false" style="width: 100%"
+        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OMFHLJDP-17059977997221.mp4" />
     </view>
 
     <commonMenu :height="height" :listData="account.mainMenuList"></commonMenu>
 
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 2, 3, 4]" />
   </scroll-view>
-  <fullPreview
-  :svgaLoop="0"
-  svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga"
-  :back="true" @back="data.showPage = true" title="Enjoy" v-else />
-  <svga-play-component ref="svgaPlayRef"  svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/angel.svga" />
-
+  <fullPreview :svgaLoop="0"
+    svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga"
+    :back="true" @back="data.showPage = true" title="Enjoy" v-else />
+  <svga-play-component ref="svgaPlayRef" :canvasStyle="{
+    width: '100vw',
+    height: '100vh',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 9999999,
+    pointerEvents: 'none',
+  }" svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/angel.svga" />
+  <svga-play-component ref="svgaPlayRef2" :canvasStyle="{
+    width: '100vw',
+    height: '100vh',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 9999999,
+    pointerEvents: 'none',
+  }" svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" />
 </template>
 <script lang="ts" setup>
 import styles from './styles.scss';
-import { computed, reactive ,ref} from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { useShareAppMessage, useShareTimeline, useDidShow } from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
@@ -66,16 +70,19 @@ const systemInfo = useSystemInfoStore();
 const musicStore = useMusicStore();
 
 const svgaPlayRef = ref();
+const svgaPlayRef2 = ref();
+
+// 显示svga动画
+Taro.nextTick(() => {
+  svgaPlayRef.value.showSvga();
+  svgaPlayRef2.value.showSvga();
+});
 
 useDidShow(() => {
   if (!musicStore.isPlay()) {
     musicStore.playDefaultBGM();
   }
 });
-// 显示svga动画
-Taro.nextTick(()=>{
-  svgaPlayRef.value.showSvga()
-})
 
 const data = reactive({
   showPage: true,

@@ -1,5 +1,5 @@
 <template>
-  <fullPreview :back="false" :imgSrc="imageSrcBg" title="Welcome to kzw"/>
+  <fullPreview      svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" :back="false" :imgSrc="imageSrcBg" title="Welcome to kzw"/>
 </template>
 
 <script lang="ts" setup>
