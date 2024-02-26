@@ -11,3 +11,4 @@ javaSever/target/
 javaSever/.idea/workspace.xml
 
 components.d.ts
+*.xml
