@@ -18,6 +18,13 @@ import myHtml from "./mp-html/index.vue"
 import myLucky from "./lucky/index.vue"
  
 
+
+// definePageConfig({
+//   usingComponents: {
+//     "ec-canvas": "../../../components/ec-canvas/ec-canvas",
+//   },
+// });
+
 const systemInfo = useSystemInfoStore();
 
 const height = computed(

@@ -1,8 +1,7 @@
 <template>
   <view class="title">Echarts图表</view>
-  <view class="echarts">
+  <view class="bar-chart">
     <!-- <ec-canvas id="mychart-dom-area1" canvas-id="mychart-area1" :ec="ec" /> -->
-    <!-- <ec-canvas id="mychart-dom-area2" canvas-id="mychart-area2" :ec="ec2" /> -->
     <EChart ref="barChat" canvas-id="bar-canvas" />
   </view>
 </template>
@@ -12,14 +11,8 @@ import EChart from '@/pages/externalLibrary/myEcharts/index.vue';
 import Taro from "@tarojs/taro";
 import { ref } from "vue";
 
-const barChat = ref<any>();
 
-// 使用外部组件需要再根页面位置引入
-// definePageConfig({
-//   usingComponents: {
-//     "ec-canvas": "../../../components/ec-canvas/ec-canvas",
-//   },
-// });
+const barChat = ref<any>();
 
 // const initChart = (canvas, width, height, dpr) => {
 //   const chart = echarts.init(canvas, null, {
@@ -173,33 +166,51 @@ const barChat = ref<any>();
 
 
 // const ec = { onInit: initChart };
-// const ec2 = { onInit: initChart };
 
 Taro.nextTick(() => {
- const option = {
-  tooltip: {
-    formatter: '{a} <br/>{b} : {c}%'
-  },
-  series: [
-    {
-      name: 'Pressure',
-      type: 'gauge',
-      progress: {
-        show: true
-      },
-      detail: {
-        valueAnimation: true,
-        formatter: '{value}'
-      },
-      data: [
-        {
-          value: 50,
-          name: 'SCORE'
-        }
-      ]
-    }
-  ]
-};
+  const option = {
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      top: '5%',
+      left: 'center'
+    },
+    series: [
+      {
+        name: 'Access From',
+        type: 'pie',
+        radius: ['40%', '70%'],
+        avoidLabelOverlap: false,
+        itemStyle: {
+          borderRadius: 10,
+          borderColor: '#fff',
+          borderWidth: 2
+        },
+        label: {
+          show: false,
+          position: 'center'
+        },
+        emphasis: {
+          label: {
+            show: true,
+            fontSize: 40,
+            fontWeight: 'bold'
+          }
+        },
+        labelLine: {
+          show: false
+        },
+        data: [
+          { value: 1048, name: 'Search Engine' },
+          { value: 735, name: 'Direct' },
+          { value: 580, name: 'Email' },
+          { value: 484, name: 'Union Ads' },
+          { value: 300, name: 'Video Ads' }
+        ]
+      }
+    ]
+  };
   barChat.value.refresh(option)
 })
 
