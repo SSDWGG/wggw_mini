@@ -1,5 +1,5 @@
 <template>
-  <fullPreview :back="false"/>
+  <fullPreview :back="false" />
 </template>
 
 <script lang="ts" setup>

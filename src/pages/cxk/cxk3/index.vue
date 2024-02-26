@@ -29,7 +29,7 @@
     </view>
 
   </scroll-view>
-  <fullPreview :back="true" @back="data.showPage = true" v-else />
+  <fullPreview :back="true" @back="data.showPage = true" :imgSrc="imageSrcBg" title="Enjoy" v-else />
 </template>
 <script lang="ts" setup>
 import styles from "./styles.scss";
@@ -39,7 +39,7 @@ import styles from "./styles.scss";
 import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
-import fullPreview from "../fullPreview/index.vue";
+import fullPreview from '@/pages/fullPreview/index.vue'
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import { useMusicStore } from '@/stores/music';
@@ -51,6 +51,8 @@ definePageConfig({
 });
 
 const router = useRouter();
+
+const imageSrcBg = require('@/assets/images/cxk/kun.png')
 
 
 const { show, onScroll } = useListScroll();

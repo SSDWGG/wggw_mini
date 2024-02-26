@@ -31,7 +31,10 @@
 
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 2, 3, 4]" />
   </scroll-view>
-  <fullPreview :back="true" @back="data.showPage = true" v-else />
+  <fullPreview
+  :svgaLoop="0"
+  svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga"
+  :back="true" @back="data.showPage = true" title="Enjoy" v-else />
   <svga-play-component ref="svgaPlayRef"  svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/angel.svga" />
 
 </template>

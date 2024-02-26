@@ -1,21 +1,21 @@
 <template>
-  <fullPreview :back="false"/>
+  <fullPreview :back="false" :imgSrc="imageSrcBg" title="Welcome to kzw"/>
 </template>
 
 <script lang="ts" setup>
 import {  useLoad, useRouter,navigateTo } from '@tarojs/taro';
-import fullPreview from '../fullPreview/index.vue'
+import fullPreview from '@/pages/fullPreview/index.vue'
 import { useMusicStore } from '@/stores/music';
-
-
 
 const musicStore = useMusicStore();
 
 const router = useRouter();
 const homePage = router.params.url || '/pages/cxk/menu/index';
 
-musicStore.playCxkMusic(musicStore.$state)
 
+const imageSrcBg = require('@/assets/images/cxk/kun.png')
+
+musicStore.playCxkMusic()
 
 useLoad(() => {
   setTimeout(()=>{

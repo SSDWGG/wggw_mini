@@ -6,6 +6,7 @@
 import styles from './styles.scss';
 import Taro from '@tarojs/taro';
 const { Parser, Player } = require('./svgaplayer.weapp');
+// 依赖要从github下载太慢，直接使用打包产物
 //  import { Parser, Player } from "svgaplayer-weapp";
 import { ref} from 'vue';
 import { uuid } from '@/utils/index';
