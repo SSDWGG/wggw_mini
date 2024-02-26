@@ -6,6 +6,8 @@ export default defineAppConfig({
     'pages/menu/index',
   ],
   subpackages: [
+    
+    // { root: 'pages/externalLibrary/myEcharts', pages: ['index'] },
     // ,'memo/index','memo/post/index','mine/index'
     { root: 'pages/memoAndMine', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },

@@ -14,8 +14,6 @@ declare module 'vue' {
     CheckSystemButton: typeof import('./src/components/button/checkSystemButton.vue')['default']
     CommonMenu: typeof import('./src/components/commonMenu/index.vue')['default']
     ContactButton: typeof import('./src/components/SideBar/contact-button.vue')['default']
-    EcCanvas: typeof import('./src/components/myEcharts/ec-canvas/ec-canvas.vue')['default']
-    EChart: typeof import('./src/components/myEcharts/e-chart.vue')['default']
     FullButton: typeof import('./src/components/SideBar/full-button.vue')['default']
     'Icon.h5': typeof import('./src/components/alIconfont/icon.h5.vue')['default']
     'Icon.weapp': typeof import('./src/components/alIconfont/icon.weapp.vue')['default']

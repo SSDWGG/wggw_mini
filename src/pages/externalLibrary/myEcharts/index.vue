@@ -8,7 +8,6 @@
 * 此组件不能使用setup语法糖，会报错的.
 https://echarts.apache.org/zh/builder.html  在线构建echart.min
 */
-import Taro, { useLoad } from "@tarojs/taro";
 import * as echarts from './ec-canvas/echarts.min'
 import EcCanvas from './ec-canvas/ec-canvas.vue'
 import { ref, reactive } from "vue";
