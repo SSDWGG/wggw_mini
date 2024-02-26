@@ -78,7 +78,7 @@ public class SpeedTimeController {
   //  获取总表排序后的前20条记录
   @RequestMapping("/v1/speedTime/getCurrentUsersSpeedTime")
   public AjaxResult getCurrentUsersSpeedTime(){
-    Page<SpeedTime> page = new Page<>(1, 20);
+    Page<SpeedTime> page = new Page<>(1, 5);
     QueryWrapper<SpeedTime> wrapper = new QueryWrapper<>();
     wrapper.orderByAsc("use_time","update_time");
     speedTimeMapper.selectPage(page, wrapper);

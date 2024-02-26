@@ -1,7 +1,6 @@
 <template>
-
   <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="测试反应速度" background-color="rgba(116, 104, 242,.1)">
+    <navbar title="快快应达" background-color="rgba(116, 104, 242,.1)">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
@@ -14,13 +13,16 @@
 
     <!-- 游戏区 -->
     <view class="ganmeCenter flex center column">
-      <view class="tip">  <image class="avater" :src="account.userInfo.avatarurl" /> 您的最好成绩 ：{{ data.niceResult }} 秒 (排名第{{ data.countData.userConut }})</view>
+      <view class="tip">
+        <image class="avater" :src="account.userInfo.avatarurl" /> 您的最好成绩 ：{{ data.niceResult }} 秒 (排名第{{
+          data.countData.userConut }})
+      </view>
 
-      <view class="mySwiper" v-if="data.CurrentUsersSpeedTimeData.length>3">
+      <view class="mySwiper" v-if="data.CurrentUsersSpeedTimeData.length > 3">
         <nut-swiper :height="26" :class="styles.swiper" loop auto-play="1500" direction="vertical" :touchable="false">
           <nut-swiper-item v-for="(item, index) in data.CurrentUsersSpeedTimeData" :key="index" class="swiper-item">
             <image class="avater" :src="item.avatarurl" />
-            {{ item.username }} 在 {{  dayjs((item as any).updateTime).fromNow()}} 创造了{{ item.useTime }}秒的好记录！
+            {{ item.username }} 在 {{ dayjs((item as any).updateTime).fromNow() }} 创造了{{ item.useTime }}秒的好记录！
           </nut-swiper-item>
         </nut-swiper>
       </view>
@@ -38,10 +40,36 @@
     <!-- toast提示 -->
     <my-toast-components ref="myToast" :duration="2500" />
     <side-bar :show="show" :showFlags="[1, 3]" />
+
+    <view class="tooLowDiv">
+      <svga-play-component ref="svgaPlayRef3" :canvasStyle="{}"
+    svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA2/bianbian.svga" />
+
+    </view>
   </scroll-view>
-  <svga-play-component ref="svgaPlayRef"  svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/finish.svga" />
-  <svga-play-component ref="svgaPlayRef2"  svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" />
-</template>
+  <svga-play-component ref="svgaPlayRef" :canvasStyle="{
+    width: '100vw',
+    height: '100vh',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 9999999,
+    pointerEvents: 'none',
+  }"
+    svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/finish.svga" />
+  <svga-play-component ref="svgaPlayRef2" :canvasStyle="{
+    width: '100vw',
+    height: '100vh',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 9999999,
+    pointerEvents: 'none',
+  }" svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" />
+  
+
+  
+  </template>
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
@@ -50,19 +78,18 @@ import { Navbar } from '@fishui/taro-vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useShareAppMessage, useShareTimeline, switchTab, useRouter } from '@tarojs/taro';
-import { getCurrentUsersSpeedTime, getUserFastTime, updateSpeedTime,getUserCount } from '@/apis/speedTime';
+import { getCurrentUsersSpeedTime, getUserFastTime, updateSpeedTime, getUserCount } from '@/apis/speedTime';
 import { ISpeedTimeItem } from '@/apis/speedTime/model';
 import { useAccountStore } from '@/stores/account';
 import { useDidShow } from '@tarojs/taro';
 import svgaPlayComponent from '@/components/svgaPlay/index.vue';
-import sideBar from "@/components/SideBar/index.vue";
+import sideBar from '@/components/SideBar/index.vue';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import 'dayjs/locale/zh-cn'
+import 'dayjs/locale/zh-cn';
 
-dayjs.locale('zh-cn')
+dayjs.locale('zh-cn');
 dayjs.extend(relativeTime);
-
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -73,8 +100,9 @@ const { show, onScroll } = useListScroll();
 const account = useAccountStore();
 
 const myToast = ref<any>();
-  const svgaPlayRef = ref();
-  const svgaPlayRef2 = ref();
+const svgaPlayRef = ref();
+const svgaPlayRef2 = ref();
+const svgaPlayRef3 = ref();
 
 const router = useRouter();
 
@@ -99,10 +127,10 @@ const data = reactive({
   niceResult: maxGameTime / 1000,
   userFastTimeObj: {} as ISpeedTimeItem,
   CurrentUsersSpeedTimeData: [] as ISpeedTimeItem[],
-  countData:{} as {
-    userConut:number,
-    allConut:number,
-  }
+  countData: {} as {
+    userConut: number;
+    allConut: number;
+  },
 });
 
 const getInitData = async () => {
@@ -110,7 +138,7 @@ const getInitData = async () => {
   data.niceResult = Number(resUserFastTimeData.useTime);
   data.userFastTimeObj = resUserFastTimeData;
   data.CurrentUsersSpeedTimeData = await getCurrentUsersSpeedTime();
-  data.countData =  await getUserCount()
+  data.countData = await getUserCount();
 };
 
 useDidShow(() => {
@@ -167,10 +195,10 @@ const endGame = async () => {
       useTime: data.niceResult,
     });
     // 刷新页面排名
-    getInitData()
+    getInitData();
     // 显示svga
-    svgaPlayRef.value.showSvga()
-    svgaPlayRef2.value.showSvga()
+    svgaPlayRef.value.showSvga();
+    svgaPlayRef2.value.showSvga();
     // 弹窗提示
     myToast.value.myToastShow({
       icon: 'success',
@@ -201,10 +229,13 @@ const startGame = () => {
     data.useTime++;
   }, 10);
   data.maxTimeoutFlag = setTimeout(() => {
+   
+    // 显示svga
+    svgaPlayRef3.value.showSvga();
     myToast.value.myToastShow({
       icon: 'error',
       title: 'OMG,太慢啦~',
-      duration: 2000,
+      duration: 3000,
     });
     endGame();
   }, data.maxGameTime);

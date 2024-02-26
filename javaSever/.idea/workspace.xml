@@ -28,7 +28,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5cab4448-e699-425b-83b4-7d320113ca6e" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/../src/pages/cxk/menu/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/cxk/menu/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ryw/controller/SpeedTimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ryw/controller/SpeedTimeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/pages/speedTest/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../src/pages/speedTest/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,7 +422,7 @@
       <workItem from="1708229605877" duration="185000" />
       <workItem from="1708230626839" duration="19690000" />
       <workItem from="1708657418624" duration="661000" />
-      <workItem from="1708910848429" duration="607000" />
+      <workItem from="1708910848429" duration="675000" />
     </task>
     <servers />
   </component>
