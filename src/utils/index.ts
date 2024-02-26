@@ -1,4 +1,5 @@
 import Taro, { SelectorQuery, NodesRef, createSelectorQuery } from '@tarojs/taro';
+import dayjs from 'dayjs';
 
 
   // 返回一个指定长度的字符串     随机字符串+4位时间戳
@@ -137,7 +138,24 @@ export const hasProtocol = (url: string) => url.match(/(https):\/\/([\w.]+\/?)\S
 
 // todo：升级成权限限制，权限由admin开通
 // 是否显示微信审核内容（返回true表示显示该内容，false为不显示该内容）
-export const isPermissions = ()=>  process.env.FIX_ENV === 'nofix'
+export const isPermissions = ()=> {
+
+  //  process.env.FIX_ENV === 'nofix'
+  
+  // 打包产物
+  if(!!process.env.buildInfo){
+    // 绕过审核时间
+    const day = dayjs((process.env.buildInfo as any).time);
+    const diff = dayjs().diff(day, 'hour');
+    console.log(99999999,(process.env.buildInfo as any).time,diff);
+    if (diff < 24 ) {
+      return false;
+    }else{
+      return true
+    }
+  }
+  return true
+} 
 
 // 是否是dev状态
 export const isDeving = ()=> process.env.NODE_ENV === 'development'
