@@ -26,7 +26,7 @@ public class MemoController {
                                   @RequestParam("uid") String uid){
         Page<Memo> page = new Page<>(current, pageSize);
         QueryWrapper<Memo> wrapper = new QueryWrapper<>();
-        wrapper.eq("uid",uid);
+        wrapper.eq("uid",uid).orderByDesc("create_time");
         memoMapper.selectPage(page, wrapper);
         List<Memo> memoList  = page.getRecords();  //分页查询的结果
         return success(memoList);
