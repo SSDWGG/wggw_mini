@@ -100,7 +100,7 @@ const toPreview = (detailId: string) => {
 
 const editMemo = (item:IMemo) => {
   account.editMemoData =  cloneDeep(item)
-  Taro.navigateTo({ url: `/pages/memoAndMine/memo/post/index?type=${item.memoType==1?'video':'image'}&memoId=${item.memoId}` });
+  Taro.navigateTo({ url: `/pages/memo/memo/post/index?type=${item.memoType==1?'video':'image'}&memoId=${item.memoId}` });
 };
 
 const deleteMemo = (memoId: string) => {

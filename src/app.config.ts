@@ -9,7 +9,7 @@ export default defineAppConfig({
     
     // { root: 'pages/externalLibrary/myEcharts', pages: ['index'] },
     // ,'memo/index','memo/post/index','mine/index'
-    { root: 'pages/memoAndMine', pages: ['index','memo/post/index'] },
+    { root: 'pages/memo', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },

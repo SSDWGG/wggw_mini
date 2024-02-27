@@ -1,6 +1,6 @@
 <template>
   <navbar title="我的记录" background-color="transparent" />
-  <view :class="styles.memoAndMine">
+  <view :class="styles.memo">
     <view class="content"  :style="{ height }">
      <memo />
      <!-- <mine /> -->

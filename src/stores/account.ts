@@ -49,7 +49,7 @@ export const useAccountStore = defineStore("account", {
       {
         title: "Mood Memo",
         Ctitle: "心情记录",
-        router: "/pages/memoAndMine/index",
+        router: "/pages/memo/index",
       },
       {
         title: "Value Curve",
