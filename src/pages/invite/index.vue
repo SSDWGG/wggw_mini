@@ -1,5 +1,5 @@
 <template>
-      <navbar title="开发者专区" background-color="#f5f5f9" />
+      <navbar title="无限滚动" background-color="#f5f5f9" />
       <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="开发者专区" />
       <scroll-view   :style="{height,width:'100%'}" :class="styles.container"
        class="pageIn"  scroll-y="true"
@@ -32,45 +32,41 @@ import styles from './styles.scss';
 import mpmStepsLine from '@/components/wggwStepsLine/index.vue';
 import { Navbar } from "@fishui/taro-vue";
 import { computed } from "vue";
-import { useSystemInfoStore } from "@/stores/systemInfo";
-
-const systemInfo = useSystemInfoStore();
-
 const data = reactive({
   behaviorList: [
     {
-      name: 'Ren',
+      name: '集美',
       time: '三小时前',
       behaviorList: [
-        {behavior:'增加了相册'},
+        {behavior:'增加了'},
         
       ]
     },
     {
-      name: 'Ren',
+      name: '集美',
       time: '2022.8.13 13:23:13',
       behaviorList: [
-        {behavior:'增加了相册'},
+        {behavior:'增加了'},
         
-        {behavior:'查询了相册'},
+        {behavior:'查询了'},
       ]
     },
     {
-      name: 'Ren',
+      name: '集美',
       time: '2022.8.14 13:23:13',
       behaviorList: [
-        {behavior:'增加了相册'},
-        {behavior:'删除了相册'},
-        {behavior:'修改了相册'},
-        {behavior:'查询了相册'},
+        {behavior:'增加了'},
+        {behavior:'删除了'},
+        {behavior:'修改了'},
+        {behavior:'查询了'},
       ]
     },
     {
-      name: 'Ren',
+      name: '集美',
       time: '2022.8.15 13:23:13',
       behaviorList: [
        
-        {behavior:'查询了相册'},
+        {behavior:'查询了'},
       ]
     }
   ]
@@ -86,6 +82,8 @@ const loadMore = () => {
   data.behaviorList = [...data.behaviorList,...data.behaviorList]
 };
 loadMore();
+
+
 
 
 defineExpose({

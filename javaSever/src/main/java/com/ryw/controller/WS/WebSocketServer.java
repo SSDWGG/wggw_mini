@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Component
 @Slf4j
-@ServerEndpoint("/v2/ws/toAllUser/{userId}")
+@ServerEndpoint("/v1/ws/publicWS/{userId}")
 public class WebSocketServer {
 
     /**静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。*/
@@ -49,7 +49,7 @@ public class WebSocketServer {
             //在线数加1
             addOnlineCount();
         }
-        log.info("用户连接:"+userId+",当前在线人数为:" + getOnlineCount());
+      System.out.println("用户连接:"+userId+",当前在线人数为:" + getOnlineCount());
 //        sendMessage("连接成功");
     }
 
@@ -63,7 +63,7 @@ public class WebSocketServer {
             //从set中删除
             subOnlineCount();
         }
-        log.info("用户退出:"+userId+",当前在线人数为:" + getOnlineCount());
+      System.out.println("用户退出:"+userId+",当前在线人数为:" + getOnlineCount());
     }
 
     /**
@@ -73,7 +73,7 @@ public class WebSocketServer {
      **/
     @OnMessage
     public void onMessage(String message, Session session) {
-        log.info("用户消息:"+userId+",报文:"+message);
+      System.out.println("用户消息:"+userId+"报文"+message);
         //可以群发消息
         //消息保存到数据库、redis
         if(StringUtils.isNotBlank(message)){
@@ -95,7 +95,7 @@ public class WebSocketServer {
 //                        webSocketMap.get(userId).sendMessage(message);
                 }else{
                     //否则不在这个服务器上，发送到mysql或者redis
-                    log.error("请求的userId:"+userId+"不在该服务器上");
+                  System.out.println("请求的userId:"+userId+"不在该服务器上");
                 }
             }catch (Exception e){
                 e.printStackTrace();
@@ -111,7 +111,7 @@ public class WebSocketServer {
     @OnError
     public void onError(Session session, Throwable error) {
 
-        log.error("用户错误:"+this.userId+",原因:"+error.getMessage());
+      System.out.println("用户错误:"+this.userId+",原因:"+error.getMessage());
         error.printStackTrace();
     }
 
@@ -130,11 +130,11 @@ public class WebSocketServer {
      *发送自定义消息
      **/
     public static void sendInfo(String message, String userId) {
-        log.info("发送消息到:"+userId+"，报文:"+message);
+      System.out.println("发送消息到:"+userId+"，报文:"+message);
         if(StringUtils.isNotBlank(userId) && webSocketMap.containsKey(userId)){
             webSocketMap.get(userId).sendMessage(message);
         }else{
-            log.error("用户"+userId+",不在线！");
+          System.out.println("用户"+userId+",不在线！");
         }
     }
 

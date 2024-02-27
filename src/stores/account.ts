@@ -61,11 +61,7 @@ export const useAccountStore = defineStore("account", {
         Ctitle: "开发者专区",
         router: "/pages/developer/index",
       },
-      {
-        title: "Score Board",
-        Ctitle: "计分板",
-        router: "/pages/scoreboard/index",
-      },
+    
     ],
     cxkMenuList: [
       {
@@ -148,6 +144,11 @@ export const useAccountStore = defineStore("account", {
         title: "Test",
         Ctitle: "测试",
         router: "/pages/invite/index",
+      },
+      {
+        title: "Score Board",
+        Ctitle: "计分板",
+        router: "/pages/scoreboard/index",
       },
     ],
     editMemoData:{} as IMemo ,
