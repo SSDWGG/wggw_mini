@@ -36,9 +36,7 @@ const apiList = Object.keys(allConfigs)
     baseApi: allConfigs[env].baseApi,
   }))
   .concat([
-    { env: '光利', baseApi: 'http://192.168.19.214:23792' },
-    { env: '🍔', baseApi: 'http://192.168.19.48:23792' },
-    { env: '大**', baseApi: 'http://192.168.19.93:8888' },
+    { env: '❤️wggMac🍔', baseApi: 'http://10.0.0.8:9051' },
   ]);
 
 const state = reactive({

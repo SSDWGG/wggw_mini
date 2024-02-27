@@ -33,11 +33,8 @@ const pow = () => {
 
 /* 图片保存功能 */
 const handleSaveImage = (e) => {
-  console.log(1111111);
-
   e.stopPropagation();
   // wx.openSetting无法通过回调调用，只能主动触发
-
   Taro.getSetting({
     success: () => {
       Taro.authorize({
