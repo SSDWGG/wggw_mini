@@ -5,6 +5,7 @@
       <myHtml />
       <myChart />
       <myLucky />
+      <myStepLine />
     </view>
   </view>
 </template>
@@ -16,6 +17,7 @@ import { useSystemInfoStore } from "@/stores/systemInfo";
 import myChart from "./echart/index.vue"
 import myHtml from "./mp-html/index.vue"
 import myLucky from "./lucky/index.vue"
+import myStepLine from "./stepline/index.vue"
  
 
 

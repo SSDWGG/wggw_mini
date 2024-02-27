@@ -15,7 +15,8 @@ const allConfigs: { [k in BUILD_ENV] : IEnvConfig } = {
   prod: {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
     baseApi: 'https://wggw.ssdwgg.cn', 
-    socketAllUserUrl:'ws://wggw.ssdwgg.cn/v1/ws/publicWS/'
+    // https自动会转换成wss
+    socketAllUserUrl:'wss://wggw.ssdwgg.cn/v1/ws/publicWS/'
   },
 };
 

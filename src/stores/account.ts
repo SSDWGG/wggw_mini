@@ -141,11 +141,6 @@ export const useAccountStore = defineStore("account", {
         router: "/pages/developer/waterfall/index",
       },
       {
-        title: "Test",
-        Ctitle: "测试",
-        router: "/pages/invite/index",
-      },
-      {
         title: "Score Board",
         Ctitle: "计分板",
         router: "/pages/scoreboard/index",

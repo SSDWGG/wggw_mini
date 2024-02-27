@@ -139,7 +139,6 @@ export const hasProtocol = (url: string) => url.match(/(https):\/\/([\w.]+\/?)\S
 // todo：升级成权限限制，权限由admin开通
 // 是否显示微信审核内容（返回true表示显示该内容，false为不显示该内容）
 export const isPermissions = ()=> {
-
   //  process.env.FIX_ENV === 'nofix'
   
   // 打包产物
@@ -148,11 +147,7 @@ export const isPermissions = ()=> {
     const day = dayjs((process.env.buildInfo as any).time);
     const diff = dayjs().diff(day, 'hour');
     console.log(99999999,(process.env.buildInfo as any).time,diff);
-    if (diff < 24 ) {
-      return false;
-    }else{
-      return true
-    }
+    return !(diff < 24);
   }
   return true
 } 

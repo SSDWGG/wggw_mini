@@ -1,6 +1,6 @@
 <template>
-      <navbar title="无限滚动" background-color="#f5f5f9" />
-      <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="开发者专区" />
+    <view class="title">侧边线</view>
+
       <scroll-view   :style="{height,width:'100%'}" :class="styles.container"
        class="pageIn"  scroll-y="true"
        @scrolltolower="loadMore">
@@ -30,7 +30,6 @@ import { reactive } from 'vue';
 // @ts-ignore
 import styles from './styles.scss';
 import mpmStepsLine from '@/components/wggwStepsLine/index.vue';
-import { Navbar } from "@fishui/taro-vue";
 import { computed } from "vue";
 const data = reactive({
   behaviorList: [
@@ -82,9 +81,6 @@ const loadMore = () => {
   data.behaviorList = [...data.behaviorList,...data.behaviorList]
 };
 loadMore();
-
-
-
 
 defineExpose({
   loadMore

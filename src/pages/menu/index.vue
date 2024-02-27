@@ -100,11 +100,7 @@ const svgaPlayRef = ref();
 const svgaPlayRef2 = ref();
 const myToast = ref<any>();
 
-// 显示svga动画
-Taro.nextTick(() => {
-  svgaPlayRef.value.showSvga();
-  svgaPlayRef2.value.showSvga();
-});
+const WELCOMECONTENT = '欢迎来到WGGW';
 
 const data = reactive({
   showPage: true,
@@ -130,47 +126,47 @@ useDidShow(() => {
   }
 });
 
-function sendSocketMessage(msg) {
+const sendMySocketMessage = async (msg: string) => {
   if (socketOpen.value) {
     let messageData = {
       userId: account.userInfo.openid,
       content: msg,
     };
-    Taro.sendSocketMessage({
+    const res = await Taro.sendSocketMessage({
       data: JSON.stringify(messageData),
-      success: (res) => {
-        console.log('success', res);
-      },
-      fail: () => {
-        console.log('fail');
-      },
     });
+    console.log('socketSendMessage result', res);
   } else {
     socketMsgQueue.value.push(msg);
   }
-}
+};
 
-Taro.onSocketOpen(function (res) {
+Taro.onSocketOpen(async (res) => {
   console.log('WebSocket连接已打开！', res);
   // 重发失败的信息
   socketOpen.value = true;
-  for (let i = 0; i < socketMsgQueue.value.length; i++) {
-    sendSocketMessage(socketMsgQueue[i]);
+  // 异步循环队列
+  for await (let item of socketMsgQueue.value) {
+    sendMySocketMessage(item);
   }
+  // 等待完成后清空待发信息栈
   socketMsgQueue.value = [];
+
+  sendMySocketMessage(WELCOMECONTENT);
+
 });
 Taro.onSocketClose(function (res) {
   console.log('WebSocket 已关闭！', res);
   socketOpen.value = false;
 });
 Taro.onSocketMessage(function (res) {
-  console.log('收到服务器内容：' + res.data);
-
-  myToast.value.myToastShow({
-    icon: 'success',
-    title: res.data.content,
-    duration: 3000,
-  });
+  if (JSON.parse(res.data).content === WELCOMECONTENT) {    
+    // 显示svga动画
+    Taro.nextTick(() => {
+      svgaPlayRef.value.showSvga();
+      svgaPlayRef2.value.showSvga();
+    });
+  }
 });
 
 useDidHide(() => {
@@ -178,8 +174,6 @@ useDidHide(() => {
     Taro.closeSocket();
   }
 });
-
-sendSocketMessage('欢迎来到WGGW');
 
 useShareTimeline(() => {
   return {
