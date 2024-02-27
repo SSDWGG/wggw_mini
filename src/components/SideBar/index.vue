@@ -4,6 +4,7 @@
   </view>
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import ShareButton from './share-button.vue';
 import FullButton from './full-button.vue';

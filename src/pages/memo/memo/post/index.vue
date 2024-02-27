@@ -18,6 +18,7 @@
 import { reactive, ref } from 'vue';
 import Taro from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
+// @ts-ignore
 import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';

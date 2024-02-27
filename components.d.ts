@@ -28,6 +28,7 @@ declare module 'vue' {
     NutPopup: typeof import('@nutui/nutui-taro')['Popup']
     NutSwiper: typeof import('@nutui/nutui-taro')['Swiper']
     NutSwiperItem: typeof import('@nutui/nutui-taro')['SwiperItem']
+    NutSwitch: typeof import('@nutui/nutui-taro')['Switch']
     NutTable: typeof import('@nutui/nutui-taro')['Table']
     NutTextarea: typeof import('@nutui/nutui-taro')['Textarea']
     NutToast: typeof import('@nutui/nutui-taro')['Toast']

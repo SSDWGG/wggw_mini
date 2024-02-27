@@ -39,6 +39,7 @@ import Taro from '@tarojs/taro';
 import SideBar from '../../SideBar/index.vue';
 import Bottom from '../../Bottom/index.vue';
 import { reactive, watch } from 'vue';
+// @ts-ignore
 import styles from './styles.scss';
 import { IMemo, IMemoItem } from '@/apis/memo/model';
 

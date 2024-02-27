@@ -69,6 +69,7 @@
   <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import { computed, reactive, ref } from 'vue';
 import { useShareAppMessage, useShareTimeline, useDidShow, useDidHide } from '@tarojs/taro';

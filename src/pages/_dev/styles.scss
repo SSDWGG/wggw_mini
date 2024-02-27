@@ -1,0 +1,39 @@
+.devip {
+  margin: 0 auto;
+  width: 90%;
+  font-size: 14px;
+  color: #666;
+  :global {
+    .nut-input {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .cz{
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+    .persist {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 8px 0;
+    }
+  }
+    .listitem {
+      display: flex;
+      padding: 8px 0;
+    }
+  }
+ 
+
+ 
+}
+
+.footer {
+  position: fixed;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(env(safe-area-inset-bottom) + 10px );
+}

@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import Taro from '@tarojs/taro';
 import PreviewSwiper from './components/PreviewSwiper/index.vue';

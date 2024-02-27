@@ -14,6 +14,7 @@
   </view>
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import { IMemo, IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';

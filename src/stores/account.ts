@@ -30,6 +30,12 @@ export const useAccountStore = defineStore("account", {
     },
     mainMenuList: [
       {
+        title: "Dev IP",
+        Ctitle: "DEVIP",
+        router: "/pages/_dev/index",
+        isShow: process.env.BUILD_ENV === 'test'
+      },
+      {
         title: "WGG",
         Ctitle: "wgg",
         router: "/pages/wgg/index",

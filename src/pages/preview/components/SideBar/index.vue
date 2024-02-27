@@ -16,6 +16,7 @@
 
 <!-- 需要抛出，按钮的操作回调 -->
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import DeleteButton from './delete-button.vue';
 import SaveButton from './save-button.vue';

@@ -32,6 +32,7 @@
 
 <script lang="ts" setup>
 import { reactive,ref } from 'vue';
+// @ts-ignore
 import styles from './styles.scss';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';

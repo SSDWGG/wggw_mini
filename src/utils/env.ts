@@ -5,8 +5,7 @@ interface IEnvConfig {
   socketAllUserUrl: string; // socket
 };
 
-// eslint-disable-next-line no-unused-vars
-const allConfigs: { [k in BUILD_ENV] : IEnvConfig } = {
+export const allConfigs: { [k in BUILD_ENV as string] : IEnvConfig } = {
   test: {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
     baseApi: 'http://localhost:9051', 
@@ -20,7 +19,7 @@ const allConfigs: { [k in BUILD_ENV] : IEnvConfig } = {
   },
 };
 
-export const config = allConfigs[process.env.BUILD_ENV] ||
+export const config = allConfigs[process.env.BUILD_ENV as string] ||
   (process.env.NODE_ENV === 'development' ? allConfigs.test : allConfigs.prod);
 
 export const cdnHost = config.cdnHost;

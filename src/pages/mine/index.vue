@@ -90,6 +90,7 @@
 <script lang="ts" setup>
 import { useAccountStore } from "@/stores/account";
 import { Navbar } from "@fishui/taro-vue";
+// @ts-ignore
 import styles from "./styles.scss";
 import { sendCode, testCode } from "@/apis/mine";
 import checkSystemButton from "@/components/button/checkSystemButton.vue";

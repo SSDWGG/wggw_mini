@@ -57,6 +57,7 @@
 import { computed, reactive, ref } from 'vue';
 import { Drag } from '@fishui/taro-vue';
 import { useRouter, useUnload } from '@tarojs/taro';
+// @ts-ignore
 import styles from './styles.scss';
 import { useAccountStore } from '@/stores/account';
 import { useSystemInfoStore } from '@/stores/systemInfo';

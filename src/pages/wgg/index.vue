@@ -18,6 +18,7 @@
   </view>
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import PersonCard from './components/PersonCard/index.vue';
 import { Navbar } from '@fishui/taro-vue';

@@ -10,6 +10,7 @@
 
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import memo from './memo/index.vue'
 import { Navbar } from '@fishui/taro-vue';

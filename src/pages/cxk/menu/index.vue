@@ -42,6 +42,7 @@
   />
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from './styles.scss';
 import { computed, reactive } from 'vue';
 import { useShareAppMessage, useShareTimeline, switchTab } from '@tarojs/taro';
