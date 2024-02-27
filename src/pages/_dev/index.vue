@@ -26,7 +26,7 @@ import { baseURL, setBaseURL } from '@/utils/request';
 import { allConfigs } from '@/utils/env';
 // @ts-ignore
 import styles from './styles.scss';
-import myToastComponents from '@/components/myToast/index.vue';
+import myToastComponents from "@/components/myToast/index.vue";
 
 const myToast = ref<any>();
 
@@ -54,11 +54,12 @@ const submit = () => {
       if (res.confirm) {
         setBaseURL(state.url);
         if (state.checked) {
-          Taro.setStorageSync('yunxiaoding-dev-baseURL', state.url);
+          Taro.setStorageSync('wggw-dev-baseURL', state.url);
         } else {
-          Taro.removeStorageSync('yunxiaoding-dev-baseURL');
+          Taro.removeStorageSync('wggw-dev-baseURL');
         }
-        myToast.value.mpmToastShow({
+        
+        myToast.value.myToastShow({
           title: '修改成功',
           icon: 'success',
         });

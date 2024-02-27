@@ -8,7 +8,7 @@ const log = (message: string, style?: string) => {
   console.log(`%c ${message}`, style); // eslint-disable-line no-console
 };
 
-export let baseURL = baseApi;
+export let baseURL = Taro.getStorageSync('wggw-dev-baseURL') || baseApi;
 
 log(`baseAPI: ${baseURL}`, "color: cyan");
 
