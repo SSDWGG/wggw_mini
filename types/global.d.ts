@@ -26,7 +26,7 @@ declare const process: {
 export interface IListDataItem {
   title: string,
   Ctitle: string,
-  router: string,
+  router?: string,
   bgSrc?:string,
   opacity?:number,
   isShow?:boolean,

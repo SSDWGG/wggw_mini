@@ -1,10 +1,15 @@
 <template>
-  <fullPreview      svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" :back="false" :imgSrc="imageSrcBg" title="Welcome to kzw"/>
+  <fullPreview
+    svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga"
+    :back="false"
+    :imgSrc="imageSrcBg"
+    title="Welcome to kzw"
+  />
 </template>
 
 <script lang="ts" setup>
-import {  useLoad, useRouter,navigateTo } from '@tarojs/taro';
-import fullPreview from '@/pages/fullPreview/index.vue'
+import { useLoad, useRouter, navigateTo } from '@tarojs/taro';
+import fullPreview from '@/pages/fullPreview/index.vue';
 import { useMusicStore } from '@/stores/music';
 
 const musicStore = useMusicStore();
@@ -12,14 +17,13 @@ const musicStore = useMusicStore();
 const router = useRouter();
 const homePage = router.params.url || '/pages/cxk/menu/index';
 
+const imageSrcBg = require('@/assets/images/cxk/kun.png');
 
-const imageSrcBg = require('@/assets/images/cxk/kun.png')
-
-musicStore.playCxkMusic()
+musicStore.playCxkMusic();
 
 useLoad(() => {
-  setTimeout(()=>{
+  setTimeout(() => {
     navigateTo({ url: homePage });
-  },3000) 
+  }, 3000);
 });
 </script>
