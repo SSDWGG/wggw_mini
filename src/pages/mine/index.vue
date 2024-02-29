@@ -15,7 +15,7 @@
       </view>
 
       <!-- 修改邮箱 -->
-      <view class="infoItem" v-if="isPermissions()">
+      <view class="infoItem" v-if="isPermissions2()">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
@@ -28,7 +28,7 @@
       </view>
 
       <!-- 修改手机号 -->
-      <view class="infoItem" v-if="isPermissions()">
+      <view class="infoItem" v-if="isPermissions2()">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
@@ -100,7 +100,7 @@ import myToastComponents from "@/components/myToast/index.vue";
 import { checkEmail } from "@/utils/verify";
 import { debounce } from 'lodash';
 import NicknameRobber from '@/components/nicknameRobber';
-import { isPermissions } from "@/utils/index";
+import { isPermissions2 } from "@/utils/index";
 
 definePageConfig({ backgroundColor: "#f3f3fe" });
 
