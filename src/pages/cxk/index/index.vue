@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { useLoad, useRouter, navigateTo } from '@tarojs/taro';
-import fullPreview from '@/pages/fullPreview/index.vue';
+import fullPreview from '@/components/fullPreview/index.vue';
 import { useMusicStore } from '@/stores/music';
 
 const musicStore = useMusicStore();

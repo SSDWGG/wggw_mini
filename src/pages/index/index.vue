@@ -7,7 +7,7 @@ import {  useLoad, useRouter,switchTab } from '@tarojs/taro';
 import { useAccountStore } from '@/stores/account';
 import { useMusicStore } from '@/stores/music';
 
-import fullPreview from '../fullPreview/index.vue'
+import fullPreview from '@/components/fullPreview/index.vue'
 
 
 const account = useAccountStore();

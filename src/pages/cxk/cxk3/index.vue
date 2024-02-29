@@ -32,14 +32,12 @@
   <fullPreview :back="true" @back="data.showPage = true" :imgSrc="imageSrcBg" title="Enjoy" v-else />
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from "./styles.scss";
-// import {
-//   WaterMark as NutWaterMark,
-// } from "@nutui/nutui-taro";
 import { computed, reactive } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
-import fullPreview from '@/pages/fullPreview/index.vue'
+import fullPreview from '@/components/fullPreview/index.vue'
 import sideBar from "@/components/SideBar/index.vue";
 import { useListScroll } from "@/components/scrollHooks/useListScroll";
 import { useMusicStore } from '@/stores/music';

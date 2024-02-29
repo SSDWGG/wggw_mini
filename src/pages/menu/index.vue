@@ -75,7 +75,7 @@ import { computed, reactive, ref } from 'vue';
 import { useShareAppMessage, useShareTimeline, useDidShow, useDidHide } from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
-import fullPreview from '../fullPreview/index.vue';
+import fullPreview from '@/components/fullPreview/index.vue';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import commonMenu from '@/components/commonMenu/index.vue';

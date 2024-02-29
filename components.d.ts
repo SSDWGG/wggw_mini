@@ -15,6 +15,7 @@ declare module 'vue' {
     CommonMenu: typeof import('./src/components/commonMenu/index.vue')['default']
     ContactButton: typeof import('./src/components/SideBar/contact-button.vue')['default']
     FullButton: typeof import('./src/components/SideBar/full-button.vue')['default']
+    FullPreview: typeof import('./src/components/fullPreview/index.vue')['default']
     'Icon.h5': typeof import('./src/components/alIconfont/icon.h5.vue')['default']
     'Icon.weapp': typeof import('./src/components/alIconfont/icon.weapp.vue')['default']
     MineButton: typeof import('./src/components/SideBar/mine-button.vue')['default']
