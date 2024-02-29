@@ -5,7 +5,6 @@
       <myHtml />
       <myChart />
       <myLucky />
-      <myStepLine />
     </view>
   </view>
 </template>
@@ -16,11 +15,7 @@ import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import myChart from "./echart/index.vue"
 import myHtml from "./mp-html/index.vue"
-import myLucky from "./lucky/index.vue"
-import myStepLine from "./stepline/index.vue"
- 
-
-
+import myLucky from "./lucky/index.vue" 
 // definePageConfig({
 //   usingComponents: {
 //     "ec-canvas": "../../../components/ec-canvas/ec-canvas",

@@ -62,6 +62,11 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/developer/index',
       },
       {
+        title: 'Score Board',
+        Ctitle: '计分板',
+        router: '/pages/scoreboard/index',
+      },
+      {
         title: 'Game',
         Ctitle: '消消乐旋转版本',
         bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HEPJCNMO-1705543014391game1.gif',
@@ -77,6 +82,7 @@ export const useAccountStore = defineStore('account', {
         linkUrl: 'http://xlgx.ssdwgg.cn',
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
       },
+     
       // dev page
       {
         title: 'Dev IP',
@@ -144,11 +150,7 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '瀑布流照片墙',
         router: '/pages/developer/waterfall/index',
       },
-      {
-        title: 'Score Board',
-        Ctitle: '计分板',
-        router: '/pages/scoreboard/index',
-      },
+      
     ],
     editMemoData: {} as IMemo,
     editBinddingData: {} as IBiddingItem,
