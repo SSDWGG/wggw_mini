@@ -41,6 +41,7 @@
 </template>
 <script lang="ts" setup>
   import Taro, { useDidHide } from "@tarojs/taro";
+  // @ts-ignore
   import styles from "./styles.scss";
   import { Navbar } from "@fishui/taro-vue";
   import { computed, reactive } from "vue";

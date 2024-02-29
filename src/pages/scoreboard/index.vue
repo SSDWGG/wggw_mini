@@ -68,7 +68,7 @@ import myToastComponents from '@/components/myToast/index.vue';
 import UpdatePop from '@/components/pop/updatePop/index.vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { uuid } from '@/utils/index';
-import EChart from '@/pages/externalLibrary/myEcharts/index.vue';
+import EChart from '@/components/myEcharts/index.vue';
 import Taro from '@tarojs/taro';
 import myStepLine from './stepline/index.vue';
 

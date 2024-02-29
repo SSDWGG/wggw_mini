@@ -6,7 +6,6 @@ export default defineAppConfig({
     'pages/menu/index',
   ],
   subpackages: [
-    // { root: 'pages/externalLibrary/myEcharts', pages: ['index'] },
     ...(process.env.BUILD_ENV === 'prod' ? [] : [{ root: 'pages/_dev', pages: ['index'] }]),
     { root: 'pages/memo', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },

@@ -37,7 +37,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import EChart from '@/pages/externalLibrary/myEcharts/index.vue';
+import EChart from '@/components/myEcharts/index.vue';
 import Taro, { useRouter } from '@tarojs/taro';
 import { IBiddingItem, IPriceLineItem } from '@/apis/kunChart/model';
 import { useAccountStore } from '@/stores/account';

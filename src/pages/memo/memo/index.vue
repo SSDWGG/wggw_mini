@@ -53,6 +53,7 @@
   <side-bar :show="show" :showFlags="[5, 3]" />
 </template>
 <script lang="ts" setup>
+// @ts-ignore
 import styles from "./styles.scss";
 import SideBar from "@/components/SideBar/index.vue";
 

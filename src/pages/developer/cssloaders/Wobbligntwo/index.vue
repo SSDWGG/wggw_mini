@@ -14,6 +14,7 @@
   </view>
 </template>
 <script lang="ts" setup>
+// @ts-ignore
   import styles from "./styles.scss";
   definePageConfig({ backgroundColor: "#f3f3fe" });
 </script>

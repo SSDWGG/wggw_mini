@@ -37,6 +37,7 @@
   </view>
 </template>
 <script lang="ts" setup>
+// @ts-ignore
   import styles from "./styles.scss";
   // import { CircleProgress as NutCircleProgress } from "@nutui/nutui-taro";
   import dayjs from "dayjs";

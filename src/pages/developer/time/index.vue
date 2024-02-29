@@ -51,6 +51,7 @@
   <!-- 特殊时间表 -->
 </template>
 <script lang="ts" setup>
+// @ts-ignore
   import styles from "./styles.scss";
   import { Navbar } from '@fishui/taro-vue';
   import MyCircleProgress from "@/components/MyCircleProgress/index.vue";
@@ -72,7 +73,8 @@ import { useSystemInfoStore } from "@/stores/systemInfo";
     aeta: null as any,
   });
 
-  const handleAfter = (msg: string) => {
+  const handleAfter = (_msg: string) => {
+
   };
 
   const normalHeight = computed(() =>

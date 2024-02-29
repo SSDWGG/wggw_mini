@@ -32,7 +32,7 @@
 </template>
 <script lang="ts" setup>
 import { Navbar } from '@fishui/taro-vue';
-
+// @ts-ignore
 import styles from "./styles.scss";
 import infinity from "./infinity/index.vue"
 import progressloader from "./progress/index.vue"

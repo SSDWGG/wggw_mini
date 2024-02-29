@@ -7,7 +7,7 @@
 </template>
 <script lang="ts" setup>
 // import * as echarts from "@/components/ec-canvas/echarts";
-import EChart from '@/pages/externalLibrary/myEcharts/index.vue';
+import EChart from '@/components/myEcharts/index.vue';
 import Taro from "@tarojs/taro";
 import { ref } from "vue";
 
