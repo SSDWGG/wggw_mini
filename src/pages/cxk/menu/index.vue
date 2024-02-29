@@ -51,7 +51,7 @@ import { useSystemInfoStore } from '@/stores/systemInfo';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import fullPreview from '@/pages/fullPreview/index.vue';
-import commonMenu from '@/components/commonMenu';
+import commonMenu from '@/components/commonMenu/index.vue';
 import { useAccountStore } from '@/stores/account';
 
 definePageConfig({

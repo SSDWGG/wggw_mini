@@ -18,9 +18,6 @@
       </nut-animate>
     </view>
 
-
-  
-
     <view class="bar-chart">
       <EChart ref="barChat" canvas-id="bar-canvas" />
     </view>
@@ -154,7 +151,7 @@ const pageData = reactive({
   ],
   tableData: [] as Array<ITableItem>,
   showOneId: '',
-  stepLineList:[] as any
+  stepLineList: [] as any,
 });
 
 // 计算总得分
@@ -168,70 +165,23 @@ const computedAllNumData = () => {
   });
 };
 
-const handleOkGame = () => {
-  // 校验内容是否只有数组和分隔符
-  // 校验人数和拆分后的数字是否合适匹配
-  const resList = pageData.gameStr.match(/-?\d+(\.\d+)?/g);
-  if (!!resList && resList.length === pageData.tableData.length) {
-    resList.forEach((item, index) => {
-      pageData.tableData[index].step.push({
-        setNum: pageData.tableData[index].step.length,
-        count: Number(item),
-      });
+// 计算stepline
+const computedStepLineList = () => {
+  pageData.stepLineList = [];
+    pageData.tableData[0].step.forEach((_arrItem, arrIndex) => {
+    const obj = {} as any;
+    const arr = [] as any;
+    pageData.tableData.forEach((item) => {
+      obj.setNum = arrIndex;
+      arr.push({ ...item, count: item.step[arrIndex].count });
     });
-    computedAllNumData();
-    pageData.gameStr = '';
-    const params = !!pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
-    initMultiBarChart(params);
-
-
-    pageData.stepLineList = []
-      pageData.tableData[0].step.forEach((_arrItem,arrIndex)=>{
-        const obj = {} as any
-        const arr = [] as any
-        pageData.tableData.forEach(item=>{
-          obj.setNum = arrIndex;
-          arr.push({...item,count:item.step[arrIndex].count})
-        })
-        obj.arr = arr
-        pageData.stepLineList.push( cloneDeep(obj))
-      })
-      console.log( 1111,pageData.stepLineList);
-      
-  } else {
-    myToast.value.myToastShow({
-      icon: 'error',
-      title: `当前参赛人${pageData.tableData.length}个，本次输入数据${!!resList ? resList.length : 0}个，请检查！`,
-      duration: 3000,
-    });
-  }
-};
-
-const handleOkPerson = () => {
-  if (!pageData.personStr) {
-    myToast.value.myToastShow({
-      icon: 'error',
-      title: '请输入参赛人',
-      duration: 2000,
-    });
-  }
-
-  pageData.personStr.split('+').forEach((item) => {
-    if (!!item) {
-      pageData.tableData.push({
-        id: uuid(),
-        name: item,
-        step: [],
-        all: 0,
-      });
-    }
+    obj.arr = arr;
+    pageData.stepLineList.push(cloneDeep(obj));
   });
-  pageData.personStr = '';
 };
 
+// 刷新echart
 const initMultiBarChart = (recordData: ITableItem) => {
-  console.log(pageData.tableData);
-
   const option = {
     tooltip: {
       trigger: 'axis',
@@ -295,5 +245,65 @@ const initMultiBarChart = (recordData: ITableItem) => {
   Taro.nextTick(() => {
     barChat.value.refresh(option);
   });
+};
+
+const handleOkGame = () => {
+  // 校验内容是否只有数组和分隔符
+  // 校验人数和拆分后的数字是否合适匹配
+  const resList = pageData.gameStr.match(/-?\d+(\.\d+)?/g);
+  if (!!resList && resList.length === pageData.tableData.length) {
+    resList.forEach((item, index) => {
+      pageData.tableData[index].step.push({
+        setNum: pageData.tableData[index].step.length,
+        count: Number(item),
+      });
+    });
+    computedAllNumData();
+    pageData.gameStr = '';
+    const params = !!pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
+    initMultiBarChart(params);
+    computedStepLineList();
+
+  
+  } else {
+    myToast.value.myToastShow({
+      icon: 'error',
+      title: `当前参赛人${pageData.tableData.length}个，本次输入数据${!!resList ? resList.length : 0}个，请检查！`,
+      duration: 3000,
+    });
+  }
+};
+
+const handleOkPerson = () => {
+  if (!pageData.personStr) {
+    myToast.value.myToastShow({
+      icon: 'error',
+      title: '请输入参赛人',
+      duration: 2000,
+    });
+  }
+
+  pageData.personStr.split('+').forEach((item) => {
+    if (!!item) {
+      const stepAdd = [] as any;
+      // 如果是中途入赛
+      if (!!pageData.tableData[0]) {
+        pageData.tableData[0].step.forEach((item) => {
+          stepAdd.push({
+            setNum: item.setNum,
+            count: 0,
+          });
+        });
+      }
+
+      pageData.tableData.push({
+        id: uuid(),
+        name: item,
+        step: stepAdd,
+        all: 0,
+      });
+    }
+  });
+  pageData.personStr = '';
 };
 </script>

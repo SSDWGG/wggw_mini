@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 // @ts-ignore
 import styles from "./styles.scss";
-import commonMenu from '@/components/commonMenu';
+import commonMenu from '@/components/commonMenu/index.vue';
 import { computed } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";

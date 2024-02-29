@@ -78,7 +78,7 @@ import { useSystemInfoStore } from '@/stores/systemInfo';
 import fullPreview from '../fullPreview/index.vue';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
-import commonMenu from '@/components/commonMenu';
+import commonMenu from '@/components/commonMenu/index.vue';
 import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
 import svgaPlayComponent from '@/components/svgaPlay/index.vue';
