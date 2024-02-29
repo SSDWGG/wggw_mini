@@ -94,26 +94,29 @@ const data = reactive({
 
 let chooseItem = ref();
 
-const handlebj =  debounce( async () => {
-  // 彩蛋判断是否是kun
-  if (!!chooseItem.value.isKun) {
-    myToast.value.myToastShow({
-      icon: 'error',
-      title: `坤之守护大笑着现身，“没有人可以定义我坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何定义，但坤会损失912.5点价值’，随后坤之守护渐渐消失。 `,
-      duration: 5000,
-    });
-    await addKunChartLine({
-      shopId: chooseItem.value.shopId,
-      openid: chooseItem.value.openid,
-      username: '坤之守护者',
-      price: `${Number(data.priceLine[data.priceLine.length-1].price)- 912.5}`,
-    });
-    init();
-  } else {
-    data.popVisable = true;
-  }
-}
-,1000, { leading: true, trailing: false })
+const handlebj = debounce(
+  async () => {
+    // 彩蛋判断是否是kun
+    if (!!chooseItem.value.isKun) {
+      myToast.value.myToastShow({
+        icon: 'error',
+        title: `坤之守护大笑着现身，“没有人可以定义我坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何定义，但坤会损失912.5点价值’，随后坤之守护渐渐消失。 `,
+        duration: 5000,
+      });
+      await addKunChartLine({
+        shopId: chooseItem.value.shopId,
+        openid: chooseItem.value.openid,
+        username: '坤之守护者',
+        price: `${Number(data.priceLine[data.priceLine.length - 1].price) - 912.5}`,
+      });
+      init();
+    } else {
+      data.popVisable = true;
+    }
+  },
+  1000,
+  { leading: true, trailing: false },
+);
 
 const init = async () => {
   getKunChartLineList({ shopId: router.params.shopId as string }).then((res) => {
@@ -132,13 +135,15 @@ useDidShow(() => {
 });
 
 const handlePopOK = async () => {
-  await addKunChartLine({
-    shopId: router.params.shopId as string,
-    openid: account.userInfo.openid,
-    username: account.userInfo.username,
-    price: data.popInputValue,
-  });
-  init();
+  if (!!data.popInputValue) {
+    await addKunChartLine({
+      shopId: router.params.shopId as string,
+      openid: account.userInfo.openid,
+      username: account.userInfo.username,
+      price: data.popInputValue,
+    });
+    init();
+  }
 };
 
 useShareTimeline(() => {

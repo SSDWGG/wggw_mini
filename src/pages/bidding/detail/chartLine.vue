@@ -85,7 +85,7 @@ const delChart = async () => {
 const initData = (option) => {
   props.orginData.forEach((item) => {
     option.xAxis.data.push(item.createTime);
-    option.series[0].data.push(item.price);
+    option.series[0].data.push(!!item.price?item.price:0);
   });
 };
 

@@ -168,7 +168,7 @@ const computedAllNumData = () => {
 // 计算stepline
 const computedStepLineList = () => {
   pageData.stepLineList = [];
-    pageData.tableData[0].step.forEach((_arrItem, arrIndex) => {
+  pageData.tableData[0].step.forEach((_arrItem, arrIndex) => {
     const obj = {} as any;
     const arr = [] as any;
     pageData.tableData.forEach((item) => {
@@ -263,8 +263,7 @@ const handleOkGame = () => {
     const params = !!pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
     initMultiBarChart(params);
     computedStepLineList();
-
-  
+    Taro.setStorageSync('wggw-scoreboard-tableData', pageData.tableData);
   } else {
     myToast.value.myToastShow({
       icon: 'error',
@@ -302,8 +301,31 @@ const handleOkPerson = () => {
         step: stepAdd,
         all: 0,
       });
+      Taro.setStorageSync('wggw-scoreboard-tableData', pageData.tableData);
     }
   });
   pageData.personStr = '';
 };
+
+const initPage = () => {
+  const lsTbleData = Taro.getStorageSync('wggw-scoreboard-tableData');
+  // 存在且非空
+  if (!!lsTbleData && lsTbleData.length > 0) {
+    Taro.showModal({
+      content: `是否进行记录未结束的记录？`,
+      cancelColor: '#999999',
+      confirmColor: '#7468F2 ',
+      confirmText: '继续记录',
+      success: async (res) => {
+        if (res.confirm) {
+          pageData.tableData = lsTbleData;
+          const params = !!pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
+          initMultiBarChart(params);
+          computedStepLineList();
+        }
+      },
+    });
+  }
+};
+initPage();
 </script>
