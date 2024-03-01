@@ -1,5 +1,5 @@
 <template>
-  <view :class="styles.container">
+  <view :class="styles.container" v-if="isPermissions2()">
     <navbar :title="!!router.params.memoId?'编辑我的记录':'创建我的记录' " />
     <view class="body">
       <!-- 文案 -->
@@ -11,6 +11,12 @@
     <!-- 发表按钮 -->
     <view class="footer">
       <nut-button block type="primary" class="publish" @tap="handleAddAlbum">{{ !!router.params.memoId ? '确认修改' : '发表' }}</nut-button>
+    </view>
+  </view>
+  <view :class="styles.emptyContainer" v-else>
+    <navbar title="感谢关注" />
+    <view class="empty" >
+      感谢您的关注，该功能暂未开启
     </view>
   </view>
 </template>
@@ -28,6 +34,7 @@ import { useAccountStore } from '@/stores/account';
 import { IResult } from '@/components/selectMedia';
 import { AddMemo, updateMemo } from '@/apis/memo';
 import { useRouter,useUnload } from '@tarojs/taro';
+import { isPermissions2 } from "@/utils/index";
 
 definePageConfig({
   disableScroll: true,

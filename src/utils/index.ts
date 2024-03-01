@@ -154,7 +154,5 @@ export const isPermissions2 = ()=> {
   return true
 } 
 
-
-
 // 是否是dev状态
 export const isDeving = ()=> process.env.NODE_ENV === 'development'

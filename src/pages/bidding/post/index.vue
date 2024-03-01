@@ -1,5 +1,5 @@
 <template>
-  <view :class="styles.container">
+  <view :class="styles.container" v-if="isPermissions2()">
     <navbar :title="!!router.params.shopId?'编辑我的标的':'创建我的标的' " />
     <view class="body">
       <nut-textarea v-model="data.title" placeholder="请输入标的名称" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
@@ -13,6 +13,12 @@
     <!-- 发表按钮 -->
     <view class="footer">
       <nut-button block type="primary" class="publish" @tap="handleAddAlbum">{{ !!router.params.shopId ? '确认修改' : '发布' }}</nut-button>
+    </view>
+  </view>
+  <view :class="styles.emptyContainer" v-else>
+    <navbar title="感谢关注" />
+    <view class="empty" >
+      感谢您的关注，该功能暂未开启
     </view>
   </view>
 </template>
@@ -29,6 +35,7 @@ import { addKunChart, addKunChartLine, updateKunChart } from '@/apis/kunChart';
 import { IBiddingItem } from '@/apis/kunChart/model';
 import { useAccountStore } from '@/stores/account';
 import { useRouter, useUnload } from '@tarojs/taro';
+import { isPermissions2 } from "@/utils/index";
 
 definePageConfig({
   disableScroll: true,
