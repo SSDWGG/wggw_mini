@@ -14,7 +14,7 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/Users/renshuaiweidemac/Desktop/wggw_mini/node_modules/miniprogram-exparser/LICENSE'
+  Error: EACCES: permission denied, unlink '/Users/renshuaiweidemac/Desktop/wggw_mini/node_modules/miniprogram-compiler/package.json'
 
 npm manifest: 
   {
