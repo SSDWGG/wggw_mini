@@ -6,7 +6,12 @@ export default defineAppConfig({
     'pages/menu/index',
   ],
   subpackages: [
-    ...(process.env.BUILD_ENV === 'prod' ? [] : [{ root: 'pages/_dev', pages: ['index'] }]),
+
+    // 正式环境ip 则不展示切换ip
+    // ...(process.env.BUILD_ENV === 'prod' ? [] :[{ root: 'pages/_dev', pages: ['index'] }]),
+  
+    { root: 'pages/_dev', pages: ['index'] },
+    { root: 'pages/test', pages: ['index'] },
     { root: 'pages/memo', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },

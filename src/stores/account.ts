@@ -83,6 +83,13 @@ export const useAccountStore = defineStore('account', {
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
       },
      
+      // test page
+      {
+        title: 'Test IP',
+        Ctitle: 'TESTIP',
+        router: '/pages/test/index',
+        isShow: !process.env.buildInfo,
+      },
       // dev page
       {
         title: 'Dev IP',
