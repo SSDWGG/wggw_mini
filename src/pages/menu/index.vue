@@ -119,12 +119,6 @@ useDidShow(() => {
   if (!musicStore.isPlay()) {
     musicStore.playDefaultBGM();
   }
-
-  if (socketOpen.value === false) {
-    Taro.connectSocket({
-      url: socketUrl,
-    });
-  }
 });
 
 const sendMySocketMessage = async (msg: string) => {
@@ -169,6 +163,14 @@ Taro.onSocketMessage(function (res) {
     });
   }
 });
+
+
+// 只在创建一次socket链接
+if (socketOpen.value === false) {
+    Taro.connectSocket({
+      url: socketUrl,
+    });
+  }
 
 useDidHide(() => {
   if (socketOpen.value === true) {

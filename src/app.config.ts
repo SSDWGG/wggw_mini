@@ -15,6 +15,7 @@ export default defineAppConfig({
     { root: 'pages/memo', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
+    { root: 'pages/going', pages: ['index'] },
     { root: 'pages/webViewPage', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
     { root: 'pages/speedTest', pages: ['index'] },

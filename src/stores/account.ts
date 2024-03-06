@@ -35,6 +35,11 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/wgg/index',
       },
       {
+        title: 'Come on',
+        Ctitle: '加油吧，少年',
+        router: '/pages/going/index',
+      },
+      {
         title: 'ikun',
         Ctitle: 'kunkun妙妙屋',
         router: '/pages/cxk/index/index',
