@@ -180,14 +180,14 @@ useDidHide(() => {
 
 useShareTimeline(() => {
   return {
-    title: '快来看看wggw小程序吧~',
+    title: '创意空间wggw~',
     path: `/pages/index/index`,
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
   };
 });
 useShareAppMessage(() => {
   return {
-    title: '快来看看wggw小程序吧~',
+    title: '创意空间wggw~',
     path: `/pages/index/index`,
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
   };

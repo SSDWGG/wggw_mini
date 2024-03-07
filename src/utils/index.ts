@@ -86,10 +86,15 @@ export const copyStr = (
 export const formatterLen = (str:string,len=6)=>str.length > len ? str.substring(0, len) : str;
 
 // 指定字符长度，超出展示...或者超长截取
-export const changeLongStr = (str: string, len = 15, ellipsis = true) => {
+export const changeLongStr = (str: string, len = 15, ellipsis = true, getBefore = true) => {
   if (!str) return '';
   const arrStr = Array.from(str);
+if(getBefore){
   return arrStr.length > len ? `${arrStr.slice(0, len).join('')}${ellipsis ? '...' : ''}` : str;
+}else{
+  return arrStr.length > len ? `${ellipsis ? '...' : ''}${arrStr.slice(-len).join('')}` : str;
+}
+
 };
 
 export type IQueryResult = NodesRef.BoundingClientRectCallbackResult | NodesRef.ScrollOffsetCallbackResult | NodesRef.ContextCallbackResult;

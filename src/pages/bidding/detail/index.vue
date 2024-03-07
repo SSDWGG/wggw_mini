@@ -125,7 +125,7 @@ const init = async () => {
 
   getKunCharOne({ shopId: router.params.shopId as string }).then((res) => {
     chooseItem.value = res;
-    pageTitle.value = changeLongStr(chooseItem.value.title, 6, true) + '价格';
+    pageTitle.value = changeLongStr(chooseItem.value.title, 6) + '价格';
     chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc);
   });
 };

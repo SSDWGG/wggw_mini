@@ -22,7 +22,7 @@
         <nut-swiper :height="26" :class="styles.swiper" loop auto-play="1500" direction="vertical" :touchable="false">
           <nut-swiper-item v-for="(item, index) in data.CurrentUsersSpeedTimeData" :key="index" class="swiper-item">
             <image class="avater" :src="item.avatarurl" />
-            {{ item.username }} 在 {{ dayjs((item as any).updateTime).fromNow() }} 创造了{{ item.useTime }}秒的好记录！
+            {{  changeLongStr( item.username, 4, true,false)  }} 在 {{ dayjs((item as any).updateTime).fromNow() }} 创造了{{ item.useTime }}秒的好记录！
           </nut-swiper-item>
         </nut-swiper>
       </view>
@@ -87,6 +87,7 @@ import sideBar from '@/components/SideBar/index.vue';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/zh-cn';
+import { changeLongStr } from '@/utils/index';
 
 dayjs.locale('zh-cn');
 dayjs.extend(relativeTime);
