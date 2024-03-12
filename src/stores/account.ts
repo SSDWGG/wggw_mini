@@ -90,8 +90,8 @@ export const useAccountStore = defineStore('account', {
      
       // test page
       {
-        title: 'Test IP',
-        Ctitle: 'TESTIP',
+        title: 'Test Page',
+        Ctitle: 'TEST PAGE',
         router: '/pages/test/index',
         isShow: !process.env.buildInfo,
       },

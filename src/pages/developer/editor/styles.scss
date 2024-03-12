@@ -49,6 +49,21 @@ page {
           color: #7468f2;
         }
       }
+      .bar-chart2{
+        height: 500rpx;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .ec-canvas{
+          width: 100%;
+          height: 100%;
+        }
+        .empty{
+          color: #7468f2;
+        }
+      }
       // .echarts {
       //   width: 100%;
       //   display: flex;
