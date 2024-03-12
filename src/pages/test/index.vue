@@ -26,8 +26,5 @@ import styles from './styles.scss';
 
 // console.log(getNumCountObj(initArr));
 
-const ddosYXDLogin = ()=>{
-  console.log(111);
-}
 
 </script>
