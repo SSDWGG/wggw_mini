@@ -12,7 +12,7 @@
 // import * as echarts from "@/components/ec-canvas/echarts";
 import EChart from '@/components/myEcharts/index.vue';
 import Taro from '@tarojs/taro';
-import { ref } from 'vue';
+import { ref,onUnmounted } from 'vue';
 
 const wggChat2 = ref<any>();
 
@@ -327,7 +327,7 @@ const option = {
 };
 
 app.count = 11;
-setInterval(function () {
+ const intervalTimer = setInterval(function () {
   let axisData = new Date().toLocaleTimeString().replace(/^\D*/, '');
 
   data.shift();
@@ -341,6 +341,10 @@ setInterval(function () {
   categories2.push(app.count++);
   wggChat2.value.refresh(option);
 }, 2100);
+
+onUnmounted(() => {
+  clearInterval(intervalTimer);
+});
 Taro.nextTick(() => {
   wggChat2.value.refresh(option);
 });
