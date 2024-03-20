@@ -30,31 +30,38 @@ export default {
 
     const refMap = {};
 
+    let cHartREF = null;
+
     const setRefMap = (el, item) => {
       if (el) {
         refMap[`${el.canvasId}`] = el;
       }
     };
 
+    // 实际是init过程
     const refresh = (options) => {
       if (!refMap[props.canvasId]) {
         console.error('ecCanvas未获取到dom');
         return;
       }
       refMap[props.canvasId].init((canvas, width, height, canvasDpr) => {
-        const chart = echarts.init(canvas, null, {
+        cHartREF = echarts.init(canvas, null, {
           width: width,
           height: height,
           devicePixelRatio: canvasDpr,
         });
-        canvas.setChart(chart);
-        chart.setOption(options);
-        return chart;
+        canvas.setChart(cHartREF);
+        cHartREF.setOption(options);
+        return cHartREF;
       });
     };
 
+    const justRefresh = (options)=>{
+      cHartREF.setOption(options);
+    }
+
     expose({
-      refresh,
+      refresh,justRefresh
     });
     return {
       // 返回值会暴露给模板和其他的选项式 API 钩子

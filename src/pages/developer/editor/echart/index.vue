@@ -339,13 +339,13 @@ app.count = 11;
   categories.push(axisData);
   categories2.shift();
   categories2.push(app.count++);
-  wggChat2.value.refresh(option);
+  wggChat2.value.justRefresh(option);
 }, 2100);
 
 onUnmounted(() => {
   clearInterval(intervalTimer);
 });
 Taro.nextTick(() => {
-  wggChat2.value.refresh(option);
+   wggChat2.value.refresh(option);
 });
 </script>
