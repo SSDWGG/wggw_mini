@@ -4,6 +4,7 @@
     <view class="menu" :style="{ height }">
       <myHtml />
       <myChart />
+      <myChart2 />
       <myLucky />
     </view>
   </view>
@@ -15,6 +16,7 @@ import { computed } from "vue";
 import { Navbar } from "@fishui/taro-vue";
 import { useSystemInfoStore } from "@/stores/systemInfo";
 import myChart from "./echart/index.vue"
+import myChart2 from "./echart/index2.vue"
 import myHtml from "./mp-html/index.vue"
 import myLucky from "./lucky/index.vue" 
 // definePageConfig({

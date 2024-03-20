@@ -1,5 +1,5 @@
 <template>
-  <canvas type="2d" class="ec-canvas" :canvas-id="canvasId" @touchStart="touchStart" @touchMove="touchMove"
+  <canvas type="2d" class="ec-canvas" :class="canvasId" :canvas-id="canvasId" :id="canvasId" @touchStart="touchStart" @touchMove="touchMove"
     @touchEnd="touchEnd"></canvas>
 </template>
 
@@ -51,7 +51,7 @@ export default {
     initByNewWay(callback) {
       const query = Taro.createSelectorQuery();
       query
-        .select(".ec-canvas")
+        .select(`.${this.canvasId}`)
         .fields({
           node: true,
           size: true
@@ -96,7 +96,7 @@ export default {
     canvasToTempFilePath(opt) {
       const query = Taro.createSelectorQuery().in(this);
       query
-        .select(".ec-canvas")
+        .select(`.${this.canvasId}`)
         .fields({
           node: true,
           size: true
