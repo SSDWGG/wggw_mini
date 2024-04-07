@@ -87,7 +87,11 @@ export const useAccountStore = defineStore('account', {
         linkUrl: 'http://xlgx.ssdwgg.cn',
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
       },
-     
+      {
+        title: '电子签名',
+        Ctitle: 'Sign',
+        router: '/pages/sign/index',
+      },
       // test page
       {
         title: 'Test Page',
