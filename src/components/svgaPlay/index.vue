@@ -1,5 +1,5 @@
 <template>
-  <canvas v-if="showCanvas" :id="svgaPlayCanvasId" type="2d" :class="styles.svgaPlay" :style="props.canvasStyle" />
+  <canvas v-if="showCanvas" :id="svgaPlayCanvasId" type="2d" :class="styles.svgaPlay" :style="props.canvasStyle"  />
 </template>
 <script lang="ts" setup>
 // @ts-ignore
@@ -23,6 +23,9 @@ const props = withDefaults(defineProps<IProps>(), {
   svgaUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/MerryChristmas.svga',
 });
 
+const emit = defineEmits(['finsh']);
+
+
 const showCanvas = ref(false);
 const svgaPlayCanvasId = ref('');
 
@@ -40,6 +43,8 @@ const showSvga = () => {
       player.loops = props.loop;
       player.onFinished(() => {
         showCanvas.value = false;
+        emit('finsh');
+
       });
       player.startAnimation();
     } catch (error) {
