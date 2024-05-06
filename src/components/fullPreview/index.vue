@@ -3,31 +3,31 @@
     <view class="title">{{ props.title }}</view>
     <view class="logo">
       <image class="bgImg" :src="props.imgSrc" />
-     
     </view>
     <view class="hypnotic-5"></view>
   </view>
   <svga-play-component
-        ref="svgaPlayRef"
-        :canvasStyle="{
-          width: '100vw',
-          height: '100vh',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          zIndex: 9999999,
-          pointerEvents: 'none',
-        }"
-        :svgaUrl="props.svgaUrl"
-        :loop="props.svgaLoop"
-      />
+    ref="svgaPlayRef"
+    :canvasStyle="{
+      width: '100vw',
+      height: '100vh',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      zIndex: 9999999,
+      pointerEvents: 'none',
+    }"
+    @finsh="onFinsh"
+    :svgaUrl="props.svgaUrl"
+    :loop="props.svgaLoop"
+  />
 </template>
 
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
 import svgaPlayComponent from '@/components/svgaPlay/index.vue';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import Taro from '@tarojs/taro';
 
 interface Props {
@@ -46,15 +46,25 @@ const props = withDefaults(defineProps<Props>(), {
   svgaLoop: 1,
   imgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
 });
-const emit = defineEmits(['back']);
+const emit = defineEmits(['back', 'finsh']);
 const svgaPlayRef = ref();
 
-// 显示svga动画
-Taro.nextTick(() => {
-  if (!!props.svgaUrl) {
-    svgaPlayRef.value.showSvga();
-  }
-});
+const onFinsh = () => {
+  emit('finsh');
+};
+
+watch(
+  () => props.svgaUrl,
+  (val) => {
+    // 显示svga动画
+    Taro.nextTick(() => {
+      if (!!val) {
+        svgaPlayRef.value.showSvga();
+      }
+    });
+  },
+  { immediate: true },
+);
 
 const handleClickPage = () => {
   !!props.back && emit('back');

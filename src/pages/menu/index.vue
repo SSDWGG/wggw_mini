@@ -32,10 +32,11 @@
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 2, 3, 4]" />
   </scroll-view>
   <fullPreview
-    :svgaLoop="0"
-    svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga"
+    :svgaLoop="1"
+    :svga-url="data.svgaUrl"
     :back="true"
     @back="data.showPage = true"
+    @finsh="onFinsh"
     title="Enjoy"
     v-else
   />
@@ -102,9 +103,49 @@ const svgaPlayRef2 = ref();
 const myToast = ref<any>();
 
 const WELCOMECONTENT = '欢迎来到WGGW';
-
+const svgaUrlList = [
+"2022110422344569.svga",
+"2022110422395120.svga",
+"2022110422405254.svga",
+"2022110422420815.svga",
+"2022110422433573.svga",
+"2022110422450167.svga",
+"2022110622314192.svga",
+"2022110622330817.svga",
+"2022110622354389.svga",
+"2022110622365540.svga",
+"2022110622383932.svga",
+"2022110622402597.svga",
+"2022110622414965.svga",
+"2022110622454731.svga",
+"2022110622470250.svga",
+"2022110622480018.svga",
+"2022110622501824.svga",
+"2022110622511918.svga",
+"2022110622521142.svga",
+"2022110622531448.svga",
+"2022110622541440.svga",
+"2022110622580595.svga",
+"2022110623020080.svga",
+"2022110623032034.svga",
+"2022110623041923.svga",
+"2022110623053168.svga",
+"2022110623062257.svga",
+"2022110623073233.svga",
+"2022110623082817.svga",
+"2022110623135353.svga",
+"2022110623145092.svga",
+"2022110623160156.svga",
+"2022110623254198.svga",
+"2022110623275326.svga",
+"2022110623291327.svga",
+"2023021413571375.svga",
+"2023021415055742.svga",
+"2024031318511419.svga",
+]
 const data = reactive({
   showPage: true,
+  svgaUrl:`https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
 });
 
 const h5 = `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>`;
@@ -171,6 +212,18 @@ if (socketOpen.value === false) {
       url: socketUrl,
     });
   }
+
+const onFinsh = ()=>{
+
+  let tempUrl= `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
+
+  // 防止两次随机出同一个整数导致的watch不刷新
+  if(data.svgaUrl === tempUrl){
+    onFinsh()
+  }else{
+    data.svgaUrl = tempUrl
+  }
+}
 
 useDidHide(() => {
   if (socketOpen.value === true) {
