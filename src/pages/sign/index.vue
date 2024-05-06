@@ -30,13 +30,11 @@ const clear = () => {
 };
 
 // 拿到token跳转网页签名
-// 判断有没有token，没有token走获取token
-
-const initPage = async () => {
+const initWebPageUrl = async () => {
   const token = await getToken();
 
   console.log(token);
 };
 
-initPage();
+initWebPageUrl();
 </script>
