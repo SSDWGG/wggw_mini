@@ -40,7 +40,7 @@
     title="Enjoy"
     v-else
   />
-  <svga-play-component
+  <!-- <svga-play-component
     ref="svgaPlayRef"
     :canvasStyle="{
       width: '100vw',
@@ -65,7 +65,7 @@
       pointerEvents: 'none',
     }"
     svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga"
-  />
+  /> -->
   <!-- toast提示 -->
   <my-toast-components ref="myToast" :duration="2500" />
 </template>
@@ -82,7 +82,7 @@ import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import commonMenu from '@/components/commonMenu/index.vue';
 import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
-import svgaPlayComponent from '@/components/svgaPlay/index.vue';
+// import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import Taro from '@tarojs/taro';
 import { socketAllUserUrl } from '@/utils/env';
 import myToastComponents from '@/components/myToast/index.vue';
@@ -98,8 +98,8 @@ const account = useAccountStore();
 const systemInfo = useSystemInfoStore();
 const musicStore = useMusicStore();
 
-const svgaPlayRef = ref();
-const svgaPlayRef2 = ref();
+// const svgaPlayRef = ref();
+// const svgaPlayRef2 = ref();
 const myToast = ref<any>();
 
 const WELCOMECONTENT = '欢迎来到WGGW';
@@ -198,10 +198,10 @@ Taro.onSocketClose(function (res) {
 Taro.onSocketMessage(function (res) {
   if (JSON.parse(res.data).content === WELCOMECONTENT) {    
     // 显示svga动画
-    Taro.nextTick(() => {
-      svgaPlayRef.value.showSvga();
-      svgaPlayRef2.value.showSvga();
-    });
+    // Taro.nextTick(() => {
+    //   svgaPlayRef.value.showSvga();
+    //   svgaPlayRef2.value.showSvga();
+    // });
   }
 });
 
@@ -216,7 +216,6 @@ if (socketOpen.value === false) {
 const onFinsh = ()=>{
 
   let tempUrl= `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
-
   // 防止两次随机出同一个整数导致的watch不刷新
   if(data.svgaUrl === tempUrl){
     onFinsh()
