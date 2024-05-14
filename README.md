@@ -22,3 +22,5 @@ wxFixProd：是否通过微信审核限制(个人开发者小程序的限制)
 5:微信审核人员是根据路由查看页面的，所以页面隐藏是无效的，但是可以在页面上做内容隐藏
 
 6:ehart-taro文档： https://github.com/Cecilxx/echarts-taro3-vue
+
+7:π的计算https://segmentfault.com/q/1010000043079850

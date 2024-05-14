@@ -8,8 +8,9 @@
   </view>
 </template>
 <script lang="ts" setup>
+// @ts-nocheck
+
 import { Navbar } from '@fishui/taro-vue';
-// @ts-ignore
 import styles from './styles.scss';
 import { reactive, watch } from 'vue';
 import Taro from '@tarojs/taro';
