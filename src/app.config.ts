@@ -12,6 +12,7 @@ export default defineAppConfig({
   
     { root: 'pages/_dev', pages: ['index'] },
     { root: 'pages/test', pages: ['index'] },
+    { root: 'pages/pi', pages: ['index'] },
     { root: 'pages/sign', pages: ['index'] },
     { root: 'pages/memo', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },

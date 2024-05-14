@@ -88,16 +88,22 @@ export const useAccountStore = defineStore('account', {
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
       },
       {
-        title: '电子签名',
-        Ctitle: 'Sign',
+        title: 'For NUT',
+        Ctitle: '致谢NUT团队',
         router: '/pages/sign/index',
+      },
+      {
+        title: 'PI',
+        Ctitle: 'π的计算',
+        router: '/pages/pi/index',
+       
       },
       // test page
       {
         title: 'Test Page',
         Ctitle: 'TEST PAGE',
         router: '/pages/test/index',
-        // isShow: !process.env.buildInfo,
+        isShow: !process.env.buildInfo,
       },
       // dev page
       {
