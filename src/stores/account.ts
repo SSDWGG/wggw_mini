@@ -97,7 +97,7 @@ export const useAccountStore = defineStore('account', {
         title: 'Test Page',
         Ctitle: 'TEST PAGE',
         router: '/pages/test/index',
-        isShow: !process.env.buildInfo,
+        // isShow: !process.env.buildInfo,
       },
       // dev page
       {

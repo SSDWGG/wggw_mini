@@ -1,16 +1,23 @@
-.testContainer{
-  display: flex;
-  flex-direction: column;
+.piContainer{
   height: 100vh;
   width: 100vw;
   :global {
-    .empty{
-      flex: 1;
+    .demo-list .list-item {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
+      margin-bottom: 10px;
+      height: 150px;
+      background-color: #f4a8b6;
+      border-radius: 10px;
+    }
+    .pi{
+      width: 100vw;
       font-size: 20px;
       color: #7468f2;
+      word-wrap:break-word; 
+      font-family: monospace
     }
   }
 
