@@ -40,7 +40,7 @@ const data = reactive({
   startTime: '' as any,
   endTime: '' as any,
   newTime:0,
-  computedCount:100
+  computedCount:10
 });
 
 // 每次往下计算一位pi
@@ -75,7 +75,7 @@ const fun = () => {
   // 计算执行时间（以毫秒为单位）
   data.newTime = data.endTime - data.startTime;
   // 输出执行时间
-  console.log(`总长度:${data.pi.length - 2},本次计算执行时间：${data.newTime} 毫秒`);
+  // console.log(`总长度:${data.pi.length - 2},本次计算执行时间：${data.newTime} 毫秒`);
   data.pi += data.tem;
   data.tem = '';
 };

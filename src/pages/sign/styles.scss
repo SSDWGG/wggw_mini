@@ -30,6 +30,11 @@
       }
      
     }
+    .btnGroup {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+    }
 
     .tip{
       padding: 10px;
