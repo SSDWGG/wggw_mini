@@ -11,7 +11,7 @@
     </view>
     <view class="btnGroup">
       <nut-animate type="breath" class="rule-button-div" loop>
-        <nut-button block type="primary" class="publish" @tap="toH5Sign" >h5使用签名功能</nut-button>
+        <nut-button block type="primary" class="publish" @tap="toH5Sign">h5使用签名功能</nut-button>
       </nut-animate>
       <nut-animate type="breath" class="rule-button-div" loop>
         <nut-button block type="primary" class="publish" @tap="state.showTip = !state.showTip">{{ state.showTip ? '收起' : '展开' }}致Nut开发团队</nut-button>
@@ -55,21 +55,18 @@ const confirm = (canvas: any, data: string) => {
   }
 };
 
- const urlTobase64 = (url)=>{
-    Taro.request({
-      url:url,
-      responseType: 'arraybuffer', //最关键的参数，设置返回的数据格式为arraybuffer
-      success:res=>{
-	      //把arraybuffer转成base64
-            let base64 = Taro.arrayBufferToBase64(res.data); 
-            //不加上这串字符，在页面无法显示的哦
-            base64　= 'data:image/jpeg;base64,' + base64　
-            imgData.value = base64　
-            //打印出base64字符串，可复制到网页校验一下是否是你选择的原图片呢
-            console.log(base64)　
-          }
-    })
- }
+const urlTobase64 = (url) => {
+  Taro.request({
+    url: url,
+    responseType: 'arraybuffer', //最关键的参数，设置返回的数据格式为arraybuffer
+    success: res => {
+      //把arraybuffer转成base64
+      let base64 = Taro.arrayBufferToBase64(res.data);
+      base64 = 'data:image/jpeg;base64,' + base64
+      imgData.value = base64
+    }
+  })
+}
 
 const clear = () => {
   imgData.value = '';
@@ -77,8 +74,12 @@ const clear = () => {
 };
 
 // 拿到token跳转网页签名
-const toH5Sign = async()=>{
+const toH5Sign = async () => {
   const token = await getToken();
   console.log(token);
 }
+
+
+let arr = [{ id: 1, name: '部门1', pid: 0 }, { id: 2, name: '部门2', pid: 1 }, { id: 3, name: '部门3', pid: 1 }, { id: 4, name: '部门4', pid: 3 }, { id: 5, name: '部门5', pid: 4 },]
+
 </script>

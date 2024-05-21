@@ -24,3 +24,5 @@ wxFixProd：是否通过微信审核限制(个人开发者小程序的限制)
 6:ehart-taro文档： https://github.com/Cecilxx/echarts-taro3-vue
 
 7:π的计算https://segmentfault.com/q/1010000043079850
+
+8:海报生成参考：https://github.com/BibBin/taro-poster-builder?tab=readme-ov-file
