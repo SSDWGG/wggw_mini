@@ -1,22 +1,22 @@
-import { IBiddingItem } from '@/apis/kunChart/model';
+import type { IBiddingItem } from '@/apis/kunChart/model';
 import { deleteMemo, updateMemo } from '@/apis/memo';
-import { IMemo } from '@/apis/memo/model';
+import type { IMemo } from '@/apis/memo/model';
 import { bindPhone, updateUser, wxLogin } from '@/apis/mine';
-import { IResult } from '@/components/selectMedia';
+import type { IResult } from '@/components/selectMedia';
 import { defineStore } from 'pinia';
 import cloneDeep from 'lodash/cloneDeep';
-import { IUserInfo } from '@/apis/mine/model';
-import { IListDataItem } from 'types/global';
+import type { IUserInfo } from '@/apis/mine/model';
+import type { IListDataItem } from 'types/global';
 
 interface IState {
-  templeChoosePostList: IResult[]; //上传选择的临时资源
-  editMemoData: IMemo; //前端缓存修改备忘录的内容
-  editBinddingData: IBiddingItem; //前端缓存修改备忘录的内容
-  memoDataList: IMemo[]; //前端缓存备忘录的数据（列表+详情）
-  userInfo: IUserInfo; //用户信息
-  mainMenuList: IListDataItem[]; //主菜单
-  cxkMenuList: IListDataItem[]; //cxk主菜单
-  develeopMenuList: IListDataItem[]; //cxk主菜单
+  templeChoosePostList: IResult[]; // 上传选择的临时资源
+  editMemoData: IMemo; // 前端缓存修改备忘录的内容
+  editBinddingData: IBiddingItem; // 前端缓存修改备忘录的内容
+  memoDataList: IMemo[]; // 前端缓存备忘录的数据（列表+详情）
+  userInfo: IUserInfo; // 用户信息
+  mainMenuList: IListDataItem[]; // 主菜单
+  cxkMenuList: IListDataItem[]; // cxk主菜单
+  develeopMenuList: IListDataItem[]; // cxk主菜单
 }
 
 export const useAccountStore = defineStore('account', {
@@ -45,6 +45,11 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/cxk/index/index',
         bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
         opacity: 1,
+      },
+      {
+        title: 'random',
+        Ctitle: '纠结终结者',
+        router: '/pages/random/index',
       },
       {
         title: 'reaction rate',
@@ -87,11 +92,11 @@ export const useAccountStore = defineStore('account', {
         linkUrl: 'http://xlgx.ssdwgg.cn',
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
       },
-      {
-        title: 'For NUT',
-        Ctitle: '致谢NUT团队',
-        router: '/pages/sign/index',
-      },
+      // {
+      //   title: 'For NUT',
+      //   Ctitle: '致谢NUT团队',
+      //   router: '/pages/sign/index',
+      // },
       {
         title: 'PI',
         Ctitle: 'π的计算',
@@ -203,7 +208,7 @@ export const useAccountStore = defineStore('account', {
      */
     removeMemoItem(firstId: string, secondId = '') {
       const memo = this.memoDataList.find((i) => i.memoId === firstId)!;
-      if (!!secondId) {
+      if (secondId) {
         const index = memo.list.findIndex((i) => i.memoResId === secondId);
         memo.list.splice(index, 1);
         // 如果删完后无内容，则进行删除相册

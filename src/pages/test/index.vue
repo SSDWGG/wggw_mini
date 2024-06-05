@@ -34,11 +34,12 @@ export default defineComponent({
       try {
         await bluetooth.openBluetoothAdapter();
         console.log('蓝牙初始化成功');
+        discoverDevices()
       } catch (err) {
         console.error('蓝牙初始化失败', err);
         if(err.errMsg==="openBluetoothAdapter:fail already opened"){
           // 已初始化通过，直接进行搜索设备
-          discoverDevices()
+        discoverDevices()
         }
       }
     };

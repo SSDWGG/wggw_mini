@@ -13,6 +13,7 @@ export default defineAppConfig({
     { root: 'pages/_dev', pages: ['index'] },
     { root: 'pages/test', pages: ['index'] },
     { root: 'pages/pi', pages: ['index'] },
+    { root: 'pages/random', pages: ['index'] },
     { root: 'pages/sign', pages: ['index'] },
     { root: 'pages/memo', pages: ['index','memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
@@ -27,7 +28,7 @@ export default defineAppConfig({
     { root: 'pages/developer', pages: ['index','cssloaders/index','time/index','editor/index','waterfall/index'] },
 
   ],
-  requiredBackgroundModes:["audio"],
+  requiredBackgroundModes:['audio'],
   window: {
     navigationBarTextStyle: 'black',
     navigationBarTitleText: 'WGGW',
