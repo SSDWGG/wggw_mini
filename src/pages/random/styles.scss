@@ -1,12 +1,14 @@
 page {
   background: rgba(116, 104, 242, .4);
+  width: 100vw;
+  height: 100vh;
 }
 
 
 .editor {
-  width: 100vw;
-  height: 100vh;
+  
   font-family: monospace;
+  overflow: hidden;
 
   :global {
     .prepare{
@@ -30,11 +32,51 @@ page {
         justify-content: center;
         margin-bottom: 20px;
       }
+    
+      .tagsList{
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px dashed #7468f2;
+        border-radius: 10px;
+        .tip{
+          font-size: 22px;
+          color: #ff5a19;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+        .randomTags{
+          padding: 8px 16px;
+          margin: 6px;
+          position: relative;
+          font-size: 20px;
+          .close-img {
+            position: absolute;
+            right: -6px;
+            top: -6px;
+            z-index: 1;
+          }
+        }
+      }
+
       .prepareInputContent{
         margin: auto;
+        margin-bottom: 50px;
         // padding: 10px;
         border: 1px dashed #7468f2;
         border-radius: 10px;
+        .tip{
+          font-size: 22px;
+          margin: 20px;
+          color: #ff5a19;
+          text-align: left;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
         .item{
           display: flex;
           align-items: center;
@@ -66,6 +108,15 @@ page {
             background: rgba(225,225,225,.5);
             border: 0px;
             width: 200px;
+            .nut-input-value{
+              .nut-input-inner{
+                .nut-input-box{
+                  .input-text{
+                    text-align: center !important;
+                  }
+                }
+              }
+            }
           }
           .nut-input-number{
             flex: 1;
@@ -75,7 +126,6 @@ page {
           }
         }
         .rule-button-div{
-         
           .loop{
             display: flex;
             align-items: center;
@@ -145,6 +195,13 @@ page {
         .empty{
           color: #7468f2;
         }
+      }
+      .result{
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        color: #ff5a19;
+        margin-bottom: 10px;
       }
       // .echarts {
       //   width: 100%;

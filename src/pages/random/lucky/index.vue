@@ -2,8 +2,8 @@
   <view>
     <LuckyWheel
       ref="myLucky"
-      width="500rpx"
-      height="500rpx"
+      width="700rpx"
+      height="700rpx"
       :prizes="prizes"
       :blocks="blocks"
       :buttons="buttons"
@@ -29,6 +29,9 @@ export default {
     mainData: {
       type: Object,
       default: {},
+    },
+    cb: {
+      type: Function,
     },
   },
   setup(props) {
@@ -63,7 +66,7 @@ export default {
         state.index = drawLotteryIndex(props.mainData);
         // 调用stop停止旋转并传递中奖索引
         myLucky.value.stop(state.index);
-      }, 3000);
+      }, 4000);
     }
     // 抽奖结束会触发end回调
     function endCallback(prize) {
@@ -72,11 +75,26 @@ export default {
       //   title: `硬币抛出的那一刻或许你早已有了答案~本次抽中的结果是：${props.mainData[state.index].name}`,
       //   duration: 5000,
       // });
-      Taro.showModal({
-        content: `硬币抛出的那一刻或许你早已有了答案~本次抽中的结果是：${props.mainData[state.index].name}`,
-        cancelColor: '#999999',
-        confirmColor: '#7468F2 ',
-      });
+      if (props.mainData[state.index].childList.length > 0) {
+        Taro.showModal({
+          content: `您本次随机的结果是：《${props.mainData[state.index].name}》,接下来将会对《${props.mainData[state.index].name}》的子选项进行随机抽取`,
+          cancelColor: '#999999',
+          confirmColor: '#7468F2 ',
+          success: async (res) => {
+            props.cb(props.mainData[state.index],true);
+          },
+        });
+      } else {
+        Taro.showModal({
+          content: `转盘旋转的瞬间,或许你已有了答案~很高兴这次能帮助到您,您本次随机的结果是：${props.mainData[state.index].name}`,
+          cancelColor: '#999999',
+          confirmColor: '#7468F2 ',
+          success: async (res) => {
+            props.cb(props.mainData[state.index],false);
+          },
+        });
+      }
+
     }
 
     function drawLotteryIndex(items) {
@@ -93,12 +111,13 @@ export default {
         }
         randomValue -= items[index].value;
       }
+
+      // 如果没有找到，返回最后一个索引（理论上不会发生）
+      return items.length - 1;
     }
 
     const init = () => {
       state.prizes = [];
-      console.log(66666, props.mainData);
-
       props.mainData.forEach((element, index) => {
         state.prizes.push({
           fonts: [{ text: element.name, top: '7%', fontSize: '16px', fontStyle: 'monospace', fontColor: '#7468f2', fontWeight: '600' }],

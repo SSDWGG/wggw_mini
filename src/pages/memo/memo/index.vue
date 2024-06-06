@@ -3,7 +3,7 @@
     <scroll-view v-if="account.memoDataList.length > 0" scroll-y="true" class="scrollList" @scroll="onScroll">
       <view v-for="(item, index) in account.memoDataList" :key="index" class="memoDataList">
         <view class="item">
-          <view class="aside" v-if="!!item.TimeLineList">
+          <view v-if="!!item.TimeLineList" class="aside">
             <view class="day">
               {{ item.TimeLineList[0] }}
             </view>
@@ -54,17 +54,17 @@
 </template>
 <script lang="ts" setup>
 // @ts-ignore
-import styles from "./styles.scss";
-import SideBar from "@/components/SideBar/index.vue";
+import styles from './styles.scss';
+import SideBar from '@/components/SideBar/index.vue';
 
-import { useListScroll } from "@/components/scrollHooks/useListScroll";
-import { useAccountStore } from "@/stores/account";
-import { useDidShow } from "@tarojs/taro";
-import { timelineFormat, timeFormat } from "@/utils/date";
-import Taro from "@tarojs/taro";
-import { getMemoList } from "@/apis/memo";
-import { IMemo } from "@/apis/memo/model";
-import cloneDeep from "lodash/cloneDeep";
+import { useListScroll } from '@/components/scrollHooks/useListScroll';
+import { useAccountStore } from '@/stores/account';
+import { useDidShow } from '@tarojs/taro';
+import { timelineFormat, timeFormat } from '@/utils/date';
+import Taro from '@tarojs/taro';
+import { getMemoList } from '@/apis/memo';
+import type { IMemo } from '@/apis/memo/model';
+import cloneDeep from 'lodash/cloneDeep';
 
 const account = useAccountStore();
 
@@ -79,7 +79,7 @@ const initData = async () => {
   
   res.forEach((item, index, arr) => {
     item.list = JSON.parse(item.list as unknown as string);
-    const beforeItemTime = !!arr[index - 1]
+    const beforeItemTime = arr[index - 1]
       ? timelineFormat(arr[index - 1].createTime)
       : [];
     const nowItemTime = timelineFormat(item.createTime);
@@ -100,16 +100,16 @@ const toPreview = (detailId: string) => {
 };
 
 const editMemo = (item:IMemo) => {
-  account.editMemoData =  cloneDeep(item)
+  account.editMemoData =  cloneDeep(item);
   Taro.navigateTo({ url: `/pages/memo/memo/post/index?type=${item.memoType==1?'video':'image'}&memoId=${item.memoId}` });
 };
 
 const deleteMemo = (memoId: string) => {
   Taro.showModal({
-    content: `确定删除该条记录？`,
-    cancelColor: "#999999",
-    confirmColor: "#7468F2 ",
-    confirmText: "删除",
+    content: '确定删除该条记录？',
+    cancelColor: '#999999',
+    confirmColor: '#7468F2 ',
+    confirmText: '删除',
     success: async (res) => {
       if (res.confirm) {
         await account.removeMemoItem(memoId);
