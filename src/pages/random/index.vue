@@ -152,9 +152,9 @@ const data = reactive({
 });
 
 const addOne = (arr) => {
-  arr.push({ value: 1, name: '', id: uuid() });
+  arr.push({ value: 1, name: '', id: uuid(), childList: [] });
 };
-const addOk = () => {
+const addOk = () => {  
   // 处理主数据和子数据
 data.mainData = data.mainData
     .filter(item => item.name !== '')  // 过滤掉主数据中name为空的项
