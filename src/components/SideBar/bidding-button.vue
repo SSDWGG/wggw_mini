@@ -7,7 +7,7 @@
 </template>
 <script lang="ts" setup>
 import { useAttrs } from 'vue';
-import { isPermissions2 } from "@/utils/index";
+import { isPermissions2 } from '@/utils/index';
 
 const attrsParams = useAttrs();
 

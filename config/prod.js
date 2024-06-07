@@ -9,7 +9,7 @@ module.exports = {
       'user': execSync('git config user.name', { encoding: 'utf-8'}).trimEnd(),
       'branch': execSync('git rev-parse --abbrev-ref HEAD', { encoding: 'utf-8'}).trimEnd(),
       'commit': execSync('git rev-parse --short HEAD', { encoding: 'utf-8'}).trimEnd(),
-      'time': new Date().toLocaleString(),
+      'time': new Date(),
     })
   },
   mini: {

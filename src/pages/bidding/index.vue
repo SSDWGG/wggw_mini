@@ -1,5 +1,5 @@
 <template>
-  <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
+  <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <navbar title="价值曲线" background-color="rgba(116, 104, 242,.1)" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="价值曲线" />
     <view class="tipTitle">
@@ -7,7 +7,7 @@
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
-      <view class="menu-item" @tap="open(item)" v-for="item in data.biddingDefaultList" :key="item.shopId">
+      <view v-for="item in data.biddingDefaultList" :key="item.shopId" class="menu-item" @tap="open(item)">
         <view class="title">
           {{ item.title }}
         </view>
@@ -19,16 +19,16 @@
 </template>
 <script lang="ts" setup>
 // @ts-ignore
-import styles from "./styles.scss";
-import { computed, reactive } from "vue";
-import { Navbar } from "@fishui/taro-vue";
-import { useSystemInfoStore } from "@/stores/systemInfo";
-import Taro from "@tarojs/taro";
-import { getKunChartList} from "@/apis/kunChart";
-import sideBar from "@/components/SideBar/index.vue";
-import { useListScroll } from "@/components/scrollHooks/useListScroll";
-import { useDidShow } from "@tarojs/taro";
-import { IBiddingItem } from "@/apis/kunChart/model";
+import styles from './styles.scss';
+import { computed, reactive } from 'vue';
+import { Navbar } from '@fishui/taro-vue';
+import { useSystemInfoStore } from '@/stores/systemInfo';
+import Taro from '@tarojs/taro';
+import { getKunChartList} from '@/apis/kunChart';
+import sideBar from '@/components/SideBar/index.vue';
+import { useListScroll } from '@/components/scrollHooks/useListScroll';
+import { useDidShow } from '@tarojs/taro';
+import type { IBiddingItem } from '@/apis/kunChart/model';
 
 const { show, onScroll } = useListScroll();
 
@@ -45,10 +45,10 @@ useDidShow(async () => {
   });
 
   res.forEach(item=>{
-    item.imgSrc = JSON.parse(item.imgSrc)
-  })
+    item.imgSrc = JSON.parse(item.imgSrc);
+  });
 
-  data.biddingDefaultList =  res
+  data.biddingDefaultList =  res;
   
 });
 

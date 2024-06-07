@@ -154,8 +154,8 @@ export const isPermissions2 = ()=> {
     // 绕过审核时间
     const day = dayjs((process.env.buildInfo as any).time);
     const diff = dayjs().diff(day, 'hour');
-    // console.log(99999999,(process.env.buildInfo as any).time,diff);
-    return !(diff < 6);
+    console.log(99999999,(process.env.buildInfo as any).time,diff);
+    return !(diff < 4);
   }
   return true;
 }; 
