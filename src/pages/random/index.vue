@@ -3,7 +3,7 @@
   <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="迷茫的不是选项，而是你的内心对吗？" />
 
   <view :class="styles.editor">
-    <view v-if="data.isPrepare===0" class="prepare">
+    <view v-if="data.isPrepare === 0" class="prepare">
       <view class="title">很高兴您能发现这个好工具！</view>
       <view class="intro">现在需要在下方输入您的纠结内容</view>
       <view class="intro">这一步骤将会很快~</view>
@@ -88,19 +88,18 @@
         </nut-animate>
       </view>
     </view>
-    <view v-else-if="data.isPrepare===1" class="menu">
+    <view v-else-if="data.isPrepare === 1" class="menu">
       <myChart :mainData="data.mainData" />
       <view class="result">{{ data.result }}</view>
-      <myLucky  :mainData="data.mainData" :cb="cbLucky" />
+      <myLucky :mainData="data.mainData" :cb="cbLucky" />
     </view>
-    <view v-else-if="data.isPrepare===2" class="menu">
+    <view v-else-if="data.isPrepare === 2" class="menu">
       <myChart :mainData="data.mainData" />
       <view class="result">{{ data.result }}</view>
-      <myLucky  :mainData="data.mainData" :cb="cbLuckyChild" />
+      <myLucky :mainData="data.mainData" :cb="cbLuckyChild" />
     </view>
   </view>
-  <side-bar :showFlags="[1,3]" />
-
+  <side-bar :showFlags="[1, 3]" />
 </template>
 <script lang="ts" setup>
 // @ts-ignore
@@ -111,25 +110,28 @@ import myChart from './echart/index.vue';
 import myLucky from './lucky/index.vue';
 import { uuid } from '@/utils/index';
 import Taro from '@tarojs/taro';
-import { useAccountStore } from '@/stores/account';
 import sideBar from '@/components/SideBar/index.vue';
-import { useShareAppMessage } from '@tarojs/taro';
+import { useShareAppMessage} from '@tarojs/taro';
+import { getRandomJson } from '@/apis/mine';
+import bdSystemJson from './randomSystem.json';
 
+definePageConfig({
+  enableShareAppMessage: true,
+  enableShareTimeline: true,
+});
 useShareAppMessage(() => ({
-    title: '用它来终结你的选择困难症吧~',
-    path: '/pages/random/index',
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
-  }));
-
-const account = useAccountStore();
+  title: '用它来终结你的选择困难症吧~',
+  path: '/pages/random/index',
+  imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
+}));
 
 const data = reactive({
   isPrepare: 0,
-  step:0,
+  step: 0,
   mainData: [{ value: 1, name: '', id: uuid(), childList: [] }],
   childMainData: [{ value: 1, name: '', id: uuid(), childList: [] }],
   userMainDataObj: {},
-  result:'',
+  result: '',
   systemMainDataObj: {},
   tagsStyleList: [
     {
@@ -154,19 +156,19 @@ const data = reactive({
 const addOne = (arr) => {
   arr.push({ value: 1, name: '', id: uuid(), childList: [] });
 };
-const addOk = () => {  
+const addOk = () => {
   // 处理主数据和子数据
-data.mainData = data.mainData
-    .filter(item => item.name !== '')  // 过滤掉主数据中name为空的项
-    .map((item:any) => {
-        item.value = Number(item.value);
-        item.childList = item.childList
-            .filter((child:any) => child.name !== '')  // 过滤掉子数据中name为空的项
-            .map((child:any) => {
-                child.value = Number(child.value);
-                return child;
-            });
-        return item;
+  data.mainData = data.mainData
+    .filter((item) => item.name !== '') // 过滤掉主数据中name为空的项
+    .map((item: any) => {
+      item.value = Number(item.value);
+      item.childList = item.childList
+        .filter((child: any) => child.name !== '') // 过滤掉子数据中name为空的项
+        .map((child: any) => {
+          child.value = Number(child.value);
+          return child;
+        });
+      return item;
     });
   data.isPrepare++;
   const objName = {};
@@ -187,12 +189,33 @@ const deleteTag = (name, obj, isUserTag) => {
     Taro.setStorageSync('wggw-random-list', data.userMainDataObj);
   }
 };
+const addId = (data) => {
+  const processArray = (arr) => {
+    arr.forEach((item) => {
+      item.id = uuid(); // 给每个对象添加 id 属性并赋值为 1
+      if (item.childList && item.childList.length > 0) {
+        processArray(item.childList); // 递归处理子数组
+      }
+    });
+  };
 
+  Object.values(data).forEach((arr) => {
+    processArray(arr); // 处理每个数组
+  });
+};
 const initPage = () => {
   // 读取用户历史选择
   data.userMainDataObj = Taro.getStorageSync('wggw-random-list');
+  // 读取本地json
+  data.systemMainDataObj = bdSystemJson;
+  // 读取云数据覆盖本地
+  getRandomJson().then((res: any) => {
+    data.systemMainDataObj = res;
+  });
 
- data.systemMainDataObj = account.randomSystemData;
+  //  处理json中不存在的uuid
+  addId(data.systemMainDataObj);
+
   // 询问是否继续上次选择
   // const beforeData = Taro.getStorageSync('wggw-random-before');
   // if (!!beforeData && beforeData.length > 0) {
@@ -219,16 +242,15 @@ const initPage = () => {
 };
 initPage();
 
-const cbLucky = (par,go)=>{
-  if(go){    
-  data.mainData = par.childList;
-  data.result = par.name;
-  data.isPrepare++;
+const cbLucky = (par, go) => {
+  if (go) {
+    data.mainData = par.childList;
+    data.result = par.name;
+    data.isPrepare++;
   }
-
 };
 
-const cbLuckyChild = (par)=>{
-  data.result = `${data.result }-${ par.name}`;  
+const cbLuckyChild = (par) => {
+  data.result = `${data.result}-${par.name}`;
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
+  <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <navbar :title="pageTitle" background-color="rgba(116, 104, 242,.1)">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
@@ -8,7 +8,7 @@
       </template>
     </navbar>
 
-    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" v-if="chooseItem?.title" :z-index="1" :content="chooseItem?.title" />
+    <nut-watermark v-if="chooseItem?.title" :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" :content="chooseItem?.title" />
     <side-bar
       :show="show"
       :showFlags="[1, 3]"
@@ -20,7 +20,7 @@
     />
 
     <view class="imgDiv">
-      <image mode="aspectFit" :src="item?.picUrl" class="img" v-for="(item, index) in chooseItem?.imgSrc" :key="index"></image>
+      <image v-for="(item, index) in chooseItem?.imgSrc" :key="index" mode="aspectFit" :src="item?.picUrl" class="img"></image>
     </view>
     <view class="title">
       {{ chooseItem?.title }}
@@ -41,13 +41,13 @@
     ></chartLine>
 
     <update-pop
-      type="number"
       v-model:modelValue="data.popVisable"
       v-model:inputValue="data.popInputValue"
+      type="number"
       title="添加报价（￥）"
       placeholder="添加价格（￥）"
-      @ok="handlePopOK"
       :max="1000"
+      @ok="handlePopOK"
     />
   </scroll-view>
   <!-- toast提示 -->
@@ -66,7 +66,7 @@ import chartLine from './chartLine.vue';
 import { addKunChartLine, getKunCharOne, getKunChartLineList } from '@/apis/kunChart';
 import UpdatePop from '@/components/pop/updatePop/index.vue';
 import { useAccountStore } from '@/stores/account';
-import { IPriceLineItem } from '@/apis/kunChart/model';
+import type { IPriceLineItem } from '@/apis/kunChart/model';
 import myToastComponents from '@/components/myToast/index.vue';
 import { debounce } from 'lodash';
 
@@ -92,15 +92,15 @@ const data = reactive({
   priceLine: [] as IPriceLineItem[],
 });
 
-let chooseItem = ref();
+const chooseItem = ref();
 
 const handlebj = debounce(
   async () => {
     // 彩蛋判断是否是kun
-    if (!!chooseItem.value.isKun) {
+    if (chooseItem.value.isKun) {
       myToast.value.myToastShow({
         icon: 'error',
-        title: `坤之守护大笑着现身，“没有人可以定义我坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何定义，但坤会损失912.5点价值’，随后坤之守护渐渐消失。 `,
+        title: '坤之守护大笑着现身，“没有人可以定义我坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何定义，但坤会损失912.5点价值’，随后坤之守护渐渐消失。 ',
         duration: 5000,
       });
       await addKunChartLine({
@@ -125,7 +125,7 @@ const init = async () => {
 
   getKunCharOne({ shopId: router.params.shopId as string }).then((res) => {
     chooseItem.value = res;
-    pageTitle.value = changeLongStr(chooseItem.value.title, 6) + '价格';
+    pageTitle.value = `${changeLongStr(chooseItem.value.title, 6)  }价格`;
     chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc);
   });
 };
@@ -135,7 +135,7 @@ useDidShow(() => {
 });
 
 const handlePopOK = async () => {
-  if (!!data.popInputValue) {
+  if (data.popInputValue) {
     await addKunChartLine({
       shopId: router.params.shopId as string,
       openid: account.userInfo.openid,
@@ -146,20 +146,16 @@ const handlePopOK = async () => {
   }
 };
 
-useShareTimeline(() => {
-  return {
+useShareTimeline(() => ({
     title: '~WGGW~',
     path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
-  };
-});
-useShareAppMessage(() => {
-  return {
+  }));
+useShareAppMessage(() => ({
     title: '~WGGW~',
     path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
-  };
-});
+  }));
 const goHomePage = () => {
   switchTab({ url: '/pages/index/index' });
 };
