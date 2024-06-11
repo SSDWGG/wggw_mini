@@ -12,6 +12,9 @@ export default defineAppConfig({
   
     { root: 'pages/_dev', pages: ['index'] },
     { root: 'pages/test', pages: ['index'] },
+    { root: 'pages/mall', pages: ['index'] },
+    { root: 'pages/map', pages: ['index'] },
+    { root: 'pages/bluetooth', pages: ['index'] },
     { root: 'pages/pi', pages: ['index'] },
     { root: 'pages/random', pages: ['index'] },
     { root: 'pages/sign', pages: ['index'] },

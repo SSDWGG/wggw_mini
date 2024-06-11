@@ -104,6 +104,12 @@ export const useAccountStore = defineStore('account', {
         Ctitle: 'π的计算',
         router: '/pages/pi/index',
       },
+       {
+        title: 'bluetooth',
+        Ctitle: '蓝牙检测',
+        router: '/pages/bluetooth/index',
+        // isShow: !process.env.buildInfo,
+      },
       // test page
       {
         title: 'Test Page',

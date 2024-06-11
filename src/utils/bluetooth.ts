@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 /// <reference types="wechat-miniprogram" />
 
 interface BluetoothAdapterState {
@@ -36,7 +37,7 @@ interface BLECharacteristic {
 }
 
 export default {
-  async openBluetoothAdapter(): Promise<WechatMiniprogram.GeneralCallbackResult> {
+  openBluetoothAdapter(): Promise<WechatMiniprogram.GeneralCallbackResult> {
     return new Promise((resolve, reject) => {
       wx.openBluetoothAdapter({
         success: (res) => {
@@ -49,7 +50,7 @@ export default {
     });
   },
 
-  async getBluetoothAdapterState(): Promise<BluetoothAdapterState> {
+  getBluetoothAdapterState(): Promise<BluetoothAdapterState> {
     return new Promise((resolve, reject) => {
       wx.getBluetoothAdapterState({
         success: (res) => {
@@ -62,7 +63,7 @@ export default {
     });
   },
 
-  async startBluetoothDevicesDiscovery(): Promise<WechatMiniprogram.GeneralCallbackResult> {
+  startBluetoothDevicesDiscovery(): Promise<WechatMiniprogram.GeneralCallbackResult> {
     return new Promise((resolve, reject) => {
       wx.startBluetoothDevicesDiscovery({
         allowDuplicatesKey: false,
@@ -76,7 +77,7 @@ export default {
     });
   },
 
-  async stopBluetoothDevicesDiscovery(): Promise<WechatMiniprogram.GeneralCallbackResult> {
+  stopBluetoothDevicesDiscovery(): Promise<WechatMiniprogram.GeneralCallbackResult> {
     return new Promise((resolve, reject) => {
       wx.stopBluetoothDevicesDiscovery({
         success: (res) => {
@@ -89,7 +90,7 @@ export default {
     });
   },
 
-  async getBluetoothDevices(): Promise<BluetoothDevice[]> {
+  getBluetoothDevices(): Promise<BluetoothDevice[]> {
     return new Promise((resolve, reject) => {
       wx.getBluetoothDevices({
         success: (res) => {
@@ -102,7 +103,7 @@ export default {
     });
   },
 
-  async connectToDevice(deviceId: string): Promise<BLEConnectionResponse> {
+  connectToDevice(deviceId: string): Promise<BLEConnectionResponse> {
     return new Promise((resolve, reject) => {
       wx.createBLEConnection({
         deviceId,
@@ -116,7 +117,7 @@ export default {
     });
   },
 
-  async getBLEDeviceServices(deviceId: string): Promise<BLEService[]> {
+  getBLEDeviceServices(deviceId: string): Promise<BLEService[]> {
     return new Promise((resolve, reject) => {
       wx.getBLEDeviceServices({
         deviceId,
@@ -130,7 +131,7 @@ export default {
     });
   },
 
-  async getBLEDeviceCharacteristics(deviceId: string, serviceId: string): Promise<BLECharacteristic[]> {
+  getBLEDeviceCharacteristics(deviceId: string, serviceId: string): Promise<BLECharacteristic[]> {
     return new Promise((resolve, reject) => {
       wx.getBLEDeviceCharacteristics({
         deviceId,
@@ -145,7 +146,7 @@ export default {
     });
   },
 
-  async readCharacteristicValue(deviceId: string, serviceId: string, characteristicId: string): Promise<WechatMiniprogram.GeneralCallbackResult> {
+  readCharacteristicValue(deviceId: string, serviceId: string, characteristicId: string): Promise<WechatMiniprogram.GeneralCallbackResult> {
     return new Promise((resolve, reject) => {
       wx.readBLECharacteristicValue({
         deviceId,
@@ -161,7 +162,12 @@ export default {
     });
   },
 
-  async writeCharacteristicValue(deviceId: string, serviceId: string, characteristicId: string, value: ArrayBuffer): Promise<WechatMiniprogram.GeneralCallbackResult> {
+  writeCharacteristicValue(
+    deviceId: string,
+    serviceId: string,
+    characteristicId: string,
+    value: ArrayBuffer,
+  ): Promise<WechatMiniprogram.GeneralCallbackResult> {
     return new Promise((resolve, reject) => {
       wx.writeBLECharacteristicValue({
         deviceId,
@@ -178,7 +184,12 @@ export default {
     });
   },
 
-  async notifyCharacteristicValueChange(deviceId: string, serviceId: string, characteristicId: string, state: boolean): Promise<WechatMiniprogram.GeneralCallbackResult> {
+  notifyCharacteristicValueChange(
+    deviceId: string,
+    serviceId: string,
+    characteristicId: string,
+    state: boolean,
+  ): Promise<WechatMiniprogram.GeneralCallbackResult> {
     return new Promise((resolve, reject) => {
       wx.notifyBLECharacteristicValueChange({
         deviceId,
