@@ -18,6 +18,8 @@ interface IState {
   mainMenuList: IListDataItem[]; // 主菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
   develeopMenuList: IListDataItem[]; // cxk主菜单
+  toolMenuList: IListDataItem[]; // tool主菜单
+  gameMenuList: IListDataItem[]; // game主菜单
 }
 
 export const useAccountStore = defineStore('account', {
@@ -30,54 +32,7 @@ export const useAccountStore = defineStore('account', {
       phone: '',
       email: '',
     },
-    mainMenuList: [
-      {
-        title: 'WGG',
-        Ctitle: 'wgg',
-        router: '/pages/wgg/index',
-      },
-      {
-        title: 'Come on',
-        Ctitle: '加油吧，少年',
-        router: '/pages/going/index',
-      },
-      {
-        title: 'ikun',
-        Ctitle: 'kunkun妙妙屋',
-        router: '/pages/cxk/index/index',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
-        opacity: 1,
-      },
-      {
-        title: 'random',
-        Ctitle: '纠结终结者',
-        router: '/pages/random/index',
-      },
-      {
-        title: 'reaction rate',
-        Ctitle: '速度反应',
-        router: '/pages/speedTest/index',
-      },
-      {
-        title: 'Mood Memo',
-        Ctitle: '专属记录',
-        router: '/pages/memo/index',
-      },
-      {
-        title: 'Value Curve',
-        Ctitle: '价值曲线',
-        router: '/pages/bidding/index',
-      },
-      {
-        title: 'developer',
-        Ctitle: '开发者专区',
-        router: '/pages/developer/index',
-      },
-      {
-        title: 'Score Board',
-        Ctitle: '计分板',
-        router: '/pages/scoreboard/index',
-      },
+    gameMenuList: [
       {
         title: 'Game',
         Ctitle: '消消乐旋转版本',
@@ -94,35 +49,79 @@ export const useAccountStore = defineStore('account', {
         linkUrl: 'http://xlgx.ssdwgg.cn',
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
       },
-      // {
-      //   title: 'For NUT',
-      //   Ctitle: '致谢NUT团队',
-      //   router: '/pages/sign/index',
-      // },
+    ],
+    mainMenuList: [
+      // wgg个人主页
+      {
+        title: 'WGG',
+        Ctitle: 'wgg',
+        router: '/pages/wgg/index',
+      },
+      // 励志主页
+      {
+        title: 'Come on',
+        Ctitle: '加油吧，少年',
+        router: '/pages/going/index',
+      },
+      // ikun菜单入口
+      {
+        title: 'ikun',
+        Ctitle: 'kunkun妙妙屋',
+        router: '/pages/cxk/index/index',
+        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
+        opacity: 1,
+      },
+      // 开发者入口
+      {
+        title: 'developer',
+        Ctitle: '开发者区',
+        router: '/pages/developer/index',
+      },
+      // 工具入口
+      {
+        title: 'developer',
+        Ctitle: '工具区',
+        router: '/pages/tool/index',
+      },
+      // 游戏入口
+      {
+        title: 'developer',
+        Ctitle: '游戏区',
+        router: '/pages/game/index',
+      },
+      // 备忘录入口
+      {
+        title: 'Mood Memo',
+        Ctitle: '专属记录',
+        router: '/pages/memo/index',
+      },
+      // 价值曲线入口
+      {
+        title: 'Value Curve',
+        Ctitle: '价值曲线',
+        router: '/pages/bidding/index',
+      },
+    ],
+    toolMenuList: [
+      {
+        title: 'Score Board',
+        Ctitle: '计分板',
+        router: '/pages/tool/scoreboard/index',
+      },
       {
         title: 'PI',
         Ctitle: 'π的计算',
-        router: '/pages/pi/index',
+        router: '/pages/tool/pi/index',
       },
-       {
-        title: 'bluetooth',
-        Ctitle: '蓝牙检测',
-        router: '/pages/bluetooth/index',
-        // isShow: !process.env.buildInfo,
-      },
-      // test page
       {
-        title: 'Test Page',
-        Ctitle: 'TEST PAGE',
-        router: '/pages/test/index',
-        // isShow: !process.env.buildInfo,
+        title: 'random',
+        Ctitle: '纠结终结者',
+        router: '/pages/tool/random/index',
       },
-      // dev page
       {
-        title: 'Dev IP',
-        Ctitle: 'DEVIP',
-        router: '/pages/_dev/index',
-        isShow: process.env.BUILD_ENV === 'test',
+        title: 'reaction rate',
+        Ctitle: '速度反应',
+        router: '/pages/tool/speedTest/index',
       },
     ],
     cxkMenuList: [
@@ -165,14 +164,34 @@ export const useAccountStore = defineStore('account', {
     ],
     develeopMenuList: [
       {
+        title: 'bluetooth',
+        Ctitle: '蓝牙检测',
+        router: '/pages/developer/bluetooth/index',
+        // isShow: !process.env.buildInfo,
+      },
+      // test page
+      // {
+      //   title: 'Test Page',
+      //   Ctitle: 'TEST PAGE',
+      //   router: '/pages/developer/test/index',
+      //   isShow: !process.env.buildInfo,
+      // },
+      // dev page
+      {
+        title: 'Dev IP',
+        Ctitle: 'DEVIP',
+        router: '/pages/developer/_dev/index',
+        isShow: process.env.BUILD_ENV === 'test',
+      },
+      {
+        title: 'For NUT',
+        Ctitle: '致谢NUT团队',
+        router: '/pages/developer/sign/index',
+      },
+      {
         title: 'CSS Loaders',
         Ctitle: '新奇的动效css',
         router: '/pages/developer/cssloaders/index',
-      },
-      {
-        title: 'Clock',
-        Ctitle: '进度计时',
-        router: '/pages/developer/time/index',
       },
       {
         title: 'More Plugin',

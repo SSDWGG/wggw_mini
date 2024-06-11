@@ -1,37 +1,40 @@
 // details config doc: https://docs.taro.zone/docs/app-config
 export default defineAppConfig({
   entryPagePath: 'pages/index/index',
-  pages: [
-    'pages/index/index',
-    'pages/menu/index',
-  ],
+  pages: ['pages/index/index', 'pages/menu/index'],
   subpackages: [
-
     // 正式环境ip 则不展示切换ip
     // ...(process.env.BUILD_ENV === 'prod' ? [] :[{ root: 'pages/_dev', pages: ['index'] }]),
-  
-    { root: 'pages/_dev', pages: ['index'] },
-    { root: 'pages/test', pages: ['index'] },
-    { root: 'pages/mall', pages: ['index'] },
-    { root: 'pages/map', pages: ['index'] },
-    { root: 'pages/bluetooth', pages: ['index'] },
-    { root: 'pages/pi', pages: ['index'] },
-    { root: 'pages/random', pages: ['index'] },
-    { root: 'pages/sign', pages: ['index'] },
-    { root: 'pages/memo', pages: ['index','memo/post/index'] },
+    { root: 'pages/memo', pages: ['index', 'memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/going', pages: ['index'] },
     { root: 'pages/webViewPage', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
-    { root: 'pages/speedTest', pages: ['index'] },
-    { root: 'pages/scoreboard', pages: ['index'] },
-    { root: 'pages/bidding', pages: ['index','detail/index','post/index'] },
-    { root: 'pages/cxk', pages: ['index/index','menu/index','cxk/index','cxk3/index'] },
-    { root: 'pages/developer', pages: ['index','cssloaders/index','time/index','editor/index','waterfall/index'] },
-
+    { root: 'pages/game', pages: ['index'] },
+    { root: 'pages/bidding', pages: ['index', 'detail/index', 'post/index'] },
+    { root: 'pages/cxk', pages: ['index/index', 'menu/index', 'cxk/index', 'cxk3/index'] },
+    {
+      root: 'pages/tool',
+      pages: ['index', 'time/index', 'pi/index', 'random/index', 'speedTest/index', 'scoreboard/index'],
+    },
+    {
+      root: 'pages/developer',
+      pages: [
+        'index',
+        'cssloaders/index',
+        'editor/index',
+        'waterfall/index',
+        'bluetooth/index',
+        'sign/index',
+        '_dev/index',
+        'test/index',
+        'mall/index',
+        'map/index',
+      ],
+    },
   ],
-  requiredBackgroundModes:['audio'],
+  requiredBackgroundModes: ['audio'],
   window: {
     navigationBarTextStyle: 'black',
     navigationBarTitleText: 'WGGW',
@@ -51,7 +54,7 @@ export default defineAppConfig({
         text: 'Menu',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
-      }, 
+      },
       {
         pagePath: 'pages/index/index',
         text: 'index',
