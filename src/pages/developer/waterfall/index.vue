@@ -1,25 +1,25 @@
 <template>
   <navbar title="WaterFall" background-color='#f3f3fe' />
   <view :class="styles.waterfall">
-    <view class="item" v-for="imgsrc in imgList" :key="imgsrc">
-      <image mode="widthFix" :src=imgsrc></image>
+    <view v-for="imgsrc in imgList" :key="imgsrc" class="item">
+      <image v-if="imgsrc" mode="widthFix" :src=imgsrc></image>
     </view>
   </view>
 </template>
 <script lang="ts" setup>
 // @ts-ignore
-import styles from "./styles.scss";
+import styles from './styles.scss';
 import { Navbar } from '@fishui/taro-vue';
 
 
-definePageConfig({ backgroundColor: "#f3f3fe" });
+definePageConfig({ backgroundColor: '#f3f3fe' });
 
 const imgList = [
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/LGJCHEMO-16724568566421.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/DHNOKPKJ-16724568566422.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/EDGGOIDI-16724568566423.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/GMDPHFNA-16724568566424.jpeg',
-  "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/GAOMFFHE-16724568566425.jpeg",
+  'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/GAOMFFHE-16724568566425.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/IBFDPNGA-16724568566426.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/MLACPBIP-16724568566427.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/DDGNMOJA-16724568566428.jpeg',
@@ -45,5 +45,5 @@ const imgList = [
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/PEPCHNMJ-167245685664328.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/ICEGOBKL-167245685664329.jpeg',
   'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/HMGGKJPP-167245685664330.jpeg',
-]
+];
 </script>

@@ -19,7 +19,6 @@ interface IState {
   cxkMenuList: IListDataItem[]; // cxk主菜单
   develeopMenuList: IListDataItem[]; // cxk主菜单
   toolMenuList: IListDataItem[]; // tool主菜单
-  gameMenuList: IListDataItem[]; // game主菜单
 }
 
 export const useAccountStore = defineStore('account', {
@@ -32,24 +31,6 @@ export const useAccountStore = defineStore('account', {
       phone: '',
       email: '',
     },
-    gameMenuList: [
-      {
-        title: 'Game',
-        Ctitle: '消消乐旋转版本',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HEPJCNMO-1705543014391game1.gif',
-        opacity: 1,
-        linkUrl: 'http://hextris.ssdwgg.cn',
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IMDCHDJP-1706331384525hextris.png',
-      },
-      {
-        title: 'Game',
-        Ctitle: '兔了个兔',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NICPAEIK-1705543014391tlgt.gif',
-        opacity: 1,
-        linkUrl: 'http://xlgx.ssdwgg.cn',
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
-      },
-    ],
     mainMenuList: [
       // wgg个人主页
       {
@@ -63,34 +44,8 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '加油吧，少年',
         router: '/pages/going/index',
       },
-      // ikun菜单入口
-      {
-        title: 'ikun',
-        Ctitle: 'kunkun妙妙屋',
-        router: '/pages/cxk/index/index',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
-        opacity: 1,
-      },
-      // 开发者入口
-      {
-        title: 'developer',
-        Ctitle: '开发者区',
-        router: '/pages/developer/index',
-      },
-      // 工具入口
-      {
-        title: 'developer',
-        Ctitle: '工具区',
-        router: '/pages/tool/index',
-      },
-      // 游戏入口
-      {
-        title: 'developer',
-        Ctitle: '游戏区',
-        router: '/pages/game/index',
-      },
-      // 备忘录入口
-      {
+       // 备忘录入口
+       {
         title: 'Mood Memo',
         Ctitle: '专属记录',
         router: '/pages/memo/index',
@@ -100,6 +55,26 @@ export const useAccountStore = defineStore('account', {
         title: 'Value Curve',
         Ctitle: '价值曲线',
         router: '/pages/bidding/index',
+      },
+       // 娱乐区入口
+       {
+        title: 'ikun',
+        Ctitle: '娱乐区',
+        router: '/pages/cxk/index/index',
+        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
+        opacity: 1,
+      },
+      // 工具入口
+      {
+        title: 'tool',
+        Ctitle: '工具区',
+        router: '/pages/tool/index',
+      },
+      // 开发者入口
+      {
+        title: 'developer',
+        Ctitle: '开发者区',
+        router: '/pages/developer/index',
       },
     ],
     toolMenuList: [
@@ -160,6 +135,22 @@ export const useAccountStore = defineStore('account', {
         opacity: 1,
         linkUrl: 'http://klgk.ssdwgg.cn',
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CIDJDLID-1709096485764httpklgk.ssdwgg.cn.png',
+      },
+      {
+        title: 'Game',
+        Ctitle: '消消乐旋转版本',
+        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HEPJCNMO-1705543014391game1.gif',
+        opacity: 1,
+        linkUrl: 'http://hextris.ssdwgg.cn',
+        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IMDCHDJP-1706331384525hextris.png',
+      },
+      {
+        title: 'Game',
+        Ctitle: '兔了个兔',
+        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NICPAEIK-1705543014391tlgt.gif',
+        opacity: 1,
+        linkUrl: 'http://xlgx.ssdwgg.cn',
+        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
       },
     ],
     develeopMenuList: [

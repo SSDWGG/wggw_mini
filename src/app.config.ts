@@ -11,7 +11,6 @@ export default defineAppConfig({
     { root: 'pages/going', pages: ['index'] },
     { root: 'pages/webViewPage', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
-    { root: 'pages/game', pages: ['index'] },
     { root: 'pages/bidding', pages: ['index', 'detail/index', 'post/index'] },
     { root: 'pages/cxk', pages: ['index/index', 'menu/index', 'cxk/index', 'cxk3/index'] },
     {

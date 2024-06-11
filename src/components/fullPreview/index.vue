@@ -2,7 +2,7 @@
   <view :class="{ [styles.fullPreview]: true, [styles.dispoint]: !props.back }" @tap="handleClickPage">
     <view class="title">{{ props.title }}</view>
     <view class="logo">
-      <image class="bgImg" :src="props.imgSrc" />
+      <image v-if="props.imgSrc" class="bgImg" :src="props.imgSrc" />
     </view>
     <view class="hypnotic-5"></view>
   </view>
@@ -17,9 +17,9 @@
       zIndex: 9999999,
       pointerEvents: 'none',
     }"
-    @finsh="onFinsh"
     :svgaUrl="props.svgaUrl"
     :loop="props.svgaLoop"
+    @finsh="onFinsh"
   />
 </template>
 
@@ -58,7 +58,7 @@ watch(
   (val) => {
     // 显示svga动画
     Taro.nextTick(() => {
-      if (!!val) {
+      if (val) {
         svgaPlayRef.value.showSvga();
       }
     });
@@ -68,6 +68,6 @@ watch(
 
 const handleClickPage = () => {
   !!props.back && emit('back');
-  return;
+  
 };
 </script>
