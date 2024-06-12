@@ -18,7 +18,7 @@
           data.countData.userConut }})
       </view>
 
-      <view class="mySwiper" v-if="data.CurrentUsersSpeedTimeData.length > 3">
+      <view v-if="data.CurrentUsersSpeedTimeData.length > 3" class="mySwiper">
         <nut-swiper :height="26" :class="styles.swiper" loop auto-play="1500" direction="vertical" :touchable="false">
           <nut-swiper-item v-for="(item, index) in data.CurrentUsersSpeedTimeData" :key="index" class="swiper-item">
             <image class="avater" :src="item.avatarurl" />
@@ -79,7 +79,7 @@ import myToastComponents from '@/components/myToast/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useShareAppMessage, useShareTimeline, switchTab, useRouter } from '@tarojs/taro';
 import { getCurrentUsersSpeedTime, getUserFastTime, updateSpeedTime, getUserCount } from '@/apis/speedTime';
-import { ISpeedTimeItem } from '@/apis/speedTime/model';
+import type { ISpeedTimeItem } from '@/apis/speedTime/model';
 import { useAccountStore } from '@/stores/account';
 import { useDidShow } from '@tarojs/taro';
 import svgaPlayComponent from '@/components/svgaPlay/index.vue';
@@ -156,7 +156,7 @@ watch(
     } else if (val === GameState.start) {
       data.btnText = '';
     } else if (val === GameState.end) {
-      data.btnText = '本次用时:' + data.useTime / 100 + 's';
+      data.btnText = `本次用时:${  data.useTime / 100  }s`;
     }
   },
   { immediate: true },
@@ -247,20 +247,16 @@ onUnmounted(() => {
   clearInterval(data.intervalFlag);
 });
 
-useShareTimeline(() => {
-  return {
+useShareTimeline(() => ({
     title: '来WGGW比比谁的手速更快',
-    path: `/pages/speedTest/index?isShare=true`,
+    path: '/pages/tool/speedTest/index?isShare=true',
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
-  };
-});
-useShareAppMessage(() => {
-  return {
+  }));
+useShareAppMessage(() => ({
     title: '来WGGW比比谁的手速更快',
-    path: `/pages/speedTest/index?isShare=true`,
+    path: '/pages/tool/speedTest/index?isShare=true',
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
-  };
-});
+  }));
 
 const goHomePage = () => {
   switchTab({ url: '/pages/index/index' });

@@ -1,8 +1,8 @@
 <template>
-  <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
+  <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <navbar title="Menu" hide-back background-color="#f5f5f9" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
-    <nut-noticebar right-icon="circle-close" :background="`#F1EFFD`" color="#8074FE" :speed="35">
+    <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
       Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light. Though wise men at their
       end know dark is right, Because their words had forked no lightning they Do not go gentle into that good night.
     </nut-noticebar>
@@ -32,13 +32,13 @@
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 2, 3, 4]" />
   </scroll-view>
   <fullPreview
+    v-else
     :svgaLoop="1"
     :svga-url="data.svgaUrl"
     :back="true"
+    title="Enjoy"
     @back="data.showPage = true"
     @finsh="onFinsh"
-    title="Enjoy"
-    v-else
   />
   <!-- <svga-play-component
     ref="svgaPlayRef"
@@ -104,51 +104,51 @@ const myToast = ref<any>();
 
 const WELCOMECONTENT = '欢迎来到WGGW';
 const svgaUrlList = [
-"2022110422344569.svga",
-"2022110422395120.svga",
-"2022110422405254.svga",
-"2022110422420815.svga",
-"2022110422433573.svga",
-"2022110422450167.svga",
-"2022110622314192.svga",
-"2022110622330817.svga",
-"2022110622354389.svga",
-"2022110622365540.svga",
-"2022110622383932.svga",
-"2022110622402597.svga",
-"2022110622414965.svga",
-"2022110622454731.svga",
-"2022110622470250.svga",
-"2022110622480018.svga",
-"2022110622501824.svga",
-"2022110622511918.svga",
-"2022110622521142.svga",
-"2022110622531448.svga",
-"2022110622541440.svga",
-"2022110622580595.svga",
-"2022110623020080.svga",
-"2022110623032034.svga",
-"2022110623041923.svga",
-"2022110623053168.svga",
-"2022110623062257.svga",
-"2022110623073233.svga",
-"2022110623082817.svga",
-"2022110623135353.svga",
-"2022110623145092.svga",
-"2022110623160156.svga",
-"2022110623254198.svga",
-"2022110623275326.svga",
-"2022110623291327.svga",
-"2023021413571375.svga",
-"2023021415055742.svga",
-"2024031318511419.svga",
-]
+'2022110422344569.svga',
+'2022110422395120.svga',
+'2022110422405254.svga',
+'2022110422420815.svga',
+'2022110422433573.svga',
+'2022110422450167.svga',
+'2022110622314192.svga',
+'2022110622330817.svga',
+'2022110622354389.svga',
+'2022110622365540.svga',
+'2022110622383932.svga',
+'2022110622402597.svga',
+'2022110622414965.svga',
+'2022110622454731.svga',
+'2022110622470250.svga',
+'2022110622480018.svga',
+'2022110622501824.svga',
+'2022110622511918.svga',
+'2022110622521142.svga',
+'2022110622531448.svga',
+'2022110622541440.svga',
+'2022110622580595.svga',
+'2022110623020080.svga',
+'2022110623032034.svga',
+'2022110623041923.svga',
+'2022110623053168.svga',
+'2022110623062257.svga',
+'2022110623073233.svga',
+'2022110623082817.svga',
+'2022110623135353.svga',
+'2022110623145092.svga',
+'2022110623160156.svga',
+'2022110623254198.svga',
+'2022110623275326.svga',
+'2022110623291327.svga',
+'2023021413571375.svga',
+'2023021415055742.svga',
+'2024031318511419.svga',
+];
 const data = reactive({
   showPage: true,
   svgaUrl:`https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
 });
 
-const h5 = `<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>`;
+const h5 = '<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>';
 const height = computed(() => `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`);
 
 // socket相关
@@ -164,7 +164,7 @@ useDidShow(() => {
 
 const sendMySocketMessage = async (msg: string) => {
   if (socketOpen.value) {
-    let messageData = {
+    const messageData = {
       userId: account.userInfo.openid,
       content: msg,
     };
@@ -182,7 +182,7 @@ Taro.onSocketOpen(async (res) => {
   // 重发失败的信息
   socketOpen.value = true;
   // 异步循环队列
-  for await (let item of socketMsgQueue.value) {
+  for await (const item of socketMsgQueue.value) {
     sendMySocketMessage(item);
   }
   // 等待完成后清空待发信息栈
@@ -191,11 +191,11 @@ Taro.onSocketOpen(async (res) => {
   sendMySocketMessage(WELCOMECONTENT);
 
 });
-Taro.onSocketClose(function (res) {
+Taro.onSocketClose((res) => {
   console.log('WebSocket 已关闭！', res);
   socketOpen.value = false;
 });
-Taro.onSocketMessage(function (res) {
+Taro.onSocketMessage((res) => {
   if (JSON.parse(res.data).content === WELCOMECONTENT) {    
     // 显示svga动画
     // Taro.nextTick(() => {
@@ -215,14 +215,14 @@ if (socketOpen.value === false) {
 
 const onFinsh = ()=>{
 
-  let tempUrl= `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
+  const tempUrl= `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
   // 防止两次随机出同一个整数导致的watch不刷新
   if(data.svgaUrl === tempUrl){
-    onFinsh()
+    onFinsh();
   }else{
-    data.svgaUrl = tempUrl
+    data.svgaUrl = tempUrl;
   }
-}
+};
 
 useDidHide(() => {
   if (socketOpen.value === true) {
@@ -230,18 +230,14 @@ useDidHide(() => {
   }
 });
 
-useShareTimeline(() => {
-  return {
+useShareTimeline(() => ({
     title: '创意空间wggw~',
-    path: `/pages/index/index`,
+    path: '/pages/index/index',
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
-  };
-});
-useShareAppMessage(() => {
-  return {
+  }));
+useShareAppMessage(() => ({
     title: '创意空间wggw~',
-    path: `/pages/index/index`,
+    path: '/pages/index/index',
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
-  };
-});
+  }));
 </script>

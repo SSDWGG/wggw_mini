@@ -158,15 +158,22 @@ export const useAccountStore = defineStore('account', {
         title: 'bluetooth',
         Ctitle: '蓝牙检测',
         router: '/pages/developer/bluetooth/index',
-        // isShow: !process.env.buildInfo,
       },
-      // test page
-      // {
-      //   title: 'Test Page',
-      //   Ctitle: 'TEST PAGE',
-      //   router: '/pages/developer/test/index',
-      //   isShow: !process.env.buildInfo,
-      // },
+      {
+        title: 'map',
+        Ctitle: '足迹地图',
+        router: '/pages/developer/map/index',
+      },
+      {
+        title: 'mall',
+        Ctitle: '通用商城',
+        router: '/pages/developer/mall/index',
+      },
+      {
+        title: 'bluetooth',
+        Ctitle: '蓝牙检测',
+        router: '/pages/developer/bluetooth/index',
+      },
       // dev page
       {
         title: 'Dev IP',

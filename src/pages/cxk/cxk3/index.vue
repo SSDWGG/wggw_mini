@@ -1,5 +1,5 @@
 <template>
-  <scroll-view :class="styles.myContainer" class="pageIn" v-if="data.showPage" @scroll="onScroll" scroll-y="true">
+  <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <navbar title="坤歌台" background-color="rgba(116, 104, 242,.1)">
 
       <template v-if="!!router.params.isShare" #left>
@@ -17,7 +17,7 @@
     </view>
     <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
-      <view class="menu-item" @tap="play(item, index)" v-for="(item, index) in musicStore.cxkMusicList" :key="index">
+      <view v-for="(item, index) in musicStore.cxkMusicList" :key="index" class="menu-item" @tap="play(item, index)">
         <view class="title">
           {{ item.title }}
         </view>
@@ -29,19 +29,19 @@
     </view>
 
   </scroll-view>
-  <fullPreview :back="true" @back="data.showPage = true" :imgSrc="imageSrcBg" title="Enjoy" v-else />
+  <fullPreview v-else :back="true" :imgSrc="imageSrcBg" title="Enjoy" @back="data.showPage = true" />
 </template>
 <script lang="ts" setup>
 // @ts-ignore
-import styles from "./styles.scss";
-import { computed, reactive } from "vue";
-import { Navbar } from "@fishui/taro-vue";
-import { useSystemInfoStore } from "@/stores/systemInfo";
-import fullPreview from '@/components/fullPreview/index.vue'
-import sideBar from "@/components/SideBar/index.vue";
-import { useListScroll } from "@/components/scrollHooks/useListScroll";
+import styles from './styles.scss';
+import { computed, reactive } from 'vue';
+import { Navbar } from '@fishui/taro-vue';
+import { useSystemInfoStore } from '@/stores/systemInfo';
+import fullPreview from '@/components/fullPreview/index.vue';
+import sideBar from '@/components/SideBar/index.vue';
+import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useMusicStore } from '@/stores/music';
-import { useShareAppMessage, useShareTimeline, useRouter, switchTab, useDidShow } from "@tarojs/taro";
+import { useShareAppMessage, useShareTimeline, useRouter, switchTab, useDidShow } from '@tarojs/taro';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -50,7 +50,7 @@ definePageConfig({
 
 const router = useRouter();
 
-const imageSrcBg = require('@/assets/images/cxk/kun.png')
+const imageSrcBg = require('@/assets/images/cxk/kun.png');
 
 
 const { show, onScroll } = useListScroll();
@@ -65,7 +65,7 @@ const data = reactive({
 
 useDidShow(() => {
   if (!musicStore.isPlay()) {
-    musicStore.playCxkMusic()
+    musicStore.playCxkMusic();
   }
 });
 
@@ -75,26 +75,22 @@ const height = computed(
 );
 
 const play = (item, index) => {
-  musicStore.play(item)
-  musicStore.cxkSongIndex = index
-}
+  musicStore.play(item);
+  musicStore.cxkSongIndex = index;
+};
 
-useShareTimeline(() => {
-  return {
-    title: "快来听坤歌吧~",
-    path: `/pages/cxk/cxk3/index?isShare=true`,
+useShareTimeline(() => ({
+    title: '快来听坤歌吧~',
+    path: '/pages/cxk/cxk3/index?isShare=true',
     imageUrl:
-      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg",
-  };
-});
-useShareAppMessage(() => {
-  return {
-    title: "快来听坤歌吧~",
-    path: `/pages/cxk/cxk3/index?isShare=true`,
+      'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+  }));
+useShareAppMessage(() => ({
+    title: '快来听坤歌吧~',
+    path: '/pages/cxk/cxk3/index?isShare=true',
     imageUrl:
-      "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg",
-  };
-});
+      'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+  }));
 
 const goHomePage = () => {
   switchTab({ url: '/pages/index/index' });
