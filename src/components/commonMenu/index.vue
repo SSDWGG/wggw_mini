@@ -1,7 +1,7 @@
 <template>
   <view :class="styles.commonMenu" :style="{ height }">
-    <nut-animate type="breath" class="rule-button-div" loop v-for="(item, index) in props.listData" :key="index">
-      <view class="menu-item" @tap="goto(item)" v-if="item.isShow !== false">
+    <nut-animate v-for="(item, index) in props.listData" :key="index" type="breath" class="rule-button-div" loop>
+      <view v-if="item.isShow !== false" class="menu-item" @tap="goto(item)">
         <view class="title">
           {{ item.title }}
         </view>
@@ -28,7 +28,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import Taro from '@tarojs/taro';
-import { IListDataItem } from 'types/global';
+import type { IListDataItem } from 'types/global';
 import { reactive } from 'vue';
 import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
 import { isDeving } from '@/utils/index';
@@ -52,19 +52,17 @@ const data = reactive({
 
 const goto = (item: IListDataItem) => {
   if (isDeving()) {
-    if (!!item.linkUrl) {
+    if (item.linkUrl) {
       Taro.navigateTo({ url: `/pages/webViewPage/index?webViewUrl=${item.linkUrl}` });
     } else {
       Taro.navigateTo({ url: item.router as string });
     }
-  } else {
-    if (!!item.linkUrl) {
+  } else if (item.linkUrl) {
       // 提示网址
       data.chooseItem = item;
       data.popTipVisible = true;
     } else {
       Taro.navigateTo({ url: item.router as string });
     }
-  }
 };
 </script>

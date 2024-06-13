@@ -8,12 +8,12 @@ interface IEnvConfig {
 export const allConfigs: { [k in BUILD_ENV as string] : IEnvConfig } = {
   test: {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
-    baseApi: 'http://localhost:9051', 
-    socketAllUserUrl:'ws://localhost:9051/v1/ws/publicWS/'
+    baseApi: 'http://localhost:9060', 
+    socketAllUserUrl:'ws://localhost:9060/v1/ws/publicWS/'
   },
   prod: {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
-    baseApi: 'https://wggw.ssdwgg.cn', 
+    baseApi: 'https://allsever.ssdwgg.cn', 
     // https自动会转换成wss
     socketAllUserUrl:'wss://wggw.ssdwgg.cn/v1/ws/publicWS/'
   },

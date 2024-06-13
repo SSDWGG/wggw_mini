@@ -44,13 +44,13 @@ const emit = defineEmits(['close']);
 
 const onConfirm = () => {
   copyStr(props.href, {
-    icon: "none",
+    icon: 'none',
     title: `${props.showName} 网址链接复制成功`,
     duration: 2000,
-  })
-  emit('close')
-}
+  });
+  emit('close');
+};
 const onclose = ()=>{
-  emit('close')
-}
+  emit('close');
+};
 </script>

@@ -24,23 +24,29 @@ import PersonCard from './components/PersonCard/index.vue';
 import { Navbar } from '@fishui/taro-vue';
 import { reactive } from 'vue';
 import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
+import Taro from '@tarojs/taro';
+import { isDeving } from '@/utils/index';
 
 
 
 const data = reactive({
   dataList: [
     {
-      showName: 'GitHub(开源仓库)',
-      href: 'https://github.com/SSDWGG',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OEAHMDAL-1706331258037github.png'
-
+      showName: 'wgg个人简介',
+      href: 'http://mywebsite.ssdwgg.cn',
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/JBEDLPOC-1718262218208F2PzLFtNbM.png'
     },
     {
-      showName: 'wgg_project（个人项目简介pc、移动端）',
-      href: 'http://wgg.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/DBKHBFBE-1706331330465wgg.png'
-
+      showName: 'wgg的博客站',
+      href: 'http://blog.ssdwgg.cn',
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/PAGCPDDC-1718262270539WEIkZXehot.png'
     },
+    {
+      showName: 'MP_V2（个人中后台管理系统pc）',
+      href: 'http://todo.ssdwgg.cn',
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FCAAEBLP-1706331461355todo.png'
+    },
+
     {
       showName: '弹弹坤（娱乐）',
       href: 'http://ikunqqq.ssdwgg.cn',
@@ -65,14 +71,9 @@ const data = reactive({
       qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png'
     },
     {
-      showName: 'MP_V2（个人中后台管理系统pc）',
-      href: 'http://todo.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FCAAEBLP-1706331461355todo.png'
-    },
-    {
-      showName: '云小叮微信小程序、wggw微信小程序',
-      href: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IFCAICKK-1683525307009WechatIMG25.png',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IFCAICKK-1683525307009WechatIMG25.png'
+      showName: '测速器',
+      href: 'https://speed.ssdwgg.cn',
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IOPNPDPF-17182622997684K_cwg6zn6.png'
     },
     {
       showName: '诗文卡片',
@@ -95,6 +96,11 @@ const data = reactive({
       href: 'https://ssdwgg.cn:8693',
       qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/ENBMHPOG-1706331514250lmt.png'
     },
+    {
+      showName: 'GitHub(wgg的开源仓库)',
+      href: 'https://github.com/SSDWGG',
+      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OEAHMDAL-1706331258037github.png'
+    },
   ],
   popTipVisible: false,
   chooseItem: {
@@ -105,8 +111,13 @@ const data = reactive({
 });
 
 const showTipPop = (item) => {
-  data.chooseItem = item
-  data.popTipVisible = true
-}
+  if (isDeving()) {
+      Taro.navigateTo({ url: `/pages/webViewPage/index?webViewUrl=${item.href}` });
+  } else {
+      // 提示网址
+      data.chooseItem = item;
+      data.popTipVisible = true;
+    } 
+};
 
 </script>

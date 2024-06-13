@@ -154,37 +154,12 @@ export const useAccountStore = defineStore('account', {
       },
     ],
     develeopMenuList: [
-      {
-        title: 'bluetooth',
-        Ctitle: '蓝牙检测',
-        router: '/pages/developer/bluetooth/index',
-      },
-      {
-        title: 'map',
-        Ctitle: '足迹地图',
-        router: '/pages/developer/map/index',
-      },
-      {
-        title: 'mall',
-        Ctitle: '通用商城',
-        router: '/pages/developer/mall/index',
-      },
-      {
-        title: 'bluetooth',
-        Ctitle: '蓝牙检测',
-        router: '/pages/developer/bluetooth/index',
-      },
       // dev page
       {
         title: 'Dev IP',
         Ctitle: 'DEVIP',
         router: '/pages/developer/_dev/index',
         isShow: process.env.BUILD_ENV === 'test',
-      },
-      {
-        title: 'For NUT',
-        Ctitle: '致谢NUT团队',
-        router: '/pages/developer/sign/index',
       },
       {
         title: 'CSS Loaders',
@@ -200,6 +175,26 @@ export const useAccountStore = defineStore('account', {
         title: 'Water Fall',
         Ctitle: '瀑布流照片墙',
         router: '/pages/developer/waterfall/index',
+      },
+      {
+        title: 'map',
+        Ctitle: '足迹地图',
+        router: '/pages/developer/map/index',
+      },
+      // {
+      //   title: 'mall',
+      //   Ctitle: '通用商城',
+      //   router: '/pages/developer/mall/index',
+      // },
+      {
+        title: 'bluetooth',
+        Ctitle: '蓝牙检测',
+        router: '/pages/developer/bluetooth/index',
+      },
+      {
+        title: 'For NUT',
+        Ctitle: '致谢NUT团队',
+        router: '/pages/developer/sign/index',
       },
     ],
     editMemoData: {} as IMemo,

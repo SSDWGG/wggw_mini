@@ -34,39 +34,18 @@ export default defineAppConfig({
     },
   ],
   requiredPrivateInfos: [
-    'chooseLocation',
-    'choosePoi',
-    'chooseAddress',
-    'getLocation',
-    'onLocationChange',
-    'startLocationUpdate',
-    'startLocationUpdateBackground',
+    // 'chooseLocation',
+    // 'choosePoi',
+    // 'chooseAddress',
+    // 'getLocation',
+    // 'onLocationChange',
+    // 'startLocationUpdate',
+    // 'startLocationUpdateBackground',
   ],
   permission: {
-    'scope.chooseLocation': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
-    'scope.choosePoi': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
-    'scope.chooseAddress': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
-    'scope.getFuzzyLocation': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
-    'scope.userLocation': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
-    'scope.onLocationChange': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
-    'scope.startLocationUpdate': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
-    'scope.startLocationUpdateBackground': {
-      desc: '你的位置信息将用于小程序位置接口的效果展示',
-    },
+    // 'scope.userLocation': {
+    //   desc: '你的位置信息将用于小程序位置接口的效果展示',
+    // },
   },
   requiredBackgroundModes: ['audio'],
   window: {
