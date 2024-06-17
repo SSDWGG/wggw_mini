@@ -5,7 +5,7 @@ interface IEnvConfig {
   socketAllUserUrl: string; // socket
 };
 
-export const allConfigs: { [k in BUILD_ENV as string] : IEnvConfig } = {
+export const allConfigs: { [K in BUILD_ENV as string] : IEnvConfig } = {
   test: {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
     baseApi: 'http://localhost:9060', 
@@ -15,7 +15,7 @@ export const allConfigs: { [k in BUILD_ENV as string] : IEnvConfig } = {
     cdnHost: 'https://panshi-on.meipingmi.com.cn',
     baseApi: 'https://allsever.ssdwgg.cn', 
     // https自动会转换成wss
-    socketAllUserUrl:'wss://wggw.ssdwgg.cn/v1/ws/publicWS/'
+    socketAllUserUrl:'wss://allsever.ssdwgg.cn/v1/ws/publicWS/'
   },
 };
 

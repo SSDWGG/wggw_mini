@@ -15,22 +15,6 @@ import styles from './styles.scss';
 import { reactive, watch } from 'vue';
 import Taro from '@tarojs/taro';
 
-// const initArr = [1, 2, 3, 4, 5, 2, 3, 2];
-
-// const getNumCountObj = (arr:Array<any>) => {
-//   const obj = {} as any;
-//   arr.forEach((num) => {
-//     if (!!obj[num]) {
-//       obj[num]++;
-//     } else {
-//       obj[num] = 1;
-//     }
-
-//   });
-//   return obj;
-// };
-
-// console.log(getNumCountObj(initArr));
 
 // 每次计算下一个数值
 
@@ -50,7 +34,7 @@ function* generateDigitsOfPi() {
   let t = 60n;
   let i = 2n;
   while (true) {
-    let digit = ((i * 27n - 12n) * q + r * 5n) / (t * 5n);
+    const digit = ((i * 27n - 12n) * q + r * 5n) / (t * 5n);
     yield Number(digit);
     let u = i * 3n;
     u = (u + 1n) * 3n * (u + 2n);
@@ -59,10 +43,10 @@ function* generateDigitsOfPi() {
     t *= u;
   }
 }
-let iter = generateDigitsOfPi();
+const iter = generateDigitsOfPi();
 // 初始化3.
 Taro.nextTick(() => {
-  data.pi = iter.next().value + '.';
+  data.pi = `${iter.next().value  }.`;
 });
 
 const fun = () => {
