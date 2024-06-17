@@ -9,7 +9,7 @@ import type * as T from './model';
 export const wxLogin = async () => {
   let params = {};
   const { code } = await Taro.login();
-  params = { code, hasToken: true };
+  params = { code, hasToken: true ,miniType:'rsg'};
   return request<T.IUserInfo>({
     url: '/v1/user/getOpenid',
     method: 'GET',
