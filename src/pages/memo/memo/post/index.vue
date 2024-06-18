@@ -1,5 +1,5 @@
 <template>
-  <view :class="styles.container" v-if="isPermissions2()">
+  <view v-if="isPermissionsToWx()" :class="styles.container">
     <navbar :title="!!router.params.memoId?'编辑我的记录':'创建我的记录' " />
     <view class="body">
       <!-- 文案 -->
@@ -13,7 +13,7 @@
       <nut-button block type="primary" class="publish" @tap="handleAddAlbum">{{ !!router.params.memoId ? '确认修改' : '发表' }}</nut-button>
     </view>
   </view>
-  <view :class="styles.emptyContainer" v-else>
+  <view v-else :class="styles.emptyContainer">
     <navbar title="感谢关注" />
     <view class="empty" >
       感谢您的关注，该功能暂未开启
@@ -29,12 +29,12 @@ import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
 import { getOSSVideoImg} from '@/utils/index';
-import { IMemo, IMemoItem } from '@/apis/memo/model';
+import type { IMemo, IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
-import { IResult } from '@/components/selectMedia';
+import type { IResult } from '@/components/selectMedia';
 import { AddMemo, updateMemo } from '@/apis/memo';
 import { useRouter,useUnload } from '@tarojs/taro';
-import { isPermissions2 } from "@/utils/index";
+import { isPermissionsToWx } from '@/utils/index';
 
 definePageConfig({
   disableScroll: true,
@@ -53,17 +53,15 @@ const data = reactive({
 const prelistRef = ref();
 
 // 编辑逻辑
-if (!!router.params.memoId) {
+if (router.params.memoId) {
   data.content = account.editMemoData.content;
-  account.templeChoosePostList = account.editMemoData.list.map((item) => {
-    return {
+  account.templeChoosePostList = account.editMemoData.list.map((item) => ({
       path: item.picUrl || item.videoPicUrl,
       type: item.memoItemType===0?'image':'video',
-    };
-  });
+    }));
 }
 
-const PasslintContent = () => {
+const PasslintContent = () => 
   // if (prelistRef.value.data.sortedList.length === 0) {
   //   Taro.showToast({
   //     title: '请选择素材',
@@ -72,8 +70,8 @@ const PasslintContent = () => {
   //   });
   //   return false;
   // }
-  return true;
-};
+   true
+;
 
 
 
@@ -87,7 +85,7 @@ const addMemoData = async (
   }[],
 ) => {  
   const targetList: IMemoItem[] = [];
-  const time = new Date().valueOf() + '';
+  const time = `${new Date().valueOf()  }`;
   data.childDataPicList = prelistRef.value.data.sortedList;
   // 数据格式化存储的内容
   List.forEach((item, index) => {
@@ -102,7 +100,7 @@ const addMemoData = async (
       gmtModified: time,
     });
   });
-  let listParam = {
+  const listParam = {
     ... account.editMemoData,
     memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
     content: data.content, // 文案内容
@@ -110,7 +108,7 @@ const addMemoData = async (
     uid: account.userInfo.openid,
   };
   
-  if(!!router.params.memoId){
+  if(router.params.memoId){
     updateMemo(listParam as unknown as IMemo);
   }else{
     AddMemo(listParam);
@@ -150,7 +148,7 @@ const handleAddAlbum = () => {
 };
 
 useUnload(() => {
-  account.editMemoData = {} as IMemo
-})
+  account.editMemoData = {} as IMemo;
+});
 
 </script>

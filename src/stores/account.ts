@@ -8,6 +8,7 @@ import { defineStore } from 'pinia';
 import cloneDeep from 'lodash/cloneDeep';
 import type { IUserInfo } from '@/apis/mine/model';
 import type { IListDataItem } from 'types/global';
+import { isPermissionsToWx } from '../utils';
 
 interface IState {
   templeChoosePostList: IResult[]; // 上传选择的临时资源
@@ -111,6 +112,7 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '坤歌台',
         router: '/pages/cxk/cxk3/index',
         bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+        isShow: isPermissionsToWx(),
       },
       {
         title: 'Shake Kun',
