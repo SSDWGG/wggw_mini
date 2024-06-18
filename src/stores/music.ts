@@ -1,5 +1,6 @@
-import Taro from "@tarojs/taro";
-import { defineStore } from "pinia";
+import Taro from '@tarojs/taro';
+import { defineStore } from 'pinia';
+import { isPermissionsToWx } from '../utils';
 
 interface IMusicOpt {
   epname: string,
@@ -15,7 +16,7 @@ interface IState {
   cxkSongIndex: number
 }
 
-export const useMusicStore = defineStore("musicStore", {
+export const useMusicStore = defineStore('musicStore', {
   state: (): IState => ({
     defaultBGM: {
       isplay:false,
@@ -97,7 +98,7 @@ export const useMusicStore = defineStore("musicStore", {
         title: '!坤你太美!',
         singer: 'kunkun',
         coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
-        src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/KBOAGENL-1679390152917jntm.mp3",
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/KBOAGENL-1679390152917jntm.mp3',
       },
       {
         isplay:false,
@@ -105,7 +106,7 @@ export const useMusicStore = defineStore("musicStore", {
         title: '篮球坤',
         singer: 'kunkun',
         coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
-        src: "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NFHKMKOK-1679390468478bgm.mp3",
+        src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NFHKMKOK-1679390468478bgm.mp3',
       },
       
     ],
@@ -113,42 +114,44 @@ export const useMusicStore = defineStore("musicStore", {
   }),
   actions: {
     isPlay(){
-      const backgroundAudioManager = Taro.getBackgroundAudioManager()
-      return !backgroundAudioManager.paused
+      const backgroundAudioManager = Taro.getBackgroundAudioManager();
+      return !backgroundAudioManager.paused;
     },
     playDefaultBGM(){      
       // ios和安卓共同支持的音频格式 mp3 mp4a acc
-      const backgroundAudioManager = Taro.getBackgroundAudioManager()
-      this.play(this.defaultBGM)
+      const backgroundAudioManager = Taro.getBackgroundAudioManager();
+      this.play(this.defaultBGM);
       backgroundAudioManager.onEnded(() => {
-        backgroundAudioManager.play()
-      })
+        backgroundAudioManager.play();
+      });
     },
     playCxkMusic(){
       // ios和安卓共同支持的音频格式 mp3 mp4a acc   src源无法解析中文
-      const backgroundAudioManager = Taro.getBackgroundAudioManager()
-      this.play(this.cxkMusicList[this.cxkSongIndex])
+      const backgroundAudioManager = Taro.getBackgroundAudioManager();
+      this.play(this.cxkMusicList[this.cxkSongIndex]);
       backgroundAudioManager.onEnded(() => {
         // 循环播放列表
-        this.cxkSongIndex = (this.cxkSongIndex + 1) % this.cxkMusicList.length
-        this.play(this.cxkMusicList[this.cxkSongIndex])
-      })
+        this.cxkSongIndex = (this.cxkSongIndex + 1) % this.cxkMusicList.length;
+        this.play(this.cxkMusicList[this.cxkSongIndex]);
+      });
     },
     resetStatus(){
-      this.defaultBGM.isplay = false
+      this.defaultBGM.isplay = false;
       this.cxkMusicList.forEach(element => {
-        element.isplay = false
+        element.isplay = false;
       });
     },
     play(songItem:IMusicOpt){
-      const backgroundAudioManager = Taro.getBackgroundAudioManager()
-      backgroundAudioManager.title = songItem.title
-      backgroundAudioManager.epname = songItem.epname
-      backgroundAudioManager.singer = songItem.singer
-      backgroundAudioManager.coverImgUrl = songItem.coverImgUrl
-      backgroundAudioManager.src = songItem.src
-      this.resetStatus()
-      songItem.isplay = true
+      if(isPermissionsToWx()){
+        const backgroundAudioManager = Taro.getBackgroundAudioManager();
+        backgroundAudioManager.title = songItem.title;
+        backgroundAudioManager.epname = songItem.epname;
+        backgroundAudioManager.singer = songItem.singer;
+        backgroundAudioManager.coverImgUrl = songItem.coverImgUrl;
+        backgroundAudioManager.src = songItem.src;
+        this.resetStatus();
+        songItem.isplay = true;
+      }
     }
   },
 });

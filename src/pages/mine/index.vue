@@ -15,7 +15,7 @@
       </view>
 
       <!-- 修改邮箱 -->
-      <view class="infoItem" v-if="isPermissions2()">
+      <view v-if="isPermissionsToWx()" class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
@@ -28,7 +28,7 @@
       </view>
 
       <!-- 修改手机号 -->
-      <view class="infoItem" v-if="isPermissions2()">
+      <view v-if="isPermissionsToWx()" class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
@@ -76,8 +76,8 @@
       v-model:inputValue="normalPop.inputValue"
       :title="normalPop.title"
       :placeholder="normalPop.placeholder"
-      @ok="handleNormalPopOK"
       :max="normalPop.max"
+      @ok="handleNormalPopOK"
     /> 
 
   </view>
@@ -88,21 +88,21 @@
 
 </template>
 <script lang="ts" setup>
-import { useAccountStore } from "@/stores/account";
-import { Navbar } from "@fishui/taro-vue";
+import { useAccountStore } from '@/stores/account';
+import { Navbar } from '@fishui/taro-vue';
 // @ts-ignore
-import styles from "./styles.scss";
-import { sendCode, testCode } from "@/apis/mine";
-import checkSystemButton from "@/components/button/checkSystemButton.vue";
-import UpdatePop from "@/components/pop/updatePop/index.vue";
-import { reactive, ref } from "vue";
-import myToastComponents from "@/components/myToast/index.vue";
-import { checkEmail } from "@/utils/verify";
+import styles from './styles.scss';
+import { sendCode, testCode } from '@/apis/mine';
+import checkSystemButton from '@/components/button/checkSystemButton.vue';
+import UpdatePop from '@/components/pop/updatePop/index.vue';
+import { reactive, ref } from 'vue';
+import myToastComponents from '@/components/myToast/index.vue';
+import { checkEmail } from '@/utils/verify';
 import { debounce } from 'lodash';
 import NicknameRobber from '@/components/nicknameRobber';
-import { isPermissions2 } from "@/utils/index";
+import { isPermissionsToWx } from '@/utils/index';
 
-definePageConfig({ backgroundColor: "#f3f3fe" });
+definePageConfig({ backgroundColor: '#f3f3fe' });
 
 const account = useAccountStore();
 
@@ -112,8 +112,8 @@ const myToast = ref<any>();
 
 const emailPop = reactive({
   popTipVisible: false,
-  emailAccount: "",
-  code: "",
+  emailAccount: '',
+  code: '',
   canSendTime: 0,
   intervalTimer: null as any,
 });
@@ -129,7 +129,7 @@ const normalPop = reactive({
   max:1000,
   // 当前修改的属性名
   attrName:''
-})
+});
 
 const showEmailPop = () => {
   if(!account.userInfo.email){
@@ -149,8 +149,8 @@ const handleGetCode = () => {
     checkEmail(emailPop.emailAccount)
       ? sendEmail()
       : myToast.value.myToastShow({
-        icon: "error",
-        title: "请输入正确的邮箱格式",
+        icon: 'error',
+        title: '请输入正确的邮箱格式',
         duration: 3000,
       });
   }
@@ -169,8 +169,8 @@ const sendEmail = async () => {
     email: emailPop.emailAccount,
   });
   myToast.value.myToastShow({
-    icon: "success",
-    title: "发送成功",
+    icon: 'success',
+    title: '发送成功',
     duration: 3000,
   });
 };
@@ -184,26 +184,26 @@ const onConfirm = debounce(async () => {
   // 更新userinfo
   account.userInfo.email = emailPop.emailAccount;
   await account.updateUser();
-  emailPop.popTipVisible = false
+  emailPop.popTipVisible = false;
   myToast.value.myToastShow({
-    icon: "success",
-    title: "绑定成功",
+    icon: 'success',
+    title: '绑定成功',
     duration: 3000,
   });
 }
-  , 3000, { leading: true, trailing: false })
+  , 3000, { leading: true, trailing: false });
 
 const handleNormalPopOK = debounce(async()=>{
   // 更新userinfo
   account.userInfo[normalPop.attrName] = normalPop.inputValue;
   await account.updateUser();
   myToast.value.myToastShow({
-    icon: "success",
-    title: "修改成功",
+    icon: 'success',
+    title: '修改成功',
     duration: 3000,
   });
   
-},3000, { leading: true, trailing: false })
+},3000, { leading: true, trailing: false });
 
 const onChangeNickname = async (nickName: string) => {
   if (!nickName.trim()) return;
@@ -211,8 +211,8 @@ const onChangeNickname = async (nickName: string) => {
    account.userInfo.username = nickName;
   await account.updateUser();
   myToast.value.myToastShow({
-    icon: "success",
-    title: "修改成功",
+    icon: 'success',
+    title: '修改成功',
     duration: 3000,
   });
 };
