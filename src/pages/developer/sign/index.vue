@@ -17,7 +17,7 @@
         <nut-button block type="primary" class="publish" @tap="state.showTip = !state.showTip">{{ state.showTip ? '收起' : '展开' }}致Nut开发团队</nut-button>
       </nut-animate>
     </view>
-    <view class="tip" v-if="isPermissions2() && state.showTip">
+    <view v-if="isPermissionsToWx() && state.showTip" class="tip">
       <view> 致京东nut开发团队：爷爷我用nut-ui用到这里，高低要问候一下你们， </view>
       <view> 这组件库就是你们的成果、开源精神、管理精神的体现？ </view>
       <view> 用之前觉得这组件库什么挺全的，写多了之后现在我尼玛... </view>
@@ -38,7 +38,7 @@ import { Navbar } from '@fishui/taro-vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { reactive, ref } from 'vue';
-import { isPermissions2 } from '@/utils/index';
+import { isPermissionsToWx } from '@/utils/index';
 import Taro from '@tarojs/taro';
 
 const state = reactive({
@@ -51,22 +51,22 @@ const confirm = (canvas: any, data: string) => {
   if (data) {
     // imgData.value = data;
     console.log('imgData', canvas, data);
-    urlTobase64(data)
+    urlTobase64(data);
   }
 };
 
 const urlTobase64 = (url) => {
   Taro.request({
     url: url,
-    responseType: 'arraybuffer', //最关键的参数，设置返回的数据格式为arraybuffer
+    responseType: 'arraybuffer', // 最关键的参数，设置返回的数据格式为arraybuffer
     success: res => {
-      //把arraybuffer转成base64
+      // 把arraybuffer转成base64
       let base64 = Taro.arrayBufferToBase64(res.data);
-      base64 = 'data:image/jpeg;base64,' + base64
-      imgData.value = base64
+      base64 = `data:image/jpeg;base64,${  base64}`;
+      imgData.value = base64;
     }
-  })
-}
+  });
+};
 
 const clear = () => {
   imgData.value = '';
@@ -77,9 +77,9 @@ const clear = () => {
 const toH5Sign = async () => {
   const token = await getToken();
   console.log(token);
-}
+};
 
 
-let arr = [{ id: 1, name: '部门1', pid: 0 }, { id: 2, name: '部门2', pid: 1 }, { id: 3, name: '部门3', pid: 1 }, { id: 4, name: '部门4', pid: 3 }, { id: 5, name: '部门5', pid: 4 },]
+const arr = [{ id: 1, name: '部门1', pid: 0 }, { id: 2, name: '部门2', pid: 1 }, { id: 3, name: '部门3', pid: 1 }, { id: 4, name: '部门4', pid: 3 }, { id: 5, name: '部门5', pid: 4 },];
 
 </script>

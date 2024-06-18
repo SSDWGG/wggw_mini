@@ -1,5 +1,5 @@
 <template>
-  <view :class="styles.container" v-if="isPermissions2()">
+  <view v-if="isPermissionsToWx()" :class="styles.container">
     <navbar :title="!!router.params.shopId?'编辑我的标的':'创建我的标的' " />
     <view class="body">
       <nut-textarea v-model="data.title" placeholder="请输入标的名称" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
@@ -15,7 +15,7 @@
       <nut-button block type="primary" class="publish" @tap="handleAddAlbum">{{ !!router.params.shopId ? '确认修改' : '发布' }}</nut-button>
     </view>
   </view>
-  <view :class="styles.emptyContainer" v-else>
+  <view v-else :class="styles.emptyContainer">
     <navbar title="感谢关注" />
     <view class="empty" >
       感谢您的关注，该功能暂未开启
@@ -30,12 +30,12 @@ import { Navbar } from '@fishui/taro-vue';
 import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
-import { IResult } from '@/components/selectMedia';
+import type { IResult } from '@/components/selectMedia';
 import { addKunChart, addKunChartLine, updateKunChart } from '@/apis/kunChart';
-import { IBiddingItem } from '@/apis/kunChart/model';
+import type { IBiddingItem } from '@/apis/kunChart/model';
 import { useAccountStore } from '@/stores/account';
 import { useRouter, useUnload } from '@tarojs/taro';
-import { isPermissions2 } from "@/utils/index";
+import { isPermissionsToWx } from '@/utils/index';
 
 definePageConfig({
   disableScroll: true,
@@ -56,15 +56,13 @@ const data = reactive({
 const prelistRef = ref();
 
 // 编辑逻辑
-if (!!router.params.shopId) {
+if (router.params.shopId) {
   data.kcDesc = account.editBinddingData.kcDesc;
   data.title = account.editBinddingData.title;
-  account.templeChoosePostList = (account.editBinddingData.imgSrc as any).map((item) => {
-    return {
+  account.templeChoosePostList = (account.editBinddingData.imgSrc as any).map((item) => ({
       path: item.picUrl,
       type: 'image',
-    };
-  });
+    }));
 }
 
 const PasslintContent = () => {
@@ -114,7 +112,7 @@ const addMemoData = async (
     });
   });
 
-  if (!!router.params.shopId) {
+  if (router.params.shopId) {
     account.editBinddingData.title = data.title;
     account.editBinddingData.imgSrc = JSON.stringify(targetList);
     account.editBinddingData.kcDesc = data.kcDesc;
@@ -131,7 +129,7 @@ const addMemoData = async (
       shopId: shopId,
       openid: account.userInfo.openid,
       username: account.userInfo.username,
-      price: data.price || "0",
+      price: data.price || '0',
     });
   }
 };
