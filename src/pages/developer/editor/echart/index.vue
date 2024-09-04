@@ -61,8 +61,8 @@ Taro.nextTick(() => {
       }
     ]
   };
-  barChat.value.refresh(option)
-})
+  barChat.value.refresh(option);
+});
 
 // const initChart = (canvas, width, height, dpr) => {
 //   const chart = echarts.init(canvas, null, {
@@ -219,16 +219,16 @@ Taro.nextTick(() => {
 const app: any = {};
 const categories = (function () {
   let now = new Date();
-  let res = [] as any;
+  const res = [] as any;
   let len = 10;
   while (len--) {
     res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''));
-    now = new Date(+now - 2000);
+    now = new Date(Number(now) - 2000);
   }
   return res;
 })();
 const categories2 = (function () {
-  let res = [] as any;
+  const res = [] as any;
   let len = 10;
   while (len--) {
     res.push(10 - len - 1);
@@ -236,7 +236,7 @@ const categories2 = (function () {
   return res;
 })();
 const data: number[] = (function () {
-  let res = [] as any;
+  const res = [] as any;
   let len = 10;
   while (len--) {
     res.push(Math.round(Math.random() * 1000));
@@ -244,10 +244,10 @@ const data: number[] = (function () {
   return res;
 })();
 const data2: number[] = (function () {
-  let res = [] as any;
+  const res = [] as any;
   let len = 0;
   while (len < 10) {
-    res.push(+(Math.random() * 10 + 5).toFixed(1));
+    res.push(Number((Math.random() * 10 + 5).toFixed(1)));
     len++;
   }
   return res;
@@ -327,13 +327,13 @@ const option = {
 };
 
 app.count = 11;
- const intervalTimer = setInterval(function () {
-  let axisData = new Date().toLocaleTimeString().replace(/^\D*/, '');
+ const intervalTimer = setInterval(() => {
+  const axisData = new Date().toLocaleTimeString().replace(/^\D*/, '');
 
   data.shift();
   data.push(Math.round(Math.random() * 1000));
   data2.shift();
-  data2.push(+(Math.random() * 10 + 5).toFixed(1));
+  data2.push(Number((Math.random() * 10 + 5).toFixed(1)));
 
   categories.shift();
   categories.push(axisData);

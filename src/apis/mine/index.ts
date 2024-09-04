@@ -26,6 +26,7 @@ export const getToken = () =>
         params: {
           code: res.code,
           hasToken: false,
+          miniType:'rsg'
         },
       }));
 

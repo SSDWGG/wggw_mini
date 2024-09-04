@@ -1,5 +1,5 @@
 <template>
-  <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
+  <scroll-view v-if="isPermissionsToWx()" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <navbar title="价值曲线" background-color="rgba(116, 104, 242,.1)" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="价值曲线" />
     <view class="tipTitle">
@@ -16,6 +16,12 @@
     </view>
     <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/bidding/post/index?type=image`})" :showFlags="[7]" />
   </scroll-view>
+  <view v-else :class="styles.emptyContainer">
+    <navbar title="感谢关注" />
+    <view class="empty" >
+      感谢您的关注，该功能暂未开启
+    </view>
+  </view>
 </template>
 <script lang="ts" setup>
 // @ts-ignore
@@ -29,12 +35,12 @@ import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useDidShow } from '@tarojs/taro';
 import type { IBiddingItem } from '@/apis/kunChart/model';
+import { isPermissionsToWx } from '@/utils/index';
 
 const { show, onScroll } = useListScroll();
 
 const systemInfo = useSystemInfoStore();
 const data = reactive({
-  showPage: true,
   biddingDefaultList: [] as IBiddingItem[],
 });
 

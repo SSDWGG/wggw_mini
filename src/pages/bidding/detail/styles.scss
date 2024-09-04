@@ -73,5 +73,24 @@ page {
         max-height: 250px;
       }
     }
+    .emptyContainer{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      :global {
+        .empty{
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          color: #7468f2;
+        }
+      }
+    
+    }
+    
   }
 }
+

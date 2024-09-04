@@ -64,7 +64,7 @@ let requests = [] as any[];
 
 requestInstance.interceptors.response.use(
   async (response, config) => {
-    
+
     if (response.statusCode === 200) {
       const responseData = response.data;
       // 阿里云上的文件特殊处理
