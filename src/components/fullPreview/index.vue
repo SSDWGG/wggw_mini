@@ -5,6 +5,7 @@
       <image v-if="props.imgSrc" class="bgImg" :src="props.imgSrc" />
     </view>
     <view class="hypnotic-5"></view>
+    <slot name="normalSlot"/>
   </view>
   <svga-play-component
     ref="svgaPlayRef"
@@ -68,6 +69,6 @@ watch(
 
 const handleClickPage = () => {
   !!props.back && emit('back');
-  
+
 };
 </script>

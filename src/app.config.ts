@@ -17,21 +17,7 @@ export default defineAppConfig({
       root: 'pages/tool',
       pages: ['index', 'time/index', 'pi/index', 'random/index', 'speedTest/index', 'scoreboard/index'],
     },
-    {
-      root: 'pages/developer',
-      pages: [
-        'index',
-        'cssloaders/index',
-        'editor/index',
-        'waterfall/index',
-        'bluetooth/index',
-        'sign/index',
-        '_dev/index',
-        'test/index',
-        'mall/index',
-        'map/index',
-      ],
-    },
+    // waterfall/index _dev/index test/index
   ],
   requiredPrivateInfos: [
     // 'chooseLocation',

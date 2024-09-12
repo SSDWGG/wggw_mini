@@ -18,7 +18,6 @@ interface IState {
   userInfo: IUserInfo; // 用户信息
   mainMenuList: IListDataItem[]; // 主菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
-  develeopMenuList: IListDataItem[]; // cxk主菜单
   toolMenuList: IListDataItem[]; // tool主菜单
 }
 
@@ -71,14 +70,19 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '工具区',
         router: '/pages/tool/index',
       },
-      // 开发者入口
-      {
-        title: 'developer',
-        Ctitle: '开发者区',
-        router: '/pages/developer/index',
-      },
     ],
     toolMenuList: [
+      {
+        title: 'Dev IP',
+        Ctitle: 'DEVIP',
+        router: '/pages/tool/_dev/index',
+        isShow: process.env.BUILD_ENV === 'test',
+      },
+      {
+        title: 'Water Fall',
+        Ctitle: '瀑布流照片墙',
+        router: '/pages/tool/waterfall/index',
+      },
       {
         title: 'Score Board',
         Ctitle: '计分板',
@@ -153,50 +157,6 @@ export const useAccountStore = defineStore('account', {
         opacity: 1,
         linkUrl: 'http://xlgx.ssdwgg.cn',
         qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
-      },
-    ],
-    develeopMenuList: [
-      // dev page
-      {
-        title: 'Dev IP',
-        Ctitle: 'DEVIP',
-        router: '/pages/developer/_dev/index',
-        isShow: process.env.BUILD_ENV === 'test',
-      },
-      {
-        title: 'CSS Loaders',
-        Ctitle: '新奇的动效css',
-        router: '/pages/developer/cssloaders/index',
-      },
-      {
-        title: 'More Plugin',
-        Ctitle: '多种组件',
-        router: '/pages/developer/editor/index',
-      },
-      {
-        title: 'Water Fall',
-        Ctitle: '瀑布流照片墙',
-        router: '/pages/developer/waterfall/index',
-      },
-      {
-        title: 'map',
-        Ctitle: '足迹地图',
-        router: '/pages/developer/map/index',
-      },
-      // {
-      //   title: 'mall',
-      //   Ctitle: '通用商城',
-      //   router: '/pages/developer/mall/index',
-      // },
-      {
-        title: 'bluetooth',
-        Ctitle: '蓝牙检测',
-        router: '/pages/developer/bluetooth/index',
-      },
-      {
-        title: 'For NUT',
-        Ctitle: '致谢NUT团队',
-        router: '/pages/developer/sign/index',
       },
     ],
     editMemoData: {} as IMemo,
