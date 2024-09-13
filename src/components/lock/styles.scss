@@ -1,0 +1,31 @@
+.lockComponents{
+  :global {
+
+    .myfp{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+    .pagePasswordInputContent{
+      position: absolute;
+      z-index: 99999;
+      top: 30%;
+      .nut-input{
+        border-radius: 20px;
+        background-color: rgba(129, 118, 254, .3);
+        border: 0px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        .h5-input{
+          text-align: center !important;
+        }
+      }
+    }
+
+
+  }
+
+}
