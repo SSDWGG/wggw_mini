@@ -2,7 +2,7 @@
   <view :class="styles.personCard">
     <view class="b">
       <view class="a">WGGのweb</view>
-      <view class="wxTxt">WX:Ren</view>
+      <view class="wxTxt">WX:VV彦祖</view>
       <view class="contentText">
         <view>I am a web developer</view>
         <view >In the days to come</view>

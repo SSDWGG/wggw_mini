@@ -6,8 +6,6 @@
      <!-- <mine /> -->
     </view>
   </view>
-  <side-bar />
-
 </template>
 <script lang="ts" setup>
 // @ts-ignore
