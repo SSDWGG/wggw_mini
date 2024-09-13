@@ -18,7 +18,6 @@ interface IState {
   userInfo: IUserInfo; // 用户信息
   mainMenuList: IListDataItem[]; // 主菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
-  toolMenuList: IListDataItem[]; // tool主菜单
 }
 
 export const useAccountStore = defineStore('account', {
@@ -71,44 +70,37 @@ export const useAccountStore = defineStore('account', {
         bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
         opacity: 1,
       },
-      // 工具入口
-      {
-        title: 'tool',
-        Ctitle: '工具区',
-        router: '/pages/tool/index',
-      },
-    ],
-    toolMenuList: [
+
       {
         title: 'Dev IP',
         Ctitle: 'DEVIP',
-        router: '/pages/tool/_dev/index',
+        router: '/pages/_dev/index',
         isShow: process.env.BUILD_ENV === 'test',
       },
       {
         title: 'Water Fall',
         Ctitle: '瀑布流照片墙',
-        router: '/pages/tool/waterfall/index',
+        router: '/pages/waterfall/index',
       },
       {
         title: 'Score Board',
         Ctitle: '计分板',
-        router: '/pages/tool/scoreboard/index',
+        router: '/pages/scoreboard/index',
       },
       {
         title: 'PI',
         Ctitle: 'π的计算',
-        router: '/pages/tool/pi/index',
+        router: '/pages/pi/index',
       },
       {
         title: 'random',
         Ctitle: '纠结终结者',
-        router: '/pages/tool/random/index',
+        router: '/pages/random/index',
       },
       {
         title: 'reaction rate',
         Ctitle: '速度反应',
-        router: '/pages/tool/speedTest/index',
+        router: '/pages/speedTest/index',
       },
     ],
     cxkMenuList: [
