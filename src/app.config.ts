@@ -11,13 +11,13 @@ export default defineAppConfig({
     { root: 'pages/going', pages: ['index'] },
     { root: 'pages/webViewPage', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
+    { root: 'pages/lockPage', pages: ['index'] },
     { root: 'pages/bidding', pages: ['index', 'detail/index', 'post/index'] },
     { root: 'pages/cxk', pages: ['index/index', 'menu/index', 'cxk/index', 'cxk3/index'] },
     {
       root: 'pages/tool',
-      pages: ['index', 'time/index', 'pi/index', 'random/index', 'speedTest/index', 'scoreboard/index'],
+      pages: ['index', 'time/index', 'waterfall/index', '_dev/index', 'test/index', 'pi/index', 'random/index', 'speedTest/index', 'scoreboard/index'],
     },
-    // waterfall/index _dev/index test/index
   ],
   requiredPrivateInfos: [
     // 'chooseLocation',

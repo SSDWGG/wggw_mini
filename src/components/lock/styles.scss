@@ -1,6 +1,13 @@
-.signContainer{
+.lockComponents{
   :global {
 
+    .myfp{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
     .pagePasswordInputContent{
       position: absolute;
       z-index: 99999;

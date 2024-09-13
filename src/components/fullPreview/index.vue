@@ -1,5 +1,5 @@
 <template>
-  <view :class="{ [styles.fullPreview]: true, [styles.dispoint]: !props.back }" @tap="handleClickPage">
+  <view :class="{ [styles.fullPreview]: true, [styles.dispoint]: !props.back ,myfp:true }" @tap="handleClickPage">
     <view class="title">{{ props.title }}</view>
     <view class="logo">
       <image v-if="props.imgSrc" class="bgImg" :src="props.imgSrc" />

@@ -44,20 +44,27 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '加油吧，少年',
         router: '/pages/going/index',
       },
-       // 备忘录入口
-       {
+      // 备忘录入口
+      {
         title: 'Mood Memo',
         Ctitle: '专属记录',
         router: '/pages/memo/index',
       },
+      // 页面锁入口
+      {
+        title: 'lockPage',
+        Ctitle: '页面锁',
+        router: '/pages/lockPage/index',
+      },
+
       // 价值曲线入口
       {
         title: 'Value Curve',
         Ctitle: '价值曲线',
         router: '/pages/bidding/index',
       },
-       // 娱乐区入口
-       {
+      // 娱乐区入口
+      {
         title: 'ikun',
         Ctitle: '娱乐区',
         router: '/pages/cxk/index/index',
