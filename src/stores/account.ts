@@ -18,6 +18,7 @@ interface IState {
   userInfo: IUserInfo; // 用户信息
   mainMenuList: IListDataItem[]; // 主菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
+  rrbMenuList: IListDataItem[]; // rrb主菜单
 }
 
 export const useAccountStore = defineStore('account', {
@@ -49,11 +50,11 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '专属记录',
         router: '/pages/memo/index',
       },
-      // 页面锁入口
+      // fjl入口
       {
-        title: 'lockPage',
-        Ctitle: '页面锁',
-        router: '/pages/lockPage/index',
+        title: 'RRB',
+        Ctitle: 'RRB',
+        router: '/pages/rrb/index',
       },
 
       // 价值曲线入口
@@ -78,11 +79,6 @@ export const useAccountStore = defineStore('account', {
         isShow: process.env.BUILD_ENV === 'test',
       },
       {
-        title: 'Water Fall',
-        Ctitle: '瀑布流照片墙',
-        router: '/pages/water-fall-rrb/index',
-      },
-      {
         title: 'Score Board',
         Ctitle: '计分板',
         router: '/pages/scoreboard/index',
@@ -101,6 +97,13 @@ export const useAccountStore = defineStore('account', {
         title: 'reaction rate',
         Ctitle: '速度反应',
         router: '/pages/speedTest/index',
+      },
+    ],
+    rrbMenuList:[
+      {
+        title: 'Water Fall',
+        Ctitle: '瀑布流照片墙',
+        router: '/pages/rrb/water-fall/index',
       },
     ],
     cxkMenuList: [

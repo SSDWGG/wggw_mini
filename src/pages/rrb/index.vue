@@ -1,10 +1,10 @@
 <template>
   <view :class="styles.lockPageContainer">
-    <navbar title="页面锁" background-color="transparent"  />
+    <navbar title="RRB" background-color="transparent"  />
 
    <lock @cb-input-back="cbTestPassword">
     <template #contentSlot>
-      <view class="lockPageContent">hello，你已解锁页面</view>
+      <RrbPage v-if="false"></RrbPage>
     </template>
   </lock>
 
@@ -12,6 +12,7 @@
 </template>
 <script lang="ts" setup>
 import lock from '@/components/lock/index.vue';
+import RrbPage from '@/pages/rrb/water-fall/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { Navbar } from '@fishui/taro-vue';
