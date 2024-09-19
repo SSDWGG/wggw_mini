@@ -80,7 +80,7 @@ export const useAccountStore = defineStore('account', {
       {
         title: 'Water Fall',
         Ctitle: '瀑布流照片墙',
-        router: '/pages/waterfall/index',
+        router: '/pages/water-fall-rrb/index',
       },
       {
         title: 'Score Board',
