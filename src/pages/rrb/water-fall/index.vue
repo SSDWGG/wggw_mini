@@ -1,6 +1,7 @@
 <template>
   <navbar title="WaterFall" background-color="#f3f3fe" />
-  <view :class="styles.waterfall"  :style="{ height:normalHeight}">
+  <!-- :style="{ height:normalHeight}" -->
+  <view :class="styles.waterfall"  >
     <view v-for="imgsrc in pageData.showImgList" :key="imgsrc" class="item" @tap="onClickImg(imgsrc)">
       <image v-if="imgsrc" mode="widthFix" :src="imgsrc+pageData.imgQParams"></image>
     </view>
@@ -66,6 +67,48 @@ const pageData = reactive({
     'WGG08938.JPG',
     'WGG08947.JPG',
     'WGG08950.JPG',
+
+
+    'WGG08130.JPG',
+    'WGG08162.JPG',
+    'WGG08179.JPG',
+    'WGG08223.JPG',
+    'WGG08234.JPG',
+    'WGG08241.JPG',
+    'WGG08265.JPG',
+    'WGG08286.JPG',
+    'WGG08312.JPG',
+    'WGG08315.JPG',
+    'WGG08320.JPG',
+    'WGG08322.JPG',
+    'WGG08325.JPG',
+    'WGG08346.JPG',
+    'WGG08357.JPG',
+    'WGG08390.JPG',
+    'WGG08457.JPG',
+    'WGG08500.JPG',
+    'WGG08541.JPG',
+    'WGG08549.JPG',
+    'WGG08578.JPG',
+    'WGG08584.JPG',
+    'WGG08604.JPG',
+    'WGG08697.JPG',
+    'WGG08701.JPG',
+    'WGG08709.JPG',
+    'WGG08713.JPG',
+    'WGG08734.JPG',
+    'WGG08773.JPG',
+    'WGG08801.JPG',
+    'WGG08838.JPG',
+    'WGG08850.JPG',
+    'WGG08861.JPG',
+    'WGG08867.JPG',
+    'WGG08873.JPG',
+    'WGG08900.JPG',
+    'WGG08938.JPG',
+    'WGG08947.JPG',
+    'WGG08950.JPG',
+
 
     'WGG08130.JPG',
     'WGG08162.JPG',
