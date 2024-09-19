@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.lockPageContainer">
-    <navbar title="RRB" background-color="transparent" :goback="goback" />
+    <navbar  v-if="data.showPage"  title="RRB" background-color="#f3f3fe" :goback="goback" />
 
     <lock
       ref="myLockPage"
@@ -46,7 +46,7 @@
           :svga-url="data.svgaUrl"
           :back="true"
           :imgSrc="imageSrcBg"
-          title="Enjoy"
+          title="RRB"
           @back="data.showPage = true"
           @finsh="onFinsh"
         />
@@ -73,7 +73,7 @@ definePageConfig({
   enableShareTimeline: true,
 });
 
-const imageSrcBg = require('@/assets/images/cxk/kun.png');
+const imageSrcBg = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFallRRB/WGG08325.JPG?x-oss-process=image/quality,q_20';
 
 const { show, onScroll } = useListScroll();
 const account = useAccountStore();
