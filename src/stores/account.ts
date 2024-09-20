@@ -101,8 +101,8 @@ export const useAccountStore = defineStore('account', {
     ],
     rrbMenuList:[
       {
-        title: 'Water Fall',
-        Ctitle: '瀑布流照片墙',
+        title: 'Photo wall',
+        Ctitle: '照片墙',
         router: '/pages/rrb/water-fall/index',
       },
     ],

@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.lockPageContainer">
-    <navbar  v-if="data.showPage"  title="RRB" background-color="#f3f3fe" :goback="goback" />
+    <navbar  v-if="data.showPage"  title="RRB" background-color="transparent" :goback="goback" />
 
     <lock
       ref="myLockPage"
@@ -132,7 +132,7 @@ const data = reactive({
   showPage: true,
   pageContainerShow: true,
   password:{
-        '001023': 'RRB',
+        '001023': '大老婆',
       },
   svgaUrl: `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
 });

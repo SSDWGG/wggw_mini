@@ -19,6 +19,7 @@ declare module 'vue' {
     FullPreview: typeof import('./src/components/fullPreview/index.vue')['default']
     'Icon.h5': typeof import('./src/components/alIconfont/icon.h5.vue')['default']
     'Icon.weapp': typeof import('./src/components/alIconfont/icon.weapp.vue')['default']
+    ImgPostButton: typeof import('./src/components/SideBar/img-post-button.vue')['default']
     Lock: typeof import('./src/components/lock/index.vue')['default']
     MineButton: typeof import('./src/components/SideBar/mine-button.vue')['default']
     MyCircleProgress: typeof import('./src/components/MyCircleProgress/index.vue')['default']

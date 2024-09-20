@@ -14,7 +14,7 @@ export default defineAppConfig({
     { root: 'pages/bidding', pages: ['index', 'detail/index', 'post/index'] },
     { root: 'pages/cxk', pages: ['index/index', 'menu/index', 'cxk/index', 'cxk3/index'] },
     { root: 'pages/time', pages: ['index'] },
-    { root: 'pages/rrb', pages: ['index','water-fall/index'] },
+    { root: 'pages/rrb', pages: ['index','water-fall/index','water-fall/post/index'] },
     { root: 'pages/_dev', pages: ['index'] },
     { root: 'pages/test', pages: ['index'] },
     { root: 'pages/pi', pages: ['index'] },

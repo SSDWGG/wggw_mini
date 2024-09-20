@@ -12,8 +12,8 @@ function getExtName(filePath) {
   const matched = filePath.match(/.*\.(.*)/);
   return matched ? matched[1] : null;
 }
-const uploadFile = function(path, hasStatus, hash = '') {  
-  const cdnHost = 'https://panshi-on.meipingmi.com.cn'
+const uploadFile = function(path, hasStatus, hash = '') {
+  const cdnHost = 'https://panshi-on.meipingmi.com.cn';
   // 自定义生成的文件名
   const name = uuid();
 
