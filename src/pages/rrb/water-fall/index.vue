@@ -35,9 +35,10 @@ const { show, onScroll } = useListScroll();
 //   `calc( 100vh - ${systemInfo.statusBarHeight}px - 88rpx  - env(safe-area-inset-bottom))`
 // );
 
+// ?x-oss-process=image/quality,Q_100有的时候会失效
 const pageData = reactive({
   rrbUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFallRRB/',
-  imgQParams: '?x-oss-process=image/quality,q_10',
+  imgQParams: '?x-oss-process=image/quality,q_80',
   // rrbInitImgList: [
   //   'WGG08130.JPG',
   //   'WGG08162.JPG',

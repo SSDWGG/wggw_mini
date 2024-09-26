@@ -15,7 +15,6 @@ buildEnv：通讯ip区别
 wxFixProd：是否通过微信审核限制(个人开发者小程序的限制)
 
 TODO
-echart重构成分包引入
 制作可爱多专属页面
 使用svga、瀑布流照片墙（做成bg纯享模式）
 

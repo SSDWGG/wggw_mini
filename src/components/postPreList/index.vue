@@ -61,7 +61,8 @@ import { useRouter, useUnload } from '@tarojs/taro';
 import styles from './styles.scss';
 import { useAccountStore } from '@/stores/account';
 import { useSystemInfoStore } from '@/stores/systemInfo';
-import selectMedia, { IResult } from '@/components/selectMedia';
+import type { IResult } from '@/components/selectMedia';
+import selectMedia from '@/components/selectMedia';
 import myToastComponents from '@/components/myToast/index.vue';
 import { hasProtocol, uuid } from '@/utils/index';
 import aliossUpload from '@/utils/alioss-upload';
@@ -152,7 +153,7 @@ const uploadOSS = async () => {
   });
 
   // 校验是否是https图片，上传http图片，https图片包装返回（https图片无法直接上传会报错）
-  for await (let [index,picPathItem]  of picPaths.entries()){
+  for await (const [index,picPathItem]  of picPaths.entries()){
     if (hasProtocol(picPathItem)) {
       // https包装
       resList[index] = {
@@ -179,8 +180,8 @@ const uploadOSS = async () => {
 };
 
 useUnload(() => {
-  account.templeChoosePostList = []
-})
+  account.templeChoosePostList = [];
+});
 
 defineExpose({
   data,

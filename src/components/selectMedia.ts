@@ -29,9 +29,9 @@ const toast = (title: string) =>
     duration: 2000
   });
 
-export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult[] | IFailResult> => {
+export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult[] | IFailResult> =>
   // const maxCount = 9; // 最多可以选择的文件个数
-  return new Promise((resolve, reject) => {
+   new Promise((resolve, reject) => {
     // 视频只能选1个
     const mediaCallback = ({
       tempFiles,
@@ -41,6 +41,13 @@ export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult
         reject({
           title: '上传失败',
           contentTips: '请上传30s内的视频',
+          duration: 3500
+        });
+      }
+      if (type === 'image' && tempFiles[0].size > 20000000) {
+        reject({
+          title: '上传失败',
+          contentTips: '请上传20M内的图片',
           duration: 3500
         });
       }
@@ -138,8 +145,8 @@ export const selectMedia = (mediaType: IMediaType,maxCount = 9): Promise<IResult
         }
       }
     }).catch(onFailed); // showActionSheet must use catch
-  });
-};
+  })
+;
 
 export default selectMedia;
 
