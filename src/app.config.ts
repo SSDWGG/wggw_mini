@@ -1,42 +1,14 @@
 // details config doc: https://docs.taro.zone/docs/app-config
 export default defineAppConfig({
   entryPagePath: 'pages/index/index',
-  pages: ['pages/index/index', 'pages/menu/index'],
+  pages: ['pages/index/index', 'pages/login/index'],
   subpackages: [
     // 正式环境ip 则不展示切换ip
     // ...(process.env.BUILD_ENV === 'prod' ? [] :[{ root: 'pages/_dev', pages: ['index'] }]),
-    { root: 'pages/memo', pages: ['index', 'memo/post/index'] },
-    { root: 'pages/preview', pages: ['index'] },
-    { root: 'pages/wgg', pages: ['index'] },
-    { root: 'pages/going', pages: ['index'] },
     { root: 'pages/webViewPage', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
-    { root: 'pages/lockPage', pages: ['index'] },
-    { root: 'pages/bidding', pages: ['index', 'detail/index', 'post/index'] },
-    { root: 'pages/cxk', pages: ['index/index', 'menu/index', 'cxk/index', 'cxk3/index'] },
-    { root: 'pages/time', pages: ['index'] },
-    { root: 'pages/waterfall', pages: ['index'] },
-    { root: 'pages/_dev', pages: ['index'] },
-    { root: 'pages/test', pages: ['index'] },
-    { root: 'pages/pi', pages: ['index'] },
-    { root: 'pages/random', pages: ['index'] },
-    { root: 'pages/speedTest', pages: ['index'] },
-    { root: 'pages/scoreboard', pages: ['index'] },
+    { root: 'pages/menu', pages: ['index'] },
   ],
-  requiredPrivateInfos: [
-    // 'chooseLocation',
-    // 'choosePoi',
-    // 'chooseAddress',
-    // 'getLocation',
-    // 'onLocationChange',
-    // 'startLocationUpdate',
-    // 'startLocationUpdateBackground',
-  ],
-  permission: {
-    // 'scope.userLocation': {
-    //   desc: '你的位置信息将用于小程序位置接口的效果展示',
-    // },
-  },
   requiredBackgroundModes: ['audio'],
   window: {
     navigationBarTextStyle: 'black',
@@ -53,14 +25,14 @@ export default defineAppConfig({
     borderStyle: 'white',
     list: [
       {
-        pagePath: 'pages/menu/index',
-        text: 'Menu',
+        pagePath: 'pages/login/index',
+        text: 'Login',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       },
       {
         pagePath: 'pages/index/index',
-        text: 'index',
+        text: 'Index',
         iconPath: './assets/images/tabbar/icon-tabbar-mine.png',
         selectedIconPath: './assets/images/tabbar/icon-tabbar-mine-active.png',
       },

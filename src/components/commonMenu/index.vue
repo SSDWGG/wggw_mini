@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.commonMenu" :style="{ height }">
-    <nut-animate v-for="(item, index) in props.listData" :key="index" type="breath" class="rule-button-div" loop>
+    <nut-animate v-for="(item, index) in props.listData" :key="index"  class="rule-button-div" loop>
       <view v-if="item.isShow !== false" class="menu-item" @tap="goto(item)">
         <view class="title">
           {{ item.title }}
@@ -8,7 +8,7 @@
         <view class="title">
           {{ item.Ctitle }}
         </view>
-        <image class="bgImg" mode="aspectFill" :style="{ opacity: item.opacity ?? 0.2 }" :src="item.bgSrc ?? imgDefaultSrc" />
+        <!-- <image class="bgImg" mode="aspectFill" :style="{ opacity: item.opacity ?? 0.2 }" :src="item.bgSrc ?? imgDefaultSrc" /> -->
       </view>
     </nut-animate>
   </view>

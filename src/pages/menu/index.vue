@@ -1,90 +1,29 @@
 <template>
-  <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="Menu" hide-back background-color="#f5f5f9" />
-    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
+  <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
+    <navbar title="业主投票" hide-back background-color="#f5f5f9" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="业主投票" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
-      Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light. Though wise men at their
-      end know dark is right, Because their words had forked no lightning they Do not go gentle into that good night.
+      ticket、 ticket、 ticket、 ticket、 ticket、 ticket、 ticket、 ticket、 ticket、
     </nut-noticebar>
-
-    <view class="richText">
-      <rich-text :nodes="h5" />
-      <video
-        class="video"
-        object-fit="contain"
-        :show-bottom-progress="false"
-        :initial-time="0"
-        :autoplay="true"
-        :controls="false"
-        :show-fullscreen-btn="false"
-        :show-center-play-btn="false"
-        :show-play-btn="false"
-        :loop="true"
-        :muted="true"
-        :enable-progress-gesture="false"
-        style="width: 100%"
-        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OMFHLJDP-17059977997221.mp4"
-      />
-    </view>
 
     <commonMenu :height="height" :listData="account.mainMenuList"></commonMenu>
 
-    <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 2, 3, 4]" />
+    <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 3]" />
   </scroll-view>
-  <fullPreview
-    v-else
-    :svgaLoop="1"
-    :svga-url="data.svgaUrl"
-    :back="true"
-    title="Enjoy"
-    @back="data.showPage = true"
-    @finsh="onFinsh"
-  />
-  <!-- <svga-play-component
-    ref="svgaPlayRef"
-    :canvasStyle="{
-      width: '100vw',
-      height: '100vh',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      zIndex: 9999999,
-      pointerEvents: 'none',
-    }"
-    svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/angel.svga"
-  />
-  <svga-play-component
-    ref="svgaPlayRef2"
-    :canvasStyle="{
-      width: '100vw',
-      height: '100vh',
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      zIndex: 9999999,
-      pointerEvents: 'none',
-    }"
-    svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga"
-  /> -->
-  <!-- toast提示 -->
+
   <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
 import { computed, reactive, ref } from 'vue';
-import { useShareAppMessage, useShareTimeline, useDidShow, useDidHide } from '@tarojs/taro';
+import { useShareAppMessage, useShareTimeline} from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
-import fullPreview from '@/components/fullPreview/index.vue';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import commonMenu from '@/components/commonMenu/index.vue';
-import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
-// import svgaPlayComponent from '@/components/svgaPlay/index.vue';
-import Taro from '@tarojs/taro';
-import { socketAllUserUrl } from '@/utils/env';
 import myToastComponents from '@/components/myToast/index.vue';
 
 definePageConfig({
@@ -95,14 +34,12 @@ definePageConfig({
 const { show, onScroll } = useListScroll();
 
 const account = useAccountStore();
-const systemInfo = useSystemInfoStore();
-const musicStore = useMusicStore();
 
-// const svgaPlayRef = ref();
-// const svgaPlayRef2 = ref();
+const systemInfo = useSystemInfoStore();
+
+
 const myToast = ref<any>();
 
-const WELCOMECONTENT = '欢迎来到WGGW';
 const svgaUrlList = [
 '2022110422344569.svga',
 '2022110422395120.svga',
@@ -148,87 +85,7 @@ const data = reactive({
   svgaUrl:`https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
 });
 
-const h5 = '<h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>去创造去改变</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>从想象到现象</strong></h2><h2 style=\"text-align: center;color: #fff;opacity: .5;\"><strong>即刻出发</strong></h2>';
 const height = computed(() => `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`);
-
-// socket相关
-
-const socketUrl = socketAllUserUrl + account.userInfo.openid;
-const socketOpen = ref(false);
-const socketMsgQueue = ref<string[]>([]);
-useDidShow(() => {
-  if (!musicStore.isPlay()) {
-    musicStore.playDefaultBGM();
-  }
-});
-
-const sendMySocketMessage = async (msg: string) => {
-  if (socketOpen.value) {
-    const messageData = {
-      userId: account.userInfo.openid,
-      content: msg,
-    };
-    const res = await Taro.sendSocketMessage({
-      data: JSON.stringify(messageData),
-    });
-    console.log('socketSendMessage result', res);
-  } else {
-    socketMsgQueue.value.push(msg);
-  }
-};
-
-Taro.onSocketOpen(async (res) => {
-  console.log('WebSocket连接已打开！', res);
-  // 重发失败的信息
-  socketOpen.value = true;
-  // 异步循环队列
-  for await (const item of socketMsgQueue.value) {
-    sendMySocketMessage(item);
-  }
-  // 等待完成后清空待发信息栈
-  socketMsgQueue.value = [];
-
-  sendMySocketMessage(WELCOMECONTENT);
-
-});
-Taro.onSocketClose((res) => {
-  console.log('WebSocket 已关闭！', res);
-  socketOpen.value = false;
-});
-Taro.onSocketMessage((res) => {
-  if (JSON.parse(res.data).content === WELCOMECONTENT) {    
-    // 显示svga动画
-    // Taro.nextTick(() => {
-    //   svgaPlayRef.value.showSvga();
-    //   svgaPlayRef2.value.showSvga();
-    // });
-  }
-});
-
-
-// 只在创建一次socket链接
-if (socketOpen.value === false) {
-    Taro.connectSocket({
-      url: socketUrl,
-    });
-  }
-
-const onFinsh = ()=>{
-
-  const tempUrl= `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
-  // 防止两次随机出同一个整数导致的watch不刷新
-  if(data.svgaUrl === tempUrl){
-    onFinsh();
-  }else{
-    data.svgaUrl = tempUrl;
-  }
-};
-
-useDidHide(() => {
-  if (socketOpen.value === true) {
-    Taro.closeSocket();
-  }
-});
 
 useShareTimeline(() => ({
     title: '创意空间wggw~',

@@ -31,77 +31,83 @@ export const useAccountStore = defineStore('account', {
       email: '',
     },
     mainMenuList: [
+      // 业主投票入口
+      {
+        title: 'ticket',
+        Ctitle: '业主投票',
+        router: '/pages/login/index',
+      },
       // wgg个人主页
-      {
-        title: 'WGG',
-        Ctitle: 'wgg',
-        router: '/pages/wgg/index',
-      },
-      // 励志主页
-      {
-        title: 'Come on',
-        Ctitle: '加油吧，少年',
-        router: '/pages/going/index',
-      },
-      // 备忘录入口
-      {
-        title: 'Mood Memo',
-        Ctitle: '专属记录',
-        router: '/pages/memo/index',
-      },
-      // 页面锁入口
-      {
-        title: 'lockPage',
-        Ctitle: '页面锁',
-        router: '/pages/lockPage/index',
-      },
+      // {
+      //   title: 'WGG',
+      //   Ctitle: 'wgg',
+      //   router: '/pages/wgg/index',
+      // },
+      // // 励志主页
+      // {
+      //   title: 'Come on',
+      //   Ctitle: '加油吧，少年',
+      //   router: '/pages/going/index',
+      // },
+      // // 备忘录入口
+      // {
+      //   title: 'Mood Memo',
+      //   Ctitle: '专属记录',
+      //   router: '/pages/memo/index',
+      // },
+      // // 页面锁入口
+      // {
+      //   title: 'lockPage',
+      //   Ctitle: '页面锁',
+      //   router: '/pages/lockPage/index',
+      // },
 
-      // 价值曲线入口
-      {
-        title: 'Value Curve',
-        Ctitle: '价值曲线',
-        router: '/pages/bidding/index',
-      },
-      // 娱乐区入口
-      {
-        title: 'ikun',
-        Ctitle: '娱乐区',
-        router: '/pages/cxk/index/index',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
-        opacity: 1,
-      },
+      // // 价值曲线入口
+      // {
+      //   title: 'Value Curve',
+      //   Ctitle: '价值曲线',
+      //   router: '/pages/bidding/index',
+      // },
+      // // 娱乐区入口
+      // {
+      //   title: 'ikun',
+      //   Ctitle: '娱乐区',
+      //   router: '/pages/cxk/index/index',
+      //   bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
+      //   opacity: 1,
+      // },
 
-      {
-        title: 'Dev IP',
-        Ctitle: 'DEVIP',
-        router: '/pages/_dev/index',
-        isShow: process.env.BUILD_ENV === 'test',
-      },
-      {
-        title: 'Water Fall',
-        Ctitle: '瀑布流照片墙',
-        router: '/pages/waterfall/index',
-      },
-      {
-        title: 'Score Board',
-        Ctitle: '计分板',
-        router: '/pages/scoreboard/index',
-      },
-      {
-        title: 'PI',
-        Ctitle: 'π的计算',
-        router: '/pages/pi/index',
-      },
-      {
-        title: 'random',
-        Ctitle: '纠结终结者',
-        router: '/pages/random/index',
-      },
-      {
-        title: 'reaction rate',
-        Ctitle: '速度反应',
-        router: '/pages/speedTest/index',
-      },
+      // {
+      //   title: 'Dev IP',
+      //   Ctitle: 'DEVIP',
+      //   router: '/pages/_dev/index',
+      //   isShow: process.env.BUILD_ENV === 'test',
+      // },
+      // {
+      //   title: 'Water Fall',
+      //   Ctitle: '瀑布流照片墙',
+      //   router: '/pages/waterfall/index',
+      // },
+      // {
+      //   title: 'Score Board',
+      //   Ctitle: '计分板',
+      //   router: '/pages/scoreboard/index',
+      // },
+      // {
+      //   title: 'PI',
+      //   Ctitle: 'π的计算',
+      //   router: '/pages/pi/index',
+      // },
+      // {
+      //   title: 'random',
+      //   Ctitle: '纠结终结者',
+      //   router: '/pages/random/index',
+      // },
+      // {
+      //   title: 'reaction rate',
+      //   Ctitle: '速度反应',
+      //   router: '/pages/speedTest/index',
+      // },
     ],
     cxkMenuList: [
       {

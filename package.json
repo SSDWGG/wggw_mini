@@ -14,7 +14,11 @@
     "start wxFixProd": "taro3-vue3-iconfont && taro build --watch --type weapp --buildEnv prod --wxFixProd fix",
     "build:test": "taro build --type weapp --buildEnv test --wxFixProd nofix",
     "build:prod": "taro build --type weapp --buildEnv prod --wxFixProd nofix",
-    "build:wxFixProd": "taro build --type weapp --buildEnv prod --wxFixProd fix"
+    "build:wxFixProd": "taro build --type weapp --buildEnv prod --wxFixProd fix",
+    "build:h5-test": "taro build --type h5 --env test",
+    "build:h5-prod": "taro build --type h5 --env production",
+    "build:h5-pre": "taro build --type h5 --env pre-prod",
+    "build:h5-dev": "taro build --type h5 --env development"
   },
   "browserslist": [
     "last 3 versions",

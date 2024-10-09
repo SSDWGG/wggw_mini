@@ -1,34 +1,43 @@
 <template>
   <view :class="styles.myContainer">
-    <navbar title="我的信息" />
+    <navbar title="登录"  hide-back background-color="#f5f5f9"/>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
       <checkSystemButton button-type="chooseAvatar" class="head" >
-      <image :src="account.userInfo.avatarurl"  />
+      <!-- <image :src="account.userInfo.avatarurl"  /> -->
+      这里是logo
       </checkSystemButton>
     <view class="info">
-      <view class="infoItem">
-        <view class="lable">用户名 :</view>
-        <!-- showNormalEditPop('编辑用户名','请输入用户名','username') -->
-        <view class="content" @tap="nicknamePop.visible = true">
-          {{ account.userInfo.username || '请输入用户名'}}
-        </view>
-      </view>
-
-      <!-- 修改邮箱 -->
-      <view v-if="isPermissionsToWx()" class="infoItem">
+       <!-- 修改邮箱 -->
+       <view  class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
           </image>
-          <text>邮箱</text>
+          <text>小区：</text>
         </view>
         <view class="content" @tap="showEmailPop">
-          {{ account.userInfo.email || "点击验证邮箱" }}
+          {{ account.userInfo.email || "点击选择小区" }}
         </view>
       </view>
 
+
+      <view class="infoItem">
+        <view class="lable">
+          <image class="contactImg"
+            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
+          </image>
+          <text>姓名：</text>
+        </view>
+        <!-- showNormalEditPop('编辑用户名','请输入用户名','username') -->
+        <view class="content" @tap="nicknamePop.visible = true">
+          {{ account.userInfo.username || '请输入姓名'}}
+        </view>
+      </view>
+
+
+
       <!-- 修改手机号 -->
-      <view v-if="isPermissionsToWx()" class="infoItem">
+      <view  class="infoItem">
         <view class="lable">
           <image class="contactImg"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
@@ -100,7 +109,6 @@ import myToastComponents from '@/components/myToast/index.vue';
 import { checkEmail } from '@/utils/verify';
 import { debounce } from 'lodash';
 import NicknameRobber from '@/components/nicknameRobber';
-import { isPermissionsToWx } from '@/utils/index';
 
 definePageConfig({ backgroundColor: '#f3f3fe' });
 
