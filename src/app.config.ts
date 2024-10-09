@@ -12,7 +12,7 @@ export default defineAppConfig({
   requiredBackgroundModes: ['audio'],
   window: {
     navigationBarTextStyle: 'black',
-    navigationBarTitleText: 'WGGW',
+    navigationBarTitleText: 'tp',
     navigationStyle: 'custom',
     navigationBarBackgroundColor: '#ffffff',
   },

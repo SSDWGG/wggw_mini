@@ -1,8 +1,8 @@
 {
-  "name": "wggw-mini",
+  "name": "tp-mini",
   "version": "1.0.0",
   "private": true,
-  "description": "WGGW",
+  "description": "tp",
   "templateInfo": {
     "name": "vue3-pinia",
     "typescript": true,

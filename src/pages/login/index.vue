@@ -1,7 +1,7 @@
 <template>
   <view :class="styles.myContainer">
     <navbar title="登录"  hide-back background-color="#f5f5f9"/>
-    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="业主投票" />
       <checkSystemButton button-type="chooseAvatar" class="head" >
       <!-- <image :src="account.userInfo.avatarurl"  /> -->
       这里是logo
