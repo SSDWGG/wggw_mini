@@ -74,7 +74,7 @@ const config = {
             }
           }
         }
-      }) 
+      })
       chain.plugin('unplugin-vue-components').use(ComponentsPlugin({
         include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
         resolvers: [NutUIResolver({taro: true})]

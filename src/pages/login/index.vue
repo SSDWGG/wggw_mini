@@ -3,8 +3,7 @@
     <navbar title="登录"  hide-back background-color="#f5f5f9"/>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="业主投票" />
       <checkSystemButton button-type="chooseAvatar" class="head" >
-      <!-- <image :src="account.userInfo.avatarurl"  /> -->
-      这里是logo
+      <image :src="account.userInfo.avatarurl"  />
       </checkSystemButton>
     <view class="info">
        <!-- 修改邮箱 -->
@@ -15,7 +14,7 @@
           </image>
           <text>小区：</text>
         </view>
-        <view class="content" @tap="showEmailPop">
+        <view class="content">
           {{ account.userInfo.email || "点击选择小区" }}
         </view>
       </view>
@@ -36,7 +35,7 @@
 
 
 
-      <!-- 修改手机号 -->
+      <!--  @tap="showEmailPop" -->
       <view  class="infoItem">
         <view class="lable">
           <image class="contactImg"
@@ -53,14 +52,14 @@
     </view>
 
     <update-pop v-model:modelValue="emailPop.popTipVisible" confirmText="确认绑定" cancelText="取消绑定" :on-confirm="onConfirm"
-      title="绑定邮箱">
+      title="绑定手机号">
       <template #content>
         <view class="verify">
           <view class="phoneDiv">
             <image class="img"
               src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/EGPIFCHL-1686036360534phone.png">
             </image>
-            <nut-input v-model="emailPop.emailAccount" placeholder="请输入邮箱" class="input" />
+            <nut-input v-model="emailPop.emailAccount" placeholder="请输入手机号" class="input" />
           </view>
           <view class="verifyCode">
             <view class="inputDiv">
@@ -158,7 +157,7 @@ const handleGetCode = () => {
       ? sendEmail()
       : myToast.value.myToastShow({
         icon: 'error',
-        title: '请输入正确的邮箱格式',
+        title: '请输入正确的手机号格式',
         duration: 3000,
       });
   }
