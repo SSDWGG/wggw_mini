@@ -66,9 +66,9 @@
     zIndex: 9999999,
     pointerEvents: 'none',
   }" svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" />
-  
 
-  
+
+
   </template>
 <script lang="ts" setup>
 // @ts-ignore
@@ -230,7 +230,7 @@ const startGame = () => {
     data.useTime++;
   }, 10);
   data.maxTimeoutFlag = setTimeout(() => {
-   
+
     // 显示svga
     svgaPlayRef3.value.showSvga();
     myToast.value.myToastShow({
@@ -249,12 +249,12 @@ onUnmounted(() => {
 
 useShareTimeline(() => ({
     title: '来WGGW比比谁的手速更快',
-    path: '/pages/tool/speedTest/index?isShare=true',
+    path: '/pages/speedTest/index?isShare=true',
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
   }));
 useShareAppMessage(() => ({
     title: '来WGGW比比谁的手速更快',
-    path: '/pages/tool/speedTest/index?isShare=true',
+    path: '/pages/speedTest/index?isShare=true',
     imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
   }));
 
