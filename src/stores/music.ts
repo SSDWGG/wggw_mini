@@ -1,6 +1,8 @@
 import Taro from '@tarojs/taro';
 import { defineStore } from 'pinia';
 import { isPermissionsToWx } from '../utils';
+// import qqkunImg from '@/assets/images/project/qqkun.jpg';
+// import yellowcatImg from '@/assets/images/project/yellowcat.jpg';
 
 interface IMusicOpt {
   epname: string,
@@ -91,7 +93,7 @@ export const useMusicStore = defineStore('musicStore', {
         coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
         src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/APENDBMF-1679390216522j.mp3'
       },
-      
+
       {
         isplay:false,
         epname: '!坤你太美!',
@@ -108,7 +110,7 @@ export const useMusicStore = defineStore('musicStore', {
         coverImgUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
         src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NFHKMKOK-1679390468478bgm.mp3',
       },
-      
+
     ],
     cxkSongIndex: 0
   }),
@@ -117,7 +119,7 @@ export const useMusicStore = defineStore('musicStore', {
       const backgroundAudioManager = Taro.getBackgroundAudioManager();
       return !backgroundAudioManager.paused;
     },
-    playDefaultBGM(){      
+    playDefaultBGM(){
       // ios和安卓共同支持的音频格式 mp3 mp4a acc
       const backgroundAudioManager = Taro.getBackgroundAudioManager();
       this.play(this.defaultBGM);
