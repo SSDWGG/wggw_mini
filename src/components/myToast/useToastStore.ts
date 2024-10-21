@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import { reactive,ref } from 'vue';
 import { defineStore } from 'pinia';
+import successIcon from '@/assets/images/project/success.png';
+import errorIcon from '@/assets/images/project/warring.png';
 
 export interface IMyToastState  {
   id:string,
@@ -26,8 +28,8 @@ export const useToastStore = defineStore('toast', () => {
   const state = reactive<IMyToastState[]>([]);
 
   const ICONS = {
-    success:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FJDCGKIE-1670049121825right.png',
-    error:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IBHDJHHP-1665451624450warring-icon.png'
+    success:successIcon,
+    error:errorIcon
   };
 
   const timeFlag = ref<any>(0);

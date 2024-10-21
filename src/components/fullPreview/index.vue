@@ -45,7 +45,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Welcome to WGGW',
   svgaUrl: '',
   svgaLoop: 1,
-  imgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg',
+  imgSrc: require('@/assets/images/project/rabbit.png'),
 });
 const emit = defineEmits(['back', 'finsh']);
 const svgaPlayRef = ref();

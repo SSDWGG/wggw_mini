@@ -15,7 +15,7 @@
         </view>
         <slot name="ContentSlot1" :slotdata="data.nowTime" />
 
-        <view class="progressNum" v-if="props.format">
+        <view v-if="props.format" class="progressNum">
           {{ data.nowTime.format(props.format) }}
         </view>
         <slot name="ContentSlot2" :slotdata="data.nowTime" />
@@ -38,10 +38,10 @@
 </template>
 <script lang="ts" setup>
 // @ts-ignore
-  import styles from "./styles.scss";
+  import styles from './styles.scss';
   // import { CircleProgress as NutCircleProgress } from "@nutui/nutui-taro";
-  import dayjs from "dayjs";
-  import { onUnmounted, reactive, watch } from "vue";
+  import dayjs from 'dayjs';
+  import { onUnmounted, reactive, watch } from 'vue';
 
   const props = defineProps({
     outEngineTime:{
@@ -61,13 +61,13 @@
     // 结束时间
     end: {
       type: dayjs,
-      default: dayjs(`${dayjs().format("YYYY-MM-DD")} 23:59:59.999`),
+      default: dayjs(`${dayjs().format('YYYY-MM-DD')} 23:59:59.999`),
     },
     // 进度条渐变颜色
     gradientColor: {
       default: {
-        "0%": "#FF5E5E",
-        "100%": "#FFA062",
+        '0%': '#FF5E5E',
+        '100%': '#FFA062',
       },
     },
     // 进度条粗细
@@ -78,23 +78,23 @@
     // 详细时间展示形式
     format: {
       type: String,
-      default: "",
+      default: '',
     },
     // 内容区域-进度完成后的文案
     contentOverText: {
       type: String,
-      default: "Enjoy Life",
+      default: 'Enjoy Life',
     },
 
     // 内容区域-title文案
     contentTitleText: {
-      default: "DailyProgress",
+      default: 'DailyProgress',
     },
     // 内容区域-bgImg
     contentBgImg: {
       type: String,
       default:
-        "https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CGHMKNBP-1669687856120rabbit.jpg",
+      require('@/assets/images/project/rabbit.png'),
     },
     // 计算单位毫秒  年31536000000  日86400000
     computedNum: {
@@ -144,15 +144,15 @@
   // 刷新启动器
   function timefun() {
     clearTimeout(data.aeta);
-    data.aeta = setTimeout(function () {
+    data.aeta = setTimeout(() => {
       // '2022-12-14 0:59:59.999'
       data.nowTime = dayjs();
       timefun();
     }, 50);
   }
 
-  !props.outEngineTime&&timefun()
-  
+  !props.outEngineTime&&timefun();
+
 
   // 驱动页面数据更新算法
   watch(
@@ -169,14 +169,14 @@
       data.progress = Number(
         Math.abs(
           100 -
-            (props.end.diff(dayjs(newVal), "millisecond", true) * 100) /
+            (props.end.diff(dayjs(newVal), 'millisecond', true) * 100) /
               props.computedNum
         ).toFixed(6)
       );
     },
     { immediate: true }
   );
-  
+
 
   onUnmounted(() => {
     clearTimeout(data.aeta);
