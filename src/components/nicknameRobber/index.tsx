@@ -4,6 +4,8 @@ import { View, Input, Image } from '@tarojs/components';
 import type { BaseEventOrig, InputProps, } from '@tarojs/components';// eslint-disable-line no-duplicate-imports
 // @ts-ignore
 import styles from './styles.scss';
+import handImg from '@/assets/images/project/icon-robber-hand.png';
+
 
 export default defineComponent({
   props: {
@@ -39,7 +41,7 @@ export default defineComponent({
             <nut-animate type="float" loop>
               <View className={styles.main}>
                 <View>点击下方一键输入微信名</View>
-                <Image src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/icon-robber-hand.png" />
+                <Image src={handImg} />
               </View>
                </nut-animate>
           </View>
