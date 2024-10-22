@@ -32,7 +32,7 @@ import type { IListDataItem } from 'types/global';
 import { reactive } from 'vue';
 import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
 import { isDeving } from '@/utils/index';
-// import imgDefaultSrc from '@/assets/images/project/rabbit.png';
+import imgDefaultSrc from '@/assets/images/project/rabbit.png';
 
 interface IProps {
   height?: string;
@@ -44,7 +44,6 @@ const props = withDefaults(defineProps<IProps>(), {
   listData: () => [] as IListDataItem[],
 });
 
-const imgDefaultSrc = require('@/assets/images/project/rabbit.png');
 
 const data = reactive({
   chooseItem: {} as IListDataItem,

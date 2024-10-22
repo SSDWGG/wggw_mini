@@ -42,6 +42,7 @@
   // import { CircleProgress as NutCircleProgress } from "@nutui/nutui-taro";
   import dayjs from 'dayjs';
   import { onUnmounted, reactive, watch } from 'vue';
+  import imgDefaultSrc from '@/assets/images/project/rabbit.png';
 
   const props = defineProps({
     outEngineTime:{
@@ -93,8 +94,7 @@
     // 内容区域-bgImg
     contentBgImg: {
       type: String,
-      default:
-      require('@/assets/images/project/rabbit.png'),
+      default: imgDefaultSrc,
     },
     // 计算单位毫秒  年31536000000  日86400000
     computedNum: {

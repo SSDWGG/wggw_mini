@@ -13,7 +13,7 @@
         <person-card />
       </view>
     </view>
-    <openOutLinkTipPop :pop-tip-visible="data.popTipVisible" :qrSrc="data.chooseItem.qrSrc" 
+    <openOutLinkTipPop :pop-tip-visible="data.popTipVisible" :qrSrc="data.chooseItem.qrSrc"
     :show-name="data.chooseItem.showName" :href="data.chooseItem.href" @close="()=>{data.popTipVisible = false}"/>
   </view>
 </template>
@@ -117,7 +117,7 @@ const showTipPop = (item) => {
       // 提示网址
       data.chooseItem = item;
       data.popTipVisible = true;
-    } 
+    }
 };
 
 </script>

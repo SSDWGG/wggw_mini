@@ -7,7 +7,7 @@
         <view v-if="!item.fixed" class="item-view">
           <view v-if="!data.isDraging" @tap="removeItem(item)">
             <IconFont
-              name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GHCCAMGL-1706332459221icon-close.png"
+              :name="closeIcon"
               :size="20" class="close-img"></IconFont>
           </view>
           <view class="up-list-item">
@@ -29,12 +29,12 @@
           <view v-for="(picObj, index) in data.picList" :key="index" class="item-view">
             <view @tap="removeItem(picObj)">
               <IconFont
-                name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GHCCAMGL-1706332459221icon-close.png"
+                :name="closeIcon"
                 :size="16" class="close-img"></IconFont>
             </view>
             <video class="up-list-item" :src="picObj.path" :controls="false" :showCenterPlayBtn="false">
               <IconFont
-                name="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90"
+                :name="vedioPlayIcon"
                 :size="25" class="vedio-state" />
             </video>
           </view>
@@ -42,7 +42,7 @@
           <view v-if="isShowAddButton" class="item-view">
             <view class="up-list-item uploader-button" @tap="handleAdd">
               <IconFont
-                name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CDMKFOCD-1706332570146upload-more.png"
+                :name="addIcon"
                 :size="35" class="upload-more" />
             </view>
           </view>
@@ -66,6 +66,9 @@ import selectMedia from '@/components/selectMedia';
 import myToastComponents from '@/components/myToast/index.vue';
 import { hasProtocol, uuid } from '@/utils/index';
 import aliossUpload from '@/utils/alioss-upload';
+import addIcon from '@/assets/images/project/add.png';
+import vedioPlayIcon from '@/assets/images/project/vedioPlay.png';
+import closeIcon from '@/assets/images/project/close.png';
 
 type IListItem = IResult & {
   originIndex: number;
@@ -75,7 +78,7 @@ type IListItem = IResult & {
 const account = useAccountStore();
 const systemInfo = useSystemInfoStore();
 const maxChooseCount = 9;
-const plusItem: IListItem = { originIndex: -1, fixed: true, type: 'plus', path: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CDMKFOCD-1706332570146upload-more.png' };
+const plusItem: IListItem = { originIndex: -1, fixed: true, type: 'plus', path: addIcon };
 const data = reactive({
   picList: [] as IListItem[],
   sortedList: [] as IListItem[],

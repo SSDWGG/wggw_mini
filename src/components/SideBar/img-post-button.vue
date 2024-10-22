@@ -1,6 +1,6 @@
 <template>
   <view @tap="handleChoose('image')">
-    <image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CNJBBHDF-1706331733330icon-menu-add.png"  />
+    <image class="icon" src="@/assets/images/project/menuAdd.png"  />
   </view>
    <!-- toast提示 -->
    <my-toast-components ref="myToast" :duration="2500" />

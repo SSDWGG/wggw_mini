@@ -30,6 +30,7 @@ import styles from './styles.scss';
 import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import { ref, watch } from 'vue';
 import Taro from '@tarojs/taro';
+import imgDefaultSrc from '@/assets/images/project/rabbit.png';
 
 interface Props {
   // 点击去菜单栏
@@ -45,7 +46,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Welcome to WGGW',
   svgaUrl: '',
   svgaLoop: 1,
-  imgSrc: require('@/assets/images/project/rabbit.png'),
+  imgSrc: imgDefaultSrc,
 });
 const emit = defineEmits(['back', 'finsh']);
 const svgaPlayRef = ref();
