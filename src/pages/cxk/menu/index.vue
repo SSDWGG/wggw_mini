@@ -143,4 +143,5 @@ useShareAppMessage(() => ({
     path: '/pages/cxk/index/index',
     imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
   }));
+
 </script>

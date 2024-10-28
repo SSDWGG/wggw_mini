@@ -11,6 +11,7 @@
 import { useLoad, useRouter, navigateTo } from '@tarojs/taro';
 import fullPreview from '@/components/fullPreview/index.vue';
 import { useMusicStore } from '@/stores/music';
+import Taro from '@tarojs/taro';
 
 const musicStore = useMusicStore();
 
@@ -26,4 +27,6 @@ useLoad(() => {
     navigateTo({ url: homePage });
   }, 3000);
 });
+
+
 </script>

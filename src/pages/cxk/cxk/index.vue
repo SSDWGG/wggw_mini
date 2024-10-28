@@ -47,6 +47,13 @@
   import { computed, reactive } from 'vue';
   import { cdnHost, ossFilePrePath } from '@/utils/env';
 
+
+
+  definePageConfig({
+  enableShareAppMessage: true,
+  enableShareTimeline: true,
+});
+
   const innerAudioContext = Taro.createInnerAudioContext();
   const cxkMusicsList = [
     {
@@ -102,9 +109,19 @@
 
   const goback = () => {
     innerAudioContext.destroy();
-    Taro.navigateBack();
+    Taro.navigateTo({ url: '/pages/cxk/menu/index' });
   };
 
-  useDidHide(() => {
-  });
+
+  Taro.useShareTimeline(() => ({
+  title: '爱坤才会赢~',
+  path: '/pages/cxk/cxk/index',
+  imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
+}));
+Taro.useShareAppMessage(() => ({
+  title: '爱坤才会赢~',
+  path: '/pages/cxk/cxk/index',
+  imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
+}));
+
 </script>

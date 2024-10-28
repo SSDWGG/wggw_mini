@@ -1,12 +1,12 @@
 <template>
   <view id="parent" :class="styles.testContainer">
-    <navbar title="加油吧，少年" background-color="transparent" :style="{position: 'absolute'}" />
+    <navbar title="加油吧，少年" background-color="transparent" :style="{position: 'absolute'}" :goback="goback" />
 
     <view class="dtitle"> Keep going </view>
     <view class="contentText">
       <!-- <view >
         Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light. Though wise men at their
-      end know dark is right, Because their words had forked no lightning they Do not go gentle into that good night. 
+      end know dark is right, Because their words had forked no lightning they Do not go gentle into that good night.
       </view> -->
       <view>
         请不要相信胜利就像山坡上的蒲公英一样唾手可得。但是请相信，世上总有一些美好值得你全力以赴，哪怕粉身碎骨！
@@ -27,8 +27,16 @@ import { Navbar } from '@fishui/taro-vue';
 
 // @ts-ignore
 import styles from './styles.scss';
-import { usePageScroll } from '@tarojs/taro';
+import Taro,{ usePageScroll ,switchTab} from '@tarojs/taro';
 import { computed, ref } from 'vue';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
+
+
+
+definePageConfig({
+  enableShareAppMessage: true,
+  enableShareTimeline: true,
+});
 
 const scrollY = ref(0);
 
@@ -37,4 +45,20 @@ const backgroundPosition = computed(()=>`calc(50% + ${scrollY.value}px) calc(50%
 usePageScroll((res) => {
   scrollY.value = res.scrollTop;
 });
+
+Taro.useShareTimeline(() => ({
+  title: '加油向前看，少年~',
+  path: '/pages/going/index',
+  imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
+}));
+Taro.useShareAppMessage(() => ({
+  title: '加油向前看，少年~',
+  path: '/pages/going/index',
+  imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
+}));
+
+
+const goback = () => {
+  switchTab({ url: '/pages/menu/index' });
+  };
 </script>
