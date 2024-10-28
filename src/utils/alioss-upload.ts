@@ -6,6 +6,7 @@ import { uuid } from './index';
 import isArray from 'lodash/isArray';
 import isString from 'lodash/isString';
 import Taro from '@tarojs/taro';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 // 获取文件后缀名
 function getExtName(filePath) {
@@ -13,15 +14,14 @@ function getExtName(filePath) {
   return matched ? matched[1] : null;
 }
 const uploadFile = function(path, hasStatus, hash = '') {
-  const cdnHost = 'https://panshi-on.meipingmi.com.cn';
   // 自定义生成的文件名
   const name = uuid();
 
   // 用户上传的内容都用文件夹隔离了
-  const filePath = `yunxiaoding-mini/other/wggw/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
+  const filePath = `${ossFilePrePath}/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
 
   return Taro.uploadFile({
-    url: `${cdnHost}/`,
+    url: `${cdnHost}`,
     filePath: path,
     name: 'file',
     timeout: 6000000, // 超时不在全局配置
@@ -42,7 +42,7 @@ const uploadFile = function(path, hasStatus, hash = '') {
         status: 'success',
         name,
         path: `/${filePath}`,
-        fullpath: `${cdnHost}/${filePath}`,
+        fullpath: `${cdnHost}${filePath}`,
         hash
       };
     } else {

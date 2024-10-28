@@ -9,6 +9,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import type { IUserInfo } from '@/apis/mine/model';
 import type { IListDataItem } from 'types/global';
 import { isPermissionsToWx } from '../utils';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 interface IState {
   templeChoosePostList: IResult[]; // 上传选择的临时资源
@@ -68,7 +69,7 @@ export const useAccountStore = defineStore('account', {
         title: 'ikun',
         Ctitle: '娱乐区',
         router: '/pages/cxk/index/index',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
+        bgSrc: `${cdnHost}${ossFilePrePath}/BEDKEKCP-1705543014391shakeKun.gif`,
         opacity: 1,
       },
 
@@ -111,54 +112,54 @@ export const useAccountStore = defineStore('account', {
         title: 'IKun',
         Ctitle: '小黑子',
         router: '/pages/cxk/cxk/index',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+        bgSrc: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
       },
       {
         title: 'IKun',
         Ctitle: '坤歌台',
         router: '/pages/cxk/cxk3/index',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+        bgSrc: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
         isShow: isPermissionsToWx(),
       },
       {
         title: 'Shake Kun',
         Ctitle: '摇坤',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BEDKEKCP-1705543014391shakeKun.gif',
+        bgSrc: `${cdnHost}${ossFilePrePath}/BEDKEKCP-1705543014391shakeKun.gif`,
         opacity: 1,
         linkUrl: 'http://ikunqqq.ssdwgg.cn',
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FJHBFEAA-1706331358049ikunqqq.png',
+        qrSrc: `${cdnHost}${ossFilePrePath}/FJHBFEAA-1706331358049ikunqqq.png`,
       },
       {
         title: 'Kun Str',
         Ctitle: '字符坤',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IIOMLFKE-1705543014391strkun.gif',
+        bgSrc: `${cdnHost}${ossFilePrePath}/IIOMLFKE-1705543014391strkun.gif`,
         opacity: 1,
         linkUrl: 'http://ikunstr.ssdwgg.cn',
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GIKJIPEA-1706331381805ikunstr.png',
+        qrSrc: `${cdnHost}${ossFilePrePath}/GIKJIPEA-1706331381805ikunstr.png`,
       },
       {
         title: 'Game',
         Ctitle: '坤了个坤',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NBFNNNPD-1709096485764klgk.gif',
+        bgSrc: `${cdnHost}${ossFilePrePath}/NBFNNNPD-1709096485764klgk.gif`,
         opacity: 1,
         linkUrl: 'http://klgk.ssdwgg.cn',
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CIDJDLID-1709096485764httpklgk.ssdwgg.cn.png',
+        qrSrc: `${cdnHost}${ossFilePrePath}/CIDJDLID-1709096485764httpklgk.ssdwgg.cn.png`,
       },
       {
         title: 'Game',
         Ctitle: '消消乐旋转版本',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HEPJCNMO-1705543014391game1.gif',
+        bgSrc: `${cdnHost}${ossFilePrePath}/HEPJCNMO-1705543014391game1.gif`,
         opacity: 1,
         linkUrl: 'http://hextris.ssdwgg.cn',
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IMDCHDJP-1706331384525hextris.png',
+        qrSrc: `${cdnHost}${ossFilePrePath}/IMDCHDJP-1706331384525hextris.png`,
       },
       {
         title: 'Game',
         Ctitle: '兔了个兔',
-        bgSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NICPAEIK-1705543014391tlgt.gif',
+        bgSrc: `${cdnHost}${ossFilePrePath}/NICPAEIK-1705543014391tlgt.gif`,
         opacity: 1,
         linkUrl: 'http://xlgx.ssdwgg.cn',
-        qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png',
+        qrSrc: `${cdnHost}${ossFilePrePath}/MOCAPJJK-1706331446705xlgx.png`,
       },
     ],
     editMemoData: {} as IMemo,
