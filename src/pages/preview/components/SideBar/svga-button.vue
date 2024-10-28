@@ -22,7 +22,7 @@
 <script lang="ts" setup>
 import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import { ref,reactive } from 'vue';
-import { cdnHost } from '@/utils/env';
+import { cdnHost,ossFilePrePathSvga} from '@/utils/env';
 
 const svgaPlayRef = ref();
 
@@ -77,7 +77,7 @@ const handleShowPop = (e) => {
   e.stopPropagation();
   if (pageData.canPlay) {
     // 显示svga
-    pageData.url = `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
+    pageData.url = `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
     svgaPlayRef.value.showSvga();
     pageData.canPlay = false;
   }

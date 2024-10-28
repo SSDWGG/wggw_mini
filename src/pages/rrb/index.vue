@@ -39,7 +39,7 @@
 
           <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[1, 2, 3]" />
         </scroll-view>
-        <!--           :svgaUrl="cdnHost+'/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga'" -->
+        <!--           :svgaUrl="cdnHost+ossFilePrePathSvga+'/normalSVGA/rose.svga'" -->
         <fullPreview
           v-else
           :svgaLoop="1"
@@ -67,14 +67,14 @@ import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import fullPreview from '@/components/fullPreview/index.vue';
 import commonMenu from '@/components/commonMenu/index.vue';
 import { useAccountStore } from '@/stores/account';
-import { cdnHost, ossFilePrePath } from '@/utils/env';
+import { cdnHost, ossFilePrePath,ossFilePrePathSvga,ossFilePrePathRrb } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
   enableShareTimeline: true,
 });
 
-const imageSrcBg = `${cdnHost}/yunxiaoding-mini/other/waterFallRRB/WGG08325.JPG?x-oss-process=image/quality,q_20`;
+const imageSrcBg = `${cdnHost}${ossFilePrePathRrb}/WGG08325.JPG?x-oss-process=image/quality,q_20`;
 
 const { show, onScroll } = useListScroll();
 const account = useAccountStore();
@@ -135,7 +135,7 @@ const data = reactive({
   password:{
         '001023': '大老婆',
       },
-  svgaUrl: `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
+  svgaUrl: `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
 });
 
 // cbInputBack :1 成功 2失败 3失败上限
@@ -162,7 +162,7 @@ const goback = () => {
 };
 
 const onFinsh = () => {
-  const tempUrl = `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`;
+  const tempUrl = `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`;
   // 防止两次随机出同一个整数导致的watch不刷新
   if (data.svgaUrl === tempUrl) {
     onFinsh();

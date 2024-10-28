@@ -21,7 +21,7 @@ import { useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 import { getImgListByTuser } from '@/apis/rrb';
 import { useDidShow } from '@tarojs/taro';
 import Taro from '@tarojs/taro';
-import { cdnHost, ossFilePrePath } from '@/utils/env';
+import { cdnHost, ossFilePrePath,ossFilePrePathRrb } from '@/utils/env';
 
 definePageConfig({ backgroundColor: '#f3f3fe', enableShareAppMessage: true, enableShareTimeline: true });
 // waterFallRRB
@@ -35,7 +35,7 @@ const { show, onScroll } = useListScroll();
 
 // ?x-oss-process=image/quality,Q_100有的时候会图片过大
 const pageData = reactive({
-  rrbUrl: `${cdnHost}/yunxiaoding-mini/other/waterFallRRB/`,
+  rrbUrl: `${cdnHost}${ossFilePrePathRrb}/`,
   imgQParams: '?x-oss-process=image/quality,q_80',
   // rrbInitImgList: [
   //   'WGG08130.JPG',
@@ -114,7 +114,7 @@ useShareAppMessage(() => ({
   imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
 }));
 
-// 普通瀑布流  https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/
+// 普通瀑布流 cdnHost+ossFilePrePathNormalWaterFall+/
 //   'LGJCHEMO-16724568566421.jpeg',
 //   'DHNOKPKJ-16724568566422.jpeg',
 //   'EDGGOIDI-16724568566423.jpeg',

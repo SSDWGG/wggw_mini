@@ -43,7 +43,7 @@
       zIndex: 9999999,
       pointerEvents: 'none',
     }"
-    :svgaUrl="cdnHost+'/yunxiaoding-mini/other/wggSVGA/normalSVGA/angel.svga'"
+    :svgaUrl="cdnHost+ossFilePrePathSvga+'/normalSVGA/angel.svga'"
   />
   <svga-play-component
     ref="svgaPlayRef2"
@@ -56,7 +56,7 @@
       zIndex: 9999999,
       pointerEvents: 'none',
     }"
-    :svgaUrl="cdnHost+'/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga'"
+    :svgaUrl="cdnHost+ossFilePrePathSvga+'/normalSVGA/rose.svga'"
 
   /> -->
   <!-- toast提示 -->
@@ -77,7 +77,7 @@ import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
 // import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import myToastComponents from '@/components/myToast/index.vue';
-import { cdnHost, ossFilePrePath,socketAllUserUrl } from '@/utils/env';
+import { cdnHost, ossFilePrePath,socketAllUserUrl,ossFilePrePathSvga } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -137,7 +137,7 @@ const svgaUrlList = [
 ];
 const data = reactive({
   showPage: true,
-  svgaUrl: `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
+  svgaUrl: `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
 });
 
 const h5 =
@@ -205,7 +205,7 @@ if (socketOpen.value === false) {
 }
 
 const onFinsh = () => {
-  const tempUrl = `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`;
+  const tempUrl = `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`;
   // 防止两次随机出同一个整数导致的watch不刷新
   if (data.svgaUrl === tempUrl) {
     onFinsh();

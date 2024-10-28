@@ -44,7 +44,7 @@
     <side-bar :show="show" :showFlags="[1, 3]" />
 
     <view class="tooLowDiv">
-      <svga-play-component ref="svgaPlayRef3" :canvasStyle="{}" :svgaUrl="cdnHost + '/yunxiaoding-mini/other/wggSVGA/normalSVGA2/bianbian.svga'" />
+      <svga-play-component ref="svgaPlayRef3" :canvasStyle="{}" :svgaUrl="cdnHost +ossFilePrePathSvga+ '/normalSVGA2/bianbian.svga'" />
     </view>
   </scroll-view>
   <svga-play-component
@@ -58,7 +58,7 @@
       zIndex: 9999999,
       pointerEvents: 'none',
     }"
-    :svgaUrl="cdnHost + '/yunxiaoding-mini/other/wggSVGA/normalSVGA/finish.svga'"
+    :svgaUrl="cdnHost +ossFilePrePathSvga+ '/normalSVGA/finish.svga'"
   />
   <svga-play-component
     ref="svgaPlayRef2"
@@ -71,7 +71,7 @@
       zIndex: 9999999,
       pointerEvents: 'none',
     }"
-    :svgaUrl="cdnHost + '/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga'"
+    :svgaUrl="cdnHost + ossFilePrePathSvga+'/normalSVGA/rose.svga'"
   />
 </template>
 <script lang="ts" setup>
@@ -93,7 +93,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/zh-cn';
 import { changeLongStr } from '@/utils/index';
 import imgDefaultSrc from '@/assets/images/project/rabbit.png';
-import { cdnHost } from '@/utils/env';
+import { cdnHost,ossFilePrePathSvga } from '@/utils/env';
 
 dayjs.locale('zh-cn');
 dayjs.extend(relativeTime);

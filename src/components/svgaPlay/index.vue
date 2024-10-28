@@ -5,13 +5,13 @@
 // @ts-ignore
 import styles from './styles.scss';
 import Taro from '@tarojs/taro';
-import { cdnHost } from '@/utils/env';
+import { cdnHost,ossFilePrePathSvga } from '@/utils/env';
 
 const props = withDefaults(defineProps<IProps>(), {
   loop: 1,
   canvasStyle: {},
 
-  svgaUrl: `${cdnHost}/yunxiaoding-mini/other/wggSVGA/normalSVGA/MerryChristmas.svga`,
+  svgaUrl: `${cdnHost}${ossFilePrePathSvga}/normalSVGA/MerryChristmas.svga`,
 });
 const emit = defineEmits(['finsh']);
 const { Parser, Player } = require('./svgaplayer.weapp');

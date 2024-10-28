@@ -54,7 +54,7 @@ import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import fullPreview from '@/components/fullPreview/index.vue';
 import commonMenu from '@/components/commonMenu/index.vue';
 import { useAccountStore } from '@/stores/account';
-import { cdnHost, ossFilePrePath } from '@/utils/env';
+import { cdnHost, ossFilePrePath ,ossFilePrePathSvga} from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -110,7 +110,7 @@ const svgaUrlList = [
 const data = reactive({
   showPage: true,
   pageContainerShow: true,
-  svgaUrl:`${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
+  svgaUrl:`${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
 
 });
 
@@ -123,7 +123,7 @@ const goback = () => {
 
 const onFinsh = ()=>{
 
-const tempUrl= `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
+const tempUrl= `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
 // 防止两次随机出同一个整数导致的watch不刷新
 if(data.svgaUrl === tempUrl){
   onFinsh();
