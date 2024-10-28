@@ -1,5 +1,5 @@
 <template>
-    <image class="icon"  style="margin-top: 8rpx" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/ANLMOBKI-1706328203630icon-album-share.png" @tap="onShare" />
+    <image class="icon"  style="margin-top: 8rpx" src="@/assets/images/project/share.png" @tap="onShare" />
 
   <root-portal>
     <nut-popup
@@ -12,11 +12,11 @@
       <view :class="styles.share">
         <view  class="share-content">
           <button class="share-content-item button-to-view" open-type="share" data-from="all">
-            <image class="icon" src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/wechat.png" />
+            <image class="icon" src="@/assets/images/project/wechat.png" />
             <text>微信</text>
           </button>
           <button v-if="props.type === 'general' " class="share-content-item button-to-view" @tap="state.friendsToolsVisible = true">
-            <image class="icon" src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/moments.png"/>
+            <image class="icon" src="@/assets/images/project/moments.png"/>
             <text>朋友圈</text>
           </button>
         </view>
@@ -28,7 +28,7 @@
     <image
       v-show="state.friendsToolsVisible"
       :class="styles.shareFriendsTools"
-      src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/shareFriends.png"
+      src="@/assets/images/project/shareFriends.png"
     />
   </root-portal>
 </template>

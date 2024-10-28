@@ -1,14 +1,13 @@
 <template>
-  <navbar  v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe" />
+  <navbar v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe" />
   <!-- :style="{ height:normalHeight}" -->
 
-  <view   :class="styles.waterfall" @scroll="onScroll">
-    <view v-for="imgsrc in pageData.showImgList"   :key="imgsrc" class="item" @tap="onClickImg(imgsrc)">
-      <image v-if="imgsrc" mode="widthFix" :src="imgsrc+pageData.imgQParams"></image>
+  <view :class="styles.waterfall" @scroll="onScroll">
+    <view v-for="imgsrc in pageData.showImgList" :key="imgsrc" class="item" @tap="onClickImg(imgsrc)">
+      <image v-if="imgsrc" mode="widthFix" :src="imgsrc + pageData.imgQParams"></image>
     </view>
   </view>
   <side-bar :show="show" :onfullButtonBack="() => (pageData.isPure = !pageData.isPure)" :showFlags="[1, 2, 9]" />
-
 </template>
 <script lang="ts" setup>
 // @ts-ignore
@@ -18,14 +17,13 @@ import { reactive } from 'vue';
 // import { useSystemInfoStore } from '@/stores/systemInfo';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import sideBar from '@/components/SideBar/index.vue';
-import  { useShareAppMessage, useShareTimeline} from '@tarojs/taro';
+import { useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 import { getImgListByTuser } from '@/apis/rrb';
 import { useDidShow } from '@tarojs/taro';
 import Taro from '@tarojs/taro';
+import { cdnHost, ossFilePrePath } from '@/utils/env';
 
-definePageConfig({ backgroundColor: '#f3f3fe'
-,enableShareAppMessage: true,
-  enableShareTimeline: true, });
+definePageConfig({ backgroundColor: '#f3f3fe', enableShareAppMessage: true, enableShareTimeline: true });
 // waterFallRRB
 const { show, onScroll } = useListScroll();
 
@@ -81,41 +79,39 @@ const pageData = reactive({
   //   'WGG08950.JPG',
   // ],
   showImgList: [] as string[],
-  isPure:false
+  isPure: false,
 });
 
-const init = async()=>{
+const init = async () => {
   Taro.showLoading({
     title: '精彩获取中',
     mask: true,
   });
- const ImgList  =  await getImgListByTuser({
-  current:1,
-  pageSize:100,
-  tuser:'rrb'
- });
- Taro.hideLoading();
-   pageData.showImgList  = ImgList.map(item=>item.imgSrc);
+  const ImgList = await getImgListByTuser({
+    current: 1,
+    pageSize: 100,
+    tuser: 'rrb',
+  });
+  Taro.hideLoading();
+  pageData.showImgList = ImgList.map((item) => item.imgSrc);
 };
 
-
-const onClickImg = (imgSrc)=>{
+const onClickImg = (imgSrc) => {
   console.log(imgSrc);
 };
 
-
-useDidShow( () => {
+useDidShow(() => {
   init();
 });
 useShareTimeline(() => ({
   title: 'RUNRUNBABY~',
   path: '/pages/rrb/water-fall/index',
-  imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+  imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
 }));
 useShareAppMessage(() => ({
   title: 'RUNRUNBABY~',
   path: '/pages/rrb/water-fall/index',
-  imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+  imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
 }));
 
 // 普通瀑布流  https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFall/

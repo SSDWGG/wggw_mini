@@ -26,6 +26,7 @@ import { reactive } from 'vue';
 import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
 import Taro from '@tarojs/taro';
 import { isDeving } from '@/utils/index';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 
 
@@ -34,79 +35,79 @@ const data = reactive({
     {
       showName: 'wgg个人简介',
       href: 'http://mywebsite.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/JBEDLPOC-1718262218208F2PzLFtNbM.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/JBEDLPOC-1718262218208F2PzLFtNbM.png`
     },
     {
       showName: 'wgg的博客站',
       href: 'http://blog.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/PAGCPDDC-1718262270539WEIkZXehot.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/PAGCPDDC-1718262270539WEIkZXehot.png`
     },
     {
       showName: 'MP_V2（个人中后台管理系统pc）',
       href: 'http://todo.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FCAAEBLP-1706331461355todo.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/FCAAEBLP-1706331461355todo.png`
     },
 
     {
       showName: '弹弹坤（娱乐）',
       href: 'http://ikunqqq.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FJHBFEAA-1706331358049ikunqqq.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/FJHBFEAA-1706331358049ikunqqq.png`
 
     },
     {
       showName: '字符坤（娱乐）',
       href: 'http://ikunstr.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GIKJIPEA-1706331381805ikunstr.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/GIKJIPEA-1706331381805ikunstr.png`
 
     },
     {
       showName: '消消乐旋转版（娱乐）',
       href: 'http://hextris.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IMDCHDJP-1706331384525hextris.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/IMDCHDJP-1706331384525hextris.png`
 
     },
     {
       showName: '兔了个兔（娱乐）',
       href: 'http://xlgx.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MOCAPJJK-1706331446705xlgx.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/MOCAPJJK-1706331446705xlgx.png`
     },
     {
       showName: '测速器',
       href: 'https://speed.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/IOPNPDPF-17182622997684K_cwg6zn6.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/IOPNPDPF-17182622997684K_cwg6zn6.png`
     },
     {
       showName: '诗文卡片',
       href: 'http://poem.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MPMMHFKJ-1706331478715poem.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/MPMMHFKJ-1706331478715poem.png`
     },
     {
       showName: 'RabbitMall（商城项目pc）',
       href: 'http://mall.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NBDGFNGN-1706331492335mall.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/NBDGFNGN-1706331492335mall.png`
     },
     {
       showName: 'MGJ（练习项目pc）',
       href: 'http://mgj.ssdwgg.cn',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NMICMNJA-1706331504105mgj.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/NMICMNJA-1706331504105mgj.png`
 
     },
     {
       showName: 'MRTK（流媒体视频）',
       href: 'https://ssdwgg.cn:8693',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/ENBMHPOG-1706331514250lmt.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/ENBMHPOG-1706331514250lmt.png`
     },
     {
       showName: 'GitHub(wgg的开源仓库)',
       href: 'https://github.com/SSDWGG',
-      qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OEAHMDAL-1706331258037github.png'
+      qrSrc: `${cdnHost}${ossFilePrePath}/OEAHMDAL-1706331258037github.png`
     },
   ],
   popTipVisible: false,
   chooseItem: {
     showName: 'GitHub(开源仓库)',
     href: 'https://github.com/SSDWGG',
-    qrSrc: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OEAHMDAL-1706331258037github.png'
+    qrSrc: `${cdnHost}${ossFilePrePath}/OEAHMDAL-1706331258037github.png`
   },
 });
 

@@ -1,6 +1,6 @@
 <template>
   <view @tap="post">
-    <image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/CNJBBHDF-1706331733330icon-menu-add.png"  />
+    <image class="icon" src="@/assets/images/project/menuAdd.png"  />
   </view>
   <root-portal>
     <nut-popup v-model:visible="state.visible" position="bottom" round close-on-click-overlay
@@ -9,17 +9,17 @@
         <view class="share-content">
           <button id="share-my-album" class="share-content-item button-to-view" @tap="handleChooseText">
             <image class="icon"
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FJGIHKKK-1665298354947post-i.png" />
+              src="@/assets/images/project/post-i.png" />
             <text>文本</text>
           </button>
           <button class="share-content-item button-to-view video-text" @tap="handleChoose('video')">
             <image class="icon"
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GAAJFNKF-1665298354947post-v.png" />
+              src="@/assets/images/project/post-v.png" />
             <text>视频</text>
           </button>
           <button id="share-my-album" class="share-content-item button-to-view" @tap="handleChoose('image')">
             <image class="icon"
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FJGIHKKK-1665298354947post-i.png" />
+              src="@/assets/images/project/post-i.png" />
             <text>图片</text>
           </button>
         </view>
@@ -36,7 +36,8 @@ import { reactive,ref } from 'vue';
 import styles from './styles.scss';
 import { useAccountStore } from '@/stores/account';
 import Taro from '@tarojs/taro';
-import selectMedia, { IMediaType, IResult } from '@/components/selectMedia';
+import type { IMediaType, IResult } from '@/components/selectMedia';
+import selectMedia from '@/components/selectMedia';
 import myToastComponents from '@/components/myToast/index.vue';
 
 
@@ -60,7 +61,7 @@ const handleChoose = async (type: IMediaType) => {
   handleClose();
   try {
     const list = await selectMedia(type);
-    account.templeChoosePostList = list  as IResult[]
+    account.templeChoosePostList = list  as IResult[];
     Taro.navigateTo({
       url: `/pages/memo/memo/post/index?type=${type}`
     });
@@ -76,15 +77,15 @@ const handleChoose = async (type: IMediaType) => {
 
 const handleChooseText = () => {
   handleClose();
-  account.templeChoosePostList = []
+  account.templeChoosePostList = [];
   Taro.navigateTo({
     url: `/pages/memo/memo/post/index?type=${'image'}`
   });
-}
+};
 
 
 const post = () => {
-  state.visible = true
-}
+  state.visible = true;
+};
 
 </script>

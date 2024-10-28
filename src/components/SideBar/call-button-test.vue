@@ -12,6 +12,7 @@ import Taro from '@tarojs/taro';
 import { useAccountStore } from '@/stores/account';
 import myToastComponents from '@/components/myToast/index.vue';
 import { ref } from 'vue';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 // import { getUserApiTest } from '@/apis/mine';
 
@@ -39,12 +40,12 @@ const call = () => {
             // 接收方信息
             listener: {
               nickname: '杭州w彦祖', // 接收方名
-              headImage: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg', // 头像，自行修改
+              headImage: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`, // 头像，自行修改
               openid: 'on2kW47NjXqCj22nJUszMgoq-z5M', // 获取小程序用户的openId
             },
             caller: {
               nickname: 'kun', // 拨打方名
-              headImage: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg', // 头像，自行修改
+              headImage: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`, // 头像，自行修改
               openid: accountStore.openid, // 获取小程序用户的openId
             },
             success(res) {

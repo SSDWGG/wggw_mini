@@ -69,6 +69,7 @@ import { useAccountStore } from '@/stores/account';
 import type { IPriceLineItem } from '@/apis/kunChart/model';
 import myToastComponents from '@/components/myToast/index.vue';
 import { debounce } from 'lodash';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -149,12 +150,12 @@ const handlePopOK = async () => {
 useShareTimeline(() => ({
     title: '~WGGW~',
     path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+    imageUrl:  `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
   }));
 useShareAppMessage(() => ({
     title: '~WGGW~',
     path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+    imageUrl:  `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
   }));
 const goHomePage = () => {
   switchTab({ url: '/pages/index/index' });

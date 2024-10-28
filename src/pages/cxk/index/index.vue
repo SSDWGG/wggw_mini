@@ -1,5 +1,4 @@
 <template>
-  <!--  svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" -->
   <fullPreview
     v-if="imageSrcBg"
     :back="false"

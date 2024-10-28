@@ -23,7 +23,7 @@
         :muted="true"
         :enable-progress-gesture="false"
         style="width: 100%"
-        src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/OMFHLJDP-17059977997221.mp4"
+        :src="cdnHost + ossFilePrePath + '/OMFHLJDP-17059977997221.mp4'"
       />
     </view>
 
@@ -31,7 +31,6 @@
 
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[1, 2, 3]" />
   </scroll-view>
-  <!--     svga-url="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" -->
   <fullPreview
     v-else
     :svgaLoop="1"
@@ -55,6 +54,7 @@ import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import fullPreview from '@/components/fullPreview/index.vue';
 import commonMenu from '@/components/commonMenu/index.vue';
 import { useAccountStore } from '@/stores/account';
+import { cdnHost, ossFilePrePath } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -136,11 +136,11 @@ if(data.svgaUrl === tempUrl){
 useShareTimeline(() => ({
     title: '快来坤屋吧~',
     path: '/pages/cxk/index/index',
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+    imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
   }));
 useShareAppMessage(() => ({
     title: '快来坤屋吧~',
     path: '/pages/cxk/index/index',
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/HHHNOCBG-1702544256738kun.jpeg',
+    imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
   }));
 </script>

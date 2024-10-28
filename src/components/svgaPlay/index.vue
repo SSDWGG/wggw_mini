@@ -5,6 +5,15 @@
 // @ts-ignore
 import styles from './styles.scss';
 import Taro from '@tarojs/taro';
+import { cdnHost } from '@/utils/env';
+
+const props = withDefaults(defineProps<IProps>(), {
+  loop: 1,
+  canvasStyle: {},
+
+  svgaUrl: `${cdnHost}/yunxiaoding-mini/other/wggSVGA/normalSVGA/MerryChristmas.svga`,
+});
+const emit = defineEmits(['finsh']);
 const { Parser, Player } = require('./svgaplayer.weapp');
 // 依赖要从github下载太慢，直接使用打包产物
 //  import { Parser, Player } from "svgaplayer-weapp";
@@ -16,15 +25,6 @@ interface IProps {
   canvasStyle: any;
   loop: number;
 }
-
-const props = withDefaults(defineProps<IProps>(), {
-  loop: 1,
-  canvasStyle: {},
-  svgaUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/MerryChristmas.svga',
-});
-
-const emit = defineEmits(['finsh']);
-
 
 const showCanvas = ref(false);
 const svgaPlayCanvasId = ref('');

@@ -1,6 +1,7 @@
 import request from '@/utils/request';
 import Taro from '@tarojs/taro';
 import type * as T from './model';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 /**
  * 微信登录  获取userdata
@@ -71,6 +72,6 @@ export const bindPhone = async (phoneCode: string) => {
 // 获取random的快捷系统提示项的json文件
 export const getRandomJson = () =>
   request({
-    url: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/randomSystem.json',
+    url: `${cdnHost}${ossFilePrePath}/randomSystem.json`,
     method: 'GET'
   });

@@ -14,25 +14,27 @@
     <!-- 游戏区 -->
     <view class="ganmeCenter flex center column">
       <view class="tip">
-        <image class="avater" :src="account.userInfo.avatarurl" /> 您的最好成绩 ：{{ data.niceResult }} 秒 (排名第{{
-          data.countData.userConut }})
+        <image class="avater" :src="account.userInfo.avatarurl" /> 您的最好成绩 ：{{ data.niceResult }} 秒 (排名第{{ data.countData.userConut }})
       </view>
 
       <view v-if="data.CurrentUsersSpeedTimeData.length > 3" class="mySwiper">
         <nut-swiper :height="26" :class="styles.swiper" loop auto-play="1500" direction="vertical" :touchable="false">
           <nut-swiper-item v-for="(item, index) in data.CurrentUsersSpeedTimeData" :key="index" class="swiper-item">
             <image class="avater" :src="item.avatarurl" />
-            {{  changeLongStr( item.username, 4, true,false)  }} 在 {{ dayjs((item as any).updateTime).fromNow() }} 创造了{{ item.useTime }}秒的好记录！
+            {{ changeLongStr(item.username, 4, true, false) }} 在 {{ dayjs((item as any).updateTime).fromNow() }} 创造了{{ item.useTime }}秒的好记录！
           </nut-swiper-item>
         </nut-swiper>
       </view>
 
       <!-- 游戏按钮 -->
       <nut-animate type="breath" class="rule-button-div" loop @tap="tapBtn">
-        <view class="gameBtn flex center" :style="{
-          backgroundColor: data.gameIngFlag === GameState.start ? 'rgba(255, 90, 25 , .6)' : 'rgba(130, 243, 132,.5) ',
-          fontSize: data.gameIngFlag === GameState.end ? '20px' : '40px',
-        }">
+        <view
+          class="gameBtn flex center"
+          :style="{
+            backgroundColor: data.gameIngFlag === GameState.start ? 'rgba(255, 90, 25 , .6)' : 'rgba(130, 243, 132,.5) ',
+            fontSize: data.gameIngFlag === GameState.end ? '20px' : '40px',
+          }"
+        >
           {{ data.btnText || data.useTime / 100 }}
         </view>
       </nut-animate>
@@ -42,34 +44,36 @@
     <side-bar :show="show" :showFlags="[1, 3]" />
 
     <view class="tooLowDiv">
-      <svga-play-component ref="svgaPlayRef3" :canvasStyle="{}"
-    svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA2/bianbian.svga" />
-
+      <svga-play-component ref="svgaPlayRef3" :canvasStyle="{}" :svgaUrl="cdnHost + '/yunxiaoding-mini/other/wggSVGA/normalSVGA2/bianbian.svga'" />
     </view>
   </scroll-view>
-  <svga-play-component ref="svgaPlayRef" :canvasStyle="{
-    width: '100vw',
-    height: '100vh',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    zIndex: 9999999,
-    pointerEvents: 'none',
-  }"
-    svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/finish.svga" />
-  <svga-play-component ref="svgaPlayRef2" :canvasStyle="{
-    width: '100vw',
-    height: '100vh',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    zIndex: 9999999,
-    pointerEvents: 'none',
-  }" svgaUrl="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga" />
-
-
-
-  </template>
+  <svga-play-component
+    ref="svgaPlayRef"
+    :canvasStyle="{
+      width: '100vw',
+      height: '100vh',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      zIndex: 9999999,
+      pointerEvents: 'none',
+    }"
+    :svgaUrl="cdnHost + '/yunxiaoding-mini/other/wggSVGA/normalSVGA/finish.svga'"
+  />
+  <svga-play-component
+    ref="svgaPlayRef2"
+    :canvasStyle="{
+      width: '100vw',
+      height: '100vh',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      zIndex: 9999999,
+      pointerEvents: 'none',
+    }"
+    :svgaUrl="cdnHost + '/yunxiaoding-mini/other/wggSVGA/normalSVGA/rose.svga'"
+  />
+</template>
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
@@ -89,6 +93,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/zh-cn';
 import { changeLongStr } from '@/utils/index';
 import imgDefaultSrc from '@/assets/images/project/rabbit.png';
+import { cdnHost } from '@/utils/env';
 
 dayjs.locale('zh-cn');
 dayjs.extend(relativeTime);
@@ -157,7 +162,7 @@ watch(
     } else if (val === GameState.start) {
       data.btnText = '';
     } else if (val === GameState.end) {
-      data.btnText = `本次用时:${  data.useTime / 100  }s`;
+      data.btnText = `本次用时:${data.useTime / 100}s`;
     }
   },
   { immediate: true },
@@ -231,7 +236,6 @@ const startGame = () => {
     data.useTime++;
   }, 10);
   data.maxTimeoutFlag = setTimeout(() => {
-
     // 显示svga
     svgaPlayRef3.value.showSvga();
     myToast.value.myToastShow({
@@ -249,15 +253,15 @@ onUnmounted(() => {
 });
 
 useShareTimeline(() => ({
-    title: '来WGGW比比谁的手速更快',
-    path: '/pages/speedTest/index?isShare=true',
-    imageUrl: imgDefaultSrc,
-  }));
+  title: '来WGGW比比谁的手速更快',
+  path: '/pages/speedTest/index?isShare=true',
+  imageUrl: imgDefaultSrc,
+}));
 useShareAppMessage(() => ({
-    title: '来WGGW比比谁的手速更快',
-    path: '/pages/speedTest/index?isShare=true',
-    imageUrl: imgDefaultSrc,
-  }));
+  title: '来WGGW比比谁的手速更快',
+  path: '/pages/speedTest/index?isShare=true',
+  imageUrl: imgDefaultSrc,
+}));
 
 const goHomePage = () => {
   switchTab({ url: '/pages/index/index' });

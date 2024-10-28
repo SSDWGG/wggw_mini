@@ -18,7 +18,7 @@ const uploadFile = function(path, hasStatus, hash = '') {
   const name = uuid();
 
   // 用户上传的内容都用文件夹隔离了
-  const filePath = `${ossFilePrePath}/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
+  const filePath = `${ossFilePrePath.substr(1)}/${dayjs().format('YYYY-MM-DD')}/${name}.${getExtName(path)}`;
 
   return Taro.uploadFile({
     url: `${cdnHost}`,
@@ -42,7 +42,7 @@ const uploadFile = function(path, hasStatus, hash = '') {
         status: 'success',
         name,
         path: `/${filePath}`,
-        fullpath: `${cdnHost}${filePath}`,
+        fullpath: `${cdnHost}/${filePath}`,
         hash
       };
     } else {
