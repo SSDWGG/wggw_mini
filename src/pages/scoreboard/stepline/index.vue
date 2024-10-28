@@ -16,7 +16,7 @@
       </mpm-steps-line>
       <!-- <view v-if="props.dataList.length <= 0" class="defaultBox">
         <view class="img">
-          <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/default1.png"></image>
+          <image src="@/assets/images/project/emptyDefault.png"></image>
         </view>
         <view class="img tips">暂无记录数据</view>
       </view> -->

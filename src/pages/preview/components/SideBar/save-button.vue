@@ -1,13 +1,13 @@
 <template>
   <view class="bar-item" @tap="(e) => handleSaveImage(e)">
-    <image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/ededaacav.png" />
+    <image class="icon" src="@/assets/images/project/save.png" />
     保存
   </view>
 </template>
 <script lang="ts" setup>
 import Taro from '@tarojs/taro';
 import { useAttrs } from 'vue';
-import { IMemo, IMemoItem } from '@/apis/memo/model';
+import type { IMemo, IMemoItem } from '@/apis/memo/model';
 
 const info = useAttrs().itemInfo as IMemo & IMemoItem;
 

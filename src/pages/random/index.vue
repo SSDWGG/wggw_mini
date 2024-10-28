@@ -21,12 +21,7 @@
           round
           @tap="showTagDetail(tagsValue)"
         >
-          <IconFont
-            name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GHCCAMGL-1706332459221icon-close.png"
-            :size="22"
-            class="close-img"
-            @tap.stop="deleteTag(tagsName, data.systemMainDataObj, false)"
-          ></IconFont>
+          <IconFont :name="closeIcon" :size="22" class="close-img" @tap.stop="deleteTag(tagsName, data.systemMainDataObj, false)"></IconFont>
           {{ tagsName }}</nut-tag
         >
         <!-- 用户历史输入项 -->
@@ -39,12 +34,7 @@
           round
           @tap="showTagDetail(tagsValue)"
         >
-          <IconFont
-            name="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GHCCAMGL-1706332459221icon-close.png"
-            :size="22"
-            class="close-img"
-            @tap.stop="deleteTag(tagsName, data.userMainDataObj, true)"
-          ></IconFont>
+          <IconFont :name="closeIcon" :size="22" class="close-img" @tap.stop="deleteTag(tagsName, data.userMainDataObj, true)"></IconFont>
           {{ tagsName }}</nut-tag
         >
       </view>
@@ -113,18 +103,19 @@ import Taro from '@tarojs/taro';
 import sideBar from '@/components/SideBar/index.vue';
 import { getRandomJson } from '@/apis/mine';
 import bdSystemJson from './randomSystem.json';
-import { cdnHost,ossFilePrePath } from '@/utils/env';
+import { cdnHost, ossFilePrePath } from '@/utils/env';
+import closeIcon from '@/assets/images/project/close.png';
 
 definePageConfig({
   enableShareAppMessage: true,
   enableShareTimeline: true,
 });
 Taro.useShareTimeline(() => ({
-    title: '用它来终结你的选择困难症吧~',
-    path: '/pages/random/index',
-    imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
-  }));
-  Taro.useShareAppMessage(() => ({
+  title: '用它来终结你的选择困难症吧~',
+  path: '/pages/random/index',
+  imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
+}));
+Taro.useShareAppMessage(() => ({
   title: '用它来终结你的选择困难症吧~',
   path: '/pages/random/index',
   imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,

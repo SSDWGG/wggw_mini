@@ -1,6 +1,6 @@
 <template>
   <view class="bar-item" @tap="(e) => handleDelete(e)"
-    ><image class="icon" src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/JABPLIME-1666754579994delete.png" />
+    ><image class="icon" src="@/assets/images/project/delete.png" />
     删除</view
   >
 </template>
@@ -8,7 +8,7 @@
 import Taro from '@tarojs/taro';
 import { useAttrs } from 'vue';
 import { useAccountStore } from '@/stores/account';
-import { IMemo, IMemoItem } from '@/apis/memo/model';
+import type { IMemo, IMemoItem } from '@/apis/memo/model';
 
 const info = useAttrs().itemInfo as IMemo & IMemoItem;
 const store = useAccountStore();

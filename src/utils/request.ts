@@ -71,6 +71,10 @@ requestInstance.interceptors.response.use(
       if(response?.header?.Server==='AliyunOSS'){
         return response.data ; // 正确返回
       }
+      // 阿里云的oss 请求的json
+      if(response?.header?.server==='Tengine'){
+        return response.data ; // 正确返回
+      }
 
       if ((responseData.code as unknown as number) !== 200) {
         log(

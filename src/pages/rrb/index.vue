@@ -74,7 +74,7 @@ definePageConfig({
   enableShareTimeline: true,
 });
 
-const imageSrcBg = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/waterFallRRB/WGG08325.JPG?x-oss-process=image/quality,q_20';
+const imageSrcBg = `${cdnHost}/yunxiaoding-mini/other/waterFallRRB/WGG08325.JPG?x-oss-process=image/quality,q_20`;
 
 const { show, onScroll } = useListScroll();
 const account = useAccountStore();
@@ -135,7 +135,7 @@ const data = reactive({
   password:{
         '001023': '大老婆',
       },
-  svgaUrl: `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
+  svgaUrl: `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
 });
 
 // cbInputBack :1 成功 2失败 3失败上限
