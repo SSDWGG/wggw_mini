@@ -18,6 +18,7 @@ interface IState {
   memoDataList: IMemo[]; // 前端缓存备忘录的数据（列表+详情）
   userInfo: IUserInfo; // 用户信息
   mainMenuList: IListDataItem[]; // 主菜单
+  technicalMenuList: IListDataItem[]; // 技术验证区菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
   rrbMenuList: IListDataItem[]; // rrb主菜单
 }
@@ -84,11 +85,7 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '计分板',
         router: '/pages/scoreboard/index',
       },
-      {
-        title: 'PI',
-        Ctitle: 'π的计算',
-        router: '/pages/pi/index',
-      },
+
       {
         title: 'random',
         Ctitle: '纠结终结者',
@@ -98,6 +95,51 @@ export const useAccountStore = defineStore('account', {
         title: 'reaction rate',
         Ctitle: '速度反应',
         router: '/pages/speedTest/index',
+      },
+      {
+        title: 'Technical',
+        Ctitle: '技术验证',
+        router: '/pages/technical/menu/index',
+      },
+
+
+    ],
+    technicalMenuList:[
+      {
+        title: 'DEV',
+        Ctitle: '修改IP',
+        router: '/pages/technical/_dev/index',
+      },
+      {
+        title: 'PI',
+        Ctitle: 'π的计算',
+        router: '/pages/technical/pi/index',
+      },
+      {
+        title: 'CSS Loaders',
+        Ctitle: '动效css',
+        router: '/pages/technical/cssloaders/index',
+      },
+      {
+        title: 'E-CHART',
+        Ctitle: '图表',
+        router: '/pages/technical/editor/index',
+      },
+
+      {
+        title: 'map',
+        Ctitle: '足迹地图',
+        router: '/pages/technical/map/index',
+      },
+      {
+        title: 'mall',
+        Ctitle: '通用商城',
+        router: '/pages/technical/mall/index',
+      },
+      {
+        title: 'bluetooth',
+        Ctitle: '蓝牙检测',
+        router: '/pages/technical/bluetooth/index',
       },
     ],
     rrbMenuList:[

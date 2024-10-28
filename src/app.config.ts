@@ -4,7 +4,6 @@ export default defineAppConfig({
   pages: ['pages/index/index', 'pages/menu/index'],
   subpackages: [
     // 正式环境ip 则不展示切换ip
-    // ...(process.env.BUILD_ENV === 'prod' ? [] :[{ root: 'pages/_dev', pages: ['index'] }]),
     { root: 'pages/memo', pages: ['index', 'memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
@@ -15,9 +14,9 @@ export default defineAppConfig({
     { root: 'pages/cxk', pages: ['index/index', 'menu/index', 'cxk/index', 'cxk3/index'] },
     { root: 'pages/time', pages: ['index'] },
     { root: 'pages/rrb', pages: ['index','water-fall/index','water-fall/post/index'] },
-    { root: 'pages/_dev', pages: ['index'] },
     { root: 'pages/test', pages: ['index'] },
-    { root: 'pages/pi', pages: ['index'] },
+        // ...(process.env.BUILD_ENV === 'prod' ? [] :[{ root: 'pages/_dev', pages: ['index'] }]),
+    { root: 'pages/technical', pages: ['pi/index','menu/index','_dev/index','bluetooth/index','cssloaders/index','editor/index','mall/index','map/index'] },
     { root: 'pages/random', pages: ['index'] },
     { root: 'pages/speedTest', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },
