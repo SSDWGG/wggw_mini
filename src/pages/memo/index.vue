@@ -15,6 +15,7 @@ import { Navbar } from '@fishui/taro-vue';
 import { computed } from 'vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import { useShareAppMessage } from '@tarojs/taro';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -30,7 +31,7 @@ const height = computed(() =>
 useShareAppMessage(() => ({
     title: '快来看看人参果小程序吧~',
     path: '/pages/memo/index',
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
+    imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
   }));
 
 </script>

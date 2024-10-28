@@ -110,7 +110,7 @@ const svgaUrlList = [
 const data = reactive({
   showPage: true,
   pageContainerShow: true,
-  svgaUrl:`https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
+  svgaUrl:`${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`
 
 });
 
@@ -123,7 +123,7 @@ const goback = () => {
 
 const onFinsh = ()=>{
 
-const tempUrl= `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
+const tempUrl= `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random()* svgaUrlList.length)]}`;
 // 防止两次随机出同一个整数导致的watch不刷新
 if(data.svgaUrl === tempUrl){
   onFinsh();

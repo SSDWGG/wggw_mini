@@ -10,7 +10,7 @@
         <view v-if="data.info.memoItemType === 1" class="vedio-div">
           <!-- 暂停标记 -->
           <image v-show="data.showFlag"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/FCOMANDD-1666325886772video-play.png"
+            src="@/assets/images/project/vedioPlay.png"
             class="vedio-flag" />
           <!--封面图  防止被快速下滑，需要使用封面图站位因为快速下滑回调不会被执行 -->
           <image v-if="!props.showVedioFlag" :src="data.info.videoPicUrl" class="img" mode="aspectFit"></image>
@@ -41,7 +41,7 @@ import Bottom from '../../Bottom/index.vue';
 import { reactive, watch } from 'vue';
 // @ts-ignore
 import styles from './styles.scss';
-import { IMemo, IMemoItem } from '@/apis/memo/model';
+import type { IMemo, IMemoItem } from '@/apis/memo/model';
 
 const props = defineProps({
   swiperItemInfo: {

@@ -17,7 +17,7 @@
               <view v-for="(resItem, resItemIndex) in item.list" :key="resItemIndex" class="resourceListItem"
                 @tap="toPreview(resItem.memoResId)">
                 <!-- 判断是图片还是视屏，展示封面图 -->
-                <image 
+                <image
                 mode="aspectFit"
                 :src="resItem.memoItemType === 1
                     ? resItem.videoPicUrl
@@ -25,7 +25,7 @@
                   " class="pic" :lazyLoad="true" />
                 <!-- <image :src="resItem.picUrl" class="pic" /> -->
                 <image v-if="resItem.memoItemType === 1" mode="aspectFill" class="vedioFlag" :lazyLoad="true"
-                  src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/other/wggw/vedio-state.png?x-oss-process=image%2Finterlace%2C1%2Fresize%2Cm_mfit%2Cw_50%2Ch_50%2Fquality%2CQ_90" />
+                  src="@/assets/images/project/vedioPlay.png" />
               </view>
             </view>
 
@@ -44,7 +44,7 @@
     </scroll-view>
     <view v-else class="defaultBox">
       <view class="img">
-        <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/default1.png"></image>
+        <image src="@/assets/images/project/emptyDefault.png"></image>
       </view>
       <view class="img tips">快来记录第一个心情吧</view>
     </view>
@@ -59,9 +59,8 @@ import SideBar from '@/components/SideBar/index.vue';
 
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useAccountStore } from '@/stores/account';
-import { useDidShow } from '@tarojs/taro';
+import Taro,{ useDidShow } from '@tarojs/taro';
 import { timelineFormat, timeFormat } from '@/utils/date';
-import Taro from '@tarojs/taro';
 import { getMemoList } from '@/apis/memo';
 import type { IMemo } from '@/apis/memo/model';
 import cloneDeep from 'lodash/cloneDeep';
@@ -76,7 +75,7 @@ const initData = async () => {
     pageSize: 100,
     uid: account.userInfo.openid,
   });
-  
+
   res.forEach((item, index, arr) => {
     item.list = JSON.parse(item.list as unknown as string);
     const beforeItemTime = arr[index - 1]
@@ -118,7 +117,7 @@ const deleteMemo = (memoId: string) => {
   });
 };
 useDidShow(async () => {
-  
+
     initData();
 });
 </script>

@@ -18,7 +18,7 @@
       <view v-if="isPermissionsToWx()" class="infoItem">
         <view class="lable">
           <image class="contactImg"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
+            src="@/assets/images/project/contact.png">
           </image>
           <text>邮箱</text>
         </view>
@@ -31,7 +31,7 @@
       <view v-if="isPermissionsToWx()" class="infoItem">
         <view class="lable">
           <image class="contactImg"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/MLADJHEL-1666324258493contact.png">
+            src="@/assets/images/project/contact.png">
           </image>
           <text>手机号</text>
         </view>
@@ -49,14 +49,14 @@
         <view class="verify">
           <view class="phoneDiv">
             <image class="img"
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/EGPIFCHL-1686036360534phone.png">
+              src="@/assets/images/project/phone.png">
             </image>
             <nut-input v-model="emailPop.emailAccount" placeholder="请输入邮箱" class="input" />
           </view>
           <view class="verifyCode">
             <view class="inputDiv">
               <image class="img"
-                src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/BGHLBMOO-1686036371145v.png" />
+                src="@/assets/images/project/password.png" />
               <nut-input v-model="emailPop.code" placeholder="请输入验证码" type="number" />
             </view>
 
@@ -78,7 +78,7 @@
       :placeholder="normalPop.placeholder"
       :max="normalPop.max"
       @ok="handleNormalPopOK"
-    /> 
+    />
 
   </view>
   <!-- toast提示 -->
@@ -202,7 +202,7 @@ const handleNormalPopOK = debounce(async()=>{
     title: '修改成功',
     duration: 3000,
   });
-  
+
 },3000, { leading: true, trailing: false });
 
 const onChangeNickname = async (nickName: string) => {

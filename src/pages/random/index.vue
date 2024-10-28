@@ -113,6 +113,7 @@ import Taro from '@tarojs/taro';
 import sideBar from '@/components/SideBar/index.vue';
 import { getRandomJson } from '@/apis/mine';
 import bdSystemJson from './randomSystem.json';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -121,12 +122,12 @@ definePageConfig({
 Taro.useShareTimeline(() => ({
     title: '用它来终结你的选择困难症吧~',
     path: '/pages/random/index',
-    imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
+    imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
   }));
   Taro.useShareAppMessage(() => ({
   title: '用它来终结你的选择困难症吧~',
   path: '/pages/random/index',
-  imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
+  imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
 
 const data = reactive({

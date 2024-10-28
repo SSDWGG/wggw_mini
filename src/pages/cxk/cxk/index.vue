@@ -50,19 +50,19 @@
   const innerAudioContext = Taro.createInnerAudioContext();
   const cxkMusicsList = [
     {
-      src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/APENDBMF-1679390216522j.mp3',
+      src: `${cdnHost+ossFilePrePath}/APENDBMF-1679390216522j.mp3`,
       text: '!ji!',
     },
     {
-      src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/PEELADIA-1679390220050ngm.mp3',
+      src: `${cdnHost+ossFilePrePath}/PEELADIA-1679390220050ngm.mp3`,
       text: '你干嘛~哎呦~',
     },
     {
-      src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/KBOAGENL-1679390152917jntm.mp3',
+      src: `${cdnHost+ossFilePrePath}/KBOAGENL-1679390152917jntm.mp3`,
       text: '鸡你太美~',
     },
     {
-      src: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/NFHKMKOK-1679390468478bgm.mp3',
+      src: `${cdnHost+ossFilePrePath}/NFHKMKOK-1679390468478bgm.mp3`,
       text: '唱、跳、rap、篮球',
     },
   ];

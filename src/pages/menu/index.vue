@@ -66,7 +66,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import { computed, reactive, ref } from 'vue';
-import { useShareAppMessage, useShareTimeline, useDidShow, useDidHide } from '@tarojs/taro';
+import Taro,{ useShareAppMessage, useShareTimeline, useDidShow, useDidHide } from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import fullPreview from '@/components/fullPreview/index.vue';
@@ -76,10 +76,8 @@ import commonMenu from '@/components/commonMenu/index.vue';
 import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
 // import svgaPlayComponent from '@/components/svgaPlay/index.vue';
-import Taro from '@tarojs/taro';
-import { socketAllUserUrl } from '@/utils/env';
 import myToastComponents from '@/components/myToast/index.vue';
-import { cdnHost, ossFilePrePath } from '@/utils/env';
+import { cdnHost, ossFilePrePath,socketAllUserUrl } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -139,7 +137,7 @@ const svgaUrlList = [
 ];
 const data = reactive({
   showPage: true,
-  svgaUrl: `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
+  svgaUrl: `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
 });
 
 const h5 =
@@ -207,7 +205,7 @@ if (socketOpen.value === false) {
 }
 
 const onFinsh = () => {
-  const tempUrl = `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`;
+  const tempUrl = `${cdnHost}/yunxiaoding-mini/other/wggSVGA/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`;
   // 防止两次随机出同一个整数导致的watch不刷新
   if (data.svgaUrl === tempUrl) {
     onFinsh();
@@ -225,11 +223,11 @@ useDidHide(() => {
 useShareTimeline(() => ({
   title: '创意空间wggw~',
   path: '/pages/index/index',
-  imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
+  imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
 useShareAppMessage(() => ({
   title: '创意空间wggw~',
   path: '/pages/index/index',
-  imageUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/GKNPEBAA-1678694972749test.jpeg',
+  imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
 </script>

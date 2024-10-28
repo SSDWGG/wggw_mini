@@ -25,7 +25,7 @@ import { useSystemInfoStore } from '@/stores/systemInfo';
 import { getSizeToPx  } from '@/utils/index';
 import { useAccountStore } from '@/stores/account';
 import { reactive,computed} from 'vue';
-import { IMemo, IMemoItem } from '@/apis/memo/model';
+import type { IMemo, IMemoItem } from '@/apis/memo/model';
 
 
 const systemInfo = useSystemInfoStore();
@@ -35,11 +35,11 @@ const top = getSizeToPx((systemInfo.statusBarHeight as number) + 16);
 
 const data = reactive({
   swiperListData:[] as  (IMemo & IMemoItem)[]
-})
+});
 
 const flat = (arr: IMemo[]) => arr.flatMap(i => i.list.map(v => ({...i, ...v})));
  data.swiperListData = computed(() => flat(account.memoDataList)) as any;
- 
+
 definePageConfig({
   backgroundColor: '#000',
 });
