@@ -11,8 +11,8 @@
 
 <br />
 
-[![stars](https://img.shields.io/github/stars/SSDWGG/wggw?style=flat-square&logo=GitHub)](https://github.com/zxwk1998/vue-admin-arco)
-[![license](https://img.shields.io/github/license/SSDWGG/wggw?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
+[![stars](https://img.shields.io/github/stars/SSDWGG/wggw_mini?style=flat-square&logo=GitHub)](https://github.com/zxwk1998/vue-admin-arco)
+[![license](https://img.shields.io/github/license/SSDWGG/wggw_mini?style=flat-square)](https://en.wikipedia.org/wiki/MIT_License)
 
 </div>
 
