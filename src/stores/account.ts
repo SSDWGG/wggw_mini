@@ -106,9 +106,14 @@ export const useAccountStore = defineStore('account', {
     ],
     technicalMenuList:[
       {
-        title: 'DEV',
+        title: 'Dev',
         Ctitle: '修改IP',
         router: '/pages/technical/_dev/index',
+      },
+      {
+        title: 'Time',
+        Ctitle: '计时',
+        router: '/pages/technical/time/index',
       },
       {
         title: 'PI',
@@ -134,7 +139,7 @@ export const useAccountStore = defineStore('account', {
       {
         title: 'mall',
         Ctitle: '通用商城',
-        router: '/pages/technical/mall/index',
+        router: '/pages/technical/mall/shop/index',
       },
       {
         title: 'bluetooth',

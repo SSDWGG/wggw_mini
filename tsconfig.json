@@ -21,6 +21,7 @@
       "@/components/*": ["./src/components/*"],
       "@/stores/*": ["./src/stores/*"],
       "@/utils/*": ["./src/utils/*"],
+      // "@/custom-tab-bar/*": ["./src/custom-tab-bar/*"],
       "@root/project.config.json": ["./project.config.json"],
       "@root/package.json": ["./package.json"],
     },

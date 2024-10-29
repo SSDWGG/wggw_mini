@@ -1,6 +1,12 @@
 <template>
   <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="technical" background-color="#f5f5f9" />
+    <navbar title="technical" background-color="#f5f5f9" >
+      <template #left>
+        <view style="padding: 6px 20px" @tap="goHomePage">
+          <IconFont name="home" size="20" />
+        </view>
+      </template>
+    </navbar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="technical" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
       欢迎来到技术验证专区，需要提醒您该区域极不稳定，建议立即退出，否则做好死机的心理建设，接下来开始验证吧~
@@ -52,7 +58,7 @@ import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import commonMenu from '@/components/commonMenu/index.vue';
 import { useAccountStore } from '@/stores/account';
-// import svgaPlayComponent from '@/components/svgaPlay/index.vue';
+import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { cdnHost, socketAllUserUrl, ossFilePrePathSvga ,ossFilePrePath} from '@/utils/env';
 
@@ -168,6 +174,8 @@ Taro.onSocketMessage((res) => {
   if (JSON.parse(res.data).content === WELCOMECONTENT) {
     // 显示svga动画
     Taro.nextTick(() => {
+      console.log(svgaPlayRef);
+
       svgaPlayRef.value.showSvga();
       svgaPlayRef2.value.showSvga();
     });
@@ -182,6 +190,10 @@ const onFinsh = () => {
   } else {
     data.svgaUrl = tempUrl;
   }
+};
+
+const goHomePage = () => {
+  Taro.switchTab({ url: '/pages/menu/index' });
 };
 
 useDidHide(() => {
