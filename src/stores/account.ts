@@ -139,10 +139,22 @@ export const useAccountStore = defineStore('account', {
     ],
     tooMenuList:[
        // 价值曲线入口
-       {
-        title: 'Value Curve',
-        Ctitle: '价值曲线',
-        router: '/pages/tool/bidding/index',
+
+
+      {
+        title: 'random',
+        Ctitle: '纠结终结者',
+        router: '/pages/tool/random/index',
+      },
+      {
+        title: 'Order Menu',
+        Ctitle: '点菜',
+        router: '/pages/tool/order-menu/index',
+      },
+      {
+        title: 'reaction rate',
+        Ctitle: '速度反应',
+        router: '/pages/tool/speedTest/index',
       },
       {
         title: 'Score Board',
@@ -150,15 +162,11 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/tool/scoreboard/index',
       },
       {
-        title: 'random',
-        Ctitle: '纠结终结者',
-        router: '/pages/tool/random/index',
+        title: 'Value Curve',
+        Ctitle: '价值曲线',
+        router: '/pages/tool/bidding/index',
       },
-      {
-        title: 'reaction rate',
-        Ctitle: '速度反应',
-        router: '/pages/tool/speedTest/index',
-      },
+
     ],
     rrbMenuList:[
       {

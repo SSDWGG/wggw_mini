@@ -1,0 +1,97 @@
+page {
+  // background: rgba(116, 104, 242, .4);
+}
+
+.myContainer {
+  width: 100vw;
+  height: 100vh;
+  font-family: monospace;
+
+  :global {
+
+    .tipTitle {
+      font-size: 16px;
+      font-weight: 500;
+      color: #ff5a19;
+      opacity: .9;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .tipGameR {
+      font-size: 12px;
+      color: rgb(255, 90, 25);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .ganmeCenter {
+      .tip {
+        margin-bottom: 20px;
+        color: rgb(116, 104, 242);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .avater {
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          margin: 3px;
+        }
+      }
+
+      .mySwiper {
+        height: 26px;
+        border-radius: 26px;
+        margin-bottom: 100px;
+        overflow: hidden;
+        // background-color: rgba(255, 255, 255, 0.6);
+        color: #ef4a11;
+
+        .swiper-item {
+          // height: 26px !important;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          font-weight: Regular;
+          line-height: 26px;
+
+          .avater {
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            margin: 3px;
+          }
+        }
+      }
+
+      .gameBtn {
+
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+
+        color: rgb(116, 104, 242);
+      }
+    }
+
+    .tooLowDiv {
+      width: 100vw;
+      height: 25vh;
+      position: fixed;
+      top: 15vh;
+      left: 0;
+      pointer-events: none;
+    }
+  }
+}
