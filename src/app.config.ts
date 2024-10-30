@@ -16,11 +16,24 @@ export default defineAppConfig({
     // ...(process.env.BUILD_ENV === 'prod' ? [] :[{ root: 'pages/_dev', pages: ['index'] }]),
     {
       root: 'pages/technical',
-      pages: ['mall/shop/index', 'mall/mine/index', 'pi/index','time/index', 'menu/index', '_dev/index', 'bluetooth/index', 'cssloaders/index', 'editor/index', 'map/index'],
+      pages: [
+        'mall/shop/index',
+        'mall/mine/index',
+        'pi/index',
+        'time/index',
+        'menu/index',
+        '_dev/index',
+        'bluetooth/index',
+        'cssloaders/index',
+        'editor/index',
+        'map/index',
+      ],
     },
-    { root: 'pages/template-mini', pages: ['menu/index','lpt/shop/index', 'lpt/mine/index', ] },
-    { root: 'pages/tool', pages: ['menu/index','bidding/index','bidding/detail/index','bidding/post/index', 'scoreboard/index','random/index','speedTest/index' ] },
-
+    { root: 'pages/template-mini', pages: ['menu/index', 'lpt/shop/index', 'lpt/mine/index'] },
+    {
+      root: 'pages/tool',
+      pages: ['menu/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index'],
+    },
   ],
   requiredPrivateInfos: [
     // 'chooseLocation',
