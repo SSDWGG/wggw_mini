@@ -19,6 +19,7 @@ interface IState {
   userInfo: IUserInfo; // 用户信息
   mainMenuList: IListDataItem[]; // 主菜单
   technicalMenuList: IListDataItem[]; // 技术验证区菜单
+  templateMiniMenuList: IListDataItem[]; // 小程序模板区菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
   rrbMenuList: IListDataItem[]; // rrb主菜单
 }
@@ -73,13 +74,6 @@ export const useAccountStore = defineStore('account', {
         bgSrc: `${cdnHost}${ossFilePrePath}/BEDKEKCP-1705543014391shakeKun.gif`,
         opacity: 1,
       },
-
-      {
-        title: 'Dev IP',
-        Ctitle: 'DEVIP',
-        router: '/pages/_dev/index',
-        isShow: process.env.BUILD_ENV === 'test',
-      },
       {
         title: 'Score Board',
         Ctitle: '计分板',
@@ -100,6 +94,11 @@ export const useAccountStore = defineStore('account', {
         title: 'Technical',
         Ctitle: '技术验证',
         router: '/pages/technical/menu/index',
+      },
+      {
+        title: 'Template',
+        Ctitle: '小程序模板',
+        router: '/pages/template-mini/menu/index',
       },
 
 
@@ -145,6 +144,13 @@ export const useAccountStore = defineStore('account', {
         title: 'bluetooth',
         Ctitle: '蓝牙检测',
         router: '/pages/technical/bluetooth/index',
+      },
+    ],
+    templateMiniMenuList:[
+      {
+        title: 'LPT',
+        Ctitle: '旅拍通',
+        router: '/pages/template-mini/lpt/shop/index',
       },
     ],
     rrbMenuList:[

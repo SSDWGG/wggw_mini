@@ -19,6 +19,7 @@ export default defineAppConfig({
       root: 'pages/technical',
       pages: ['mall/shop/index', 'mall/mine/index', 'pi/index','time/index', 'menu/index', '_dev/index', 'bluetooth/index', 'cssloaders/index', 'editor/index', 'map/index'],
     },
+    { root: 'pages/template-mini', pages: ['menu/index','lpt/shop/index', 'lpt/mine/index', ] },
     { root: 'pages/random', pages: ['index'] },
     { root: 'pages/speedTest', pages: ['index'] },
     { root: 'pages/scoreboard', pages: ['index'] },
