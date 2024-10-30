@@ -1,0 +1,84 @@
+.myContainer {
+  background-color: #f0f0fa;
+  position: relative;
+
+  :global {
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+
+
+    .scenery{
+      .sceneryDetail{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        image{
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+        }
+        .title{
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+      .moreContent {
+        .title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+          font-weight: 500;
+          font-size: 18px;
+
+          .iconContent {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            font-size: 14px;
+            margin-right: 20px;
+
+            image {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      .scenery {
+        display: flex;
+        overflow-x: scroll;
+        padding: 0 20px;
+
+        .sceneryItem {
+          margin-right: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          padding: 10px;
+
+          .title {
+            font-size: 16px;
+            font-weight: 500;
+          }
+
+          image {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+          }
+
+        }
+      }
+      .richTextContent{
+        margin: 20px;
+        padding-bottom: 50px;
+      }
+    }
+  }
+}

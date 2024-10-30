@@ -2,7 +2,7 @@
   <!-- 内容物 -->
   <scroll-view :class="styles.myContainer" scroll-y="true" @scroll="onScroll">
     <!-- navbar -->
-    <navbar title="mall">
+    <navbar title="shop">
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
@@ -20,9 +20,12 @@
     <nut-noticebar right-icon="circle-close" background="transparent" color="#000" :speed="35">
       {{ data.noticebarContent }}
     </nut-noticebar>
-
+    <view class="menuContent">
+      <view class="item vistor" @tap="toVistor"> 游客照片 </view>
+      <view class="item photographer" @tap="toPhotographer"> 摄影师核销 </view>
+    </view>
     <view class="moreContent">
-      <view class="title">
+      <view class="title" @tap="moreScenery">
         <view class="txt"> 景点展示 </view>
         <view class="iconContent">
           更多
@@ -31,7 +34,7 @@
       </view>
 
       <view class="moreMain scenery">
-        <nut-cell v-for="(item, index) in data.sceneryItemList" :key="index" class="sceneryItem">
+        <nut-cell v-for="(item, index) in data.sceneryItemList" :key="index" class="sceneryItem" @tap="toSceneryDetail(item.id)">
           <image :src="imgHostLpt + '/' + item.pic" />
           <view class="title">
             {{ item.name }}
@@ -39,13 +42,16 @@
         </nut-cell>
       </view>
     </view>
-    <view class="menuContent">
-      <view class="item vistor"> 游客照片 </view>
-      <view class="item photographer"> 摄影师核销 </view>
-    </view>
 
     <view class="moreContent">
-      <view class="title">
+      <view
+        class="title"
+        @tap="
+          () => {
+            Taro.navigateTo({ url: '/pages/template-mini/lpt/ticket/index' });
+          }
+        "
+      >
         <view class="txt"> 拍照服务 </view>
         <view class="iconContent">
           更多
@@ -141,6 +147,18 @@ const data = reactive({
   descHtml: '',
 });
 
+const toVistor = () => {
+  Taro.navigateTo({ url: '/pages/template-mini/lpt/visitor/index' });
+};
+
+const toPhotographer = () => {
+  myToast.value.myToastShow({
+    icon: 'success',
+    title: '演示模式~~~',
+    duration: 3000,
+  });
+};
+
 const goHomePage = () => {
   Taro.redirectTo({ url: '/pages/template-mini/menu/index' });
 };
@@ -232,16 +250,24 @@ const clickBtnOperate = debounce(
   () => {
     myToast.value.myToastShow({
       icon: 'success',
-      title: '支付成功~~~',
+      title: '支付成功~',
       duration: 3000,
     });
     setTimeout(() => {
-      // Taro.redirectTo({ url: '/pages/order/index' });
+      data.customStepper = false;
     }, 2000);
   },
   3000,
   { leading: true, trailing: false },
 );
+
+const moreScenery = () => {
+  Taro.navigateTo({ url: '/pages/template-mini/lpt/scenery-item-list/index' });
+};
+
+const toSceneryDetail = (id) => {
+  Taro.navigateTo({ url: `/pages/template-mini/lpt/scenery-item-detail/index?id=${id}` });
+};
 
 useDidShow(() => {
   // 获取景点列表

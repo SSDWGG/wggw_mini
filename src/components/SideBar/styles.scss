@@ -1,7 +1,7 @@
 .container {
   position: fixed;
   bottom: 90px;
-  right: -24px;
+  right: -44px;
   z-index: 999;
   transition: right .3s ease;
 
@@ -11,8 +11,8 @@
 
   :global {
     .icon {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       display: block;
 
       +.icon {

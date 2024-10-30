@@ -23,6 +23,8 @@ interface IState {
   tooMenuList: IListDataItem[]; // 工具区菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
   rrbMenuList: IListDataItem[]; // rrb主菜单
+  vistorDataList: IMemo[]; // 前端缓存备忘录的数据（列表+详情）
+
 }
 
 export const useAccountStore = defineStore('account', {
@@ -224,6 +226,7 @@ export const useAccountStore = defineStore('account', {
     editBinddingData: {} as IBiddingItem,
     templeChoosePostList: [],
     memoDataList: [],
+    vistorDataList: [],
   }),
   actions: {
     async bindPhone(phoneCode) {

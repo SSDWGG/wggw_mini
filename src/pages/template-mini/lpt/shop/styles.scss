@@ -112,7 +112,6 @@ page {
     }
 
     .moreContent {
-      padding-bottom: 50px;
 
       .title {
         display: flex;
@@ -166,6 +165,8 @@ page {
     }
 
     .prodList {
+      padding-bottom: 50px;
+
       .prod {
         padding: 10px;
         display: flex;

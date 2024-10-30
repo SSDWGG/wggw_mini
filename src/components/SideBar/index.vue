@@ -15,7 +15,7 @@ import MineButton from './mine-button.vue';
 import BiddingButton from './bidding-button.vue';
 import BiddingLineButton from './biddingLine-button.vue';
 import ImgPostButton from './img-post-button.vue';
-
+import DownloadAll from './download-all.vue';
 import { computed } from 'vue';
 
 interface IProps {
@@ -40,6 +40,7 @@ const buttonComponentType = {
   7: BiddingButton,
   8: BiddingLineButton,
   9:ImgPostButton,
+  11: DownloadAll,
 };
 
 const buttonComponents = computed(() => props.showFlags.map((num: number) => buttonComponentType[num]));

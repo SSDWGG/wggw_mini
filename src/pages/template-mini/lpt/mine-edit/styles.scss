@@ -1,0 +1,211 @@
+.myContainer {
+  background-color: #f0f0fa;
+  position: relative;
+
+  :global {
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+
+    .head {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0 ;
+
+      &>image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px dashed #7468F2;
+      }
+      .headText{
+        margin: 15px 0 5px 0;
+        color: #7468F2;
+        opacity: .3;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .mark1 {
+      width: 100%;
+      top: 50px;
+    }
+
+
+    .info {
+      font-size: 16px;
+      padding: 0 25px;
+
+      .infoItem {
+        display: flex;
+        margin: 20px 0;
+        color: #333333;
+
+        .lable {
+          color: #666666;
+          font-size: 16px;
+          width: 100px;
+          text-align: right;
+          font-weight: Regular;
+        }
+
+        .content {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          font-weight: 500;
+          color: #7468F2;
+          margin-right: 30px;
+          margin-left: 8px;
+
+          .nut-input {
+            padding: 0;
+            background-color: transparent;
+
+            .input-text {
+              font-size: 16px;
+
+              width: 100%;
+            }
+          }
+        }
+
+      }
+
+  
+      .contactImg {
+        width: 38rpx;
+        height: 34rpx;
+        margin-right: 4px;
+      }
+
+      .phoneImg {
+        flex: 0 0 auto;
+        margin-left: 8px;
+        width: 16px;
+        height: 16px;
+      }
+
+
+      .popoverImg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .popoverTextDiv {
+        width: 130px;
+        font-size: 10px;
+        font-weight: Regular;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 18px;
+
+      }
+
+      .nut-popover-taro .popover-content--bottom .popover-arrow {
+        margin-top: -9rpx;
+      }
+
+      .popover-menu {
+        border-radius: 18px;
+      }
+    }
+    .verify{
+      width: 100%;
+      box-sizing: border-box;
+      .phoneDiv{
+        margin-bottom: 20px;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+
+        .img{
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          z-index: 1;
+          left: 10px;
+          top: 6px;
+        }
+        .nut-input{
+          width: 100%;
+        }
+        .nut-input-value .nut-input-inner .input-text{
+          text-align: left !important;
+
+        }
+        
+      }
+      .verifyCode{
+        display: flex;
+        .inputDiv{
+          flex: 1;
+          margin-right: 12px;
+          position: relative;
+          .nut-input{
+            border-radius: 8px;
+          }
+          .img{
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            z-index: 1;
+            left: 10px;
+            top: 6px;
+          }
+        }
+        .getCodeBtn{
+          width: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          color: #7468F2;
+          font-size: 14px;
+          border: 1px solid #DCD5FF;
+          border-radius: 8px;
+        }
+      }
+       .icon{
+        position: absolute;
+        z-index: 11;
+        top: 11px;
+        left: 10px;
+      }
+      .nut-input-border{
+        border: 1px solid #DCD5FF;
+        border-radius: 8px;
+        padding-left: 30px;
+        .input-text{
+          font-size: 16px;
+        }
+
+      }
+
+      .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 320px;
+        margin-top: 40px;
+        font-weight: 500;
+        color: #fff;
+        height: 40px;
+        font-size: 16px;
+        box-shadow: 0 2px 11px 0px #979AEC;
+        background: linear-gradient(to right , #ACA1FA , #7468F2) ;
+        border-radius: 19px;
+      }
+      .disabled{
+        opacity: .6;
+      }
+    }
+
+  }
+}

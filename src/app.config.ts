@@ -29,7 +29,21 @@ export default defineAppConfig({
         'map/index',
       ],
     },
-    { root: 'pages/template-mini', pages: ['menu/index', 'lpt/shop/index', 'lpt/mine/index'] },
+    {
+      root: 'pages/template-mini',
+      pages: [
+        'menu/index',
+        'lpt/shop/index',
+        'lpt/mine/index',
+        'lpt/mine-edit/index',
+        'lpt/order/index',
+        'lpt/scenery-item-list/index',
+        'lpt/scenery-item-detail/index',
+        'lpt/ticket/index',
+        'lpt/visitor/index',
+        'lpt/preview/index',
+      ],
+    },
     {
       root: 'pages/tool',
       pages: ['menu/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index'],
