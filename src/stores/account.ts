@@ -20,6 +20,7 @@ interface IState {
   mainMenuList: IListDataItem[]; // 主菜单
   technicalMenuList: IListDataItem[]; // 技术验证区菜单
   templateMiniMenuList: IListDataItem[]; // 小程序模板区菜单
+  tooMenuList: IListDataItem[]; // 工具区菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
   rrbMenuList: IListDataItem[]; // rrb主菜单
 }
@@ -59,13 +60,6 @@ export const useAccountStore = defineStore('account', {
         Ctitle: 'RRB',
         router: '/pages/rrb/index',
       },
-
-      // 价值曲线入口
-      {
-        title: 'Value Curve',
-        Ctitle: '价值曲线',
-        router: '/pages/bidding/index',
-      },
       // 娱乐区入口
       {
         title: 'ikun',
@@ -74,34 +68,22 @@ export const useAccountStore = defineStore('account', {
         bgSrc: `${cdnHost}${ossFilePrePath}/BEDKEKCP-1705543014391shakeKun.gif`,
         opacity: 1,
       },
-      {
-        title: 'Score Board',
-        Ctitle: '计分板',
-        router: '/pages/scoreboard/index',
-      },
 
-      {
-        title: 'random',
-        Ctitle: '纠结终结者',
-        router: '/pages/random/index',
-      },
-      {
-        title: 'reaction rate',
-        Ctitle: '速度反应',
-        router: '/pages/speedTest/index',
-      },
       {
         title: 'Technical',
         Ctitle: '技术验证',
         router: '/pages/technical/menu/index',
       },
       {
+        title: 'Tool',
+        Ctitle: '工具',
+        router: '/pages/tool/menu/index',
+      },
+      {
         title: 'Template',
         Ctitle: '小程序模板',
         router: '/pages/template-mini/menu/index',
       },
-
-
     ],
     technicalMenuList:[
       {
@@ -151,6 +133,29 @@ export const useAccountStore = defineStore('account', {
         title: 'LPT',
         Ctitle: '旅拍通',
         router: '/pages/template-mini/lpt/shop/index',
+      },
+    ],
+    tooMenuList:[
+       // 价值曲线入口
+       {
+        title: 'Value Curve',
+        Ctitle: '价值曲线',
+        router: '/pages/tool/bidding/index',
+      },
+      {
+        title: 'Score Board',
+        Ctitle: '计分板',
+        router: '/pages/tool/scoreboard/index',
+      },
+      {
+        title: 'random',
+        Ctitle: '纠结终结者',
+        router: '/pages/tool/random/index',
+      },
+      {
+        title: 'reaction rate',
+        Ctitle: '速度反应',
+        router: '/pages/tool/speedTest/index',
       },
     ],
     rrbMenuList:[

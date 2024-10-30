@@ -9,7 +9,7 @@
 
     <view class="btnGroup">
       <!-- 发表按钮 -->
-      <nut-animate type="breath" class="rule-button-div" loop v-if="pageData.tableData.length > 0">
+      <nut-animate v-if="pageData.tableData.length > 0" type="breath" class="rule-button-div" loop>
         <nut-button block type="primary" class="publish" @tap="pageData.startGame = true">开启下一轮计分</nut-button>
       </nut-animate>
       <!-- 添加参赛人员 -->
@@ -29,8 +29,8 @@
       v-model:inputValue="pageData.gameStr"
       title="添加本场比赛结果"
       placeholder="添加本场比赛结果"
-      @ok="handleOkGame"
       :max="1000"
+      @ok="handleOkGame"
     >
       <template #contentBottom>
         <view class="popTip">
@@ -46,8 +46,8 @@
       v-model:inputValue="pageData.personStr"
       title="添加比赛参与人员"
       placeholder="添加比赛参与人员"
-      @ok="handleOkPerson"
       :max="1000"
+      @ok="handleOkPerson"
     >
       <template #contentBottom>
         <view class="popTip">
@@ -98,15 +98,13 @@ const pageData = reactive({
       align: 'center',
       stylehead: 'font-size:20px;color:#7468F2;font-weight:bolder;',
       stylecolumn: 'font-size:20px;color:#7468F2;',
-      render: (record) => {
-        return h(
+      render: (record) => h(
           'span',
           {
             onClick: () => initMultiBarChart(record),
           },
           record.name,
-        );
-      },
+        ),
     },
     {
       title: '历史得分',
@@ -114,8 +112,7 @@ const pageData = reactive({
       align: 'center',
       stylehead: 'font-size:20px;color:#7468F2;font-weight:bolder;',
       stylecolumn: 'font-size:20px;color:#7468F2;',
-      render: (record) => {
-        return h(
+      render: (record) => h(
           'span',
           {
             onClick: () => initMultiBarChart(record),
@@ -126,8 +123,7 @@ const pageData = reactive({
                 .join('+')
                 .slice(-5)}`
             : 0,
-        );
-      },
+        ),
     },
     {
       title: '总得分',
@@ -135,18 +131,14 @@ const pageData = reactive({
       align: 'center',
       stylehead: 'font-size:20px;color:#7468F2;font-weight:bolder;',
       stylecolumn: 'font-size:20px;color:#7468F2;',
-      render: (record) => {
-        return h(
+      render: (record) => h(
           'span',
           {
             onClick: () => initMultiBarChart(record),
           },
           record.all ?? 0,
-        );
-      },
-      sorter: (row1: any, row2: any) => {
-        return row2.all - row1.all;
-      },
+        ),
+      sorter: (row1: any, row2: any) => row2.all - row1.all,
     },
   ],
   tableData: [] as Array<ITableItem>,
@@ -159,7 +151,7 @@ const computedAllNumData = () => {
   pageData.tableData.forEach((item) => {
     const stepArr = cloneDeep(item.step) as any;
     item.all = stepArr.reduce((pre, cur) => {
-      cur.count = Number(!!pre ? pre.count : 0) + Number(cur.count);
+      cur.count = Number(pre ? pre.count : 0) + Number(cur.count);
       return cur;
     }, 0).count;
   });
@@ -206,19 +198,19 @@ const initMultiBarChart = (recordData: ITableItem) => {
         margin: 4,
         formatter: function (value) {
           if (value >= 1000 && value < 10000) {
-            value = value / 1000 + '千';
+            value = `${value / 1000  }千`;
           } else if (value >= 10000 && value < 10000000) {
-            value = value / 10000 + '万';
+            value = `${value / 10000  }万`;
           } else if (value >= 10000000) {
-            value = value / 10000000 + '千万';
+            value = `${value / 10000000  }千万`;
           }
 
           if (value <= -1000 && value > -10000) {
-            value = value / 1000 + '千';
+            value = `${value / 1000  }千`;
           } else if (value <= -10000 && value > -10000000) {
-            value = value / 10000 + '万';
+            value = `${value / 10000  }万`;
           } else if (value <= -10000000) {
-            value = value / 10000000 + '千万';
+            value = `${value / 10000000  }千万`;
           }
           return value;
         },
@@ -241,7 +233,7 @@ const initMultiBarChart = (recordData: ITableItem) => {
 
   let cumulativeSum = 0;
   option.series[0].data = option.series[0].data.map((count) => (cumulativeSum += count));
-  option.title[0].text = recordData.name + '的总得分线';
+  option.title[0].text = `${recordData.name  }的总得分线`;
   Taro.nextTick(() => {
     barChat.value.refresh(option);
   });
@@ -260,14 +252,14 @@ const handleOkGame = () => {
     });
     computedAllNumData();
     pageData.gameStr = '';
-    const params = !!pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
+    const params = pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
     initMultiBarChart(params);
     computedStepLineList();
     Taro.setStorageSync('wggw-scoreboard-tableData', pageData.tableData);
   } else {
     myToast.value.myToastShow({
       icon: 'error',
-      title: `当前参赛人${pageData.tableData.length}个，本次输入数据${!!resList ? resList.length : 0}个，请检查！`,
+      title: `当前参赛人${pageData.tableData.length}个，本次输入数据${resList ? resList.length : 0}个，请检查！`,
       duration: 3000,
     });
   }
@@ -283,10 +275,10 @@ const handleOkPerson = () => {
   }
 
   pageData.personStr.split('+').forEach((item) => {
-    if (!!item) {
+    if (item) {
       const stepAdd = [] as any;
       // 如果是中途入赛
-      if (!!pageData.tableData[0]) {
+      if (pageData.tableData[0]) {
         pageData.tableData[0].step.forEach((item) => {
           stepAdd.push({
             setNum: item.setNum,
@@ -312,14 +304,14 @@ const initPage = () => {
   // 存在且非空
   if (!!lsTbleData && lsTbleData.length > 0) {
     Taro.showModal({
-      content: `是否进行记录未结束的记录？`,
+      content: '是否进行记录未结束的记录？',
       cancelColor: '#999999',
       confirmColor: '#7468F2 ',
       confirmText: '继续记录',
       success: async (res) => {
         if (res.confirm) {
           pageData.tableData = lsTbleData;
-          const params = !!pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
+          const params = pageData.showOneId ? (pageData.tableData.find((item) => item.id === pageData.showOneId) as ITableItem) : pageData.tableData[0];
           initMultiBarChart(params);
           computedStepLineList();
         }

@@ -1,18 +1,18 @@
 <template>
   <scroll-view  :class="styles.myContainer" class="pageIn" scroll-y="true" >
-    <navbar title="小程序模板" background-color="#f5f5f9" >
+    <navbar title="tool" background-color="#f5f5f9" >
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
     </navbar>
-    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="小程序模板" />
+    <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="tool" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
-      欢迎来到小程序模板专区，以下是我们目前开发的小程序模板，可以帮助您快速的建立一个小程序
+      欢迎来到工具专区，以下是一些有趣、实用的工具
     </nut-noticebar>
 
-    <commonMenu :height="height" :listData="account.templateMiniMenuList"></commonMenu>
+    <commonMenu :height="height" :listData="account.tooMenuList"></commonMenu>
 
   </scroll-view>
   <!-- toast提示 -->
@@ -54,12 +54,12 @@ const goHomePage = () => {
 
 useShareTimeline(() => ({
   title: '人参果小程序模板空间',
-  path: '/pages/template-mini/index',
+  path: '/pages/tool/index',
   imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
 useShareAppMessage(() => ({
   title: '人参果小程序模板空间',
-  path: '/pages/template-mini/index',
+  path: '/pages/tool/index',
   imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
 </script>

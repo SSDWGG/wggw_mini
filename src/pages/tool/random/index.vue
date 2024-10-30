@@ -1,5 +1,12 @@
 <template>
-  <navbar title="纠结终结者" background-color="transparent" />
+  <navbar title="纠结终结者" background-color="transparent" >
+
+    <template  #left>
+        <view style="padding: 6px 20px" @tap="goHomePage">
+          <IconFont name="home" size="20" />
+        </view>
+      </template>
+  </navbar>
   <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="迷茫的不是选项，而是你的内心对吗？" />
 
   <view :class="styles.editor">
@@ -112,12 +119,12 @@ definePageConfig({
 });
 Taro.useShareTimeline(() => ({
   title: '用它来终结你的选择困难症吧~',
-  path: '/pages/random/index',
+  path: '/pages/tool/random/index',
   imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
 Taro.useShareAppMessage(() => ({
   title: '用它来终结你的选择困难症吧~',
-  path: '/pages/random/index',
+  path: '/pages/tool/random/index',
   imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
 
@@ -248,5 +255,9 @@ const cbLucky = (par, go) => {
 
 const cbLuckyChild = (par) => {
   data.result = `${data.result}-${par.name}`;
+};
+
+const goHomePage = () => {
+  Taro.redirectTo({ url: '/pages/tool/menu/index' });
 };
 </script>

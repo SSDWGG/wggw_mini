@@ -10,7 +10,6 @@ export default defineAppConfig({
     { root: 'pages/going', pages: ['index'] },
     { root: 'pages/webViewPage', pages: ['index'] },
     { root: 'pages/mine', pages: ['index'] },
-    { root: 'pages/bidding', pages: ['index', 'detail/index', 'post/index'] },
     { root: 'pages/cxk', pages: ['index/index', 'menu/index', 'cxk/index', 'cxk3/index'] },
     { root: 'pages/rrb', pages: ['index', 'water-fall/index', 'water-fall/post/index'] },
     { root: 'pages/test', pages: ['index'] },
@@ -20,9 +19,8 @@ export default defineAppConfig({
       pages: ['mall/shop/index', 'mall/mine/index', 'pi/index','time/index', 'menu/index', '_dev/index', 'bluetooth/index', 'cssloaders/index', 'editor/index', 'map/index'],
     },
     { root: 'pages/template-mini', pages: ['menu/index','lpt/shop/index', 'lpt/mine/index', ] },
-    { root: 'pages/random', pages: ['index'] },
-    { root: 'pages/speedTest', pages: ['index'] },
-    { root: 'pages/scoreboard', pages: ['index'] },
+    { root: 'pages/tool', pages: ['menu/index','bidding/index','bidding/detail/index','bidding/post/index', 'scoreboard/index','random/index','speedTest/index' ] },
+
   ],
   requiredPrivateInfos: [
     // 'chooseLocation',

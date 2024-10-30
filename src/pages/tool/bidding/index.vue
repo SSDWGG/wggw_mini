@@ -5,7 +5,6 @@
     <view class="tipTitle">
       以下标的价值几何？
     </view>
-    <!-- 维护坤坤节目列表 -->
     <view class="menu" :style="{ height }">
       <view v-for="item in data.biddingDefaultList" :key="item.shopId" class="menu-item" @tap="open(item)">
         <view class="title">
@@ -14,7 +13,7 @@
         <image class="bgImg" mode="aspectFill" :src="(item.imgSrc as any)[0]?.picUrl" />
       </view>
     </view>
-    <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/bidding/post/index?type=image`})" :showFlags="[7]" />
+    <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/tool/bidding/post/index?type=image`})" :showFlags="[7]" />
   </scroll-view>
   <view v-else :class="styles.emptyContainer">
     <navbar title="感谢关注" />
@@ -55,7 +54,7 @@ useDidShow(async () => {
   });
 
   data.biddingDefaultList =  res;
-  
+
 });
 
 const height = computed(
@@ -65,7 +64,7 @@ const height = computed(
 
 const open = (item) => {
   Taro.navigateTo({
-    url: `/pages/bidding/detail/index?shopId=${item.shopId}`,
+    url: `/pages/tool/bidding/detail/index?shopId=${item.shopId}`,
   });
 };
 </script>

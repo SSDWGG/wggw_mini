@@ -94,6 +94,7 @@ import 'dayjs/locale/zh-cn';
 import { changeLongStr } from '@/utils/index';
 import imgDefaultSrc from '@/assets/images/project/rabbit.png';
 import { cdnHost,ossFilePrePathSvga } from '@/utils/env';
+import Taro from '@tarojs/taro';
 
 dayjs.locale('zh-cn');
 dayjs.extend(relativeTime);
@@ -254,16 +255,16 @@ onUnmounted(() => {
 
 useShareTimeline(() => ({
   title: '来WGGW比比谁的手速更快',
-  path: '/pages/speedTest/index?isShare=true',
+  path: '/pages/tool/speedTest/index?isShare=true',
   imageUrl: imgDefaultSrc,
 }));
 useShareAppMessage(() => ({
   title: '来WGGW比比谁的手速更快',
-  path: '/pages/speedTest/index?isShare=true',
+  path: '/pages/tool/speedTest/index?isShare=true',
   imageUrl: imgDefaultSrc,
 }));
 
 const goHomePage = () => {
-  switchTab({ url: '/pages/index/index' });
+  Taro.redirectTo({ url: '/pages/tool/menu/index' });
 };
 </script>
