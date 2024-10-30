@@ -69,7 +69,7 @@ import { useAccountStore } from '@/stores/account';
 import type { IPriceLineItem } from '@/apis/kunChart/model';
 import myToastComponents from '@/components/myToast/index.vue';
 import { debounce } from 'lodash';
-import { cdnHost,ossFilePrePath } from '@/utils/env';
+import { cdnHost, ossFilePrePath } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -101,7 +101,8 @@ const handlebj = debounce(
     if (chooseItem.value.isKun) {
       myToast.value.myToastShow({
         icon: 'error',
-        title: '坤之守护大笑着现身，“没有人可以定义我坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何定义，但坤会损失912.5点价值’，随后坤之守护渐渐消失。 ',
+        title:
+          '坤之守护大笑着现身，“没有人可以定义我坤！老天爷也不行！” 随后发动技能 ‘无懈可击：不接受其余人任何定义，但坤会损失912.5点价值’，随后坤之守护渐渐消失。 ',
         duration: 5000,
       });
       await addKunChartLine({
@@ -126,7 +127,7 @@ const init = async () => {
 
   getKunCharOne({ shopId: router.params.shopId as string }).then((res) => {
     chooseItem.value = res;
-    pageTitle.value = `${changeLongStr(chooseItem.value.title, 6)  }价格`;
+    pageTitle.value = `${changeLongStr(chooseItem.value.title, 6)}价格`;
     chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc);
   });
 };
@@ -148,15 +149,15 @@ const handlePopOK = async () => {
 };
 
 useShareTimeline(() => ({
-    title: '~WGGW~',
-    path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
-    imageUrl:  `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
-  }));
+  title: '~WGGW~',
+  path: `/pages/tool/bidding/detail/index?shopId=${router.params.shopId}&isShare=true`,
+  imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
+}));
 useShareAppMessage(() => ({
-    title: '~WGGW~',
-    path: `/pages/bidding/detail/index?shopId=${router.params.shopId}`,
-    imageUrl:  `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
-  }));
+  title: '~WGGW~',
+  path: `/pages/tool/bidding/detail/index?shopId=${router.params.shopId}&isShare=true`,
+  imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
+}));
 const goHomePage = () => {
   switchTab({ url: '/pages/index/index' });
 };
