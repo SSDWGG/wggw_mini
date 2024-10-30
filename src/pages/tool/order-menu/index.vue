@@ -1,6 +1,6 @@
 <template>
-  <scroll-view :class="styles.myContainer"  scroll-y="true" >
-    <navbar title="菜单" >
+  <scroll-view :class="styles.myContainer" scroll-y="true">
+    <navbar title="菜单">
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
@@ -57,19 +57,10 @@ onMounted(() => {
 });
 
 const getData = () => {
-  console.log(categoryData);
-
-  // fetch('//storage.360buyimg.com/nutui/3x/categoryData.js')
-  //   .then((response) => response.json())
-  //   .then((res) => {
-  //     console.log(res);
-
-      const { categoryInfo, categoryChild } = categoryData;
-      data.categoryInfo = categoryInfo;
-      data.category = categoryInfo.category;
-      data.categoryChild = categoryChild;
-  //   })
-  //   .catch((err) => console.log('Oh, error', err));
+  const { categoryInfo, categoryChild } = categoryData;
+  data.categoryInfo = categoryInfo;
+  data.category = categoryInfo.category;
+  data.categoryChild = categoryChild;
 };
 
 const change = (index) => {
