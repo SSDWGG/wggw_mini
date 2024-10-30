@@ -9,13 +9,13 @@ import icon2active from '@/assets/images/tabbar/icon-tabbar-mine-active.png';
 export const tabList: Taro.TabBarItem[] = [
 
   {
-    pagePath: 'pages/technical/mall/shop/index',
+    pagePath: 'pages/template-mini/lpt/shop/index',
     text: '商城',
     iconPath: icon1,
     selectedIconPath: icon1active,
   },
   {
-    pagePath: 'pages/technical/mall/mine/index',
+    pagePath: 'pages/template-mini/lpt/mine/index',
     text: '个人中心',
     iconPath: icon2,
     selectedIconPath:icon2active,
@@ -24,7 +24,7 @@ export const tabList: Taro.TabBarItem[] = [
 
 export const useTabBarStore = defineStore('tabbar', {
   state: () => ({
-    selected: -1,
+    selected: 0,
     visible: true,
     tabList: tabList,
     isWatching: false, // 辅助工具变量，内部使用
