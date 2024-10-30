@@ -27,15 +27,15 @@ export default defineAppConfig({
     // 'chooseLocation',
     // 'choosePoi',
     // 'chooseAddress',
-    // 'getLocation',
+    'getLocation',
     // 'onLocationChange',
     // 'startLocationUpdate',
     // 'startLocationUpdateBackground',
   ],
   permission: {
-    // 'scope.userLocation': {
-    //   desc: '你的位置信息将用于小程序位置接口的效果展示',
-    // },
+    'scope.userLocation': {
+      desc: '你的位置信息将用于小程序内地图功能的位置效果展示',
+    },
   },
   requiredBackgroundModes: ['audio'],
   window: {

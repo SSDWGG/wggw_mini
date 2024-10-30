@@ -6,6 +6,7 @@ interface IEnvConfig {
   ossFilePrePathSvga: string; // oss图片展示拼接地址(svga)
   ossFilePrePathNormalWaterFall: string; // oss图片展示拼接地址(svga)
   baseApi: string; // https domain
+  baseApiLpt: string; // lpt https domain
   socketAllUserUrl: string; // socket
 };
 
@@ -17,6 +18,7 @@ export const allConfigs: { [K in BUILD_ENV as string] : IEnvConfig } = {
     ossFilePrePathNormalWaterFall: '/yunxiaoding-mini/other/waterFall',
     ossFilePrePathSvga: '/yunxiaoding-mini/other/wggSVGA',
     baseApi: 'http://localhost:9060',
+    baseApiLpt: 'https://lpt.wuchuangroup.com/w/m/v1',
     socketAllUserUrl:'ws://localhost:9060/v1/ws/publicWS/'
   },
   prod: {
@@ -26,6 +28,7 @@ export const allConfigs: { [K in BUILD_ENV as string] : IEnvConfig } = {
     ossFilePrePathNormalWaterFall: '/yunxiaoding-mini/other/waterFall',
     ossFilePrePathSvga: '/yunxiaoding-mini/other/wggSVGA',
     baseApi: 'https://allsever.ssdwgg.cn',
+    baseApiLpt: 'https://lpt.wuchuangroup.com/w/m/v1',
     // https自动会转换成wss
     socketAllUserUrl:'wss://allsever.ssdwgg.cn/v1/ws/publicWS/'
   },
@@ -36,6 +39,7 @@ export const config = allConfigs[process.env.BUILD_ENV as string] ||
 
 export const cdnHost = config.cdnHost;
 export const baseApi = config.baseApi;
+export const baseApiLpt = config.baseApiLpt;
 export const ossFilePrePath = config.ossFilePrePath;
 export const ossFilePrePathRrb = config.ossFilePrePathRrb;
 export const ossFilePrePathSvga = config.ossFilePrePathSvga;
