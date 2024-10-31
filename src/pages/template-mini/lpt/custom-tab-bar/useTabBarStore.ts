@@ -22,7 +22,7 @@ export const tabList: Taro.TabBarItem[] = [
   },
 ];
 
-export const useTabBarStore = defineStore('tabbar', {
+export const useTabBarStore = defineStore('tabbarLpt', {
   state: () => ({
     selected: 0,
     visible: true,

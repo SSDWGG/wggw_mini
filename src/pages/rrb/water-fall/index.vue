@@ -1,5 +1,11 @@
 <template>
-  <navbar v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe" />
+  <navbar v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe">
+    <template v-if="!!router.params.isShare" #left>
+      <view style="padding: 6px 20px" @tap="goback">
+        <IconFont name="home" size="20" />
+      </view>
+    </template>
+  </navbar>
   <!-- :style="{ height:normalHeight}" -->
 
   <view :class="styles.waterfall" @scroll="onScroll">
@@ -17,11 +23,11 @@ import { reactive } from 'vue';
 // import { useSystemInfoStore } from '@/stores/systemInfo';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import sideBar from '@/components/SideBar/index.vue';
-import { useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 import { getImgListByTuser } from '@/apis/rrb';
-import { useDidShow } from '@tarojs/taro';
-import Taro from '@tarojs/taro';
-import { cdnHost, ossFilePrePath,ossFilePrePathRrb } from '@/utils/env';
+import { cdnHost, ossFilePrePath, ossFilePrePathRrb } from '@/utils/env';
+import Taro, { useRouter, useDidShow,switchTab ,useShareAppMessage, useShareTimeline } from '@tarojs/taro';
+
+const router = useRouter();
 
 definePageConfig({ backgroundColor: '#f3f3fe', enableShareAppMessage: true, enableShareTimeline: true });
 // waterFallRRB
@@ -82,6 +88,10 @@ const pageData = reactive({
   isPure: false,
 });
 
+const goback = () => {
+  switchTab({ url: '/pages/menu/index' });
+};
+
 const init = async () => {
   Taro.showLoading({
     title: '精彩获取中',
@@ -105,12 +115,12 @@ useDidShow(() => {
 });
 useShareTimeline(() => ({
   title: 'RUNRUNBABY~',
-  path: '/pages/rrb/water-fall/index',
+  path: '/pages/rrb/water-fall/index?isShare=true',
   imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
 }));
 useShareAppMessage(() => ({
   title: 'RUNRUNBABY~',
-  path: '/pages/rrb/water-fall/index',
+  path: '/pages/rrb/water-fall/index?isShare=true',
   imageUrl: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
 }));
 
