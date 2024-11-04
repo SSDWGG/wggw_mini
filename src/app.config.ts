@@ -36,7 +36,7 @@ export default defineAppConfig({
         'lpt/shop/index',
         'lpt/mine/index',
         'lpt/mine-edit/index',
-        'lpt/order/index',
+        // 'lpt/order/index',
         'lpt/scenery-item-list/index',
         'lpt/scenery-item-detail/index',
         'lpt/ticket/index',
