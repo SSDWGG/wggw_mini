@@ -54,6 +54,7 @@ declare module 'vue' {
     NutToast: typeof import('@nutui/nutui-taro')['Toast']
     NutWatermark: typeof import('@nutui/nutui-taro')['Watermark']
     OpenOutLinkTipPop: typeof import('./src/components/pop/openOutLinkTipPop/index.vue')['default']
+    OrderEditButton: typeof import('./src/components/SideBar/order-edit-button.vue')['default']
     PostButton: typeof import('./src/components/SideBar/post-button.vue')['default']
     PostPreList: typeof import('./src/components/postPreList/index.vue')['default']
     RenewOverlay: typeof import('./src/components/homeModal/renewOverlay/index.vue')['default']

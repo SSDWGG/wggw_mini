@@ -46,7 +46,7 @@ export default defineAppConfig({
     },
     {
       root: 'pages/tool',
-      pages: ['menu/index','order-menu/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index'],
+      pages: ['menu/index','order-menu/index','order-menu/edit/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index'],
     },
   ],
   requiredPrivateInfos: [
