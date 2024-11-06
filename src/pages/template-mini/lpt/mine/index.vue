@@ -254,7 +254,12 @@ const editInfo = () => {
   Taro.navigateTo({ url: '/pages/template-mini/lpt/mine-edit/index' });
 };
 const torOrder = (id) => {
-  Taro.navigateTo({ url: `/pages/template-mini/lpt/order/index?id=${id}` });
+  myToast.value.myToastShow({
+          icon: 'success',
+          title: '演示模式，感谢关注',
+          duration: 2000,
+        });
+  // Taro.navigateTo({ url: `/pages/template-mini/lpt/order/index?id=${id}` });
 };
 
 const goHomePage = () => {
@@ -274,7 +279,12 @@ const toMine = () => {
           duration: 2000,
         });
         setTimeout(() => {
-          Taro.redirectTo({ url: '/pages/template-mini/lpt/order/index' });
+          // Taro.redirectTo({ url: '/pages/template-mini/lpt/order/index' });
+          myToast.value.myToastShow({
+          icon: 'success',
+          title: '演示模式，感谢关注',
+          duration: 2000,
+        });
         }, 2000);
       } else {
         myToast.value.myToastShow({

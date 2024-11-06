@@ -1,5 +1,11 @@
 <template>
-  <navbar title="我的记录" background-color="transparent" />
+  <navbar title="我的记录" background-color="transparent" >
+    <template #left>
+        <view style="padding: 6px 20px" @tap="goHomePage">
+          <IconFont name="home" size="20" />
+        </view>
+      </template>
+  </navbar>
   <view :class="styles.memo">
     <view class="content"  :style="{ height }">
      <memo />
@@ -16,6 +22,7 @@ import { computed } from 'vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import { useShareAppMessage } from '@tarojs/taro';
 import { cdnHost,ossFilePrePath } from '@/utils/env';
+import Taro from '@tarojs/taro';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -33,5 +40,9 @@ useShareAppMessage(() => ({
     path: '/pages/memo/index',
     imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
   }));
+
+  const goHomePage = () => {
+  Taro.switchTab({ url: '/pages/menu/index' });
+};
 
 </script>

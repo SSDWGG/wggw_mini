@@ -23,8 +23,10 @@
         :muted="true"
         :enable-progress-gesture="false"
         style="width: 100%"
-        :src="cdnHost + ossFilePrePath + '/OMFHLJDP-17059977997221.mp4'"
+        objectFit="fill"
+        :src="cdnHost + ossFilePrePath + '/032dd063570aee17.mp4'"
       />
+      <!-- OMFHLJDP-17059977997221 -->
     </view>
 
     <commonMenu :height="height" :listData="account.mainMenuList"></commonMenu>
@@ -77,7 +79,7 @@ import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
 // import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import myToastComponents from '@/components/myToast/index.vue';
-import { cdnHost, ossFilePrePath,socketAllUserUrl,ossFilePrePathSvga } from '@/utils/env';
+import { cdnHost, ossFilePrePath,ossFilePrePathSvga } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -140,7 +142,7 @@ const data = reactive({
 });
 
 const h5 =
-  '<h2 style="text-align: center;color: #fff;opacity: .5;"><strong>去创造去改变</strong></h2><h2 style="text-align: center;color: #fff;opacity: .5;"><strong>从想象到现象</strong></h2><h2 style="text-align: center;color: #fff;opacity: .5;"><strong>即刻出发</strong></h2>';
+  '<h2 style="text-align: center;color: #333;opacity: .7;"><strong>去创造去改变</strong></h2><h2 style="text-align: center;color: #333;opacity: .7;"><strong>从想象到现象</strong></h2><h2 style="text-align: center;color: #333;opacity: .7;"><strong>即刻出发</strong></h2>';
 const height = computed(() => `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`);
 
 useDidShow(() => {

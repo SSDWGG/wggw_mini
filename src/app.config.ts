@@ -36,7 +36,7 @@ export default defineAppConfig({
         'lpt/shop/index',
         'lpt/mine/index',
         'lpt/mine-edit/index',
-        'lpt/order/index',
+        // 'lpt/order/index',
         'lpt/scenery-item-list/index',
         'lpt/scenery-item-detail/index',
         'lpt/ticket/index',
@@ -46,7 +46,7 @@ export default defineAppConfig({
     },
     {
       root: 'pages/tool',
-      pages: ['menu/index','order-menu/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index'],
+      pages: ['menu/index','order-menu/index','order-menu/edit/index','order-menu/post/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index'],
     },
   ],
   requiredPrivateInfos: [
