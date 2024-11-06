@@ -4,7 +4,7 @@ export default defineAppConfig({
   pages: ['pages/index/index', 'pages/menu/index'],
   subpackages: [
     // 正式环境ip 则不展示切换ip
-    // { root: 'pages/wgg', pages: ['index'] },
+    { root: 'pages/going', pages: ['index'] },
     // { root: 'pages/memo', pages: ['index', 'memo/post/index'] },
   ],
   requiredPrivateInfos: [],

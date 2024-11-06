@@ -1,9 +1,9 @@
 <div align="center">
-  <img alt="Logo" width="200" src="wggwQR.png"/>
+  <img alt="Logo" width="200" src="logo.png"/>
 
 <br />
 
-  <h1>悟川模板小程序 </h1>
+  <h1>模板小程序 </h1>
 
 <br />
 

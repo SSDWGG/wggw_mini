@@ -1,5 +1,5 @@
 <template>
-  <scroll-view  :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
+  <scroll-view  :class="[styles.myContainer,'pageIn']"  scroll-y="true" @scroll="onScroll">
     <navbar title="Menu" hide-back background-color="#f5f5f9" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
@@ -26,12 +26,11 @@
         objectFit="fill"
         :src="cdnHost + ossFilePrePath + '/032dd063570aee17.mp4'"
       />
-      <!-- OMFHLJDP-17059977997221 -->
     </view>
 
     <commonMenu :height="height" :listData="account.mainMenuList"></commonMenu>
 
-    <side-bar :show="show" :showFlags="[6, 1, 2, 3, 4]" />
+    <side-bar :show="show" :showFlags="[1, 3, 4]" />
   </scroll-view>
 
   <!-- toast提示 -->
