@@ -79,7 +79,7 @@ import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
 // import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import myToastComponents from '@/components/myToast/index.vue';
-import { cdnHost, ossFilePrePath,socketAllUserUrl,ossFilePrePathSvga } from '@/utils/env';
+import { cdnHost, ossFilePrePath,ossFilePrePathSvga } from '@/utils/env';
 
 definePageConfig({
   enableShareAppMessage: true,

@@ -1,6 +1,6 @@
 <template>
   <view v-if="isPermissionsToWx()" :class="styles.container">
-    <navbar :title="!!router.params.memoId?'编辑我的记录':'创建我的记录' " />
+    <navbar :title="!!router.params.memoId ? '编辑我的记录' : '创建我的记录'" />
     <view class="body">
       <!-- 文案 -->
       <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
@@ -15,9 +15,7 @@
   </view>
   <view v-else :class="styles.emptyContainer">
     <navbar title="感谢关注" />
-    <view class="empty" >
-      感谢您的关注，该功能暂未开启
-    </view>
+    <view class="empty"> 感谢您的关注，该功能暂未开启 </view>
   </view>
 </template>
 <script lang="ts" setup>
@@ -28,12 +26,12 @@ import { Navbar } from '@fishui/taro-vue';
 import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
-import { getOSSVideoImg} from '@/utils/index';
+import { getOSSVideoImg } from '@/utils/index';
 import type { IMemo, IMemoItem } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
 import type { IResult } from '@/components/selectMedia';
 import { AddMemo, updateMemo } from '@/apis/memo';
-import { useRouter,useUnload } from '@tarojs/taro';
+import { useRouter, useUnload } from '@tarojs/taro';
 import { isPermissionsToWx } from '@/utils/index';
 
 definePageConfig({
@@ -56,24 +54,23 @@ const prelistRef = ref();
 if (router.params.memoId) {
   data.content = account.editMemoData.content;
   account.templeChoosePostList = account.editMemoData.list.map((item) => ({
-      path: item.picUrl || item.videoPicUrl,
-      type: item.memoItemType===0?'image':'video',
-    }));
+    path: item.picUrl || item.videoPicUrl,
+    type: item.memoItemType === 0 ? 'image' : 'video',
+  }));
 }
 
-const PasslintContent = () =>
-  // if (prelistRef.value.data.sortedList.length === 0) {
-  //   Taro.showToast({
-  //     title: '请选择素材',
-  //     icon: 'error',
-  //     duration: 2000
-  //   });
-  //   return false;
-  // }
-   true
-;
-
-
+const PasslintContent = () => {
+  if (prelistRef.value.data.sortedList.length === 0) {
+    Taro.showToast({
+      title: '请选择素材',
+      icon: 'error',
+      duration: 2000,
+    });
+    return false;
+  } else {
+    return true;
+  }
+};
 
 const addMemoData = async (
   List: {
@@ -85,7 +82,7 @@ const addMemoData = async (
   }[],
 ) => {
   const targetList: IMemoItem[] = [];
-  const time = `${new Date().valueOf()  }`;
+  const time = `${new Date().valueOf()}`;
   data.childDataPicList = prelistRef.value.data.sortedList;
   // 数据格式化存储的内容
   List.forEach((item, index) => {
@@ -101,16 +98,16 @@ const addMemoData = async (
     });
   });
   const listParam = {
-    ... account.editMemoData,
+    ...account.editMemoData,
     memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
     content: data.content, // 文案内容
     list: JSON.stringify(targetList), // 相册详情
     uid: account.userInfo.openid,
   };
 
-  if(router.params.memoId){
+  if (router.params.memoId) {
     updateMemo(listParam as unknown as IMemo);
-  }else{
+  } else {
     AddMemo(listParam);
   }
 };
@@ -150,5 +147,4 @@ const handleAddAlbum = () => {
 useUnload(() => {
   account.editMemoData = {} as IMemo;
 });
-
 </script>
