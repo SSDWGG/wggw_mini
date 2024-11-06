@@ -137,7 +137,6 @@ const config = {
       'NODE_ENV': process.env.NODE_ENV,
       'TARO_ENV': process.env.TARO_ENV,
       'BUILD_ENV': getArgValue('buildEnv'),
-      'FIX_ENV': getArgValue('wxFixProd'),
     })
   },
   alias: {
