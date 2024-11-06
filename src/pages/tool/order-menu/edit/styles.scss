@@ -8,7 +8,47 @@ page {
   font-family: monospace;
 
   :global {
-
+    .title{
+      font-size: 24px;
+      color: #333;
+      font-weight: 500;
+      margin: 20px;
+    }
+    .chooseFmenu{
+      padding: 6px;
+      border: 1px solid rgba(153, 153, 153,.3);
+      border-radius: 5px;
+      margin-top: 10px;
+      color: rgb(51, 51, 51,.8);
+      font-size: 12px;
+    }
+    .nut-collapse-item__title{
+      height: 60px;
+    }
+    .btns{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .delete{
+      padding: 0 10px;
+      width: 80px;
+      margin-right: 50px;
+    }
+    .btns1{
+      margin-right: 5px;
+    }
+    .smenuItem{
+      display: flex;align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+    .smenuItem2{
+      display: flex;align-items: center;
+      justify-content: flex-end;
+      padding: 0 10px;
+    }
 
   }
 }

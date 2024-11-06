@@ -56,8 +56,6 @@ export const deleteFmenu = ( firstCdId: string ) =>
       params:{ openid,firstCdId },
     });
 
-
-
   export const deleteSmenu = ( secondCdId: string ) =>
     request<boolean>({
       url: '/v1/orderMenu/deleteSmenu',
