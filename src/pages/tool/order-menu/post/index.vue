@@ -1,9 +1,9 @@
 <template>
   <view v-if="isPermissionsToWx()" :class="styles.container">
-    <navbar :title="!!router.params.memoId ? '编辑我的记录' : '创建我的记录'" />
+    <navbar :title="!!router.params.memoId ? '编辑菜谱' : '创建菜谱'" />
     <view class="body">
       <!-- 文案 -->
-      <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
+      <!-- <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea> -->
       <!-- 预览列表(图片、视频，添加按钮) -->
       <prelist ref="prelistRef" />
     </view>
@@ -72,6 +72,7 @@ const PasslintContent = () => {
   }
 };
 
+
 const addMemoData = async (
   List: {
     status: number;
@@ -81,34 +82,36 @@ const addMemoData = async (
     hash?: string;
   }[],
 ) => {
-  const targetList: IMemoItem[] = [];
-  const time = `${new Date().valueOf()}`;
-  data.childDataPicList = prelistRef.value.data.sortedList;
+  const targetList: {
+    picUrl: string;
+  }[] = [];
+
   // 数据格式化存储的内容
-  List.forEach((item, index) => {
+  List.forEach((item) => {
     targetList.push({
-      memoItemType: data.childDataPicList[index].type === 'image' ? 0 : 1,
       picUrl: item.fullpath as string,
-      sort: index,
-      // 封面默认取第30帧内容
-      videoPicUrl: data.childDataPicList[index].type === 'image' ? '' : getOSSVideoImg(item.fullpath as string),
-      memoResId: item.name,
-      gmtCreate: time,
-      gmtModified: time,
     });
   });
-  const listParam = {
-    ...account.editMemoData,
-    memoType: targetList.length === 0 ? 2 : targetList[0].memoItemType,
-    content: data.content, // 文案内容
-    list: JSON.stringify(targetList), // 相册详情
-    uid: account.userInfo.openid,
-  };
 
-  if (router.params.memoId) {
-    updateMemo(listParam as unknown as IMemo);
+  if (router.params.shopId) {
+    account.editBinddingData.title = data.title;
+    account.editBinddingData.imgSrc = JSON.stringify(targetList);
+    account.editBinddingData.kcDesc = data.kcDesc;
+    await updateKunChart(account.editBinddingData);
   } else {
-    AddMemo(listParam);
+    const shopId = await addKunChart({
+      title: data.title,
+      imgSrc: JSON.stringify(targetList),
+      kcDesc: data.kcDesc,
+      openid: account.userInfo.openid,
+    });
+    // 初始化价格0
+    await addKunChartLine({
+      shopId: shopId,
+      openid: account.userInfo.openid,
+      username: account.userInfo.username,
+      price: data.price || '0',
+    });
   }
 };
 

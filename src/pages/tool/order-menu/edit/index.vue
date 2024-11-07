@@ -194,7 +194,7 @@ const addSmenuData = async (e) => {
 
 const httpAddCmenu = (secondCdId) => {
   Taro.navigateTo({
-    url: '/pages/tool/order-menu/post/index'
+    url: `/pages/tool/order-menu/post/index?type=image&secondCdId=${secondCdId}`
   });
 };
 
