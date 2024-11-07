@@ -91,6 +91,7 @@ import myToastComponents from '@/components/myToast/index.vue';
 import { useAccountStore } from '@/stores/account';
 import type { IFmenuItem, ISmenuItem } from '@/apis/orderMenu/model';
 import UpdatePop from '@/components/pop/updatePop/index.vue';
+import Taro from '@tarojs/taro';
 
 const account = useAccountStore();
 
@@ -192,7 +193,9 @@ const addSmenuData = async (e) => {
 // cmenu
 
 const httpAddCmenu = (secondCdId) => {
-  console.log(secondCdId);
+  Taro.navigateTo({
+    url: '/pages/tool/order-menu/post/index'
+  });
 };
 
 onMounted(async () => {

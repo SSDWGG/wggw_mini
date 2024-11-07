@@ -1,0 +1,44 @@
+/* components/hg-editor/hg-editor.wxss */
+@import "./iconfont.less";
+
+.editor-box {
+	width: 100%;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #fff;
+	background: #F7F7F7;
+}
+
+.editor-box-header,
+.editor-box-content {
+  	width: 100%;
+}
+
+.editor-box-header {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20rpx 20rpx;
+	box-sizing: border-box;
+	border-bottom: 2rpx solid #E6E6E6;
+	background-color: #F6F6F6;
+}
+
+.editor-box-header>.operate-box {
+	width: 40rpx;
+	height: 40rpx;
+	overflow: hidden;
+	color: gray;
+}
+
+.editor-box-content {
+	padding: 20rpx;
+	box-sizing: border-box;
+	background: #F7F7F7;
+	.editor {
+		height: auto;
+		margin-top: 0;
+	}
+}
+

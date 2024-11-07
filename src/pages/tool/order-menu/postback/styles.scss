@@ -1,0 +1,13 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  :global {
+    .editor{
+      margin-top: 50px;
+    }
+
+  }
+}
+
