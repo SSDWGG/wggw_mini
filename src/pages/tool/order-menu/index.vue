@@ -14,54 +14,71 @@
     </nut-category>
 
     <nut-sku
-      v-model:visible="notSell"
+      v-model:visible="data.skuShow"
       :sku="data.sku"
       :goods="data.goods"
-      :btnExtraText="btnExtraText"
-      :btnOptions="['buy', 'cart']"
+      :btnOptions="['confirm']"
+      :stepperMax="10"
+      :stepperMin="1"
+      stepper-title="下单数量"
       @change-stepper="changeStepper"
-      @select-sku="selectSku"
     >
+      <template #sku-header-price>
+        <view class="goodsTitle">
+          <view> {{ data.goods.catName }} </view>
+        </view>
+      </template>
+      <template #sku-stepper-bottom>
+        <nut-cell class="bz">
+          <nut-textarea v-model="data.goodsBz" placeholder="请输入您的用餐备注" limit-show :max-length="20" autosize></nut-textarea>
+        </nut-cell>
+        <view v-if="!!data.goods.content" class="descHtml">
+          <view class="detail"> 菜品详情 </view>
+          <image v-for="(item, index) in JSON.parse(data.goods.content)" :key="index" mode="widthFix" :src="item.picUrl" />
+        </view>
+      </template>
       <template #sku-operate>
         <div class="sku-operate-box">
-          <nut-button class="sku-operate-box-dis" type="warning">查看相似商品</nut-button>
-          <nut-button class="sku-operate-box-dis" type="info">到货通知</nut-button>
+          <share-view>
+          </share-view>
         </div>
       </template>
     </nut-sku>
-    <side-bar :show="show" :showFlags="[12]" />
+    <side-bar v-if="!router.params.isShare" :show="show" :showFlags="[12]" />
   </scroll-view>
 </template>
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
-// import { ref, reactive, watch, onUnmounted } from 'vue';
 import { Navbar } from '@fishui/taro-vue';
-import Taro, { useShareAppMessage, useShareTimeline } from '@tarojs/taro';
-import imgDefaultSrc from '@/assets/images/project/rabbit.png';
-import { ref, reactive, onMounted } from 'vue';
-// import categoryData from './categoryData.json';
-import skuData from './skuData.json';
+import Taro, { useDidShow, useRouter, useShareAppMessage, useShareTimeline } from '@tarojs/taro';
+import { reactive } from 'vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import sideBar from '@/components/SideBar/index.vue';
-
+import { getCmenuList, getFmenuList, getSmenuList } from '@/apis/orderMenu';
+import { useAccountStore } from '@/stores/account';
+import shareView from '@/components/button/shareView/index.vue';
+import type { ICmenuItem } from '@/apis/orderMenu/model';
 
 const { show, onScroll } = useListScroll();
+const router = useRouter();
 
 definePageConfig({
   enableShareAppMessage: true,
   enableShareTimeline: true,
 });
 
+const account = useAccountStore();
+
 useShareTimeline(() => ({
-  title: '来点菜吧',
-  path: '/pages/tool/order-menu/index?isShare=true',
-  imageUrl: imgDefaultSrc,
+  title: `${account.userInfo.username}向您发送了一份菜谱~`,
+  path: `/pages/tool/order-menu/index?isShare=true&shareOpenId=${data.paramsOpenId}`,
+  imageUrl: account.userInfo.avatarurl,
 }));
 useShareAppMessage(() => ({
-  title: '来点菜吧',
-  path: '/pages/tool/order-menu/index?isShare=true',
-  imageUrl: imgDefaultSrc,
+  title: `${account.userInfo.username}向您点了一道菜~`,
+  path: `/pages/tool/order-menu/index?isShare=true&shareOpenId=${data.paramsOpenId}`,
+  imageUrl: data.goods.backImg,
 }));
 
 const goHomePage = () => {
@@ -72,170 +89,68 @@ const data = reactive({
   category: [{}],
   categoryChild: [{}],
   sku: [] as any,
-  goods: {},
-  firstCd: [
-    {
-      firstCdId: '1',
-      firstCdName: '蔬菜🥬',
-    },
-    {
-      firstCdId: '2',
-      firstCdName: '肉肉🥩',
-    },
-    {
-      firstCdId: '3',
-      firstCdName: '海鲜🦞',
-    },
-    {
-      firstCdId: '4',
-      firstCdName: '午饭不欢🍚',
-    },
-    {
-      firstCdId: '5',
-      firstCdName: '汤🍲',
-    },
-    {
-      firstCdId: '6',
-      firstCdName: '凉菜🥗',
-    },
-    {
-      firstCdId: '7',
-      firstCdName: '早餐🍳',
-    },
-    {
-      firstCdId: '8',
-      firstCdName: '甜点🍩',
-    },
-    {
-      firstCdId: '9',
-      firstCdName: '水果🫐',
-    },
-    {
-      firstCdId: '10',
-      firstCdName: '小食茶饮🥂',
-    },
-    {
-      firstCdId: '11',
-      firstCdName: '外出大餐🍻',
-    },
-    {
-      firstCdId: '12',
-      firstCdName: '特殊服务🦥',
-    },
-    {
-      firstCdId: '13',
-      firstCdName: '打赏💰',
-    },
-  ],
-  secondCd: [
-    {
-      firstCdId: '1',
-      secondCdId: '1q',
-      secondCdName: '蔬菜1',
-    },
-    {
-      firstCdId: '1',
-      secondCdId: '1w',
-      secondCdName: '蔬菜2',
-    },
-    {
-      firstCdId: '2',
-      secondCdId: '2q',
-      secondCdName: '肉1',
-    },
-  ],
-  cList: [
-    {
-      backImg: 'https://m.360buyimg.com/n2/jfs/t1/183517/38/7834/227702/60be1915Ed04664b0/eaf7536ab2c5f4b0.jpg',
-      catName: '1q菜1',
-      secondCdId: '1q',
-    },
-    {
-      backImg: 'https://m.360buyimg.com/n2/jfs/t1/183517/38/7834/227702/60be1915Ed04664b0/eaf7536ab2c5f4b0.jpg',
-      catName: '1q菜2',
-      secondCdId: '1q',
-    },
-    {
-      backImg: 'https://m.360buyimg.com/n2/jfs/t1/183517/38/7834/227702/60be1915Ed04664b0/eaf7536ab2c5f4b0.jpg',
-      catName: '1w菜1',
-      secondCdId: '1w',
-    },
-    {
-      backImg: 'https://m.360buyimg.com/n2/jfs/t1/183517/38/7834/227702/60be1915Ed04664b0/eaf7536ab2c5f4b0.jpg',
-      catName: '2q菜1',
-      secondCdId: '2q',
-    },
-  ],
+  goods: {} as any,
+  skuShow: false,
+  goodsBz: '',
+  paramsOpenId:''
 });
 
-const getData = () => {
+const getData = async () => {
   // const { categoryInfo } = categoryData;
   // data.category = categoryInfo.category;
 
-  data.category = data.firstCd.map((firstCdItem) => ({
+  const resFmenu = await getFmenuList(data.paramsOpenId);
+  const resSmenu = await getSmenuList(data.paramsOpenId);
+  const resCmenu = await getCmenuList(data.paramsOpenId);
+
+  data.category = resFmenu.map((firstCdItem) => ({
     catName: firstCdItem.firstCdName,
     showPic: true,
     showVideo: true,
-    children: data.secondCd.map((secondCdItem) => {
-      if (secondCdItem.firstCdId === firstCdItem.firstCdId) {
-        return {
-          catName: secondCdItem.secondCdName,
-          catType: 1,
-          childCateList: data.cList.map((cItem) => {
-            if (cItem.secondCdId === secondCdItem.secondCdId) {
-              return cItem;
-            }
-          }).filter(item=>!!item),
-        };
-      }
-    }).filter(item=>!!item),
+    children: resSmenu
+      .map((secondCdItem) => {
+        if (secondCdItem.firstCdId === firstCdItem.firstCdId) {
+          return {
+            catName: secondCdItem.secondCdName,
+            catType: 1,
+            childCateList: resCmenu
+              .map((cItem) => {
+                if (cItem.secondCdId === secondCdItem.secondCdId) {
+                  return cItem;
+                }
+              })
+              .filter((item) => !!item),
+          };
+        }
+      })
+      .filter((item) => !!item),
   }));
 
   data.categoryChild = data.category[0].children;
-
-  const { Sku, Goods, imagePathMap } = skuData;
-  data.sku = Sku;
-  data.goods = Goods;
 };
 
 const change = (index) => {
   data.categoryChild = [...data.category[index].children];
 };
-const onChange = () => {
-  console.log('当前分类数据');
-
-  notSell.value = true;
+const onChange = (item: ICmenuItem) => {
+  console.log('当前分类数据', item);
+  data.skuShow = true;
+  data.goods = item;
+  data.goods.skuId = item.cCdId;
+  data.goods.price = 123;
+  data.goods.imagePath = item.backImg;
 };
-
-const notSell = ref(false);
-
-const btnExtraText = ref('抱歉，此商品在所选区域暂无存货');
 
 // inputNumber 更改
 const changeStepper = (count) => {
   console.log('购买数量', count);
 };
 
-// 切换规格类目
-const selectSku = (ss) => {
-  const { sku, skuIndex, parentSku, parentIndex } = ss;
-  if (sku.disable) return false;
-  data.sku[parentIndex].list.forEach((s) => {
-    s.active = s.id == sku.id;
-  });
-  data.goods = {
-    skuId: sku.id,
-    price: '4599.00',
-    imagePath: '//img14.360buyimg.com/n4/jfs/t1/216079/14/3895/201095/618a5c0cEe0b9e2ba/cf5b98fb6128a09e.jpg',
-  };
-};
 
-// 底部操作按钮触发
-const clickBtnOperate = (op) => {
-  console.log('点击了操作按钮', op);
-};
+useDidShow(async () => {
+  await account.login();
+  data.paramsOpenId = router.params.shareOpenId??account.userInfo.openid;
 
-onMounted(() => {
   getData();
 });
 </script>

@@ -1,6 +1,7 @@
 <template>
   <view :class="styles.myContainer">
     <navbar title="登录" hide-back background-color="#f5f5f9" />
+
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="业主投票" />
 
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
@@ -68,6 +69,7 @@
 
     <!-- 选择小区  -->
     <nut-action-sheet v-model:visible="sheetShow" :menu-items="menuItems" @choose="choose" />
+
     <!-- 验证手机号 -->
     <update-pop v-model:modelValue="bindPhonePop.popTipVisible" confirmText="确认绑定" cancelText="取消绑定" :on-confirm="onConfirm" title="绑定手机号">
       <template #content>
@@ -81,12 +83,12 @@
               <image class="img" src="@/assets/images/lpt/BGHLBMOO-1686036371145v.png" />
               <nut-input v-model="bindPhonePop.code" placeholder="请输入验证码" type="number" />
             </view>
-
             <view class="getCodeBtn" @tap="handleGetCode">{{ bindPhonePop.canSendTime > 0 ? `重发${bindPhonePop.canSendTime}秒` : '获取验证码' }} </view>
           </view>
         </view>
       </template>
     </update-pop>
+
   </view>
   <!-- toast提示 -->
   <my-toast-components ref="myToast" :duration="2500" />
@@ -117,6 +119,7 @@ const bindPhonePop = reactive({
   canSendTime: 0,
   intervalTimer: null as any,
 });
+
 const nicknamePop = reactive({
   visible: false,
 });

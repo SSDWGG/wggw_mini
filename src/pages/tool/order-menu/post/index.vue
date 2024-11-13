@@ -1,16 +1,23 @@
 <template>
   <view v-if="isPermissionsToWx()" :class="styles.container">
-    <navbar :title="!!router.params.memoId ? '编辑菜谱' : '创建菜谱'" />
+    <navbar :title="!!router.params.cCdId ? '编辑菜谱' : '创建菜谱'" />
     <view class="body">
       <!-- 文案 -->
-      <!-- <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea> -->
+      <nut-textarea
+        disabled
+        placeholder="tips: 1.最后一张图片会被作为菜品主图进行展示，您可以长按图片进行图片顺序调整。2.一次上传最多可以选择9张图片"
+        :auto-focusd="false"
+        rows="2"
+        class="post-textarea"
+      ></nut-textarea>
+      <nut-textarea v-model="data.catName" placeholder="请输入菜品名称" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
       <!-- 预览列表(图片、视频，添加按钮) -->
       <prelist ref="prelistRef" />
     </view>
 
     <!-- 发表按钮 -->
     <view class="footer">
-      <nut-button block type="primary" class="publish" @tap="handleAddAlbum">{{ !!router.params.memoId ? '确认修改' : '发表' }}</nut-button>
+      <nut-button block type="primary" class="publish" @tap="handleAddAlbum">{{ !!router.params.cCdId ? '确认修改' : '发表' }}</nut-button>
     </view>
   </view>
   <view v-else :class="styles.emptyContainer">
@@ -20,19 +27,18 @@
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import Taro from '@tarojs/taro';
+import Taro, { useDidShow } from '@tarojs/taro';
 import { Navbar } from '@fishui/taro-vue';
 // @ts-ignore
 import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
-import { getOSSVideoImg } from '@/utils/index';
-import type { IMemo, IMemoItem } from '@/apis/memo/model';
+import type { IMemo } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
 import type { IResult } from '@/components/selectMedia';
-import { AddMemo, updateMemo } from '@/apis/memo';
 import { useRouter, useUnload } from '@tarojs/taro';
 import { isPermissionsToWx } from '@/utils/index';
+import { addCmenu } from '@/apis/orderMenu';
 
 definePageConfig({
   disableScroll: true,
@@ -42,7 +48,7 @@ const router = useRouter();
 const account = useAccountStore();
 
 const data = reactive({
-  content: '',
+  catName: '',
   saveModule: false,
   modulePopshow: true,
   // 子组件的data
@@ -51,8 +57,8 @@ const data = reactive({
 const prelistRef = ref();
 
 // 编辑逻辑
-if (router.params.memoId) {
-  data.content = account.editMemoData.content;
+if (router.params.cCdId) {
+  data.catName = account.editMemoData.catName;
   account.templeChoosePostList = account.editMemoData.list.map((item) => ({
     path: item.picUrl || item.videoPicUrl,
     type: item.memoItemType === 0 ? 'image' : 'video',
@@ -67,18 +73,26 @@ const PasslintContent = () => {
       duration: 2000,
     });
     return false;
-  } else {
+  }
+  if (!data.catName) {
+    Taro.showToast({
+      title: '请输入菜品名称',
+      icon: 'error',
+      duration: 2000,
+    });
+    return false;
+  }
+  else {
     return true;
   }
 };
-
 
 const addMemoData = async (
   List: {
     status: number;
     name: string;
     path?: string;
-    fullpath?: string;
+    fullpath: string;
     hash?: string;
   }[],
 ) => {
@@ -93,26 +107,17 @@ const addMemoData = async (
     });
   });
 
-  if (router.params.shopId) {
-    account.editBinddingData.title = data.title;
-    account.editBinddingData.imgSrc = JSON.stringify(targetList);
-    account.editBinddingData.kcDesc = data.kcDesc;
-    await updateKunChart(account.editBinddingData);
-  } else {
-    const shopId = await addKunChart({
-      title: data.title,
-      imgSrc: JSON.stringify(targetList),
-      kcDesc: data.kcDesc,
-      openid: account.userInfo.openid,
-    });
-    // 初始化价格0
-    await addKunChartLine({
-      shopId: shopId,
-      openid: account.userInfo.openid,
-      username: account.userInfo.username,
-      price: data.price || '0',
-    });
-  }
+  await addCmenu({
+    backImg: List[0].fullpath,
+    secondCdId: router.params.secondCdId ?? '',
+    catName: data.catName,
+    content: JSON.stringify(targetList),
+    openid: account.userInfo.openid,
+  });
+
+  setTimeout(() => {
+      Taro.navigateBack();
+    }, 1500);
 };
 
 const postHttp = debounce(async () => {
@@ -147,6 +152,9 @@ const handleAddAlbum = () => {
   return false;
 };
 
+useDidShow(async () => {
+  await account.login();
+});
 useUnload(() => {
   account.editMemoData = {} as IMemo;
 });
