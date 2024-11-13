@@ -9,9 +9,11 @@
     </navbar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .2)" :z-index="1" content="点菜" />
 
-    <nut-category :category="data.category" @change="change">
+    <nut-category v-if="data.category.length > 0" :category="data.category" @change="change">
       <nut-category-pane :categoryChild="data.categoryChild" @on-change="onChange"> </nut-category-pane>
     </nut-category>
+    <nut-empty v-else description="您还没有创建菜单~"></nut-empty>
+
 
     <nut-sku
       v-model:visible="data.skuShow"
@@ -30,7 +32,13 @@
       </template>
       <template #sku-stepper-bottom>
         <nut-cell class="bz">
-          <nut-textarea v-model="data.goodsBz" placeholder="请输入您的用餐备注" limit-show :max-length="20" autosize></nut-textarea>
+          <nut-textarea
+            v-model="data.goodsBz"
+            placeholder="请输入您的用餐备注"
+            limit-show
+            :max-length="50"
+            :autosize="{ maxHeight: 150, minHeight: 60 }"
+          ></nut-textarea>
         </nut-cell>
         <view v-if="!!data.goods.content" class="descHtml">
           <view class="detail"> 菜品详情 </view>
@@ -39,8 +47,7 @@
       </template>
       <template #sku-operate>
         <div class="sku-operate-box">
-          <share-view>
-          </share-view>
+          <share-view> </share-view>
         </div>
       </template>
     </nut-sku>
@@ -55,7 +62,7 @@ import Taro, { useDidShow, useRouter, useShareAppMessage, useShareTimeline } fro
 import { reactive } from 'vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import sideBar from '@/components/SideBar/index.vue';
-import { getCmenuList, getFmenuList, getSmenuList } from '@/apis/orderMenu';
+import { getCmenuByCid, getCmenuList, getFmenuList, getSmenuList } from '@/apis/orderMenu';
 import { useAccountStore } from '@/stores/account';
 import shareView from '@/components/button/shareView/index.vue';
 import type { ICmenuItem } from '@/apis/orderMenu/model';
@@ -77,7 +84,7 @@ useShareTimeline(() => ({
 }));
 useShareAppMessage(() => ({
   title: `${account.userInfo.username}向您点了一道菜~`,
-  path: `/pages/tool/order-menu/index?isShare=true&shareOpenId=${data.paramsOpenId}`,
+  path: `/pages/tool/order-menu/index?isShare=true&shareOpenId=${data.paramsOpenId}&cCdId=${data.cCdId}&goodsBz=${data.goodsBz}`,
   imageUrl: data.goods.backImg,
 }));
 
@@ -86,13 +93,14 @@ const goHomePage = () => {
 };
 
 const data = reactive({
-  category: [{}],
-  categoryChild: [{}],
+  category: [],
+  categoryChild: [],
   sku: [] as any,
   goods: {} as any,
   skuShow: false,
   goodsBz: '',
-  paramsOpenId:''
+  paramsOpenId: '',
+  cCdId: '',
 });
 
 const getData = async () => {
@@ -137,6 +145,7 @@ const onChange = (item: ICmenuItem) => {
   data.skuShow = true;
   data.goods = item;
   data.goods.skuId = item.cCdId;
+  data.cCdId = item.cCdId;
   data.goods.price = 123;
   data.goods.imagePath = item.backImg;
 };
@@ -146,11 +155,14 @@ const changeStepper = (count) => {
   console.log('购买数量', count);
 };
 
-
 useDidShow(async () => {
   await account.login();
-  data.paramsOpenId = router.params.shareOpenId??account.userInfo.openid;
-
+  data.paramsOpenId = router.params.shareOpenId ?? account.userInfo.openid;
   getData();
+  if(router.params.cCdId){
+  const res =  await getCmenuByCid(router.params.cCdId);
+  onChange(res[0]);
+  data.goodsBz = router.params.goodsBz??'';
+  }
 });
 </script>

@@ -79,6 +79,12 @@ export const getCmenuList = (openid: string) =>
     method: 'GET',
     params: { openid },
   });
+export const getCmenuByCid = (cCdId: string) =>
+  request<T.ICmenuItem>({
+    url: '/v1/orderMenu/getCmenuByCid',
+    method: 'GET',
+    params: { cCdId },
+  });
 export const deleteCmenu = (cCdId: string) =>
   request<boolean>({
     url: '/v1/orderMenu/deleteCmenu',
