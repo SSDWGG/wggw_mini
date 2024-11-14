@@ -39,6 +39,7 @@ declare module 'vue' {
     NutEmpty: typeof import('@nutui/nutui-taro')['Empty']
     NutForm: typeof import('@nutui/nutui-taro')['Form']
     NutFormItem: typeof import('@nutui/nutui-taro')['FormItem']
+    NutImagePreview: typeof import('@nutui/nutui-taro')['ImagePreview']
     NutInput: typeof import('@nutui/nutui-taro')['Input']
     NutInputNumber: typeof import('@nutui/nutui-taro')['InputNumber']
     NutNoticebar: typeof import('@nutui/nutui-taro')['Noticebar']

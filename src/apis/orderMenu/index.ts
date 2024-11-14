@@ -80,7 +80,7 @@ export const getCmenuList = (openid: string) =>
     params: { openid },
   });
 export const getCmenuByCid = (cCdId: string) =>
-  request<T.ICmenuItem>({
+  request<T.ICmenuItem[]>({
     url: '/v1/orderMenu/getCmenuByCid',
     method: 'GET',
     params: { cCdId },
