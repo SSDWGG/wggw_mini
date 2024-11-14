@@ -34,12 +34,11 @@ import { Navbar } from '@fishui/taro-vue';
 import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';
 import { debounce } from 'lodash';
-import type { IMemo } from '@/apis/memo/model';
 import { useAccountStore } from '@/stores/account';
 import type { IResult } from '@/components/selectMedia';
-import { useRouter, useUnload } from '@tarojs/taro';
+import { useRouter } from '@tarojs/taro';
 import { isPermissionsToWx } from '@/utils/index';
-import { addCmenu } from '@/apis/orderMenu';
+import { addCmenu, getCmenuByCid, updateCmenu } from '@/apis/orderMenu';
 
 definePageConfig({
   disableScroll: true,
@@ -57,14 +56,14 @@ const data = reactive({
 });
 const prelistRef = ref();
 
-// 编辑逻辑
-if (router.params.cCdId) {
-  data.catName = account.editMemoData.catName;
-  account.templeChoosePostList = account.editMemoData.list.map((item) => ({
-    path: item.picUrl || item.videoPicUrl,
-    type: item.memoItemType === 0 ? 'image' : 'video',
+const editPost = async () => {
+  const res = await getCmenuByCid(router.params.cCdId ?? '');
+  data.catName = res[0].catName;
+  account.templeChoosePostList = JSON.parse(res[0].content).map((item) => ({
+    path: item.picUrl,
+    type: 'image',
   }));
-}
+};
 
 const PasslintContent = () => {
   if (prelistRef.value.data.sortedList.length === 0) {
@@ -82,8 +81,7 @@ const PasslintContent = () => {
       duration: 2000,
     });
     return false;
-  }
-  else {
+  } else {
     return true;
   }
 };
@@ -107,18 +105,26 @@ const addMemoData = async (
       picUrl: item.fullpath as string,
     });
   });
-
-  await addCmenu({
-    backImg: List[0].fullpath,
-    secondCdId: router.params.secondCdId ?? '',
-    catName: data.catName,
-    content: JSON.stringify(targetList),
-    openid: account.userInfo.openid,
-  });
+  // 编辑逻辑
+  if (router.params.cCdId) {
+    const cMenuList = await getCmenuByCid(router.params.cCdId);
+    cMenuList[0].backImg = List[0].fullpath;
+    cMenuList[0].catName = data.catName;
+    cMenuList[0].content = JSON.stringify(targetList);
+    await updateCmenu(cMenuList[0]);
+  } else {
+    await addCmenu({
+      backImg: List[0].fullpath,
+      secondCdId: router.params.secondCdId ?? '',
+      catName: data.catName,
+      content: JSON.stringify(targetList),
+      openid: account.userInfo.openid,
+    });
+  }
 
   setTimeout(() => {
-      Taro.navigateBack();
-    }, 1500);
+    Taro.navigateBack();
+  }, 1500);
 };
 
 const postHttp = debounce(async () => {
@@ -155,8 +161,9 @@ const handleAddAlbum = () => {
 
 useDidShow(async () => {
   await account.login();
-});
-useUnload(() => {
-  account.editMemoData = {} as IMemo;
+  // 编辑逻辑
+  if (router.params.cCdId) {
+    editPost();
+  }
 });
 </script>

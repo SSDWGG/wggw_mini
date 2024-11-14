@@ -54,7 +54,7 @@
   <my-toast-components ref="myToast" :duration="2500" />
 </template>
 <script lang="ts" setup>
-import { computed, reactive, ref } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import { Drag } from '@fishui/taro-vue';
 import { useRouter, useUnload } from '@tarojs/taro';
 // @ts-ignore
@@ -89,9 +89,21 @@ const listData = computed(() => [...data.picList, plusItem]);
 const router = useRouter();
 const isPostImage = router.params.type === 'image';
 // 小程序偶现url参数无法传递（可能是参数过长）
-const list: IListItem[] = account.templeChoosePostList.map((i, originIndex) => ({ ...i, originIndex, fixed: false }));
-data.picList = list;
-data.sortedList = list;
+
+
+watch(
+  () => account.templeChoosePostList,
+  () => {
+    const list: IListItem[] = account.templeChoosePostList.map((i, originIndex) => ({ ...i, originIndex, fixed: false }));
+    data.picList = list;
+    data.sortedList = list;
+  },
+  { immediate: true },
+);
+
+
+
+
 // 30 => wrap margin: 0 15px
 const itemHeight = computed(() => (systemInfo.windowWidth - 30) / 3);
 

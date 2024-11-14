@@ -35,6 +35,8 @@
                   <view> {{ cmenuItem.catName }} </view>
                   <view class="cmenuItemBtns">
                     <nut-button class="cmenuItemBtnItem" block type="danger" @tap="httpDeleteCmenu(cmenuItem.cCdId)">删除</nut-button>
+                    <nut-button class="cmenuItemBtnItem" block @tap="httpEditCmenu(cmenuItem)">编辑</nut-button>
+
                   </view>
                 </view>
               </view>
@@ -158,7 +160,7 @@ import { Navbar } from '@fishui/taro-vue';
 import { ref, reactive } from 'vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { useAccountStore } from '@/stores/account';
-import type { IFmenuItem, ISmenuItem } from '@/apis/orderMenu/model';
+import type { ICmenuItem, IFmenuItem, ISmenuItem } from '@/apis/orderMenu/model';
 import UpdatePop from '@/components/pop/updatePop/index.vue';
 import Taro, { useDidShow } from '@tarojs/taro';
 
@@ -227,8 +229,6 @@ const httpAllMenuList = async () => {
       })
       .filter((item) => !!item) as ISmenuItem[];
   });
-  console.log(resFmenu);
-
   data.fmenuList = resFmenu;
 };
 // 增
@@ -343,6 +343,12 @@ const httpDeleteCmenu = async (cCdId) => {
     icon: 'success',
     title: '删除菜品成功',
     duration: 2000,
+  });
+};
+
+const httpEditCmenu = (smenuItem: ICmenuItem)=>{
+  Taro.navigateTo({
+    url: `/pages/tool/order-menu/post/index?type=image&secondCdId=${smenuItem.secondCdId}&cCdId=${smenuItem.cCdId}`,
   });
 };
 

@@ -91,3 +91,10 @@ export const deleteCmenu = (cCdId: string) =>
     method: 'GET',
     params: { cCdId },
   });
+
+export const updateCmenu = (cmenu) =>
+  request<boolean>({
+    url: '/v1/orderMenu/updateCmenu',
+    method: 'POST',
+    data: cmenu,
+  });
