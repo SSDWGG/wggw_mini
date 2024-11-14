@@ -1,0 +1,130 @@
+.orderFootr {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  background: #F5F5F9;
+
+
+  :global {
+    .sum {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 44px;
+      background-color: #FBFBFB;
+      padding: 0 12px;
+      padding-right: 28px;
+      .text-1 {
+        color: #333;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .right {
+        display: flex;
+        align-items: center;
+      }
+      .text-2 {
+        color: #333;
+        font-size: 14px;
+        text-align: right;
+        margin-left: 40px;
+        .num {
+          color: #7468F2;
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+    }
+    .footer {
+      position: relative;
+      width: 100vw;
+      padding: 8px 18px 8px 18px;
+      background: #fff;
+      box-sizing: border-box;
+      padding-bottom: calc(env(safe-area-inset-bottom) + 8px);
+      box-shadow: 0px -5px 8px 0px rgba(237, 237, 237, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .txt-1 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #666666;
+        line-height: 14px;
+        margin-bottom: 4px;
+        view {
+          padding-right: 6px;
+        }
+      }
+      .txt-2 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #333333;
+        line-height: 14px;
+      }
+      .txt-3 {
+        font-size: 16px;
+        font-weight: 500;
+        color: #fe3d43;
+        line-height: 20px;
+        display: flex;
+        max-width: 100px;
+        overflow: scroll;
+        .priceIcon {
+          font-size: 12px;
+          font-weight: 600;
+        }
+      }
+      .txt-4 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #666666;
+        line-height: 20px;
+      }
+      .btnAddShop {
+        padding: 0 20px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 20px;
+        border: 1px solid #7468f2;
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: 8px;
+        color: #7468f2;
+      }
+      .haveSend {
+        opacity: 50%;
+      }
+      .btnOnSave {
+        padding: 0 20px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #7468f2;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        margin-left: 8px;
+      }
+      .btnOnCancel {
+        padding: 0 20px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 20px;
+        border: 1px solid #999;
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: 8px;
+        color: #666;
+      }
+      .showOrderButton {
+        color: #7468f2;
+        margin: 0 10px;
+      }
+    }
+  }
+}

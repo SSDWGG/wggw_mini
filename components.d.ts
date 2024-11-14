@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AddOrderButton: typeof import('./src/components/my-footer/components/addOrderButton/index.vue')['default']
     BiddingButton: typeof import('./src/components/SideBar/bidding-button.vue')['default']
     BiddingLineButton: typeof import('./src/components/SideBar/biddingLine-button.vue')['default']
     CallButton: typeof import('./src/components/SideBar/call-button.vue')['default']
@@ -24,9 +25,12 @@ declare module 'vue' {
     'Icon.weapp': typeof import('./src/components/alIconfont/icon.weapp.vue')['default']
     ImgPostButton: typeof import('./src/components/SideBar/img-post-button.vue')['default']
     Lock: typeof import('./src/components/lock/index.vue')['default']
+    MenuCarButton: typeof import('./src/components/SideBar/menu-car-button.vue')['default']
     MineButton: typeof import('./src/components/SideBar/mine-button.vue')['default']
     MyCircleProgress: typeof import('./src/components/MyCircleProgress/index.vue')['default']
     MyEcharts: typeof import('./src/components/myEcharts/index.vue')['default']
+    MyFooter: typeof import('./src/components/my-footer/index.vue')['default']
+    MyNavBar: typeof import('./src/components/my-nav-bar/index.vue')['default']
     MyToast: typeof import('./src/components/myToast/index.vue')['default']
     NutAnimate: typeof import('@nutui/nutui-taro')['Animate']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
