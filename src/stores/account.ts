@@ -94,6 +94,16 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/technical/_dev/index',
       },
       {
+        title: 'invite',
+        Ctitle: '拉新&海报',
+        router: '/pages/technical/invite/index',
+      },
+      {
+        title: 'invite2',
+        Ctitle: '滑动海报',
+        router: '/pages/technical/invite2/index',
+      },
+      {
         title: 'Time',
         Ctitle: '计时',
         router: '/pages/technical/time/index',

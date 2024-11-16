@@ -1,0 +1,67 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  :global{
+    .content {
+      position: absolute;
+      top: 35px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      .avatar{
+        position:absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        top: 20px;
+        left: 65px;
+      }
+      .bg {
+        width: 287px;
+        height: 516px;
+        // border-radius: 12px;
+      }
+      .loadingIcon{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        color: #fff;
+        font-size: 40px;
+        
+      }
+
+
+      .tips{
+        margin: 19px auto;
+        color: #fff;
+        font-size: 16px;
+        font-weight: Medium;
+      }
+      .close{
+        & > image {
+          width: 60rpx;
+          height: 60rpx;
+        }
+      }
+      
+    }
+    .tips{
+      margin: 19px auto;
+      color: #fff;
+      font-size: 16px;
+      font-weight: Medium;
+    }
+    .close{
+      & > image {
+        width: 60rpx;
+        height: 60rpx;
+      }
+    }
+  }
+}

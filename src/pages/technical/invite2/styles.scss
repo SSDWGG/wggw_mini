@@ -1,0 +1,61 @@
+page {
+  background-color: #F5F5F9;
+}
+
+.swiper {
+  width: 100vw;
+  :global {
+    .wx-swiper-dots {
+      bottom: 3%;
+    }
+  }
+  swiper-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > image {
+      width: 326px;
+      height: 512px;
+      box-shadow: -1px 0rpx 16px 4px #E8E6E6;
+      border-radius: 12px;
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  height: 75px;
+  padding-bottom: env(safe-area-inset-bottom);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  :global {
+    button {
+      width: 320px;
+      height: 40px;
+      line-height: 40px;
+      border: none;
+      color: #ffffff;
+      background: linear-gradient(90deg, #FE959D 0%, #C35ACC 46%, #8277F3 100%);
+      border-radius: 39px;
+    }
+  }
+}
+
+.faker {
+  position: absolute;
+  top: 0;
+  left: -300vw;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  .canvas {
+    width: 978PX;
+    height: 1536PX;
+    position: absolute;
+  }
+}

@@ -27,6 +27,8 @@ export default defineAppConfig({
         'cssloaders/index',
         'editor/index',
         'map/index',
+        'invite/index',
+        'invite2/index',
       ],
     },
     {
