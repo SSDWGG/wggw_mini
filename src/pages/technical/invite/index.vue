@@ -84,8 +84,16 @@
       <view class="invite-bg-bottom">
         <view class="bottom-invite-view">
           <view class="invite-content">
-            <image :src="getSystemImg('myRecord.png')" class="invite-header" mode="widthFix" />
-            <image :src="getSystemImg('invite-record-headerBG.png')" class="invite-recordBG" mode="widthFix" />
+            <image
+              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/myRecord.png"
+              class="invite-header"
+              mode="widthFix"
+            />
+            <image
+              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/invite-record-headerBG.png"
+              class="invite-recordBG"
+              mode="widthFix"
+            />
             <view v-for="(item, index) in data.inviteList" :key="index" class="invite-item">
               <image class="avater" :src="item.invitedUserAvatarUrl"></image>
               <view class="invite-info">
@@ -98,7 +106,7 @@
               <view class="invite-info-num">{{ item.centAmount ? `+${item.centAmount / 100}` : '' }}</view>
             </view>
             <view v-if="data.inviteList.length === 0" class="nodata">
-              <image :src="getSystemImg('nodata.png')" class="nodata-img"></image>
+              <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/nodata.png" class="nodata-img"></image>
               <view class="nodata-tip"> 暂无邀请记录，快去邀请好友吧~ </view>
             </view>
           </view>
@@ -187,9 +195,6 @@ getInviteList();
 const handleInvite = () => {
   data.overlayShow = true;
 };
-
-// 获取前端上传oss的静态文件图片
-const getSystemImg = (imgAdress: string) => `https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/${imgAdress}`;
 
 const handleCloseExplanationPop = () => {
   data.explanationShow = false;

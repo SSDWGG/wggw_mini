@@ -43,9 +43,9 @@ const systemInfoStore = useSystemInfoStore();
  * **/
 const getPicUrls = () => {
   const urls: string[] = [
-    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-default-bg@2x.png',
-    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-default-bg@2x.png',
-    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-default-bg@2x.png',
+    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/account/2024-11-16/3al21kb413ywd1xznx078g31x5x2ximf.jpg',
+    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/account/2024-04-28/ysogxohp76f4ko2pe5oz8bpxey0u0jcx.jpg',
+    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/account/2024-04-28/yrxyhzuaxg2p1f525tkx5pwg9eziqnxq.jpg',
     'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-default-bg@2x.png',
   ];
   // const index = 0;
@@ -61,10 +61,10 @@ const getPicUrls = () => {
 const height = computed(() => `calc( 100vh - ${systemInfoStore.statusBarHeight}px - 88rpx - 150rpx - env(safe-area-inset-bottom))`);
 
 const posterData = computed<IPosterData>(() => ({
-  nickname: 'aaaa',
-  tenantName: 'bbb',
+  nickname: '玮**',
+  tenantName: '云小叮科技有限公司',
   avatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
-  qrcodeUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+  qrcodeUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/LIMEPFJB-1731722201729wechat.jpg',
   picUrls: getPicUrls(),
 }));
 const state = reactive<IState>({

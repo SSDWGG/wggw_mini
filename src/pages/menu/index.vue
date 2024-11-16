@@ -142,7 +142,9 @@ const data = reactive({
 });
 
 const h5 =
-  '<h2 style="text-align: center;color: #333;opacity: .7;"><strong>去创造去改变</strong></h2><h2 style="text-align: center;color: #333;opacity: .7;"><strong>从想象到现象</strong></h2><h2 style="text-align: center;color: #333;opacity: .7;"><strong>即刻出发</strong></h2>';
+  ` <h2 style="text-align: center;color: #7468F2;font-family: monospace;font-size:22px; opacity: .8;"><strong>去创造去改变</strong></h2>
+    <h2 style="text-align: center;color: #7468F2;font-family: monospace;font-size:22px;opacity: .8;"><strong>从想象到现象</strong></h2>
+    <h2 style="text-align: center;color: #7468F2;font-family: monospace;font-size:22px;opacity: .8;"><strong>即刻出发</strong></h2>`;
 const height = computed(() => `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`);
 
 useDidShow(() => {
