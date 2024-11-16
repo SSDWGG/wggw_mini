@@ -52,7 +52,7 @@ const closePopup = () => {
 
 const getBGImg = (qrCodeUrl: string) => {
   // 拉取图片流无法拉取svg图片
-  const BGpath = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg';
+  const BGpath = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/DGMIFOGK-1671010156749f.png';
   const QRPath = qrCodeUrl;
   const AvatarPath = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg';
 
@@ -106,14 +106,13 @@ const getBGImg = (qrCodeUrl: string) => {
 
 const initShareImg =  () => {
   const pathObjRes = {
-    // backGroundUrl:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/DGMIFOGK-1671010156749f.png',
     backGroundUrl:'',
     qrCodeUrl:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/DGMIFOGK-1671010156749f.png'
   };
   if (pathObjRes.backGroundUrl) {
     data.imgPath = pathObjRes.backGroundUrl;
   } else {
-    getBGImg(pathObjRes.qrCodeUrl);
+    getBGImg('https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/LIMEPFJB-1731722201729wechat.jpg');
   }
 };
 initShareImg();

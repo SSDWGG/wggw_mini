@@ -7,7 +7,14 @@
         <view class="sideTipText"> 活动规则 </view>
       </view>
 
-      <view class="sideTip2" @tap="data.explanationShow = true">
+      <view
+        class="sideTip2"
+        @tap="
+          () => {
+            Taro.navigateTo({ url: `/pages/technical/invite/more-invite/index` });
+          }
+        "
+      >
         <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/LLLHAGEI-1670204297091w.png" class="sideTipImg" />
         <view class="sideTipText"> 店铺海报 </view>
       </view>
@@ -109,6 +116,7 @@ import mySwiper from './invite-swiper/index.vue';
 import inviteOverlay from './invite-overlay/index.vue';
 import { reactive } from 'vue';
 import { changeLongStr } from '@/utils/index';
+import Taro from '@tarojs/taro';
 
 const data = reactive({
   inviteList: [] as any[],

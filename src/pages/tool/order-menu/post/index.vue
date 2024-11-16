@@ -1,6 +1,5 @@
 <template>
-  <!-- isPermissionsToWx() -->
-  <view v-if="true" :class="styles.container">
+  <view v-if="isPermissionsToWx()" :class="styles.container">
     <navbar :title="!!router.params.cCdId ? '编辑菜谱' : '创建菜谱'" />
     <view class="body">
       <!-- 文案 -->

@@ -28,7 +28,7 @@ export default defineAppConfig({
         'editor/index',
         'map/index',
         'invite/index',
-        'invite2/index',
+        'invite/more-invite/index',
       ],
     },
     {

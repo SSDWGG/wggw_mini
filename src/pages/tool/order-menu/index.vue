@@ -61,7 +61,8 @@
         </div>
       </template>
     </nut-sku>
-    <side-bar v-if="!router.params.isShare" :show="show" :showFlags="[12,13]" />
+    <!-- ,13 -->
+    <side-bar v-if="!router.params.isShare" :show="show" :showFlags="[12]" />
   </scroll-view>
   <nut-image-preview
     v-if="!!data.goods.content"

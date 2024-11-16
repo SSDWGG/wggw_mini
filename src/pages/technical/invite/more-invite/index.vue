@@ -28,7 +28,6 @@ import type { IPosterData } from './useGeneratePoster';
 import { useGeneratePoster } from './useGeneratePoster';
 // @ts-ignore
 import styles from './styles.scss';
-import qrImg from './wggwQR.png';
 
 interface IState {
   current: number; // swiper current
