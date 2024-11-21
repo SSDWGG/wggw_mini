@@ -3,7 +3,7 @@
     <myNavBar v-show="!data.overlayShow" title="邀请返现活动" />
     <view v-show="!data.overlayShow" class="container">
       <view class="sideTip" @tap="data.explanationShow = true">
-        <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/LLLHAGEI-1670204297091w.png" class="sideTipImg" />
+        <image src="./bg.png" class="sideTipImg" />
         <view class="sideTipText"> 活动规则 </view>
       </view>
 
@@ -15,7 +15,7 @@
           }
         "
       >
-        <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/LLLHAGEI-1670204297091w.png" class="sideTipImg" />
+      <image src="./bg.png" class="sideTipImg" />
         <view class="sideTipText"> 店铺海报 </view>
       </view>
 

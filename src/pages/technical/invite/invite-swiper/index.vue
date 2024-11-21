@@ -11,36 +11,43 @@
 import { reactive } from 'vue';
 // @ts-ignore
 import styles from './styles.scss';
+import avatar1 from './imgs/1.jpg';
+import avatar2 from './imgs/2.jpeg';
+import avatar3 from './imgs/3.jpeg';
+import avatar4 from './imgs/4.jpeg';
+import avatar5 from './imgs/5.jpeg';
+import avatar6 from './imgs/6.jpeg';
+import avatar7 from './imgs/7.jpeg';
 
 const data = reactive({
   swiperList: [
 
     {
-      avatar: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NDOBPPNA-1666335570239lQDPJxbLpdPIhzHNAz3NAz2wdWec7chkt8YDTrkJCcBFAA_829_829.jpg_720x720g.jpg',
+      avatar: avatar1,
       text: 'tomasi 邀请*麦,领取到了80元返现'
     },
     {
-      avatar: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+      avatar: avatar2,
       text: 'M~ 邀请**嘉,领取到了150元返现'
     },
     {
-      avatar: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/EAHHDJOO-1665731176017WechatIMG3876.jpeg',
+      avatar: avatar3,
       text: 'Sypha 邀请**财,领取到了200元返现'
     },
     {
-      avatar: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/BBPJOFPC-1665731176017WechatIMG3872.jpeg',
+      avatar: avatar4,
       text: 'yoga 邀请*天,领取到了49.5元返现'
     },
     {
-      avatar: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/CCGJELOF-1670468882402WechatIMG21.jpeg',
+      avatar: avatar5,
       text: 'cool 邀请*凯,领取到了56元返现'
     },
     {
-      avatar: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/OKBBKGEI-1665731176017WechatIMG3867.jpeg',
+      avatar: avatar6,
       text: 'Qiu 邀请*明,领取到了134元返现'
     },
     {
-      avatar: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/HMJHMDJJ-1665731239440WechatIMG3875.jpeg',
+      avatar: avatar7,
       text: '#Zero 邀请**薇,领取到了80元返现'
     },
 
