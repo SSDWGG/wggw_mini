@@ -94,7 +94,7 @@ const handleGoTo = (e) => {
 };
 
 usePageScroll((res) => {
-  console.log(res.scrollTop);
+  // console.log(res.scrollTop);
 });
 
 const contentHight = computed(() => getSizeToPx(props.contentHight));

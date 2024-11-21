@@ -21,7 +21,6 @@ declare module 'vue' {
     FreeOverlay: typeof import('./src/components/homeModal/freeOverlay/index.vue')['default']
     FullButton: typeof import('./src/components/SideBar/full-button.vue')['default']
     FullPreview: typeof import('./src/components/fullPreview/index.vue')['default']
-    GuideOverlay: typeof import('./src/components/homeModal/guideOverlay/index.vue')['default']
     'Icon.h5': typeof import('./src/components/alIconfont/icon.h5.vue')['default']
     'Icon.weapp': typeof import('./src/components/alIconfont/icon.weapp.vue')['default']
     ImgPostButton: typeof import('./src/components/SideBar/img-post-button.vue')['default']
