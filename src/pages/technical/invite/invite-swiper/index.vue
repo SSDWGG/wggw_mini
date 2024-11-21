@@ -16,8 +16,6 @@ import avatar2 from './imgs/2.jpeg';
 import avatar3 from './imgs/3.jpeg';
 import avatar4 from './imgs/4.jpeg';
 import avatar5 from './imgs/5.jpeg';
-import avatar6 from './imgs/6.jpeg';
-import avatar7 from './imgs/7.jpeg';
 
 const data = reactive({
   swiperList: [
@@ -41,15 +39,7 @@ const data = reactive({
     {
       avatar: avatar5,
       text: 'cool 邀请*凯,领取到了56元返现'
-    },
-    {
-      avatar: avatar6,
-      text: 'Qiu 邀请*明,领取到了134元返现'
-    },
-    {
-      avatar: avatar7,
-      text: '#Zero 邀请**薇,领取到了80元返现'
-    },
+    }
 
   ]
 });
