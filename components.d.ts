@@ -16,6 +16,7 @@ declare module 'vue' {
     CommonMenu: typeof import('./src/components/commonMenu/index.vue')['default']
     ContactButton: typeof import('./src/components/SideBar/contact-button.vue')['default']
     DownloadAll: typeof import('./src/components/SideBar/download-all.vue')['default']
+    Drag: typeof import('./src/components/Drag/index.vue')['default']
     EcCanvas: typeof import('./src/components/myEcharts/ec-canvas/ec-canvas.vue')['default']
     FreeOverlay: typeof import('./src/components/homeModal/freeOverlay/index.vue')['default']
     FullButton: typeof import('./src/components/SideBar/full-button.vue')['default']

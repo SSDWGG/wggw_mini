@@ -55,7 +55,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, reactive, ref, watch } from 'vue';
-import { Drag } from '@fishui/taro-vue';
+import  Drag  from '@/components/Drag/index.vue';
 import { useRouter, useUnload } from '@tarojs/taro';
 // @ts-ignore
 import styles from './styles.scss';
