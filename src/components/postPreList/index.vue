@@ -24,8 +24,8 @@
 
     <!-- 视频 视频总是一个 不需要拖拽排序 -->
     <block v-else>
-      <view class="vedioDiv">
-        <view class="vedioDiv-item">
+      <view class="videoDiv">
+        <view class="videoDiv-item">
           <view v-for="(picObj, index) in data.picList" :key="index" class="item-view">
             <view @tap="removeItem(picObj)">
               <IconFont
@@ -34,8 +34,8 @@
             </view>
             <video class="up-list-item" :src="picObj.path" :controls="false" :showCenterPlayBtn="false">
               <IconFont
-                :name="vedioPlayIcon"
-                :size="25" class="vedio-state" />
+                :name="videoPlayIcon"
+                :size="25" class="video-state" />
             </video>
           </view>
           <!-- 继续添加按钮 视频限制添加一个，图片限制添加9张-->
@@ -67,7 +67,7 @@ import myToastComponents from '@/components/myToast/index.vue';
 import { hasProtocol, uuid } from '@/utils/index';
 import aliossUpload from '@/utils/alioss-upload';
 import addIcon from '@/assets/images/project/add.png';
-import vedioPlayIcon from '@/assets/images/project/vedioPlay.png';
+import videoPlayIcon from '@/assets/images/project/videoPlay.png';
 import closeIcon from '@/assets/images/project/close.png';
 
 type IListItem = IResult & {

@@ -1,7 +1,6 @@
 <template>
   <view :class="styles.lockPageContainer">
     <myNavBar  v-if="data.showPage"  title="RRB" background-color="transparent" :goback="goback" />
-
     <lock
       ref="myLockPage"
       :passwordObj="data.password"

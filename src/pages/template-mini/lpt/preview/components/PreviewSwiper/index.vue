@@ -1,8 +1,8 @@
 <template>
   <swiper :current="data.initCurrent" :indicator-dots="false" :autoplay="false" :circular="false" :vertical="true"
     :duration="400" :style="{ height: '100vh' }" @animationfinish="handleChangeSwiper">
-    <!--       :showVedioFlag="handleshowVedioFlag(item)" -->
-    <preview-swiper-item v-for="item in props.List" :key="item.memoId" :swiperItemInfo="item" showVedioFlag
+    <!--       :showvideoFlag="handleshowvideoFlag(item)" -->
+    <preview-swiper-item v-for="item in props.List" :key="item.memoId" :swiperItemInfo="item" showvideoFlag
       :ShowVirtualFlag="handleShowVirtualFlag(item)" :hideSideBarItem="props.hideSideBarItem"
       :isShare="props.isShare" />
   </swiper>

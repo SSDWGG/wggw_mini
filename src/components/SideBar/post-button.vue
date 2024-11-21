@@ -63,7 +63,7 @@ const handleChoose = async (type: IMediaType) => {
     const list = await selectMedia(type);
     account.templeChoosePostList = list  as IResult[];
     Taro.navigateTo({
-      url: `/pages/memo/memo/post/index?type=${type}`
+      url: `/pages/tool/memo/memo/post/index?type=${type}`
     });
 
   } catch (err) {
@@ -79,7 +79,7 @@ const handleChooseText = () => {
   handleClose();
   account.templeChoosePostList = [];
   Taro.navigateTo({
-    url: `/pages/memo/memo/post/index?type=${'image'}`
+    url: `/pages/tool/memo/memo/post/index?type=${'image'}`
   });
 };
 

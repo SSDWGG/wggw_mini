@@ -70,7 +70,7 @@ interface IProps {
 
 const props = withDefaults(defineProps<IProps>(), {
   className: 'wgg-navbar',
-  title: 'NavBar',
+  title: '',
   fixed: true,
   contentHight: 44,
   titleColor: '#222222',

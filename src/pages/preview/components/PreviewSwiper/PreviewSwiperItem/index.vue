@@ -7,15 +7,15 @@
         <!-- 图片 -->
         <image v-if="data.info.memoItemType === 0" :src="data.info.picUrl" class="img" mode="aspectFit"></image>
         <!-- 视频 -->
-        <view v-if="data.info.memoItemType === 1" class="vedio-div">
+        <view v-if="data.info.memoItemType === 1" class="video-div">
           <!-- 暂停标记 -->
           <image v-show="data.showFlag"
-            src="@/assets/images/project/vedioPlay.png"
-            class="vedio-flag" />
+            src="@/assets/images/project/videoPlay.png"
+            class="video-flag" />
           <!--封面图  防止被快速下滑，需要使用封面图站位因为快速下滑回调不会被执行 -->
-          <image v-if="!props.showVedioFlag" :src="data.info.videoPicUrl" class="img" mode="aspectFit"></image>
+          <image v-if="!props.showvideoFlag" :src="data.info.videoPicUrl" class="img" mode="aspectFit"></image>
           <!-- 视频 优化点：还没有加载完的视屏，封面图也可以盖在上面-->
-          <video v-if="props.showVedioFlag" :id="data.info.memoResId" :posterForCrawler="data.info.videoPicUrl"
+          <video v-if="props.showvideoFlag" :id="data.info.memoResId" :posterForCrawler="data.info.videoPicUrl"
             :src="data.info.picUrl" object-fit="contain" initial-time="0" :autoplay="false" :show-fullscreen-btn="false"
             :showCenterPlayBtn="false" :showPlayBtn="false" :loop="true" :muted="false" :enableProgressGesture="false"
             :show-bottom-progress="true" @play="changeShowFlag(false)" @pause="changeShowFlag(true)" />
@@ -48,7 +48,7 @@ const props = defineProps({
     type: Object,
     default: {} as (IMemo & IMemoItem)
   },
-  showVedioFlag: {
+  showvideoFlag: {
     type: Boolean,
     default: false
   },

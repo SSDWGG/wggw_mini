@@ -12,7 +12,7 @@
       欢迎来到工具专区，以下是一些有趣、实用的工具
     </nut-noticebar>
 
-    <commonMenu :height="height" :listData="account.tooMenuList"></commonMenu>
+    <commonMenu :height="height" :listData="account.toolMenuList"></commonMenu>
 
   </scroll-view>
   <!-- toast提示 -->

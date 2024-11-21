@@ -36,7 +36,7 @@ const props = defineProps({
     type: Object,
     default: {} as (IMemo & IMemoItem)
   },
-  showVedioFlag: {
+  showvideoFlag: {
     type: Boolean,
     default: false
   },
