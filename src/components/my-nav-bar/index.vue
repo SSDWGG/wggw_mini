@@ -1,21 +1,22 @@
 <template>
   <view :class="[styles.myNavBar, className]">
-    <!-- fix -->
+    <!-- fixed -->
     <view
       class="navbar__fixed"
       :style="{
         position: fixed ? 'fixed' : 'relative',
+        opacity: isScrollChange ? opacityBg : 1,
+        backgroundColor,
       }"
     >
       <!-- 顶部安全区 -->
-      <view :style="{ height: `${statusBarHeight}px`, backgroundColor: backgroundColor, }"> </view>
+      <view :style="{ height: `${statusBarHeight}px` }"> </view>
 
       <!-- 内容区 -->
       <view
         class="navbar__header"
         :style="{
           height: contentHight,
-          backgroundColor: backgroundColor,
         }"
       >
         <!-- left -->
@@ -33,15 +34,37 @@
         </view>
       </view>
     </view>
-    <!-- 占位块 -->
-    <view v-if="fixed" class="navbar__placeholder">
+    <!-- 占位块(初始状态块) -->
+    <view
+      v-if="fixed"
+      class="navbar__placeholder"
+      :style="{
+        position: 'relative',
+        opacity: isScrollChange ? 1 - opacityBg : 0,
+        backgroundColor: initBackgroundColor,
+      }"
+    >
       <view :style="{ height: `${statusBarHeight}px` }"> </view>
+      <!-- 内容区 -->
       <view
+        class="navbar__header"
         :style="{
           height: contentHight,
-          backgroundColor: backgroundColor,
         }"
       >
+        <!-- left -->
+        <view class="navbar__header-left">
+          <slot v-if="!!slots.left" name="left" />
+
+          <view v-else-if="!hideBack" class="navbar__goback" @tap="handleGoTo">
+            <image class="navbar__icon" :src="leftIcon" mode="scaleToFill"> </image>
+          </view>
+        </view>
+        <!-- tltle -->
+        <slot v-if="!!slots.title" name="title" />
+        <view v-else class="navbar__header-wrap" :style="{ color: props.titleColor }">
+          {{ title }}
+        </view>
       </view>
     </view>
   </view>
@@ -51,7 +74,7 @@
 import Taro, { usePageScroll } from '@tarojs/taro';
 // @ts-ignore
 import styles from './styles.scss';
-import { computed, useSlots } from 'vue';
+import { computed, useSlots, ref } from 'vue';
 import { getSizeToPx } from '@/utils/index';
 import iconPath from './icon-back.png';
 
@@ -60,8 +83,17 @@ interface IProps {
   title?: string;
   titleColor?: string;
   fixed?: boolean;
+
   contentHight?: number;
+  // 底色
   backgroundColor?: string;
+  // 是否开启滑动渐变效果
+  isScrollChange?: boolean;
+  // 滑动渐变的渐变距离
+  longScrollChange?: number;
+  // 滑动渐变效果开启时，初始底色
+  initBackgroundColor?: string;
+
   // 隐藏返回
   hideBack?: boolean;
   leftIcon?: string;
@@ -70,20 +102,21 @@ interface IProps {
 
 const props = withDefaults(defineProps<IProps>(), {
   className: 'wgg-navbar',
-  title: '',
+  title: 'NavBar',
   fixed: true,
   contentHight: 44,
   titleColor: '#222222',
   backgroundColor: '#FFFFFF',
+  initBackgroundColor: 'transparent',
+  longScrollChange: 100,
   hideBack: false,
-  leftIcon:iconPath
+  isScrollChange: false,
+  leftIcon: iconPath,
 });
 
 const slots = useSlots();
 
-
 const { statusBarHeight } = Taro.getSystemInfoSync();
-
 
 const handleGoTo = (e) => {
   if (typeof props.goback === 'function') {
@@ -93,10 +126,16 @@ const handleGoTo = (e) => {
   }
 };
 
+const opacityBg = ref(0);
+
 usePageScroll((res) => {
-  // console.log(res.scrollTop);
+  if (res.scrollTop > props.longScrollChange) {
+    opacityBg.value = 1;
+  } else {
+    // 加快渐变时间
+    opacityBg.value = (res.scrollTop * 2) / props.longScrollChange;
+  }
 });
 
 const contentHight = computed(() => getSizeToPx(props.contentHight));
-
 </script>
