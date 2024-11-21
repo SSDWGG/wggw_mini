@@ -62,7 +62,7 @@ const height = computed(() => `calc( 100vh - ${systemInfoStore.statusBarHeight}p
 
 const posterData = computed<IPosterData>(() => ({
   nickname: '玮**',
-  tenantName: '云小叮科技有限公司',
+  tenantName: 'wgg科技有限公司',
   avatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
   qrcodeUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/LIMEPFJB-1731722201729wechat.jpg',
   picUrls: getPicUrls(),

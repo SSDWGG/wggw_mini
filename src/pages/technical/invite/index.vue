@@ -36,17 +36,17 @@
           <view class="content">
             <view class="title">活动介绍</view>
             <view class="paragraph">
-              1. 用户通过云小叮小程序进入「邀请返现」活动 页面，以邀请分享海报的方式分享给好友， 邀请成功后，邀请者将获得根据本规则获得相应现金奖励； 2.
+              1. 用户通过小程序进入「邀请返现」活动 页面，以邀请分享海报的方式分享给好友， 邀请成功后，邀请者将获得根据本规则获得相应现金奖励； 2.
               邀请者通过邀请分享海报扫码进入小程序，注册并完成一笔会员购买，且无退款，视为邀请成功（被邀请者会员购买成功时间判定），
               邀请者可有机会获得现金奖励。
             </view>
             <view class="title">奖励发放</view>
             <view class="paragraph">
               1.
-              邀请者成功邀请好友获得的现金奖励将于7个工作日内自动存入邀请者的“可提现金额”，邀请者可通过“邀请返现-我的邀请记录”中查看。如发放延迟，请联系云小叮客服。若邀请用户不符合活动规则，邀请者将无法得到相应的现金奖励。
+              邀请者成功邀请好友获得的现金奖励将于7个工作日内自动存入邀请者的“可提现金额”，邀请者可通过“邀请返现-我的邀请记录”中查看。如发放延迟，请联系客服。若邀请用户不符合活动规则，邀请者将无法得到相应的现金奖励。
               <view />
               2.
-              邀请者每成功邀请一名云小叮用户，可获得80%的现金奖励，多邀多得；邀请者邀请的新云小叮用户，若他成功邀请其他云小叮用户，邀请者也可获得一定比例的现金奖励，形成分佣等级；
+              邀请者每成功邀请一名用户，可获得80%的现金奖励，多邀多得；邀请者邀请的新用户，若他成功邀请其他用户，邀请者也可获得一定比例的现金奖励，形成分佣等级；
               <view />
               3.
               第一级分佣用户，为非被邀请者；第二级分佣用户，为被邀请者；第三级用户，为被第二级分佣用户邀请进入的用户；第三级用户注册购买会员，则第二级分佣用户领取50%的佣金，第一级分佣用户领取30%的佣金；
@@ -56,8 +56,8 @@
             </view>
             <view class="title">活动其他说明</view>
             <view class="paragraph">
-              1. 云小叮新用户是指设备号、手机号均为在云小叮上注册授权过手机号的用户。 2.
-              如发现用户存在任何违规套取现金奖励的行为，包括且不限于虚假交易、批量注册、用机器注册账户、机器模拟客户端、提供虚假信息等方式参与邀请返现，云小叮将视情节严重程度按照相关规则进行处罚。
+              1. 新用户是指设备号、手机号均为在上注册授权过手机号的用户。 2.
+              如发现用户存在任何违规套取现金奖励的行为，包括且不限于虚假交易、批量注册、用机器注册账户、机器模拟客户端、提供虚假信息等方式参与邀请返现，将视情节严重程度按照相关规则进行处罚。
               包括但不限于不予发放奖励，封停邀请返现功能，依法追究其法律责任等。
             </view>
           </view>
@@ -128,7 +128,7 @@ const getInviteList = () => {
     {
       invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
-      goodsName: '云小叮正式版',
+      goodsName: '正式版',
       inviteSuccessTime: '2024-10-25',
       userNick: '玮**',
       centAmount: 1200,
@@ -136,7 +136,7 @@ const getInviteList = () => {
     {
       invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
-      goodsName: '云小叮正式版',
+      goodsName: '正式版',
       inviteSuccessTime: '2024-10-25',
       userNick: '玮**',
       centAmount: 1200,
@@ -144,7 +144,7 @@ const getInviteList = () => {
     {
       invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
-      goodsName: '云小叮正式版',
+      goodsName: '正式版',
       inviteSuccessTime: '2024-10-25',
       userNick: '玮**',
       centAmount: 1200,
@@ -152,7 +152,7 @@ const getInviteList = () => {
     {
       invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
-      goodsName: '云小叮正式版',
+      goodsName: '正式版',
       inviteSuccessTime: '2024-10-25',
       userNick: '玮**',
       centAmount: 1200,
@@ -160,7 +160,7 @@ const getInviteList = () => {
     {
       invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
-      goodsName: '云小叮正式版',
+      goodsName: '正式版',
       inviteSuccessTime: '2024-10-25',
       userNick: '玮**',
       centAmount: 1200,
@@ -168,7 +168,7 @@ const getInviteList = () => {
     {
       invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
-      goodsName: '云小叮正式版',
+      goodsName: '正式版',
       inviteSuccessTime: '2024-10-25',
       userNick: '玮**',
       centAmount: 1200,
