@@ -1,6 +1,6 @@
 <template>
   <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="Menu" hide-back background-color="#f5f5f9" />
+    <myNavBar title="Menu" hide-back background-color="#f5f5f9" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
       Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light. Though wise men at their
@@ -69,7 +69,7 @@
 import styles from './styles.scss';
 import { computed, reactive, ref } from 'vue';
 import { useShareAppMessage, useShareTimeline, useDidShow } from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import fullPreview from '@/components/fullPreview/index.vue';
 import sideBar from '@/components/SideBar/index.vue';

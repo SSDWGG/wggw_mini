@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/v-on-event-hyphenation -->
 <template>
-  <navbar title="商城" />
+  <myNavBar title="商城" />
   <view :class="styles.container">
     <nut-category :category="data.category" @change="changeCategory">
       <nut-category-pane :categoryChild="data.categoryChild" @onChange="handleClickCategoryPane"> </nut-category-pane
@@ -47,7 +47,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { getCategoryInfoList, getPageProdList, getPageProdDetail, postSubmitOrder, postOrderPay, postOrderConfirm } from '@/apis/lpt/shop';

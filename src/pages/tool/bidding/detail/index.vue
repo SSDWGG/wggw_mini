@@ -1,12 +1,12 @@
 <template>
   <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar :title="pageTitle" background-color="rgba(116, 104, 242,.1)">
+    <myNavBar :title="pageTitle" background-color="transparent">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
 
     <nut-watermark v-if="chooseItem?.title" :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" :content="chooseItem?.title" />
     <side-bar
@@ -57,7 +57,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import { reactive, ref } from 'vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useShareAppMessage, useShareTimeline, useRouter, switchTab, useDidShow } from '@tarojs/taro';

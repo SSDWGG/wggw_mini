@@ -1,11 +1,11 @@
 <template>
-  <navbar v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe">
+  <myNavBar v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe">
     <template v-if="!!router.params.isShare" #left>
       <view style="padding: 6px 20px" @tap="goback">
         <IconFont name="home" size="20" />
       </view>
     </template>
-  </navbar>
+  </myNavBar>
   <!-- :style="{ height:normalHeight}" -->
 
   <view :class="styles.waterfall" @scroll="onScroll">
@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { reactive } from 'vue';
 // import { useSystemInfoStore } from '@/stores/systemInfo';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';

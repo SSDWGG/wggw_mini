@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.invite">
-    <Navbar v-show="!data.overlayShow" title="邀请返现活动" />
+    <myNavBar v-show="!data.overlayShow" title="邀请返现活动" />
     <view v-show="!data.overlayShow" class="container">
       <view class="sideTip" @tap="data.explanationShow = true">
         <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/LLLHAGEI-1670204297091w.png" class="sideTipImg" />
@@ -117,7 +117,7 @@
   </view>
 </template>
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import mySwiper from './invite-swiper/index.vue';

@@ -1,12 +1,12 @@
 <template>
   <view :class="styles.myContainer">
-    <navbar title="我的">
+    <myNavBar title="我的">
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="我的" />
 
     <nut-cell class="infoContent" @tap="editInfo">
@@ -205,7 +205,7 @@
   <myTabBar></myTabBar>
 </template>
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { reactive, ref } from 'vue';

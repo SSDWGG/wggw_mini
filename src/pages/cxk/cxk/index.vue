@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.cxk">
-    <navbar title="IKun" background-color="transparent" :goback="goback" />
+    <myNavBar title="IKun" background-color="transparent" :goback="goback" />
     <view class="title"> 支持坤坤的第912.5天 </view>
     <view class="cxkContent c1" @tap="handleClickCxk">
       <view class="txt" :style="{ color: data.bg }">
@@ -43,9 +43,9 @@
   import Taro, { useDidHide } from '@tarojs/taro';
   // @ts-ignore
   import styles from './styles.scss';
-  import { Navbar } from '@fishui/taro-vue';
   import { computed, reactive } from 'vue';
   import { cdnHost, ossFilePrePath } from '@/utils/env';
+  import myNavBar from '@/components/my-nav-bar/index.vue';
 
 
 

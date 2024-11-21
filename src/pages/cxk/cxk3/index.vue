@@ -1,12 +1,12 @@
 <template>
   <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="坤歌台" background-color="rgba(116, 104, 242,.1)">
+    <myNavBar title="坤歌台" background-color="transparent">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="坤坤大舞台有歌你就来" />
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[1, 2, 3]" />
 
@@ -30,7 +30,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import { computed, reactive } from 'vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import fullPreview from '@/components/fullPreview/index.vue';
 import sideBar from '@/components/SideBar/index.vue';

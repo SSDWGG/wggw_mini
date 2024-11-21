@@ -1,6 +1,6 @@
 <template>
   <view id="parent" :class="styles.testContainer">
-    <navbar title="加油吧，少年" background-color="transparent" :style="{position: 'absolute'}" :goback="goback" />
+    <myNavBar title="加油吧，少年" background-color="transparent" :style="{position: 'absolute'}" :goback="goback" />
 
     <view class="dtitle"> Keep going </view>
     <view class="contentText">
@@ -23,7 +23,7 @@
   </view>
 </template>
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 
 // @ts-ignore
 import styles from './styles.scss';

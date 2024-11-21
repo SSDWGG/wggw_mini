@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/prefer-true-attribute-shorthand -->
 <template>
-  <Navbar title="店铺分享码" />
+  <myNavBar title="店铺分享码" />
   <swiper
     :class="styles.swiper"
     :style="{ height }"
@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import { reactive, computed } from 'vue';
 import Taro from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import type { IPosterData } from './useGeneratePoster';
 import { useGeneratePoster } from './useGeneratePoster';

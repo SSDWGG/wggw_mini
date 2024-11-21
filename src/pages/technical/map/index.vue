@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.mapContainer">
-    <navbar title="足迹地图" />
+    <myNavBar title="足迹地图" />
     <view class="img_box">
       <image :src="data.url"></image>
     </view>
@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import amapFile from './amap-wx.130.js';
@@ -24,11 +24,11 @@ const init = () => {
     success: (data) => {
         // 🎈 保存位置的描述信息（ longitude经度 latitude纬度 和位置信息 ）
         console.log(data);
-        
+
       },
       fail: function(info){
         console.log('get Location fail',info);
-      }    
+      }
     });
 
   wx.getSystemInfo({
@@ -41,7 +41,7 @@ const init = () => {
         size: size,
         scale: 2,
         markers: 'mid,0xFF0000,A:116.37359,39.92437;116.47359,39.92437',
-        success: function (info) {          
+        success: function (info) {
           data.url = info.url;
         },
         fail: function (info) {

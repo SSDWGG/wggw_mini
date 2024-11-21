@@ -1,7 +1,7 @@
 <template>
   <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <page-container :show="data.pageContainerShow" :overlay="false" @leave="goback" />
-    <navbar title="坤坤妙妙屋" background-color="#f5f5f9" :goback="goback" />
+    <myNavBar title="坤坤妙妙屋" background-color="#f5f5f9" :goback="goback" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="致敬最爱的坤坤" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
       巅峰见证虚伪的拥护 黄昏迎来虔诚的信徒。世上本没有坤，坤的人多了便也有了坤。宁可食无肉，不可居无坤。无肉令人瘦，无坤令人俗。
@@ -47,7 +47,7 @@
 import styles from './styles.scss';
 import { computed, reactive } from 'vue';
 import { useShareAppMessage, useShareTimeline, switchTab } from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';

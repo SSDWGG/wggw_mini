@@ -1,5 +1,5 @@
 <template>
-  <navbar title="订单列表" background-color="transparent"  />
+  <myNavBar title="订单列表" background-color="transparent"  />
   <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="订单列表" />
 
   <view :class="styles.container">
@@ -69,7 +69,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive, watch, ref } from 'vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { getMyOrdertList, cancelOrder, orderRefund } from '@/apis/lpt/order';

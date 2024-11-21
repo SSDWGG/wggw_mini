@@ -1,5 +1,5 @@
 <template>
-  <Navbar title="检测蓝牙" />
+  <myNavBar title="检测蓝牙" />
   <view>
     <button @click="initBluetooth">初始化蓝牙</button>
     <button @click="discoverDevices">搜索设备</button>
@@ -20,11 +20,11 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted, computed } from 'vue';
 import bluetooth from '@/utils/bluetooth';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 
 export default defineComponent({
   components: {
-    Navbar
+    myNavBar
     },
   setup() {
     const devices = ref<any[]>([]);

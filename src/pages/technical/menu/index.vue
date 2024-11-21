@@ -1,12 +1,12 @@
 <template>
   <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="technical" background-color="#f5f5f9" >
+    <myNavBar title="technical" background-color="#f5f5f9" >
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="technical" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
       欢迎来到技术验证专区，需要提醒您该区域极不稳定，非开发人员建议立即退出，否则做好死机的心理建设，接下来请随意吧~
@@ -51,7 +51,7 @@
 import styles from './styles.scss';
 import { computed, reactive, ref } from 'vue';
 import Taro, { useDidShow, useDidHide ,useShareAppMessage, useShareTimeline} from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import fullPreview from '@/components/fullPreview/index.vue';
 import sideBar from '@/components/SideBar/index.vue';

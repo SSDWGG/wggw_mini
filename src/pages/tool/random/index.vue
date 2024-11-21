@@ -1,12 +1,12 @@
 <template>
-  <navbar title="纠结终结者" background-color="transparent" >
+  <myNavBar title="纠结终结者" background-color="transparent" >
 
     <template  #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-  </navbar>
+  </myNavBar>
   <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="迷茫的不是选项，而是你的内心对吗？" />
 
   <view :class="styles.editor">
@@ -102,7 +102,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import { reactive } from 'vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import myChart from './echart/index.vue';
 import myLucky from './lucky/index.vue';
 import { uuid } from '@/utils/index';

@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.myContainer">
-    <navbar title="登录" hide-back background-color="#f5f5f9" />
+    <myNavBar title="登录" hide-back background-color="#f5f5f9" />
 
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="业主投票" />
 
@@ -96,7 +96,6 @@
   <nickname-robber v-model:visible="nicknamePop.visible" @change="onChangeNickname" />
 </template>
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { sendCode, testCode } from '@/apis/mine';
@@ -107,6 +106,7 @@ import { checkEmail } from '@/utils/verify';
 import { debounce } from 'lodash';
 import NicknameRobber from '@/components/nicknameRobber';
 import Taro from '@tarojs/taro';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 
 definePageConfig({ backgroundColor: '#f3f3fe' });
 

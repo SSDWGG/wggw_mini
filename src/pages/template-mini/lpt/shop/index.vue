@@ -1,14 +1,14 @@
 <template>
   <!-- 内容物 -->
   <scroll-view :class="styles.myContainer" scroll-y="true" @scroll="onScroll">
-    <!-- navbar -->
-    <navbar title="shop">
+    <!-- myNavBar -->
+    <myNavBar title="shop">
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="旅拍通" />
     <view class="addressTitle"> 天台山风景区 </view>
     <nut-swiper :init-page="2" :auto-play="3000" pagination-visible pagination-color="#426543" pagination-unselected-color="#808080" class="mySwiper">
@@ -119,7 +119,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import myTabBar from '../custom-tab-bar/index';

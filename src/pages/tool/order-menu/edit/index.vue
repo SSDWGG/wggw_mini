@@ -1,6 +1,6 @@
 <template>
   <scroll-view :class="styles.myContainer" scroll-y="true">
-    <navbar title="编辑菜单" />
+    <myNavBar title="编辑菜单" />
     <view class="headInfo">
       <view class="title"> 菜单列表 </view>
       <nut-collapse accordion>
@@ -156,7 +156,7 @@
 import { addFmenu, getFmenuList, deleteFmenu, addSmenu, getSmenuList, deleteSmenu, updateFmenu, updateSmenu, getCmenuList, deleteCmenu } from '@/apis/orderMenu';
 // @ts-ignore
 import styles from './styles.scss';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { ref, reactive } from 'vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { useAccountStore } from '@/stores/account';

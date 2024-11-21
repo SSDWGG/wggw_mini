@@ -1,12 +1,12 @@
 <template>
   <scroll-view :class="styles.myContainer" scroll-y="true" @scroll="onScroll">
-    <navbar :title="data.menuUserName ? data.menuUserName + '的菜谱' : '菜谱'">
+    <myNavBar :title="data.menuUserName ? data.menuUserName + '的菜谱' : '菜谱'">
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .2)" :z-index="1" content="点菜" />
 
     <nut-category v-if="data.category.length > 0" :category="data.category" @change="change">
@@ -61,8 +61,8 @@
         </div>
       </template>
     </nut-sku>
-    <!-- ,13 -->
-    <side-bar v-if="!router.params.isShare" :show="show" :showFlags="[12]" />
+    <!-- -->
+    <side-bar v-if="!router.params.isShare" :show="show" :showFlags="[12,13 ]" />
   </scroll-view>
   <nut-image-preview
     v-if="!!data.goods.content"
@@ -98,7 +98,7 @@
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import Taro, { useDidShow, useRouter, useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 import { computed, reactive } from 'vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';

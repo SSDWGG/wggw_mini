@@ -1,6 +1,6 @@
 <template>
   <!-- 普通样式三个时间表 -->
-  <navbar v-show="data.showNav" title="TIME" background-color="transparent"  />
+  <myNavBar v-show="data.showNav" title="TIME" background-color="transparent"  />
   <view :class="styles.myContainer" :style="{ height:data.showNav?normalHeight:'100vh' }">
     <view class="progress">
       <MyCircleProgress
@@ -53,7 +53,7 @@
 <script lang="ts" setup>
 // @ts-ignore
   import styles from './styles.scss';
-  import { Navbar } from '@fishui/taro-vue';
+  import myNavBar from '@/components/my-nav-bar/index.vue';
   import MyCircleProgress from '@/components/MyCircleProgress/index.vue';
   import dayjs from 'dayjs';
   import { computed, reactive } from 'vue';

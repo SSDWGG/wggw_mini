@@ -1,6 +1,6 @@
 <template>
   <view v-if="isPermissionsToWx()" :class="styles.container">
-    <navbar :title="!!router.params.cCdId ? '编辑菜谱' : '创建菜谱'" />
+    <myNavBar :title="!!router.params.cCdId ? '编辑菜谱' : '创建菜谱'" />
     <view class="body">
       <!-- 文案 -->
       <nut-textarea
@@ -21,14 +21,14 @@
     </view>
   </view>
   <view v-else :class="styles.emptyContainer">
-    <navbar title="感谢关注" />
+    <myNavBar title="感谢关注" />
     <view class="empty"> 感谢您的关注，该功能暂未开启 </view>
   </view>
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
 import Taro, { useDidShow } from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';

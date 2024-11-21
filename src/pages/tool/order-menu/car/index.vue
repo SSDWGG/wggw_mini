@@ -19,7 +19,7 @@
       <view v-if="data.cartList.length>0" class="cartList">
         <view v-for="item in data.cartList" :key="item" class="cartItem"> {{ item }} </view>
       </view>
-      <nut-empty v-else description="快去添加菜品吧~"></nut-empty>
+      <nut-empty v-else description="购物车内还空空如也~"></nut-empty>
 
       <!-- 底部结算栏 -->
       <my-footer :allNum="1" :allPrice="2" :showFlags="[1]"> </my-footer>

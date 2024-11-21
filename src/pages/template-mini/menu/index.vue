@@ -1,12 +1,12 @@
 <template>
   <scroll-view  :class="styles.myContainer" class="pageIn" scroll-y="true" >
-    <navbar title="小程序模板" background-color="#f5f5f9" >
+    <myNavBar title="小程序模板" background-color="#f5f5f9" >
       <template #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="小程序模板" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
       欢迎来到小程序模板专区，以下是我们目前开发的小程序模板，可以帮助您快速的建立一个小程序
@@ -23,7 +23,7 @@
 import styles from './styles.scss';
 import { computed, ref } from 'vue';
 import Taro, {useShareAppMessage, useShareTimeline} from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import commonMenu from '@/components/commonMenu/index.vue';
 import { useAccountStore } from '@/stores/account';

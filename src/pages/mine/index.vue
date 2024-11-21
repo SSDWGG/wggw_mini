@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.myContainer">
-    <navbar title="我的信息" />
+    <myNavBar title="我的信息" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
       <checkSystemButton button-type="chooseAvatar" class="head" >
       <image :src="account.userInfo.avatarurl"  />
@@ -89,7 +89,7 @@
 </template>
 <script lang="ts" setup>
 import { useAccountStore } from '@/stores/account';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { sendCode, testCode } from '@/apis/mine';

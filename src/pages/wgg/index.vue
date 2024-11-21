@@ -2,7 +2,7 @@
   <!-- 直接复制url，通过浏览器打开，给予提示 -->
   <view :class="styles.wgg">
     <view class="bg">
-      <navbar background-color="transparent" />
+      <myNavBar background-color="transparent" />
       <view class="content">
         <view class="tips"> ❤️ Welcome to star SSDWGG on github ❤️</view>
         <view class="project">
@@ -21,7 +21,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import PersonCard from './components/PersonCard/index.vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { reactive } from 'vue';
 import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
 import Taro from '@tarojs/taro';

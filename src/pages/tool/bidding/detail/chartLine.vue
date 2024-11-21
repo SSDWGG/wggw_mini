@@ -1,7 +1,7 @@
 <template>
   <view v-if="isPermissionsToWx()">
 
-  
+
   <view class="bar-chart">
     <EChart v-if="orginData.length > 0" ref="barChat" canvas-id="bar-canvas" />
     <view v-else class="empty"> 暂无价格，去发表第一波价格吧~ </view>
@@ -39,7 +39,7 @@
   </view>
 </view>
 <view v-else class="emptyContainer">
-    <navbar title="感谢关注" />
+    <myNavBar title="感谢关注" />
     <view class="empty" >
       感谢您的关注，该功能暂未开启
     </view>
