@@ -98,6 +98,7 @@ export const useAccountStore = defineStore('account', {
         title: 'Dev',
         Ctitle: '修改IP',
         router: '/pages/technical/_dev/index',
+        isShow:false
       },
       {
         title: 'invite',

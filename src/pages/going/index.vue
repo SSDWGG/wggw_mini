@@ -17,7 +17,7 @@
         加油吧，少年！难道向上攀爬的那条路不比站在顶峰更让人热血澎湃吗？
       </view>
     </view>
-    <view id="child1" class="bg" :style="{backgroundPosition}">
+    <view id="child1" class="bg" :style="{backgroundPosition,backgroundImage: `url(${cdnHost}${ossFilePrePath}/JCGHKILE-1732178679759mountain.jpg)`}">
       <span>WGGW</span>
     </view>
   </view>

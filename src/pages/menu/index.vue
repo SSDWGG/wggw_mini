@@ -57,7 +57,13 @@
       </view>
 
       <view class="list">
-        <view v-for="(secondItem, secondIndex) in account[item.secondListName ?? '']" :key="secondIndex" class="sceneryItem" @tap="goto(secondItem)">
+        <view
+          v-for="(secondItem, secondIndex) in account[item.secondListName ?? '']"
+          v-show="secondItem.isShow !== false"
+          :key="secondIndex"
+          class="sceneryItem"
+          @tap="goto(secondItem)"
+        >
           <image mode="aspectFill" :style="{ opacity: secondItem.opacity ?? 0.8 }" :src="secondItem.bgSrc ?? imgDefaultSrc" />
           <view class="moreTitle">
             {{ secondItem.title }}
@@ -65,8 +71,6 @@
           <view class="moreTitle">
             {{ secondItem.Ctitle }}
           </view>
-
-
         </view>
       </view>
     </view>

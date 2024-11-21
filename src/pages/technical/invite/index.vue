@@ -3,7 +3,7 @@
     <myNavBar v-show="!data.overlayShow" title="邀请返现活动" />
     <view v-show="!data.overlayShow" class="container">
       <view class="sideTip" @tap="data.explanationShow = true">
-        <image src="./bg.png" class="sideTipImg" />
+        <image :src="cdnHost + ossFilePrePath + '/FBDPKNOB-1732179374044bg.png'" class="sideTipImg" />
         <view class="sideTipText"> 活动规则 </view>
       </view>
 
@@ -15,7 +15,7 @@
           }
         "
       >
-      <image src="./bg.png" class="sideTipImg" />
+        <image :src="cdnHost + ossFilePrePath + '/FBDPKNOB-1732179374044bg.png'" class="sideTipImg" />
         <view class="sideTipText"> 店铺海报 </view>
       </view>
 
@@ -64,18 +64,10 @@
         </view>
       </nut-popup>
       <view class="invite-bg-header">
-        <image
-          src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/IKHOHFCF-1670205616188x.png"
-          mode="widthFix"
-          class="header-bg"
-        />
+        <image :src="cdnHost + ossFilePrePath + '/IFBJDCIJ-1732179374044IKHOHFCF-1670205616188x.png'" mode="widthFix" class="header-bg" />
         <my-swiper class="header-swiper" />
         <view class="header-rule-view">
-          <image
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/JDCGLDEH-1670406817498f.png"
-            class="rule-img"
-            mode="widthFix"
-          />
+          <image :src="cdnHost + ossFilePrePath + '/DFGKMHJB-1732179374044JDCGLDEH-1670406817498f.png'" class="rule-img" mode="widthFix" />
           <nut-animate type="breath" class="rule-button-div" loop @tap="handleInvite">
             <nut-button block type="primary" class="rule-button">立即邀请好友</nut-button>
           </nut-animate>
@@ -84,16 +76,8 @@
       <view class="invite-bg-bottom">
         <view class="bottom-invite-view">
           <view class="invite-content">
-            <image
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/myRecord.png"
-              class="invite-header"
-              mode="widthFix"
-            />
-            <image
-              src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/invite-record-headerBG.png"
-              class="invite-recordBG"
-              mode="widthFix"
-            />
+            <image :src="cdnHost + ossFilePrePath + '/COBMNNFA-1732179374044myRecord.png'" class="invite-header" mode="widthFix" />
+            <image :src="cdnHost + ossFilePrePath + '/BAIPEOCH-1732179374044invite-record-headerBG.png'" class="invite-recordBG" mode="widthFix" />
             <view v-for="(item, index) in data.inviteList" :key="index" class="invite-item">
               <image class="avater" :src="item.invitedUserAvatarUrl"></image>
               <view class="invite-info">
@@ -106,7 +90,7 @@
               <view class="invite-info-num">{{ item.centAmount ? `+${item.centAmount / 100}` : '' }}</view>
             </view>
             <view v-if="data.inviteList.length === 0" class="nodata">
-              <image src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/nodata.png" class="nodata-img"></image>
+              <image :src="cdnHost + ossFilePrePath + '/KPOHBCAA-1732179374044nodata.png'" class="nodata-img"></image>
               <view class="nodata-tip"> 暂无邀请记录，快去邀请好友吧~ </view>
             </view>
           </view>
@@ -125,6 +109,7 @@ import inviteOverlay from './invite-overlay/index.vue';
 import { reactive } from 'vue';
 import { changeLongStr } from '@/utils/index';
 import Taro from '@tarojs/taro';
+import { cdnHost, ossFilePrePath } from '@/utils/env';
 
 const data = reactive({
   inviteList: [] as any[],
@@ -141,7 +126,7 @@ const data = reactive({
 const getInviteList = () => {
   data.inviteList = [
     {
-      invitedUserAvatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+      invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
       goodsName: '云小叮正式版',
       inviteSuccessTime: '2024-10-25',
@@ -149,7 +134,7 @@ const getInviteList = () => {
       centAmount: 1200,
     },
     {
-      invitedUserAvatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+      invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
       goodsName: '云小叮正式版',
       inviteSuccessTime: '2024-10-25',
@@ -157,7 +142,7 @@ const getInviteList = () => {
       centAmount: 1200,
     },
     {
-      invitedUserAvatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+      invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
       goodsName: '云小叮正式版',
       inviteSuccessTime: '2024-10-25',
@@ -165,7 +150,7 @@ const getInviteList = () => {
       centAmount: 1200,
     },
     {
-      invitedUserAvatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+      invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
       goodsName: '云小叮正式版',
       inviteSuccessTime: '2024-10-25',
@@ -173,7 +158,7 @@ const getInviteList = () => {
       centAmount: 1200,
     },
     {
-      invitedUserAvatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+      invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
       goodsName: '云小叮正式版',
       inviteSuccessTime: '2024-10-25',
@@ -181,7 +166,7 @@ const getInviteList = () => {
       centAmount: 1200,
     },
     {
-      invitedUserAvatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
+      invitedUserAvatarUrl: `${cdnHost + ossFilePrePath }/NBKOCPOA-1732179374044MDCNIKIN-1665731176017WechatIMG3877.jpg`,
       invitedUserNick: 'tomasi',
       goodsName: '云小叮正式版',
       inviteSuccessTime: '2024-10-25',

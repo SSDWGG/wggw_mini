@@ -8,7 +8,7 @@
         <view class="tips">长按图片，可直接发送给好友</view>
         <view class="close">
           <image
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/NFFHKFNE-1665734104910返回-26@2x.png"
+            src="@/assets/images/project/close.png"
             @tap="closePopup"
           />
         </view>

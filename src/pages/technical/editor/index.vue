@@ -2,7 +2,7 @@
   <myNavBar title="Editor" background-color="transparent" />
   <view :class="styles.editor">
     <view class="menu" :style="{ height }">
-      <!-- <myHtml /> -->
+      <myHtml />
       <myChart />
       <myLucky />
     </view>
@@ -15,7 +15,7 @@ import { computed } from 'vue';
 import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import myChart from './echart/index.vue';
-// import myHtml from "./mp-html/index.vue"
+import myHtml from './mp-html/index.vue';
 import myLucky from './lucky/index.vue';
 // definePageConfig({
 //   usingComponents: {
