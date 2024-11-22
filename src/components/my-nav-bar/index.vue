@@ -89,7 +89,7 @@ interface IProps {
   backgroundColor?: string;
   // 是否开启滑动渐变效果
   isScrollChange?: boolean;
-  // 滑动渐变的渐变距离
+  // 滑动渐变的渐变距离,将作为除数，不能被等于0
   longScrollChange?: number;
   // 滑动渐变效果开启时，初始底色
   initBackgroundColor?: string;
@@ -133,7 +133,7 @@ usePageScroll((res) => {
     opacityBg.value = 1;
   } else {
     // 加快渐变时间
-    opacityBg.value = (res.scrollTop * 2) / props.longScrollChange;
+    opacityBg.value = Math.sqrt(res.scrollTop  / props.longScrollChange) ;
   }
 });
 
