@@ -10,6 +10,7 @@
   }
 
   :global {
+
     .icon {
       width: 60px;
       height: 60px;
@@ -19,6 +20,11 @@
         margin-top: 4px;
       }
 
+    }
+
+    .buttonImg{
+      width: 36px;
+      height: 36px;
     }
 
     .fcc {
@@ -41,10 +47,6 @@
       width: 86%;
     }
 
-    .phoneIcon {
-      width: 34px;
-      height: 34px;
-    }
 
     .contact {
       font-size: 9px;

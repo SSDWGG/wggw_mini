@@ -8,46 +8,93 @@ page {
   font-family: monospace;
 
   :global {
-    .title{
+    .title {
       font-size: 24px;
       color: #333;
       font-weight: 500;
       margin: 20px;
     }
-    .chooseFmenu{
+
+    .chooseFmenu {
       padding: 6px;
-      border: 1px solid rgba(153, 153, 153,.3);
+      border: 1px solid rgba(153, 153, 153, .3);
       border-radius: 5px;
       margin-top: 10px;
-      color: rgb(51, 51, 51,.8);
+      color: rgb(51, 51, 51, .8);
       font-size: 12px;
     }
-    .nut-collapse-item__title{
+
+    .nut-collapse-item__title {
       height: 60px;
     }
-    .btns{
+
+    .fbtns {
+      display: flex;
+
+      .fbtnItem {
+        width: 70px;
+        margin-right: 5px;
+        height: 25px;
+      }
+    }
+
+    .buttomBtns {
       display: flex;
       align-items: center;
       justify-content: space-around;
       margin-top: 20px;
+      padding-bottom: 20px;
     }
-    .delete{
-      padding: 0 10px;
-      width: 80px;
-      margin-right: 50px;
-    }
-    .btns1{
-      margin-right: 5px;
-    }
-    .smenuItem{
-      display: flex;align-items: center;
-      justify-content: space-between;
-      padding: 0 10px;
-    }
-    .smenuItem2{
-      display: flex;align-items: center;
-      justify-content: flex-end;
-      padding: 0 10px;
+
+    .smenuItemContent {
+      .nut-collapse-item__title {
+        padding: 10px;
+      }
+
+
+      .smenuItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .smenuItemBtns {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          .smenuItemBtnItem {
+            padding: 0 10px;
+            width: 70px;
+
+            margin-right: 5px;
+            height: 25px;
+          }
+        }
+      }
+
+      .cmenuList {
+
+
+        .cmenuItem {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          .cmenuItemBtns {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            .cmenuItemBtnItem {
+              padding: 0 10px;
+              width: 70px;
+
+              margin-right: 5px;
+              height: 25px;
+            }
+          }
+        }
+      }
     }
 
   }

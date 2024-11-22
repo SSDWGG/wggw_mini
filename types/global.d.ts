@@ -32,6 +32,8 @@ export interface IListDataItem {
   isShow?:boolean,
   linkUrl?:string,
   qrSrc?:string,
+  secondListName?:string,
+
 }
 
 // declare module '@tarojs/components' {

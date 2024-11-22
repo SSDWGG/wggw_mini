@@ -1,6 +1,6 @@
 <template>
   <view id="parent" :class="styles.testContainer">
-    <navbar title="加油吧，少年" background-color="transparent" :style="{position: 'absolute'}" :goback="goback" />
+    <myNavBar title="加油吧，少年" background-color="transparent" :style="{position: 'absolute'}" :goback="goback" />
 
     <view class="dtitle"> Keep going </view>
     <view class="contentText">
@@ -17,13 +17,13 @@
         加油吧，少年！难道向上攀爬的那条路不比站在顶峰更让人热血澎湃吗？
       </view>
     </view>
-    <view id="child1" class="bg" :style="{backgroundPosition}">
+    <view id="child1" class="bg" :style="{backgroundPosition,backgroundImage: `url(${cdnHost}${ossFilePrePath}/JCGHKILE-1732178679759mountain.jpg)`}">
       <span>WGGW</span>
     </view>
   </view>
 </template>
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 
 // @ts-ignore
 import styles from './styles.scss';

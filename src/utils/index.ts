@@ -67,7 +67,7 @@ export const appendQueryParams = (
 export const getOSSVideoImg = (fullURL: string) =>
   `${fullURL}?x-oss-process=video/snapshot,t_30,f_jpg,m_fast,ar_auto`;
 
-  
+
 // 复制到剪贴板
 export const copyStr = (
   str: string,
@@ -142,7 +142,7 @@ export const querySelectorAll = (selector: string, fields: NodesRef.Fields): Pro
 export const hasProtocol = (url: string) => url.match(/(https):\/\/([\w.]+\/?)\S*/ig);
 
 // 绕过微信审核
-export const isPermissionsToWx = ()=> {  
+export const isPermissionsToWx = ()=> {
   // 打包产物
   if(process.env.buildInfo){
     // 绕过审核时间
@@ -151,7 +151,7 @@ export const isPermissionsToWx = ()=> {
     return !(diff < 4);
   }
   return true;
-}; 
+};
 
 // 是否是dev状态
 export const isDeving = ()=> process.env.NODE_ENV === 'development';

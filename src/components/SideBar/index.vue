@@ -17,6 +17,7 @@ import BiddingLineButton from './biddingLine-button.vue';
 import ImgPostButton from './img-post-button.vue';
 import DownloadAll from './download-all.vue';
 import OrderEditButton from './order-edit-button.vue';
+import menuCarButton from './menu-car-button.vue';
 import { computed } from 'vue';
 
 interface IProps {
@@ -43,6 +44,7 @@ const buttonComponentType = {
   9:ImgPostButton,
   11: DownloadAll,
   12: OrderEditButton,
+  13: menuCarButton,
 };
 
 const buttonComponents = computed(() => props.showFlags.map((num: number) => buttonComponentType[num]));

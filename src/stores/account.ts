@@ -20,7 +20,7 @@ interface IState {
   mainMenuList: IListDataItem[]; // 主菜单
   technicalMenuList: IListDataItem[]; // 技术验证区菜单
   templateMiniMenuList: IListDataItem[]; // 小程序模板区菜单
-  tooMenuList: IListDataItem[]; // 工具区菜单
+  toolMenuList: IListDataItem[]; // 工具区菜单
   cxkMenuList: IListDataItem[]; // cxk主菜单
   rrbMenuList: IListDataItem[]; // rrb主菜单
   vistorDataList: IMemo[]; // 前端缓存备忘录的数据（列表+详情）
@@ -41,26 +41,23 @@ export const useAccountStore = defineStore('account', {
       // wgg个人主页
       {
         title: 'WGG',
-        Ctitle: 'wgg',
+        Ctitle: 'wgg作品',
         router: '/pages/wgg/index',
+        bgSrc: `${cdnHost}${ossFilePrePath}/ADGGEICE-17321741498501111.gif`,
       },
       // 励志主页
       {
         title: 'Come on',
-        Ctitle: '加油吧，少年',
+        Ctitle: '加油·少年',
         router: '/pages/going/index',
-      },
-      // 备忘录入口
-      {
-        title: 'Mood Memo',
-        Ctitle: '专属记录',
-        router: '/pages/memo/index',
+        bgSrc: `${cdnHost}${ossFilePrePath}/NKOMJDNM-1732173783431vistor.jpg`,
       },
       // fjl入口
       {
         title: 'RRB',
         Ctitle: 'RRB',
         router: '/pages/rrb/index',
+        secondListName:'rrbMenuList'
       },
       // 娱乐区入口
       {
@@ -69,29 +66,44 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/cxk/index/index',
         bgSrc: `${cdnHost}${ossFilePrePath}/BEDKEKCP-1705543014391shakeKun.gif`,
         opacity: 1,
+        secondListName:'cxkMenuList'
       },
 
-      {
-        title: 'Technical',
-        Ctitle: '技术验证',
-        router: '/pages/technical/menu/index',
-      },
+
       {
         title: 'Tool',
         Ctitle: '工具',
         router: '/pages/tool/menu/index',
+        secondListName:'toolMenuList'
+
       },
       {
         title: 'Template',
         Ctitle: '小程序模板',
         router: '/pages/template-mini/menu/index',
+        secondListName:'templateMiniMenuList'
+
       },
+      {
+        title: 'Technical',
+        Ctitle: '技术验证',
+        router: '/pages/technical/menu/index',
+        secondListName:'technicalMenuList'
+
+      },
+
     ],
     technicalMenuList:[
       {
         title: 'Dev',
         Ctitle: '修改IP',
         router: '/pages/technical/_dev/index',
+        isShow:false
+      },
+      {
+        title: 'invite',
+        Ctitle: '拉新&海报',
+        router: '/pages/technical/invite/index',
       },
       {
         title: 'Time',
@@ -137,10 +149,13 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/template-mini/lpt/shop/index',
       },
     ],
-    tooMenuList:[
-       // 价值曲线入口
-
-
+    toolMenuList:[
+       // 备忘录入口
+       {
+        title: 'Mood Memo',
+        Ctitle: '专属记录',
+        router: '/pages/tool/memo/index',
+      },
       {
         title: 'random',
         Ctitle: '纠结终结者',
@@ -177,13 +192,13 @@ export const useAccountStore = defineStore('account', {
     ],
     cxkMenuList: [
       {
-        title: 'IKun',
+        title: 'Kun Video',
         Ctitle: '小黑子',
         router: '/pages/cxk/cxk/index',
         bgSrc: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
       },
       {
-        title: 'IKun',
+        title: 'Kun Music',
         Ctitle: '坤歌台',
         router: '/pages/cxk/cxk3/index',
         bgSrc: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,

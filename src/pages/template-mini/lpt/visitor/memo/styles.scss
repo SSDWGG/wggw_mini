@@ -24,7 +24,7 @@ page {
           width: 100%;
           height: 100%;
         }
-        .vedioFlag{
+        .videoFlag{
           position: absolute;
           width: 50rpx;
           height: 50rpx;
@@ -42,7 +42,7 @@ page {
           top: 10px;
           right: 10px;
           &__checked {
-            background: url(https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/icon-checked.png) no-repeat center center;
+            background: url(./icon-checked.png) no-repeat center center;
             background-size: 18px 18px;
           }
         }
@@ -93,7 +93,7 @@ page {
                   width: 100%;
                   height: 100%;
                 }
-                .vedioFlag{
+                .videoFlag{
                   position: absolute;
                   width: 50rpx;
                   height: 50rpx;
@@ -111,7 +111,7 @@ page {
                   top: 10px;
                   right: 10px;
                   &__checked {
-                    background: url(https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/icon-checked.png) no-repeat center center;
+                    background: url(./icon-checked.png) no-repeat center center;
                     background-size: 18px 18px;
                   }
                 }

@@ -1,30 +1,53 @@
 <template>
   <scroll-view :class="styles.myContainer" scroll-y="true">
-    <navbar title="编辑菜单" />
+    <myNavBar title="编辑菜单" />
     <view class="headInfo">
       <view class="title"> 菜单列表 </view>
-      <nut-collapse v-model="data.collapseVal" accordion>
+      <nut-collapse accordion>
         <nut-collapse-item v-for="fmenuItem in data.fmenuList" :key="fmenuItem.firstCdId" :name="fmenuItem.firstCdId">
           <template #title>主分类:{{ fmenuItem.firstCdName }} </template>
           <template #value>
-            <nut-button class="delete" block type="danger" @tap="httpDeleteFmenu(fmenuItem.firstCdId)">删除</nut-button>
+            <view class="fbtns">
+              <nut-button class="fbtnItem" block type="danger" @tap="httpDeleteFmenu(fmenuItem.firstCdId)">删除</nut-button>
+              <nut-button class="fbtnItem" block @tap="httpEditFmenu(fmenuItem)">编辑</nut-button>
+            </view>
           </template>
 
-          <nut-cell v-for="smenuItem in fmenuItem.smenu" :key="smenuItem.secondCdId" class="smenuItem">
-            <view>
-              {{ smenuItem.secondCdName }}
-            </view>
-            <view class="smenuItem2">
-              <nut-button class="delete btns1" block type="danger" @tap="httpDeleteSmenu(smenuItem.secondCdId)">删除分类</nut-button>
-              <nut-button class="delete" block @tap="httpAddCmenu(smenuItem.secondCdId)">上传菜品</nut-button>
-            </view>
-          </nut-cell>
+          <!-- 二级菜单 -->
+          <nut-collapse accordion>
+            <nut-collapse-item v-for="smenuItem in fmenuItem.smenu" :key="smenuItem.secondCdId" :name="smenuItem.secondCdId" class="smenuItemContent">
+              <template #title>
+                <view class="smenuItem">
+                  <view>
+                    {{ smenuItem.secondCdName }}
+                  </view>
+                  <view class="smenuItemBtns">
+                    <nut-button class="smenuItemBtnItem" block @tap="httpEditSmenu(smenuItem)">编辑</nut-button>
+                    <nut-button class="smenuItemBtnItem" block type="danger" @tap="httpDeleteSmenu(smenuItem.secondCdId)">删除</nut-button>
+                    <nut-button class="smenuItemBtnItem" block @tap="httpAddCmenu(smenuItem.secondCdId)">上传</nut-button>
+                  </view>
+                </view>
+              </template>
+
+              <!-- 详细菜单 -->
+              <view class="cmenuList">
+                <view v-for="(cmenuItem, cmenuIndex) in smenuItem.cmenu" :key="cmenuIndex" class="cmenuItem">
+                  <view> {{ cmenuItem.catName }} </view>
+                  <view class="cmenuItemBtns">
+                    <nut-button class="cmenuItemBtnItem" block type="danger" @tap="httpDeleteCmenu(cmenuItem.cCdId)">删除</nut-button>
+                    <nut-button class="cmenuItemBtnItem" block @tap="httpEditCmenu(cmenuItem)">编辑</nut-button>
+
+                  </view>
+                </view>
+              </view>
+            </nut-collapse-item>
+          </nut-collapse>
 
           <nut-cell v-if="fmenuItem.smenu.length === 0" class="empty"> 暂未设置二级菜单，请先添加二级菜单 </nut-cell>
         </nut-collapse-item>
       </nut-collapse>
 
-      <view class="btns">
+      <view class="buttomBtns">
         <nut-animate type="breath" class="rule-button-div" loop>
           <nut-button block type="primary" class="rule-button" @tap="data.popShowFirstAdd = true">添加一级菜单</nut-button>
         </nut-animate>
@@ -34,6 +57,7 @@
       </view>
     </view>
 
+    <!-- 新建一级菜单 -->
     <update-pop
       v-model:modelValue="data.popShowFirstAdd"
       v-model:inputValue="data.popShowFirstAddiInputValue"
@@ -42,9 +66,19 @@
       :max="100"
       @ok="addFmenuData"
     />
+    <!-- 修改一级菜单 -->
+    <update-pop
+      v-model:modelValue="data.popShowFirstAddEdit"
+      v-model:inputValue="data.editFirstVal"
+      title="修改一级菜单"
+      placeholder="请输入一级菜单"
+      :max="100"
+      @ok="editFmenuDataOk"
+    />
+    <!-- 新建修改二级菜单 -->
     <update-pop
       v-model:modelValue="data.popShowSecondAdd"
-      v-model:inputValue="data.popShowSecondAddiInputValue"
+      v-model:inputValue="data.popShowSecondAddInputValue"
       title="添加二级级菜单"
       placeholder="请输入二级菜单"
       :max="100"
@@ -63,8 +97,45 @@
         </view>
       </template>
     </update-pop>
-
+    <!-- 修改二级菜单 -->
+    <update-pop
+      v-model:modelValue="data.popShowSecondAddEdit"
+      v-model:inputValue="data.editSecondVal"
+      title="修改二级级菜单"
+      placeholder="请输入二级菜单"
+      :max="100"
+      :on-confirm="editSmenuData"
+    >
+      <template #contentBottom>
+        <view
+          class="chooseFmenu"
+          @tap="
+            () => {
+              data.popShowFirstEdit = true;
+            }
+          "
+        >
+          {{ !!data.editSecondObj.firstCdName ? `一级分类：${data.editSecondObj.firstCdName}` : '点击选择一级菜单' }}
+        </view>
+      </template>
+    </update-pop>
+    <!-- 二级菜单内选择一级菜单（编辑） -->
+    <nut-popup v-model:visible="data.popShowFirstEdit" position="bottom">
+      <nut-picker
+        :field-names="{
+          text: 'firstCdName',
+          value: 'firstCdId',
+        }"
+        :columns="data.fmenuList"
+        title="请选择一级菜单"
+        @confirm="confirmFirstEdit"
+        @cancel="data.popShowFirstEdit = false"
+      />
+    </nut-popup>
+    <!-- 水印 -->
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .2)" :z-index="1" content="编辑菜单" />
+
+    <!-- 二级菜单内选择一级菜单（新增） -->
     <nut-popup v-model:visible="data.popShowFirst" position="bottom">
       <nut-picker
         :field-names="{
@@ -82,40 +153,85 @@
   </scroll-view>
 </template>
 <script lang="ts" setup>
-import { addFmenu, getFmenuList, deleteFmenu, addSmenu, getSmenuList, deleteSmenu } from '@/apis/orderMenu';
+import { addFmenu, getFmenuList, deleteFmenu, addSmenu, getSmenuList, deleteSmenu, updateFmenu, updateSmenu, getCmenuList, deleteCmenu } from '@/apis/orderMenu';
 // @ts-ignore
 import styles from './styles.scss';
-import { Navbar } from '@fishui/taro-vue';
-import { ref, reactive, onMounted } from 'vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
+import { ref, reactive } from 'vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { useAccountStore } from '@/stores/account';
-import type { IFmenuItem, ISmenuItem } from '@/apis/orderMenu/model';
+import type { ICmenuItem, IFmenuItem, ISmenuItem } from '@/apis/orderMenu/model';
 import UpdatePop from '@/components/pop/updatePop/index.vue';
+import Taro, { useDidShow } from '@tarojs/taro';
 
 const account = useAccountStore();
 
 const myToast = ref<any>();
 
 const data = reactive({
-  collapseVal: [],
   fmenuList: [] as IFmenuItem[],
-  smenuList: [] as ISmenuItem[],
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   pickValFirst: {} as IFmenuItem,
-  pickValSecond: {} as ISmenuItem,
   popShowFirst: false,
-  popShowSecond: false,
   popShowFirstAdd: false,
-  popShowSecondAdd: false,
+  popShowFirstAddEdit: false,
+  editFirstVal: '',
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  editFirstObj: {} as IFmenuItem,
   popShowFirstAddiInputValue: '',
-  popShowSecondAddiInputValue: '',
+
+  popShowFirstEdit: false,
+  smenuList: [] as ISmenuItem[],
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  pickValSecond: {} as ISmenuItem,
+  popShowSecondAddEdit: false,
+  popShowSecond: false,
+  popShowSecondAdd: false,
+  popShowSecondAddInputValue: '',
+  editSecondVal: '',
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  editSecondObj: {} as ISmenuItem,
 });
 
 const confirmFirst = ({ selectedOptions }) => {
   data.pickValFirst = selectedOptions[0];
   data.popShowFirst = false;
 };
+const confirmFirstEdit = ({ selectedOptions }) => {
+  data.editSecondObj.firstCdId = selectedOptions[0].firstCdId;
+  data.editSecondObj.firstCdName = selectedOptions[0].firstCdName;
+  data.popShowFirstEdit = false;
+};
 
 // fmenu
+
+// 查
+const httpAllMenuList = async () => {
+  const resFmenu = await getFmenuList(account.userInfo.openid);
+  const resSmenu = await getSmenuList(account.userInfo.openid);
+  const resCmenu = await getCmenuList(account.userInfo.openid);
+
+  resFmenu.forEach((fmenuItem) => {
+    fmenuItem.smenu = resSmenu
+      .map((smenuItem) => {
+        smenuItem.cmenu = resCmenu
+          .map((cItem) => {
+            if (cItem.secondCdId === smenuItem.secondCdId) {
+              return cItem;
+            }
+          })
+          .filter((item) => !!item);
+
+        if (smenuItem.firstCdId === fmenuItem.firstCdId) {
+          return smenuItem;
+        }
+        return undefined;
+      })
+      .filter((item) => !!item) as ISmenuItem[];
+  });
+  data.fmenuList = resFmenu;
+};
+// 增
 const addFmenuData = async () => {
   await addFmenu({
     openid: account.userInfo.openid,
@@ -129,23 +245,18 @@ const addFmenuData = async () => {
   });
   httpAllMenuList();
 };
-
-const httpAllMenuList = async () => {
-  const resFmenu = await getFmenuList(account.userInfo.openid);
-  const resSmenu = await getSmenuList(account.userInfo.openid);
-  resFmenu.forEach((fmenuItem) => {
-    fmenuItem.smenu = resSmenu
-      .map((smenuItem) => {
-        if (smenuItem.firstCdId === fmenuItem.firstCdId) {
-          return smenuItem;
-        }
-        return undefined;
-      })
-      .filter((item) => !!item) as ISmenuItem[];
+// 改
+const editFmenuDataOk = async (val) => {
+  data.editFirstObj.firstCdName = val;
+  await updateFmenu(data.editFirstObj);
+  myToast.value.myToastShow({
+    icon: 'success',
+    title: '修改一级菜单成功',
+    duration: 2000,
   });
-  data.fmenuList = resFmenu;
+  httpAllMenuList();
 };
-
+// 删
 const httpDeleteFmenu = async (firstCdId) => {
   await deleteFmenu(firstCdId);
   httpAllMenuList();
@@ -156,6 +267,14 @@ const httpDeleteFmenu = async (firstCdId) => {
   });
 };
 
+const httpEditFmenu = (fmenuItem: IFmenuItem) => {
+  data.editFirstVal = fmenuItem.firstCdName;
+  data.editFirstObj = fmenuItem;
+  data.popShowFirstAddEdit = true;
+};
+
+// smenu
+// 删
 const httpDeleteSmenu = async (secondCdId) => {
   await deleteSmenu(secondCdId);
   httpAllMenuList();
@@ -165,10 +284,8 @@ const httpDeleteSmenu = async (secondCdId) => {
     duration: 2000,
   });
 };
-
-// smenu
-
-const addSmenuData = async (e) => {
+// 增
+const addSmenuData = async (secondCdName) => {
   if (!data.pickValFirst.firstCdId) {
     myToast.value.myToastShow({
       icon: 'error',
@@ -178,24 +295,64 @@ const addSmenuData = async (e) => {
   } else {
     await addSmenu({
       openid: account.userInfo.openid,
-      secondCdName: e,
+      secondCdName: secondCdName,
       firstCdId: data.pickValFirst.firstCdId,
+      firstCdName: data.pickValFirst.firstCdName,
     });
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     data.pickValFirst = {} as IFmenuItem;
     data.popShowSecondAdd = false;
-    data.popShowSecondAddiInputValue = '';
+    data.popShowSecondAddInputValue = '';
     httpAllMenuList();
   }
+};
+// 改
+const editSmenuData = async (secondCdName) => {
+  if (!data.editSecondObj.firstCdId) {
+    myToast.value.myToastShow({
+      icon: 'error',
+      title: '一级菜单为必填项~',
+      duration: 2000,
+    });
+  } else {
+    data.editSecondObj.secondCdName = secondCdName;
+    await updateSmenu(data.editSecondObj);
+    data.popShowSecondAddEdit = false;
+    httpAllMenuList();
+  }
+};
+
+const httpEditSmenu = (smenuItem: ISmenuItem) => {
+  data.editSecondVal = smenuItem.secondCdName;
+  data.editSecondObj = smenuItem;
+  data.popShowSecondAddEdit = true;
 };
 
 // cmenu
 
 const httpAddCmenu = (secondCdId) => {
-  console.log(secondCdId);
+  Taro.navigateTo({
+    url: `/pages/tool/order-menu/post/index?type=image&secondCdId=${secondCdId}`,
+  });
 };
 
-onMounted(async () => {
+const httpDeleteCmenu = async (cCdId) => {
+  await deleteCmenu(cCdId);
+  httpAllMenuList();
+  myToast.value.myToastShow({
+    icon: 'success',
+    title: '删除菜品成功',
+    duration: 2000,
+  });
+};
+
+const httpEditCmenu = (smenuItem: ICmenuItem)=>{
+  Taro.navigateTo({
+    url: `/pages/tool/order-menu/post/index?type=image&secondCdId=${smenuItem.secondCdId}&cCdId=${smenuItem.cCdId}`,
+  });
+};
+
+useDidShow(async () => {
   await account.login();
   httpAllMenuList();
 });

@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.piContainer">
-    <navbar title="π" />
+    <myNavBar title="π" />
     <view class="">
       当前计算得到π长度{{ (data.pi.length-2)/10000 }}万位,最近100个数平均计算耗时{{ (data.newTime*100/1000/data.computedCount).toFixed(4) }}秒
     </view>
@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 // @ts-nocheck
 
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import styles from './styles.scss';
 import { reactive, watch } from 'vue';
 import Taro from '@tarojs/taro';

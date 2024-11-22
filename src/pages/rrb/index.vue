@@ -1,7 +1,6 @@
 <template>
   <view :class="styles.lockPageContainer">
-    <navbar  v-if="data.showPage"  title="RRB" background-color="transparent" :goback="goback" />
-
+    <myNavBar  v-if="data.showPage"  title="RRB" background-color="transparent" :goback="goback" />
     <lock
       ref="myLockPage"
       :passwordObj="data.password"
@@ -58,7 +57,7 @@
 import lock from '@/components/lock/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { computed, reactive,ref } from 'vue';
 import Taro, { useShareAppMessage, useShareTimeline, switchTab, useDidShow } from '@tarojs/taro';
 import { useSystemInfoStore } from '@/stores/systemInfo';

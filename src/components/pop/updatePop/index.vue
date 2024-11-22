@@ -6,9 +6,9 @@
   <!-- 不能设置属性 :close-on-click-overlay="false" ，否则不触发点击遮罩事件  该弹窗统一为可以点击遮罩关闭 -->
   <nut-popup v-model:visible="popVisable" :class="styles.updatePopDiv" pop-class="my-pop" :z-index="999"
     :catch-move="false" @click-overlay="handleClose('overlay')">
-    <view class="content">
-      <slot v-if="!!slots.title" name="title" />
-      <view v-else class="title">{{ props.title }}</view>
+    <view class="my-pop-content">
+      <slot v-if="!!slots.title" name="my-pop-title" />
+      <view v-else class="my-pop-title">{{ props.title }}</view>
       <slot v-if="!!slots.content" name="content" />
       <view v-else-if="!!contentText" class="contentText">
         {{ props.contentText }}

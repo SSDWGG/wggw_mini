@@ -1,6 +1,6 @@
 <template>
   <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="Menu" hide-back background-color="#f5f5f9" />
+    <myNavBar title="Menu" hide-back background-color="#f5f5f9" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="WGGW" />
     <nut-noticebar right-icon="circle-close" background="#F1EFFD" color="#8074FE" :speed="35">
       Do not go gentle into that good night, Old age should burn and rave at close of day; Rage, rage against the dying of the light. Though wise men at their
@@ -9,9 +9,10 @@
 
     <view class="richText">
       <rich-text :nodes="h5" />
+      <!-- objectFit="fill" -->
       <video
         class="video"
-        object-fit="contain"
+        object-fit="fill"
         :show-bottom-progress="false"
         :initial-time="0"
         :autoplay="true"
@@ -23,13 +24,57 @@
         :muted="true"
         :enable-progress-gesture="false"
         style="width: 100%"
-        objectFit="fill"
         :src="cdnHost + ossFilePrePath + '/032dd063570aee17.mp4'"
       />
       <!-- OMFHLJDP-17059977997221 -->
     </view>
+    <!-- 单列区（突出） -->
+    <view :gutter="10" :border="false" class="menuSingle" :column-num="2">
+      <view
+        v-for="(item, index) in account.mainMenuList.filter((item) => !item.secondListName)"
+        :key="index"
+        class="item"
+        :style="{ backgroundImage: `url(${item.bgSrc})` }"
+      >
+        <view v-if="item.isShow !== false" class="menu-item" @tap="goto(item)">
+          <view class="title">
+            {{ item.title }}
+          </view>
+          <view class="title">
+            {{ item.Ctitle }}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 多列区 -->
+    <view v-for="(item, index) in account.mainMenuList.filter((item) => !!item.secondListName)" :key="index" class="menuMore">
+      <view class="title" @tap="goto(item)">
+        <view class="txt"> {{ item.Ctitle }} </view>
+        <view class="iconContent">
+          更多
+          <image src="@/assets/images/project/arrow.png" />
+        </view>
+      </view>
 
-    <commonMenu :height="height" :listData="account.mainMenuList"></commonMenu>
+      <view class="list">
+        <view
+          v-for="(secondItem, secondIndex) in account[item.secondListName ?? '']"
+          v-show="secondItem.isShow !== false"
+          :key="secondIndex"
+          class="sceneryItem"
+          @tap="goto(secondItem)"
+        >
+          <image mode="aspectFill" :style="{ opacity: secondItem.opacity ?? 0.8 }" :src="secondItem.bgSrc ?? imgDefaultSrc" />
+          <view class="moreTitle">
+            {{ secondItem.title }}
+          </view>
+          <view class="moreTitle">
+            {{ secondItem.Ctitle }}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <commonMenu :height="height" :listData="account.mainMenuList"></commonMenu> -->
 
     <side-bar :show="show" :onfullButtonBack="() => (data.showPage = false)" :showFlags="[6, 1, 2, 3, 4]" />
   </scroll-view>
@@ -63,23 +108,37 @@
   /> -->
   <!-- toast提示 -->
   <my-toast-components ref="myToast" :duration="2500" />
+  <openOutLinkTipPop
+    :pop-tip-visible="data.popTipVisible"
+    :qrSrc="data.chooseItem.qrSrc"
+    :show-name="data.chooseItem.Ctitle"
+    :href="data.chooseItem.linkUrl"
+    @close="
+      () => {
+        data.popTipVisible = false;
+      }
+    "
+  />
 </template>
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
-import { computed, reactive, ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { useShareAppMessage, useShareTimeline, useDidShow } from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
-import { useSystemInfoStore } from '@/stores/systemInfo';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import fullPreview from '@/components/fullPreview/index.vue';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
-import commonMenu from '@/components/commonMenu/index.vue';
 import { useMusicStore } from '@/stores/music';
 import { useAccountStore } from '@/stores/account';
 // import svgaPlayComponent from '@/components/svgaPlay/index.vue';
 import myToastComponents from '@/components/myToast/index.vue';
-import { cdnHost, ossFilePrePath,ossFilePrePathSvga } from '@/utils/env';
+import { cdnHost, ossFilePrePath, ossFilePrePathSvga } from '@/utils/env';
+import Taro from '@tarojs/taro';
+import imgDefaultSrc from '@/assets/images/project/rabbit.png';
+import { isDeving } from '@/utils/index';
+import type { IListDataItem } from 'types/global';
+import openOutLinkTipPop from '@/components/pop/openOutLinkTipPop/index.vue';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -89,7 +148,6 @@ definePageConfig({
 const { show, onScroll } = useListScroll();
 
 const account = useAccountStore();
-const systemInfo = useSystemInfoStore();
 const musicStore = useMusicStore();
 
 // const svgaPlayRef = ref();
@@ -137,20 +195,21 @@ const svgaUrlList = [
   '2024031318511419.svga',
 ];
 const data = reactive({
+  chooseItem: {} as IListDataItem,
+  popTipVisible: false,
   showPage: true,
   svgaUrl: `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`,
 });
 
-const h5 =
-  '<h2 style="text-align: center;color: #333;opacity: .7;"><strong>去创造去改变</strong></h2><h2 style="text-align: center;color: #333;opacity: .7;"><strong>从想象到现象</strong></h2><h2 style="text-align: center;color: #333;opacity: .7;"><strong>即刻出发</strong></h2>';
-const height = computed(() => `calc( 100vh - ${systemInfo.statusBarHeight}px - 40px -88rpx  - env(safe-area-inset-bottom))`);
+const h5 = ` <h2 style="text-align: center;color: #7468F2;font-family: monospace;font-size:22px; opacity: .8;"><strong>去创造去改变</strong></h2>
+    <h2 style="text-align: center;color: #7468F2;font-family: monospace;font-size:22px;opacity: .8;"><strong>从想象到现象</strong></h2>
+    <h2 style="text-align: center;color: #7468F2;font-family: monospace;font-size:22px;opacity: .8;"><strong>即刻出发</strong></h2>`;
 
 useDidShow(() => {
   if (!musicStore.isPlay()) {
     musicStore.playDefaultBGM();
   }
 });
-
 
 const onFinsh = () => {
   const tempUrl = `${cdnHost}${ossFilePrePathSvga}/liliSvga/${svgaUrlList[Math.floor(Math.random() * svgaUrlList.length)]}`;
@@ -162,8 +221,6 @@ const onFinsh = () => {
   }
 };
 
-
-
 useShareTimeline(() => ({
   title: '创意空间wggw~',
   path: '/pages/index/index',
@@ -174,4 +231,20 @@ useShareAppMessage(() => ({
   path: '/pages/index/index',
   imageUrl: `${cdnHost}${ossFilePrePath}/GKNPEBAA-1678694972749test.jpeg`,
 }));
+
+const goto = (item: IListDataItem) => {
+  if (isDeving()) {
+    if (item.linkUrl) {
+      Taro.navigateTo({ url: `/pages/webViewPage/index?webViewUrl=${item.linkUrl}` });
+    } else {
+      Taro.navigateTo({ url: item.router as string });
+    }
+  } else if (item.linkUrl) {
+    // 提示网址
+    data.chooseItem = item;
+    data.popTipVisible = true;
+  } else {
+    Taro.navigateTo({ url: item.router as string });
+  }
+};
 </script>

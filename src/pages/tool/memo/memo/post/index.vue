@@ -1,6 +1,6 @@
 <template>
   <view v-if="isPermissionsToWx()" :class="styles.container">
-    <navbar :title="!!router.params.memoId?'编辑我的记录':'创建我的记录' " />
+    <myNavBar :title="!!router.params.memoId?'编辑我的记录':'创建我的记录' " />
     <view class="body">
       <!-- 文案 -->
       <nut-textarea v-model="data.content" placeholder="这一刻的想法…" :auto-focusd="false" rows="2" class="post-textarea"></nut-textarea>
@@ -14,7 +14,7 @@
     </view>
   </view>
   <view v-else :class="styles.emptyContainer">
-    <navbar title="感谢关注" />
+    <myNavBar title="感谢关注" />
     <view class="empty" >
       感谢您的关注，该功能暂未开启
     </view>
@@ -23,7 +23,7 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
 import Taro from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import Prelist from '@/components/postPreList/index.vue';

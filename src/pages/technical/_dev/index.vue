@@ -1,5 +1,5 @@
 <template>
-  <Navbar title="配置环境" />
+  <myNavBar title="配置环境" />
   <NoticeBar :text="`当前baseURL ${baseURL}`" background="rgba(251, 248, 220, 1)" color="#D9500B" />
   <view :class="styles.devip">
     <nut-input v-model="state.url" placeholder="请输入api 地址" />
@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
 import Taro from '@tarojs/taro';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { baseURL, setBaseURL } from '@/utils/request';
 import { allConfigs } from '@/utils/env';
 // @ts-ignore
@@ -56,7 +56,7 @@ const submit = () => {
         } else {
           Taro.removeStorageSync('wggw-dev-baseURL');
         }
-        
+
         myToast.value.myToastShow({
           title: '修改成功',
           icon: 'success',

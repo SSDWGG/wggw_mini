@@ -1,0 +1,141 @@
+.myNavBar {
+
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+
+  :global {
+    .navbar__fixed {
+      z-index: 998;
+      left: 0;
+      right: 0;
+
+      .navbar__header {
+        width: 100%;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+
+        .navbar__header-left {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .navbar__goback {
+            padding-left: 32rpx !important;
+            padding-right: 64rpx !important;
+            height: 100%;
+            padding-left: 64rpx;
+            padding-right: 128rpx;
+            display: flex;
+            align-items: center;
+
+            .navbar__icon {
+              width: 18px !important;
+              height: 18px !important;
+            }
+          }
+        }
+
+        .navbar__header-wrap {
+          max-width: 360rpx !important;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          max-width: 720rpx;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #222;
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+
+    }
+
+    .navbar__placeholder {
+      .navbar__header {
+        width: 100%;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+
+        .navbar__header-left {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .navbar__goback {
+            padding-left: 32rpx !important;
+            padding-right: 64rpx !important;
+            height: 100%;
+            padding-left: 64rpx;
+            padding-right: 128rpx;
+            display: flex;
+            align-items: center;
+
+            .navbar__icon {
+              width: 18px !important;
+              height: 18px !important;
+            }
+          }
+        }
+
+        .navbar__header-wrap {
+          max-width: 360rpx !important;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          max-width: 720rpx;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #222;
+          font-weight: 500;
+          font-size: 18px;
+        }
+      }
+    }
+
+
+    // 左侧插槽备用样式1
+    .leftContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .logoImg {
+        width: 28px;
+        height: 28px;
+        padding: 0 5px;
+      }
+
+      .leftTitle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: cursive, Courier, monospace;
+
+        .cName {
+          font-size: 12px;
+          font-weight: 700;
+        }
+
+        .YName {
+          font-size: 7px;
+          font-weight: 700;
+        }
+
+      }
+    }
+
+  }
+}

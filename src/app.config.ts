@@ -4,7 +4,7 @@ export default defineAppConfig({
   pages: ['pages/index/index', 'pages/menu/index'],
   subpackages: [
     // 正式环境ip 则不展示切换ip
-    { root: 'pages/memo', pages: ['index', 'memo/post/index'] },
+    // { root: 'pages/memo', pages: ['index', 'memo/post/index'] },
     { root: 'pages/preview', pages: ['index'] },
     { root: 'pages/wgg', pages: ['index'] },
     { root: 'pages/going', pages: ['index'] },
@@ -27,6 +27,8 @@ export default defineAppConfig({
         'cssloaders/index',
         'editor/index',
         'map/index',
+        'invite/index',
+        'invite/more-invite/index',
       ],
     },
     {
@@ -46,7 +48,7 @@ export default defineAppConfig({
     },
     {
       root: 'pages/tool',
-      pages: ['menu/index','order-menu/index','order-menu/edit/index','order-menu/post/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index'],
+      pages: ['menu/index','order-menu/index','order-menu/edit/index','order-menu/post/index','order-menu/car/index', 'bidding/index', 'bidding/detail/index', 'bidding/post/index', 'scoreboard/index', 'random/index', 'speedTest/index','memo/index','memo/memo/post/index'],
     },
   ],
   requiredPrivateInfos: [

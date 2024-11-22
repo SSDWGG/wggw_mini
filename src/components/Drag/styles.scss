@@ -1,0 +1,24 @@
+.fishDrag{
+  width: 100%;
+  position: relative;
+
+  :global {
+    .fish-drag-item {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      .fish-drag__transition {
+        transition: transform 0.3s;
+      }
+      .fish-drag__fixed {
+        z-index: 0;
+      }
+      .fish-drag__upper {
+        z-index: 2;
+        opacity: 0.7;
+      }
+    }
+  }
+
+}

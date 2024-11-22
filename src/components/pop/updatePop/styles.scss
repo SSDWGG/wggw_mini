@@ -9,14 +9,14 @@
         display: flex;
         flex-direction: column;
 
-        .content {
+        .my-pop-content {
           flex: 1;
           display: flex;
           flex-direction: column;
           align-items: center;
           padding: 48rpx 28rpx 2rpx 28rpx;
 
-          .title {
+          .my-pop-title {
             margin-bottom: 24rpx;
           }
 
@@ -55,7 +55,7 @@
             text-align: center;
             color: red;
             font-size: 12px;
-          
+
           }
         }
 

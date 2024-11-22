@@ -1,6 +1,6 @@
 <template>
   <view :class="styles.myContainer">
-    <navbar title="景点列表" />
+    <myNavBar title="景点列表" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="景点列表" />
       <view class="list" >
         <nut-cell v-for="(item, index) in data.sceneryList" :key=index class="sceneryItem" @tap="toSceneryDetail(item.id)">
@@ -17,7 +17,7 @@
 
 </template>
 <script lang="ts" setup>
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 // @ts-ignore
 import styles from './styles.scss';
 import { reactive, ref } from 'vue';

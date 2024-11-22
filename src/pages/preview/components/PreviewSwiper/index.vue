@@ -9,14 +9,14 @@
     :style="{ height: '100vh' }"
     @animationfinish ="handleChangeSwiper"
   >
-  <!--       :showVedioFlag="handleshowVedioFlag(item)" -->
+  <!--       :showvideoFlag="handleshowvideoFlag(item)" -->
     <preview-swiper-item
       v-for="item in props.List"
       :key="item.memoId"
       :swiperItemInfo="item"
-      showVedioFlag
+      showvideoFlag
       :ShowVirtualFlag = "handleShowVirtualFlag(item)"
-      :hideSideBarItem="props.hideSideBarItem"  
+      :hideSideBarItem="props.hideSideBarItem"
       :isShare="props.isShare"
     />
   </swiper>
@@ -25,7 +25,7 @@
 import { reactive, watch } from 'vue';
 import PreviewSwiperItem from './PreviewSwiperItem/index.vue';
 import Taro, { useRouter } from '@tarojs/taro';
-import { IMemo, IMemoItem } from '@/apis/memo/model';
+import type { IMemo, IMemoItem } from '@/apis/memo/model';
 
 const props = defineProps({
   List: {
@@ -41,11 +41,12 @@ const props = defineProps({
   }
 });
 
+const emit = defineEmits(['loadMore']);
+
+
 // detailId:当前需要播放的memoResId
 const router = useRouter();
 
-
-const emit = defineEmits(['loadMore']);
 
 const initIndex = 0;
 const data = reactive({
@@ -57,7 +58,7 @@ const data = reactive({
 });
 watch(
   () => props.List,
-  newVal => {    
+  newVal => {
     // 删除详情后，检查相册该位置内容，没有则返回上一页
     !newVal[data.activedBanner] && Taro.navigateBack();
     // 删除详情后，自动播放下一个的视频
@@ -66,7 +67,7 @@ watch(
   },
   { immediate: true }
 );
-// 
+//
 
 // 初始化previewList
 const init = () => {
@@ -78,7 +79,7 @@ const init = () => {
 init();
 
 // 条件渲染视频标签，只渲染一个视频标签，减少内存使用空间
-// const handleshowVedioFlag = (item: any) =>
+// const handleshowvideoFlag = (item: any) =>
 //  {
 //   if(item.albumType===1 ){
 //   return   props.List[data.activedBanner].id=== item.id;

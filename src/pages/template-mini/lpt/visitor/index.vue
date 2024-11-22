@@ -1,5 +1,5 @@
 <template>
-  <navbar title="我的照片" background-color="transparent" />
+  <myNavBar title="我的照片" background-color="transparent" />
   <view :class="styles.memo">
     <view class="content"  :style="{ height }">
      <memo />
@@ -11,7 +11,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import memo from './memo/index.vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { computed } from 'vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 

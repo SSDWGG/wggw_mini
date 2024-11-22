@@ -1,0 +1,103 @@
+
+
+
+
+
+// for share-button.vue
+.share {
+  display: flex;
+  flex-direction: column;
+  color: #222222;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 20px;
+
+  :global {
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 56px;
+      border-top: 1px solid #EEEEEE;
+      font-size: 16px;
+      color: #999999;
+      line-height: 16px;
+      box-sizing: content-box;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+
+
+    .border-bottom {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: calc(100% - 32px);
+        height: 50px;
+        border-top: 1px solid #eee;
+      }
+    }
+
+    .pop-title {
+      padding: 14px;
+      font-weight: Medium;
+    }
+
+    .pop-item-list {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .pop-content-item {
+        padding: 14px;
+        font-weight: Regular;
+
+        font-size: 14px;
+      }
+    }
+
+    .share-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 24px 36px 18px;
+
+      .share-content-item {
+        font-size: 16px;
+        color: #666666;
+
+        .icon {
+          display: block;
+          width: 44px;
+          height: 44px;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .pop-content {
+      display: flex;
+      flex-direction: column;
+      color: #222222;
+      height: 100%;
+
+
+
+    }
+
+
+  }
+}
+
+.shareFriendsTools {
+  width: 375px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 4000;
+}

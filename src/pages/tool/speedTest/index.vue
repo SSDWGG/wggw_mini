@@ -1,12 +1,12 @@
 <template>
   <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="速度反应" background-color="rgba(116, 104, 242,.1)">
+    <myNavBar title="速度反应" background-color="transparent">
       <template v-if="!!router.params.isShare" #left>
         <view style="padding: 6px 20px" @tap="goHomePage">
           <IconFont name="home" size="20" />
         </view>
       </template>
-    </navbar>
+    </myNavBar>
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="speedTest" />
     <view class="tipTitle"> 点击开始按钮测试你的最快反应速度吧 </view>
     <view class="tipGameR"> （点击开始游戏，待按钮颜色变色后快速按下按钮） </view>
@@ -78,7 +78,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import { ref, reactive, watch, onUnmounted } from 'vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import { useShareAppMessage, useShareTimeline, switchTab, useRouter } from '@tarojs/taro';

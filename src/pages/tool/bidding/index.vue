@@ -1,6 +1,6 @@
 <template>
   <scroll-view v-if="isPermissionsToWx()" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
-    <navbar title="价值曲线" background-color="rgba(116, 104, 242,.1)" />
+    <myNavBar title="价值曲线" background-color="transparent" />
     <nut-watermark :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" content="价值曲线" />
     <view class="tipTitle">
       以下标的价值几何？
@@ -16,7 +16,7 @@
     <side-bar :show="show" :onbiddingButtonBack="() => Taro.navigateTo({url:`/pages/tool/bidding/post/index?type=image`})" :showFlags="[7]" />
   </scroll-view>
   <view v-else :class="styles.emptyContainer">
-    <navbar title="感谢关注" />
+    <myNavBar title="感谢关注" />
     <view class="empty" >
       感谢您的关注，该功能暂未开启
     </view>
@@ -26,7 +26,7 @@
 // @ts-ignore
 import styles from './styles.scss';
 import { computed, reactive } from 'vue';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { useSystemInfoStore } from '@/stores/systemInfo';
 import Taro from '@tarojs/taro';
 import { getKunChartList} from '@/apis/kunChart';

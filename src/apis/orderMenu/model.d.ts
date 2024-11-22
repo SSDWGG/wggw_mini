@@ -1,15 +1,23 @@
 
-// 相册详情
 export interface IFmenuItem {
   smenu: ISmenuItem [];
-  firstCdId: string; // 图片或视频地址
+  firstCdId: string;
   openid: number;
-  firstCdName: string; // 视频封面
+  firstCdName: string;
 }
 
 export interface ISmenuItem {
-  firstCdId: string; // 图片或视频地址
-  secondCdId: string; // 图片或视频地址
+  firstCdId: string;
+  secondCdId: string;
   openid: number;
-  secondCdName: string; // 视频封面
+  secondCdName: string;
+  firstCdName: string;
+}
+
+export interface ICmenuItem {
+  cCdId: string;
+  backImg: string;
+  secondCdId: string;
+  catName: string;
+  content: string;
 }

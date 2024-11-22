@@ -24,8 +24,8 @@
                     : resItem.picUrl
                   " class="pic" :lazyLoad="true" />
                 <!-- <image :src="resItem.picUrl" class="pic" /> -->
-                <image v-if="resItem.memoItemType === 1" mode="aspectFill" class="vedioFlag" :lazyLoad="true"
-                  src="@/assets/images/project/vedioPlay.png" />
+                <image v-if="resItem.memoItemType === 1" mode="aspectFill" class="videoFlag" :lazyLoad="true"
+                  src="@/assets/images/project/videoPlay.png" />
               </view>
             </view>
 
@@ -100,7 +100,7 @@ const toPreview = (detailId: string) => {
 
 const editMemo = (item:IMemo) => {
   account.editMemoData =  cloneDeep(item);
-  Taro.navigateTo({ url: `/pages/memo/memo/post/index?type=${item.memoType==1?'video':'image'}&memoId=${item.memoId}` });
+  Taro.navigateTo({ url: `/pages/tool/memo/memo/post/index?type=${item.memoType==1?'video':'image'}&memoId=${item.memoId}` });
 };
 
 const deleteMemo = (memoId: string) => {

@@ -1,5 +1,5 @@
 <template>
-  <navbar title="计分板" background-color="#f3f3fe" />
+  <myNavBar title="计分板" background-color="#f3f3fe" />
   <view :class="styles.scoreboard">
     <nut-table :columns="pageData.columns" :data="pageData.tableData" :bordered="false" striped>
       <template #nodata>
@@ -62,7 +62,7 @@
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { reactive, h, ref } from 'vue';
 import myToastComponents from '@/components/myToast/index.vue';
 import UpdatePop from '@/components/pop/updatePop/index.vue';

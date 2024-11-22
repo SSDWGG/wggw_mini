@@ -4,7 +4,7 @@ page {
 .myContainer {
   width: 100vw;
   height: 100vh;
-  
+
   :global {
     .nut-noticebar {
       width: 100%;
@@ -79,7 +79,7 @@ page {
             transform: rotate(360deg);
           }
         }
-        
+
       }
     }
   }

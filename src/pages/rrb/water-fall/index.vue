@@ -1,31 +1,34 @@
 <template>
-  <navbar v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe">
-    <template v-if="!!router.params.isShare" #left>
-      <view style="padding: 6px 20px" @tap="goback">
-        <IconFont name="home" size="20" />
+  <lock ref="myLockPage" :passwordObj="pageData.password" @cb-input-back="cbTestPassword">
+    <template #contentSlot>
+      <myNavBar v-show="!pageData.isPure" title="RR&SS" background-color="#f3f3fe">
+        <template v-if="!!router.params.isShare" #left>
+          <view style="padding: 6px 20px" @tap="goback">
+            <IconFont name="home" size="20" />
+          </view>
+        </template>
+      </myNavBar>
+      <!-- :style="{ height:normalHeight}" -->
+      <view :class="styles.waterfall" @scroll="onScroll">
+        <view v-for="imgsrc in pageData.showImgList" :key="imgsrc" class="item" @tap="onClickImg(imgsrc)">
+          <image v-if="imgsrc" mode="widthFix" :src="imgsrc + pageData.imgQParams"></image>
+        </view>
       </view>
+      <side-bar :show="show" :onfullButtonBack="() => (pageData.isPure = !pageData.isPure)" :showFlags="[1, 2, 9]" />
     </template>
-  </navbar>
-  <!-- :style="{ height:normalHeight}" -->
-
-  <view :class="styles.waterfall" @scroll="onScroll">
-    <view v-for="imgsrc in pageData.showImgList" :key="imgsrc" class="item" @tap="onClickImg(imgsrc)">
-      <image v-if="imgsrc" mode="widthFix" :src="imgsrc + pageData.imgQParams"></image>
-    </view>
-  </view>
-  <side-bar :show="show" :onfullButtonBack="() => (pageData.isPure = !pageData.isPure)" :showFlags="[1, 2, 9]" />
+  </lock>
 </template>
 <script lang="ts" setup>
 // @ts-ignore
 import styles from './styles.scss';
-import { Navbar } from '@fishui/taro-vue';
+import myNavBar from '@/components/my-nav-bar/index.vue';
 import { reactive } from 'vue';
 // import { useSystemInfoStore } from '@/stores/systemInfo';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
 import sideBar from '@/components/SideBar/index.vue';
 import { getImgListByTuser } from '@/apis/rrb';
 import { cdnHost, ossFilePrePath, ossFilePrePathRrb } from '@/utils/env';
-import Taro, { useRouter, useDidShow,switchTab ,useShareAppMessage, useShareTimeline } from '@tarojs/taro';
+import Taro, { useRouter, useDidShow, switchTab, useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 
 const router = useRouter();
 
@@ -86,23 +89,35 @@ const pageData = reactive({
   // ],
   showImgList: [] as string[],
   isPure: false,
+  password: {
+    '001023': '大老婆',
+  },
 });
+
+// cbInputBack :1 成功 2失败 3失败上限
+const cbTestPassword = (type) => {
+  if (type === 1) {
+    Taro.setStorageSync('wggw-rrb-page-type', type);
+  } else if (type === 3) {
+    Taro.setStorageSync('wggw-rrb-page-type', type);
+  }
+};
 
 const goback = () => {
   switchTab({ url: '/pages/menu/index' });
 };
 
 const init = async () => {
-  Taro.showLoading({
-    title: '精彩获取中',
-    mask: true,
-  });
+  // Taro.showLoading({
+  //   title: '精彩获取中',
+  //   mask: true,
+  // });
   const ImgList = await getImgListByTuser({
     current: 1,
     pageSize: 100,
     tuser: 'rrb',
   });
-  Taro.hideLoading();
+  // Taro.hideLoading();
   pageData.showImgList = ImgList.map((item) => item.imgSrc);
 };
 
