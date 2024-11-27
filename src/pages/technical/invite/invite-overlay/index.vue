@@ -21,6 +21,7 @@
 import styles from './styles.scss';
 import { reactive, watch } from 'vue';
 import Taro from '@tarojs/taro';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 const props = defineProps({
   overlayShow: {
@@ -52,9 +53,9 @@ const closePopup = () => {
 
 const getBGImg = (qrCodeUrl: string) => {
   // 拉取图片流无法拉取svg图片
-  const BGpath = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/DGMIFOGK-1671010156749f.png';
+  const BGpath = `${cdnHost}${ossFilePrePath}/OIFLDHAH-1732519840357DGMIFOGK-1671010156749f.png`;
   const QRPath = qrCodeUrl;
-  const AvatarPath = 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg';
+  const AvatarPath = `${cdnHost}${ossFilePrePath}/tx999879.jpg`;
 
   Taro.getImageInfo({
     src: BGpath,
@@ -107,12 +108,12 @@ const getBGImg = (qrCodeUrl: string) => {
 const initShareImg =  () => {
   const pathObjRes = {
     backGroundUrl:'',
-    qrCodeUrl:'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/DGMIFOGK-1671010156749f.png'
+    qrCodeUrl:`${cdnHost}${ossFilePrePath}/OIFLDHAH-1732519840357DGMIFOGK-1671010156749f.png`
   };
   if (pathObjRes.backGroundUrl) {
     data.imgPath = pathObjRes.backGroundUrl;
   } else {
-    getBGImg('https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/LIMEPFJB-1731722201729wechat.jpg');
+    getBGImg(`${cdnHost}${ossFilePrePath}/LIMEPFJB-1731722201729wechat.jpg`);
   }
 };
 initShareImg();

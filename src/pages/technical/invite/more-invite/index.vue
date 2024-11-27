@@ -28,6 +28,7 @@ import type { IPosterData } from './useGeneratePoster';
 import { useGeneratePoster } from './useGeneratePoster';
 // @ts-ignore
 import styles from './styles.scss';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 interface IState {
   current: number; // swiper current
@@ -43,18 +44,12 @@ const systemInfoStore = useSystemInfoStore();
  * **/
 const getPicUrls = () => {
   const urls: string[] = [
-    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/account/2024-11-16/3al21kb413ywd1xznx078g31x5x2ximf.jpg',
-    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/account/2024-04-28/ysogxohp76f4ko2pe5oz8bpxey0u0jcx.jpg',
-    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/account/2024-04-28/yrxyhzuaxg2p1f525tkx5pwg9eziqnxq.jpg',
-    'https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-default-bg@2x.png',
+  `${cdnHost}${ossFilePrePath}/3al21kb413ywd1xznx078g31x5x2ximf.jpg`,
+  `${cdnHost}${ossFilePrePath }/ysogxohp76f4ko2pe5oz8bpxey0u0jcx.jpg`,
+  `${cdnHost}${ossFilePrePath}/yrxyhzuaxg2p1f525tkx5pwg9eziqnxq.jpg`,
+  `${cdnHost}${ossFilePrePath }/IBCAAIAD-1732519687686OGDO4916.jpg`,
+  // `${cdnHost}${ossFilePrePath }/share-poster-default-bg@2x.png`,
   ];
-  // const index = 0;
-  // for (const item of albumList) {
-  //   for (const details of item.list) {
-  //     urls[index++] = details.type === 2 ? details.videoPicUrl : details.picUrl;
-  //     if (index === maxCount) return urls;
-  //   }
-  // }
   return urls;
 };
 
@@ -63,8 +58,8 @@ const height = computed(() => `calc( 100vh - ${systemInfoStore.statusBarHeight}p
 const posterData = computed<IPosterData>(() => ({
   nickname: '玮**',
   tenantName: 'wgg科技有限公司',
-  avatarUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/system/assets/images/MDCNIKIN-1665731176017WechatIMG3877.jpeg',
-  qrcodeUrl: 'https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/wggw/LIMEPFJB-1731722201729wechat.jpg',
+  avatarUrl: `${cdnHost}${ossFilePrePath}/tx999879.jpg`,
+  qrcodeUrl: `${cdnHost}${ossFilePrePath}/LIMEPFJB-1731722201729wechat.jpg`,
   picUrls: getPicUrls(),
 }));
 const state = reactive<IState>({

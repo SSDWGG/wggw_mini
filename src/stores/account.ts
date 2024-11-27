@@ -52,14 +52,8 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/going/index',
         bgSrc: `${cdnHost}${ossFilePrePath}/NKOMJDNM-1732173783431vistor.jpg`,
       },
-      // fjl入口
-      {
-        title: 'RRB',
-        Ctitle: 'RRB',
-        router: '/pages/rrb/index',
-        secondListName:'rrbMenuList'
-      },
-      // 娱乐区入口
+
+      // ikun
       {
         title: 'ikun',
         Ctitle: '娱乐区',
@@ -68,8 +62,7 @@ export const useAccountStore = defineStore('account', {
         opacity: 1,
         secondListName:'cxkMenuList'
       },
-
-
+      // tool
       {
         title: 'Tool',
         Ctitle: '工具',
@@ -77,6 +70,7 @@ export const useAccountStore = defineStore('account', {
         secondListName:'toolMenuList'
 
       },
+      // template
       {
         title: 'Template',
         Ctitle: '小程序模板',
@@ -84,12 +78,20 @@ export const useAccountStore = defineStore('account', {
         secondListName:'templateMiniMenuList'
 
       },
+      // Technical
       {
         title: 'Technical',
         Ctitle: '技术验证',
         router: '/pages/technical/menu/index',
         secondListName:'technicalMenuList'
 
+      },
+       // fjl入口
+       {
+        title: 'RRB',
+        Ctitle: 'RRB',
+        router: '/pages/rrb/index',
+        secondListName:'rrbMenuList'
       },
 
     ],
@@ -104,42 +106,56 @@ export const useAccountStore = defineStore('account', {
         title: 'invite',
         Ctitle: '拉新&海报',
         router: '/pages/technical/invite/index',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/NBDLOBGL-173252578983822.gif`,
       },
       {
         title: 'Time',
         Ctitle: '计时',
         router: '/pages/technical/time/index',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/LICLGCBE-17325257898381.gif`,
       },
       {
         title: 'PI',
         Ctitle: 'π的计算',
         router: '/pages/technical/pi/index',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/GBJJINDN-17325257898385.gif`,
       },
       {
         title: 'CSS Loaders',
         Ctitle: '动效css',
         router: '/pages/technical/cssloaders/index',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/GMACIMDJ-17325257898386.gif`,
       },
       {
         title: 'E-CHART',
         Ctitle: '图表',
         router: '/pages/technical/editor/index',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/LAHONEOF-173252578983888.gif`,
       },
 
       {
         title: 'map',
         Ctitle: '足迹地图',
         router: '/pages/technical/map/index',
+        isShow: false,
       },
       {
         title: 'mall',
         Ctitle: '通用商城',
         router: '/pages/technical/mall/shop/index',
+        isShow: false,
       },
       {
         title: 'bluetooth',
         Ctitle: '蓝牙检测',
         router: '/pages/technical/bluetooth/index',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/HOECKEHG-1732525789838111.gif`,
       },
     ],
     templateMiniMenuList:[
@@ -147,28 +163,37 @@ export const useAccountStore = defineStore('account', {
         title: 'LPT',
         Ctitle: '旅拍通',
         router: '/pages/template-mini/lpt/shop/index',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/GDBNBOHH-1732525789838999.gif`,
       },
     ],
     toolMenuList:[
-       // 备忘录入口
-       {
-        title: 'Mood Memo',
-        Ctitle: '专属记录',
-        router: '/pages/tool/memo/index',
+
+      {
+        title: 'vote',
+        Ctitle: '投票',
+        opacity: 1,
+        router: '/pages/tool/vote/index',
       },
       {
         title: 'random',
-        Ctitle: '纠结终结者',
+        Ctitle: '终结纠结',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/BBOAIJBG-1732525081384333.gif`,
         router: '/pages/tool/random/index',
       },
       {
         title: 'Order Menu',
         Ctitle: '点菜',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/IOIFNNFK-1732525081384Nov-25-2024 16-55-43.gif`,
         router: '/pages/tool/order-menu/index',
       },
       {
         title: 'reaction rate',
-        Ctitle: '速度反应',
+        Ctitle: '测反应',
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/MCEJPCFA-1732525081384555.gif`,
         router: '/pages/tool/speedTest/index',
       },
       {
@@ -177,8 +202,13 @@ export const useAccountStore = defineStore('account', {
         router: '/pages/tool/scoreboard/index',
       },
       {
+        title: 'Mood Memo',
+        Ctitle: '日记',
+        router: '/pages/tool/memo/index',
+      },
+      {
         title: 'Value Curve',
-        Ctitle: '价值曲线',
+        Ctitle: '曲线',
         router: '/pages/tool/bidding/index',
       },
 
@@ -195,13 +225,15 @@ export const useAccountStore = defineStore('account', {
         title: 'Kun Video',
         Ctitle: '小黑子',
         router: '/pages/cxk/cxk/index',
-        bgSrc: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/GKEEFIGH-17325250813841111.gif`,
       },
       {
         title: 'Kun Music',
         Ctitle: '坤歌台',
         router: '/pages/cxk/cxk3/index',
-        bgSrc: `${cdnHost}${ossFilePrePath}/HHHNOCBG-1702544256738kun.jpeg`,
+        opacity: 1,
+        bgSrc: `${cdnHost}${ossFilePrePath}/GJMPDLFK-1732525081384222.gif`,
         isShow: isPermissionsToWx(),
       },
       {

@@ -144,7 +144,6 @@
     height: auto !important;
   }
 }
-
 .flex1 {
   flex: 1;
 }
@@ -155,4 +154,17 @@
 
 .flex3 {
   flex: 3;
+}
+
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.justify-between{
+  display: flex;
+  justify-content: space-between;
 }

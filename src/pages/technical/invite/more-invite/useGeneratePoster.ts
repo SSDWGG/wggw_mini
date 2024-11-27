@@ -1,5 +1,6 @@
 import type { ComputedRef } from 'vue';
 import Taro from '@tarojs/taro';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 export interface IPosterData {
   nickname: string;
@@ -83,7 +84,7 @@ const roundRect =  (context: Taro.CanvasContext, x: number, y: number, width: nu
 export const useGeneratePoster = (data: ComputedRef<IPosterData>) => {
   // 生成第一种海报
   const gen0 = async (canvasId: string) => {
-    const posterBg = `https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-bg0@${pixelRatio}x.png`;
+    const posterBg = `${cdnHost}${ossFilePrePath}/share-poster-bg0@${pixelRatio}x.png`;
     const context = Taro.createCanvasContext(canvasId);
     const [avatarImage, qrcodeImage, bgImage, picImage] = await Promise.all([
       getImageInfo(data.value.avatarUrl),
@@ -113,11 +114,11 @@ export const useGeneratePoster = (data: ComputedRef<IPosterData>) => {
 
   // 生成第二种海报
   const gen1 = async (canvasId: string) => {
-    const posterBg = `https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-bg1@${pixelRatio}x.png`;
-    const goldLabel = `https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-gold-label@${pixelRatio}x.png`;
+    const posterBg = `${cdnHost}${ossFilePrePath}/share-poster-bg1@${pixelRatio}x.png`;
+    const goldLabel = `${cdnHost}${ossFilePrePath}/share-poster-gold-label@${pixelRatio}x.png`;
     const context = Taro.createCanvasContext(canvasId);
     const targetPicUrls = data.value.picUrls.slice(0, 3);
-    targetPicUrls[2] = targetPicUrls[2].replace('yunxiaoding-mini/share-poster-default-bg@2x.png', 'yunxiaoding-mini/share-poster-default-bg3@2x.png');
+    targetPicUrls[2] = targetPicUrls[2].replace('share-poster-default-bg@2x.png', 'share-poster-default-bg3@2x.png');
     const [avatarImage, qrcodeImage, bgImage, goldLabelImage, pic3Images] = await Promise.all([
       getImageInfo(data.value.avatarUrl),
       getImageInfo(data.value.qrcodeUrl),
@@ -159,8 +160,8 @@ export const useGeneratePoster = (data: ComputedRef<IPosterData>) => {
 
   // 生成第三种海报
   const gen2 = async (canvasId: string) => {
-    const posterBg = `https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-bg2@${pixelRatio}x.png`;
-    const crownLabel = `https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/share-poster-crown-label@${pixelRatio}x.png`;
+    const posterBg = `${cdnHost}${ossFilePrePath}/share-poster-bg2@${pixelRatio}x.png`;
+    const crownLabel = `${cdnHost}${ossFilePrePath}/share-poster-crown-label@${pixelRatio}x.png`;
     const context = Taro.createCanvasContext(canvasId);
     roundRect(context, 0, 0, POSTER_WIDTH * pixelRatio, POSTER_HEIGHT * pixelRatio, 12 * pixelRatio);
     context.setFillStyle('#FFFFFF');

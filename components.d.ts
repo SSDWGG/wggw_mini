@@ -40,6 +40,7 @@ declare module 'vue' {
     NutCircleProgress: typeof import('@nutui/nutui-taro')['CircleProgress']
     NutCollapse: typeof import('@nutui/nutui-taro')['Collapse']
     NutCollapseItem: typeof import('@nutui/nutui-taro')['CollapseItem']
+    NutDatePicker: typeof import('@nutui/nutui-taro')['DatePicker']
     NutEmpty: typeof import('@nutui/nutui-taro')['Empty']
     NutForm: typeof import('@nutui/nutui-taro')['Form']
     NutFormItem: typeof import('@nutui/nutui-taro')['FormItem']
@@ -73,6 +74,7 @@ declare module 'vue' {
     SideBar: typeof import('./src/components/SideBar/index.vue')['default']
     SvgaPlay: typeof import('./src/components/svgaPlay/index.vue')['default']
     UpdatePop: typeof import('./src/components/pop/updatePop/index.vue')['default']
+    VoteButton: typeof import('./src/components/SideBar/vote-button.vue')['default']
     WggwStepsLine: typeof import('./src/components/wggwStepsLine/index.vue')['default']
   }
 }
