@@ -6,17 +6,9 @@
       </view>
     </template>
   </myNavBar>
-  <scroll-view v-if="data.showPage" :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
+  <scroll-view :class="styles.myContainer" class="pageIn" scroll-y="true" @scroll="onScroll">
     <nut-watermark v-if="chooseItem?.title" :gap-x="20" font-color="rgba(0, 0, 0, .1)" :z-index="1" :content="chooseItem?.title" />
-    <side-bar
-      :show="show"
-      :showFlags="[1]"
-      :onbiddingLineButtonBack="
-        () => {
-          data.popVisable = true;
-        }
-      "
-    />
+    <side-bar :show="show" :showFlags="[1]" />
 
     <view class="imgDiv">
       <image v-for="(item, index) in chooseItem?.imgSrc" :key="index" mode="widthFix" :src="item?.picUrl" class="img"></image>
@@ -28,10 +20,31 @@
       {{ chooseItem?.voteDesc }}
     </view>
 
-    <view v-if="chooseItem?.chooseMapResList" class="btnGroup">
-      <nut-animate v-for="(item, index) in chooseItem.chooseMapResList" :key="index" type="breath" class="rule-button-div" loop>
-        <nut-button block type="primary" class="publish">{{ item }}</nut-button>
-      </nut-animate>
+    <view v-if="data.isOver" class="overTip"> 本次投票已结束 </view>
+    <view v-else>
+      <view v-if="chooseItem?.chooseMapResList" class="btnGroup">
+        <nut-animate v-for="(item, index) in chooseItem.chooseMapResList" :key="index" type="breath" class="rule-button-div" :loop="!data.isChoose">
+          <nut-button block type="primary" class="publish" :disabled="data.isChoose" @tap="data.isChoose ? tipAlreadyChoose() : addVote(item)">{{
+            item
+          }}</nut-button>
+        </nut-animate>
+      </view>
+    </view>
+
+    <!-- 信息展示区 -->
+    <view v-if="data.isOver || data.isChoose" class="infoDiv">
+      <view class="infoDivTitle"> 本轮共有{{ data.voteHistoryList.length }}人投票 </view>
+      <view v-for="(value, key) in data.voteInfoObj" :key="key" class="infoItem">
+        <span class="infoItemTitle"> {{ key }}: </span>
+        <span class="infoItemProgress">
+          <nut-progress
+            text-inside
+            :percentage="((value * 100) / data.voteHistoryList.length).toFixed(2)"
+            stroke-color="linear-gradient(270deg, rgba(18,126,255,1) 0%,rgba(32,147,255,1) 32.815625%,rgba(13,242,204,1) 100%)"
+            status="active"
+          />
+        </span>
+      </view>
     </view>
   </scroll-view>
   <view v-if="account.userInfo?.openid === chooseItem?.openid && !router.params.isShare" :class="styles.btnBox">
@@ -47,15 +60,14 @@ import { reactive, ref } from 'vue';
 import myNavBar from '@/components/my-nav-bar/index.vue';
 import sideBar from '@/components/SideBar/index.vue';
 import { useListScroll } from '@/components/scrollHooks/useListScroll';
-import { useShareAppMessage, useShareTimeline, useRouter, switchTab, useDidShow } from '@tarojs/taro';
+import Taro, { useShareAppMessage, useShareTimeline, useRouter, switchTab, useDidShow } from '@tarojs/taro';
 import { changeLongStr } from '@/utils/index';
 import { useAccountStore } from '@/stores/account';
-import type { IPriceLineItem } from '@/apis/kunChart/model';
 import myToastComponents from '@/components/myToast/index.vue';
 import { debounce } from 'lodash';
 import { cdnHost, ossFilePrePath } from '@/utils/env';
-import { deleteVoteByVoteId, getVoteOne } from '@/apis/vote';
-import Taro from '@tarojs/taro';
+import { addVoteHistory, deleteVoteByVoteId, getVoteHistoryListByOpenidAndVoteId, getVoteHistoryListByVoteId, getVoteOne } from '@/apis/vote';
+import type { IVoteChooseItem } from '@/apis/vote/model';
 
 definePageConfig({
   enableShareAppMessage: true,
@@ -73,21 +85,79 @@ const account = useAccountStore();
 const { show, onScroll } = useListScroll();
 
 const data = reactive({
-  showPage: true,
-  popVisable: false,
-  popInputValue: '',
-  priceLine: [] as IPriceLineItem[],
+  // 当前人是否已经投过票
+  isChoose: false,
+  // 当前人投的拍哦内容
+  userChooseVoteInfo: {} as unknown as IVoteChooseItem,
+  // 该投票的票合集
+  voteHistoryList: [] as IVoteChooseItem[],
+  // 该投票的统计信息
+  voteInfoObj: {},
+  // 该投票是否结束
+  isOver: false,
 });
 
 const chooseItem = ref();
 
 const init = async () => {
-  await account.login();
-  const res = await getVoteOne({ voteId: router.params.voteId as string });
-  chooseItem.value = res;
-  pageTitle.value = `${changeLongStr(chooseItem.value.title, 6)}的投票`;
-  chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc);
-  chooseItem.value.chooseMapResList = chooseItem.value.chooseMap.match(/[\u4e00-\u9fa5a-zA-Z0-9]+/g);
+  try {
+    // 获取当前人身份信息
+    await account.login();
+    // 获取投票信息
+    chooseItem.value = await getVoteOne({ voteId: router.params.voteId as string });
+    pageTitle.value = `${changeLongStr(chooseItem.value.title, 6)}的投票`;
+    chooseItem.value.imgSrc = JSON.parse(chooseItem.value.imgSrc);
+    chooseItem.value.chooseMapResList = chooseItem.value.chooseMap.match(/[\u4e00-\u9fa5a-zA-Z0-9]+/g);
+
+    // 获取当前人的投票信息
+    const voteHistoryRes = await getVoteHistoryListByOpenidAndVoteId({
+      current: 1,
+      pageSize: 100,
+      openid: account.userInfo.openid,
+      voteId: router.params.voteId as string,
+    });
+
+    if (voteHistoryRes.length > 0) {
+      data.isChoose = true;
+      data.userChooseVoteInfo = voteHistoryRes[0];
+    } else {
+      data.isChoose = false;
+    }
+
+    // 该投票的票合集
+    data.voteHistoryList = await getVoteHistoryListByVoteId({
+      current: 1,
+      pageSize: 100,
+      voteId: router.params.voteId as string,
+    });
+
+    data.voteHistoryList.forEach((item) => {
+      if (data.voteInfoObj[item.choose] === undefined) {
+        data.voteInfoObj[item.choose] = 1;
+      } else {
+        data.voteInfoObj[item.choose]++;
+      }
+    });
+
+    // 规则： 按照投票人数截止
+    if (chooseItem.value.voteType === 0) {
+      if (chooseItem.value.voteMaxNum <= data.voteHistoryList.length) {
+        data.isOver = true;
+      }
+    }
+  } catch (error) {
+    Taro.navigateTo({
+      url: '/pages/tool/vote/index',
+    });
+  }
+};
+
+const tipAlreadyChoose = () => {
+  myToast.value.myToastShow({
+    icon: 'error',
+    title: `您已经投过票了~，您的选择是：${data.userChooseVoteInfo.choose}`,
+    duration: 2000,
+  });
 };
 
 const handleDeleteVote = async () => {
@@ -96,6 +166,26 @@ const handleDeleteVote = async () => {
     url: '/pages/tool/vote/index',
   });
 };
+
+const addVote = debounce(
+  async (chooseVote: string) => {
+    await addVoteHistory({
+      voteId: router.params.voteId,
+      openid: account.userInfo.openid,
+      username: account.userInfo.username,
+      choose: chooseVote,
+    });
+    myToast.value.myToastShow({
+      icon: 'success',
+      title: '您已投票成功~',
+      duration: 2000,
+    });
+
+    init();
+  },
+  3000,
+  { leading: true, trailing: false },
+);
 
 useDidShow(() => {
   init();

@@ -1,5 +1,9 @@
-export interface IPersonVoteItem {
-
+export interface IVoteChooseItem {
+  historyId:string
+  voteId:string
+  openid:string
+  username:string
+  choose:string
 }
 
 interface IVoteItem {

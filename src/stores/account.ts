@@ -59,7 +59,7 @@ export const useAccountStore = defineStore('account', {
         Ctitle: '娱乐区',
         router: '/pages/cxk/index/index',
         bgSrc: `${cdnHost}${ossFilePrePath}/BEDKEKCP-1705543014391shakeKun.gif`,
-        opacity: 1,
+
         secondListName:'cxkMenuList'
       },
       // tool
@@ -106,35 +106,35 @@ export const useAccountStore = defineStore('account', {
         title: 'invite',
         Ctitle: '拉新&海报',
         router: '/pages/technical/invite/index',
-        opacity: 1,
+
         bgSrc: `${cdnHost}${ossFilePrePath}/NBDLOBGL-173252578983822.gif`,
       },
       {
         title: 'Time',
         Ctitle: '计时',
         router: '/pages/technical/time/index',
-        opacity: 1,
+
         bgSrc: `${cdnHost}${ossFilePrePath}/LICLGCBE-17325257898381.gif`,
       },
       {
         title: 'PI',
         Ctitle: 'π的计算',
         router: '/pages/technical/pi/index',
-        opacity: 1,
+
         bgSrc: `${cdnHost}${ossFilePrePath}/GBJJINDN-17325257898385.gif`,
       },
       {
         title: 'CSS Loaders',
         Ctitle: '动效css',
         router: '/pages/technical/cssloaders/index',
-        opacity: 1,
+
         bgSrc: `${cdnHost}${ossFilePrePath}/GMACIMDJ-17325257898386.gif`,
       },
       {
         title: 'E-CHART',
         Ctitle: '图表',
         router: '/pages/technical/editor/index',
-        opacity: 1,
+
         bgSrc: `${cdnHost}${ossFilePrePath}/LAHONEOF-173252578983888.gif`,
       },
 
@@ -154,7 +154,7 @@ export const useAccountStore = defineStore('account', {
         title: 'bluetooth',
         Ctitle: '蓝牙检测',
         router: '/pages/technical/bluetooth/index',
-        opacity: 1,
+
         bgSrc: `${cdnHost}${ossFilePrePath}/HOECKEHG-1732525789838111.gif`,
       },
     ],
@@ -163,7 +163,7 @@ export const useAccountStore = defineStore('account', {
         title: 'LPT',
         Ctitle: '旅拍通',
         router: '/pages/template-mini/lpt/shop/index',
-        opacity: 1,
+
         bgSrc: `${cdnHost}${ossFilePrePath}/GDBNBOHH-1732525789838999.gif`,
       },
     ],
@@ -172,27 +172,24 @@ export const useAccountStore = defineStore('account', {
       {
         title: 'vote',
         Ctitle: '投票',
-        opacity: 1,
         router: '/pages/tool/vote/index',
+        bgSrc: `${cdnHost}${ossFilePrePath}/LLCLEDIB-1732703465269qssa.gif`,
       },
       {
         title: 'random',
         Ctitle: '终结纠结',
-        opacity: 1,
         bgSrc: `${cdnHost}${ossFilePrePath}/BBOAIJBG-1732525081384333.gif`,
         router: '/pages/tool/random/index',
       },
       {
         title: 'Order Menu',
         Ctitle: '点菜',
-        opacity: 1,
         bgSrc: `${cdnHost}${ossFilePrePath}/IOIFNNFK-1732525081384Nov-25-2024 16-55-43.gif`,
         router: '/pages/tool/order-menu/index',
       },
       {
         title: 'reaction rate',
         Ctitle: '测反应',
-        opacity: 1,
         bgSrc: `${cdnHost}${ossFilePrePath}/MCEJPCFA-1732525081384555.gif`,
         router: '/pages/tool/speedTest/index',
       },
@@ -200,16 +197,22 @@ export const useAccountStore = defineStore('account', {
         title: 'Score Board',
         Ctitle: '计分板',
         router: '/pages/tool/scoreboard/index',
+        bgSrc: `${cdnHost}${ossFilePrePath}/ENOADLNA-1732703465269dddd.gif`,
+
       },
       {
         title: 'Mood Memo',
         Ctitle: '日记',
         router: '/pages/tool/memo/index',
+        bgSrc: `${cdnHost}${ossFilePrePath}/COJEOFML-1732703465269ggss.gif`,
+
       },
       {
         title: 'Value Curve',
         Ctitle: '曲线',
         router: '/pages/tool/bidding/index',
+        bgSrc: `${cdnHost}${ossFilePrePath}/ENOADLNA-1732703465269dddd.gif`,
+
       },
 
     ],
@@ -225,14 +228,12 @@ export const useAccountStore = defineStore('account', {
         title: 'Kun Video',
         Ctitle: '小黑子',
         router: '/pages/cxk/cxk/index',
-        opacity: 1,
         bgSrc: `${cdnHost}${ossFilePrePath}/GKEEFIGH-17325250813841111.gif`,
       },
       {
         title: 'Kun Music',
         Ctitle: '坤歌台',
         router: '/pages/cxk/cxk3/index',
-        opacity: 1,
         bgSrc: `${cdnHost}${ossFilePrePath}/GJMPDLFK-1732525081384222.gif`,
         isShow: isPermissionsToWx(),
       },
@@ -240,7 +241,6 @@ export const useAccountStore = defineStore('account', {
         title: 'Shake Kun',
         Ctitle: '摇坤',
         bgSrc: `${cdnHost}${ossFilePrePath}/BEDKEKCP-1705543014391shakeKun.gif`,
-        opacity: 1,
         linkUrl: 'http://ikunqqq.ssdwgg.cn',
         qrSrc: `${cdnHost}${ossFilePrePath}/FJHBFEAA-1706331358049ikunqqq.png`,
       },
@@ -248,7 +248,6 @@ export const useAccountStore = defineStore('account', {
         title: 'Kun Str',
         Ctitle: '字符坤',
         bgSrc: `${cdnHost}${ossFilePrePath}/IIOMLFKE-1705543014391strkun.gif`,
-        opacity: 1,
         linkUrl: 'http://ikunstr.ssdwgg.cn',
         qrSrc: `${cdnHost}${ossFilePrePath}/GIKJIPEA-1706331381805ikunstr.png`,
       },
@@ -256,7 +255,6 @@ export const useAccountStore = defineStore('account', {
         title: 'Game',
         Ctitle: '坤了个坤',
         bgSrc: `${cdnHost}${ossFilePrePath}/NBFNNNPD-1709096485764klgk.gif`,
-        opacity: 1,
         linkUrl: 'http://klgk.ssdwgg.cn',
         qrSrc: `${cdnHost}${ossFilePrePath}/CIDJDLID-1709096485764httpklgk.ssdwgg.cn.png`,
       },
@@ -264,7 +262,7 @@ export const useAccountStore = defineStore('account', {
         title: 'Game',
         Ctitle: '消消乐旋转版本',
         bgSrc: `${cdnHost}${ossFilePrePath}/HEPJCNMO-1705543014391game1.gif`,
-        opacity: 1,
+
         linkUrl: 'http://hextris.ssdwgg.cn',
         qrSrc: `${cdnHost}${ossFilePrePath}/IMDCHDJP-1706331384525hextris.png`,
       },
@@ -272,7 +270,7 @@ export const useAccountStore = defineStore('account', {
         title: 'Game',
         Ctitle: '兔了个兔',
         bgSrc: `${cdnHost}${ossFilePrePath}/NICPAEIK-1705543014391tlgt.gif`,
-        opacity: 1,
+
         linkUrl: 'http://xlgx.ssdwgg.cn',
         qrSrc: `${cdnHost}${ossFilePrePath}/MOCAPJJK-1706331446705xlgx.png`,
       },
