@@ -50,6 +50,7 @@ declare module 'vue' {
     NutOverlay: typeof import('@nutui/nutui-taro')['Overlay']
     NutPicker: typeof import('@nutui/nutui-taro')['Picker']
     NutPopup: typeof import('@nutui/nutui-taro')['Popup']
+    NutProgress: typeof import('@nutui/nutui-taro')['Progress']
     NutSku: typeof import('@nutui/nutui-taro')['Sku']
     NutSpace: typeof import('@nutui/nutui-taro')['Space']
     NutSwipe: typeof import('@nutui/nutui-taro')['Swipe']
@@ -73,6 +74,7 @@ declare module 'vue' {
     SideBar: typeof import('./src/components/SideBar/index.vue')['default']
     SvgaPlay: typeof import('./src/components/svgaPlay/index.vue')['default']
     UpdatePop: typeof import('./src/components/pop/updatePop/index.vue')['default']
+    VoteButton: typeof import('./src/components/SideBar/vote-button.vue')['default']
     WggwStepsLine: typeof import('./src/components/wggwStepsLine/index.vue')['default']
   }
 }

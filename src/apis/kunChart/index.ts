@@ -1,13 +1,13 @@
-import request from "@/utils/request";
-import * as T from "./model";
+import request from '@/utils/request';
+import type * as T from './model';
 
 export const getKunChartList = (params: {
   current: number,
   pageSize: number,
 }) =>
   request<T.IBiddingItem[]>({
-    url: "/v1/KunChart/getKunChartList",
-    method: "GET",
+    url: '/v1/KunChart/getKunChartList',
+    method: 'GET',
     params
   });
 
@@ -18,8 +18,8 @@ export const addKunChart = (data: {
   openid:string;
 }) =>
   request<string>({
-    url: "/v1/KunChart/addKunChart",
-    method: "POST",
+    url: '/v1/KunChart/addKunChart',
+    method: 'POST',
     data,
   });
 
@@ -27,21 +27,21 @@ export const addKunChart = (data: {
 
 export const deleteKunChartByShopId = (params: { shopId: string }) =>
   request<boolean>({
-    url: "/v1/KunChart/deleteKunChartByShopId",
-    method: "POST",
+    url: '/v1/KunChart/deleteKunChartByShopId',
+    method: 'POST',
     params,
   });
-  
+
 export const getKunCharOne = (params: { shopId: string }) =>
   request<T.IPriceLineItem>({
-    url: "/v1/KunChart/getKunCharOne",
-    method: "GET",
+    url: '/v1/KunChart/getKunCharOne',
+    method: 'GET',
     params,
   });
 export const getKunChartLineList = (params: { shopId: string }) =>
   request<T.IPriceLineItem[]>({
-    url: "/v1/KunChartLine/getKunChartLineList",
-    method: "GET",
+    url: '/v1/KunChartLine/getKunChartLineList',
+    method: 'GET',
     params,
   });
 
@@ -54,13 +54,13 @@ export const getKunChartLineList = (params: { shopId: string }) =>
     price: string;
   }) =>
     request<boolean>({
-      url: "/v1/KunChartLine/addKunChartLine",
-      method: "POST",
+      url: '/v1/KunChartLine/addKunChartLine',
+      method: 'POST',
       data,
     });
   export const updateKunChart = (data: T.IBiddingItem) =>
     request<boolean>({
-      url: "/v1/KunChart/updateKunChart",
-      method: "POST",
+      url: '/v1/KunChart/updateKunChart',
+      method: 'POST',
       data,
     });

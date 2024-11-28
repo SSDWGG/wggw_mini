@@ -3,9 +3,9 @@
   <nut-overlay v-model:visible="homeModal.showfreePop" :z-index="2000" :close-on-click-overlay='false'>
     <view :class="styles.wrapper">
       <view class="content">
-        <image src="https://panshi-on.meipingmi.com.cn/yunxiaoding-mini/poster-free-member-trial@2x.png" class="bg"></image>
+        <image  :src="cdnHost+ossFilePrePath+'KDGPJHIH-1732520101919poster-free-member-trial@2x.png' "  class="bg"></image>
           <view class='popupBtn'><check-login-button @callback="checkLogin" /></view>
-        <view v-if="account.registerSource !== 1" class="close" @tap="closePopup">
+        <view  class="close" @tap="closePopup">
           <alIconfont name="icon-shanchu" size="30" fill="#333333" class="closeImg" />
         </view>
       </view>
@@ -20,6 +20,7 @@ import { useAccountStore } from '@/stores/account';
 import checkLoginButton from '@/components/button/checkLoginButton.vue';
 // @ts-ignore
 import styles from './styles.scss';
+import { cdnHost,ossFilePrePath } from '@/utils/env';
 
 const homeModal = useHomeModal();
 const account = useAccountStore();

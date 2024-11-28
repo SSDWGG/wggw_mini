@@ -242,7 +242,7 @@ const initMultiBarChart = (recordData: ITableItem) => {
 const handleOkGame = () => {
   // 校验内容是否只有数组和分隔符
   // 校验人数和拆分后的数字是否合适匹配
-  const resList = pageData.gameStr.match(/-?\d+(\.\d+)?/g);
+  const resList = pageData.gameStr.match(/[\u4e00-\u9fa5a-zA-Z0-9]+/g);
   if (!!resList && resList.length === pageData.tableData.length) {
     resList.forEach((item, index) => {
       pageData.tableData[index].step.push({
