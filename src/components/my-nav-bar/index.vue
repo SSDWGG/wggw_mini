@@ -129,7 +129,9 @@ const handleGoTo = (e) => {
 const opacityBg = ref(0);
 
 usePageScroll((res) => {
-  if (res.scrollTop > props.longScrollChange) {
+  if (res.scrollTop < 0) {
+    opacityBg.value = 0;
+  } else if (res.scrollTop > props.longScrollChange) {
     opacityBg.value = 1;
   } else {
     // 加快渐变时间
