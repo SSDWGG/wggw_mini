@@ -11,7 +11,10 @@
     <side-bar :show="show" :showFlags="[1]" />
 
     <view class="imgDiv">
-      <image v-for="(item, index) in chooseItem?.imgSrc" :key="index" mode="widthFix" :src="item?.picUrl" class="img"></image>
+      <view v-for="(item, index) in chooseItem?.imgSrc"  :key="index" class="imgContent">
+        <image mode="aspectFill" :src="item?.picUrl" class="img"></image>
+
+      </view>
     </view>
     <view class="title">
       {{ chooseItem?.title }}
